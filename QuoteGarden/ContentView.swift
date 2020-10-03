@@ -11,21 +11,33 @@ import Foundation
 
 struct ContentView: View {
     
-   @State private var quotes: [Quote] = []
+    @State private var quotes: [Quote] = []
+    @State private var searchText = ""
     
     
     var body: some View {
-        List(quotes, id: \.id) { quote in
-            Text(quote.quoteText)
-            Text(quote.quoteAuthor)
-        }.onAppear {
-            quoteGardenApi().getAllQuotes { (quotes) in
-                self.quotes = quotes
+        VStack {
+            
+            SearchBar(text: $searchText)
+                .onTapGesture {
+                    quoteGardenApi().searchAuthor(author: searchText) { (quotes) in
+                        self.quotes = quotes
+                    }
+                }
+            
+            LazyVStack {
+                List(quotes.filter({ searchText.isEmpty ? true : $0.quoteAuthor.contains(searchText) }), id: \.id) { quote in
+                    Text(quote.quoteText)
+                    Text(quote.quoteAuthor)
+                }.onAppear {
+                    quoteGardenApi().getAllQuotes() { (quotes) in
+                        self.quotes = quotes
+                    }
+                }
             }
         }
     }
 }
-
 
 
 

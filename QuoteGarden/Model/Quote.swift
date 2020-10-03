@@ -60,9 +60,36 @@ class quoteGardenApi {
         semaphore.wait()
     }
     
-    func searchAuthor() {
-        #warning("finish this")
-        return
+    func searchAuthor(author: String, completion: @escaping ([Quote]) -> Void) {
+        var semaphore = DispatchSemaphore (value: 0)
+        
+        
+        let url = URL(string: "https://quote-garden.herokuapp.com/api/v2/authors/\(author)?page=1&limit=10")
+        
+        var request = URLRequest(url: url!, timeoutInterval: Double.infinity)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+            
+            guard let response = try? JSONDecoder().decode(Response.self, from: data) else {
+                print(String(describing: error))
+                return
+            }
+            
+            completion(response.quotes)
+            
+            
+            print(String(data: data, encoding: .utf8)!)
+            semaphore.signal()
+        }
+        
+        
+        task.resume()
+        semaphore.wait()
     }
     
 }
