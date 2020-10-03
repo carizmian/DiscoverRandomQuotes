@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
+		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
+		93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
+		93DEB54625284527006B9BF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54525284527006B9BF5 /* ContentView.swift */; };
+		93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54725284529006B9BF5 /* Assets.xcassets */; };
+		93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */; };
+		93DEB54E25284529006B9BF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */; };
+		93DEB55925284529006B9BF5 /* QuoteGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */; };
+		93DEB56425284529006B9BF5 /* QuoteGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93DEB55525284529006B9BF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93DEB53325284527006B9BF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93DEB53A25284527006B9BF5;
+			remoteInfo = QuoteGarden;
+		};
+		93DEB56025284529006B9BF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93DEB53325284527006B9BF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93DEB53A25284527006B9BF5;
+			remoteInfo = QuoteGarden;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		93DEB53B25284527006B9BF5 /* QuoteGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93DEB53E25284527006B9BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93DEB54025284527006B9BF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		93DEB54325284527006B9BF5 /* QuoteGarden.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteGarden.xcdatamodel; sourceTree = "<group>"; };
+		93DEB54525284527006B9BF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		93DEB54725284529006B9BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		93DEB54D25284529006B9BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93DEB54F25284529006B9BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93DEB55425284529006B9BF5 /* QuoteGardenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteGardenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGardenTests.swift; sourceTree = "<group>"; };
+		93DEB55A25284529006B9BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93DEB55F25284529006B9BF5 /* QuoteGardenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteGardenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGardenUITests.swift; sourceTree = "<group>"; };
+		93DEB56525284529006B9BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93DEB53825284527006B9BF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DEB55125284529006B9BF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DEB55C25284529006B9BF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93DEB53225284527006B9BF5 = {
+			isa = PBXGroup;
+			children = (
+				93DEB53D25284527006B9BF5 /* QuoteGarden */,
+				93DEB55725284529006B9BF5 /* QuoteGardenTests */,
+				93DEB56225284529006B9BF5 /* QuoteGardenUITests */,
+				93DEB53C25284527006B9BF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93DEB53C25284527006B9BF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93DEB53B25284527006B9BF5 /* QuoteGarden.app */,
+				93DEB55425284529006B9BF5 /* QuoteGardenTests.xctest */,
+				93DEB55F25284529006B9BF5 /* QuoteGardenUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93DEB53D25284527006B9BF5 /* QuoteGarden */ = {
+			isa = PBXGroup;
+			children = (
+				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
+				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
+				93DEB54525284527006B9BF5 /* ContentView.swift */,
+				93DEB54725284529006B9BF5 /* Assets.xcassets */,
+				93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */,
+				93DEB54F25284529006B9BF5 /* Info.plist */,
+				93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */,
+				93DEB54925284529006B9BF5 /* Preview Content */,
+			);
+			path = QuoteGarden;
+			sourceTree = "<group>";
+		};
+		93DEB54925284529006B9BF5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		93DEB55725284529006B9BF5 /* QuoteGardenTests */ = {
+			isa = PBXGroup;
+			children = (
+				93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */,
+				93DEB55A25284529006B9BF5 /* Info.plist */,
+			);
+			path = QuoteGardenTests;
+			sourceTree = "<group>";
+		};
+		93DEB56225284529006B9BF5 /* QuoteGardenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */,
+				93DEB56525284529006B9BF5 /* Info.plist */,
+			);
+			path = QuoteGardenUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93DEB53A25284527006B9BF5 /* QuoteGarden */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93DEB56825284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGarden" */;
+			buildPhases = (
+				93DEB53725284527006B9BF5 /* Sources */,
+				93DEB53825284527006B9BF5 /* Frameworks */,
+				93DEB53925284527006B9BF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuoteGarden;
+			productName = QuoteGarden;
+			productReference = 93DEB53B25284527006B9BF5 /* QuoteGarden.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93DEB55325284529006B9BF5 /* QuoteGardenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93DEB56B25284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGardenTests" */;
+			buildPhases = (
+				93DEB55025284529006B9BF5 /* Sources */,
+				93DEB55125284529006B9BF5 /* Frameworks */,
+				93DEB55225284529006B9BF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93DEB55625284529006B9BF5 /* PBXTargetDependency */,
+			);
+			name = QuoteGardenTests;
+			productName = QuoteGardenTests;
+			productReference = 93DEB55425284529006B9BF5 /* QuoteGardenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		93DEB55E25284529006B9BF5 /* QuoteGardenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93DEB56E25284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGardenUITests" */;
+			buildPhases = (
+				93DEB55B25284529006B9BF5 /* Sources */,
+				93DEB55C25284529006B9BF5 /* Frameworks */,
+				93DEB55D25284529006B9BF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93DEB56125284529006B9BF5 /* PBXTargetDependency */,
+			);
+			name = QuoteGardenUITests;
+			productName = QuoteGardenUITests;
+			productReference = 93DEB55F25284529006B9BF5 /* QuoteGardenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93DEB53325284527006B9BF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					93DEB53A25284527006B9BF5 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					93DEB55325284529006B9BF5 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 93DEB53A25284527006B9BF5;
+					};
+					93DEB55E25284529006B9BF5 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 93DEB53A25284527006B9BF5;
+					};
+				};
+			};
+			buildConfigurationList = 93DEB53625284527006B9BF5 /* Build configuration list for PBXProject "QuoteGarden" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93DEB53225284527006B9BF5;
+			productRefGroup = 93DEB53C25284527006B9BF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93DEB53A25284527006B9BF5 /* QuoteGarden */,
+				93DEB55325284529006B9BF5 /* QuoteGardenTests */,
+				93DEB55E25284529006B9BF5 /* QuoteGardenUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93DEB53925284527006B9BF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93DEB54E25284529006B9BF5 /* LaunchScreen.storyboard in Resources */,
+				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
+				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DEB55225284529006B9BF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DEB55D25284529006B9BF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93DEB53725284527006B9BF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
+				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
+				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
+				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DEB55025284529006B9BF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93DEB55925284529006B9BF5 /* QuoteGardenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DEB55B25284529006B9BF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93DEB56425284529006B9BF5 /* QuoteGardenUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93DEB55625284529006B9BF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93DEB53A25284527006B9BF5 /* QuoteGarden */;
+			targetProxy = 93DEB55525284529006B9BF5 /* PBXContainerItemProxy */;
+		};
+		93DEB56125284529006B9BF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93DEB53A25284527006B9BF5 /* QuoteGarden */;
+			targetProxy = 93DEB56025284529006B9BF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93DEB54D25284529006B9BF5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93DEB56625284529006B9BF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93DEB56725284529006B9BF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93DEB56925284529006B9BF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
+				DEVELOPMENT_TEAM = LJF744GC3Q;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = QuoteGarden/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93DEB56A25284529006B9BF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
+				DEVELOPMENT_TEAM = LJF744GC3Q;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = QuoteGarden/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93DEB56C25284529006B9BF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LJF744GC3Q;
+				INFOPLIST_FILE = QuoteGardenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGardenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuoteGarden.app/QuoteGarden";
+			};
+			name = Debug;
+		};
+		93DEB56D25284529006B9BF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LJF744GC3Q;
+				INFOPLIST_FILE = QuoteGardenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGardenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuoteGarden.app/QuoteGarden";
+			};
+			name = Release;
+		};
+		93DEB56F25284529006B9BF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LJF744GC3Q;
+				INFOPLIST_FILE = QuoteGardenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGardenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuoteGarden;
+			};
+			name = Debug;
+		};
+		93DEB57025284529006B9BF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LJF744GC3Q;
+				INFOPLIST_FILE = QuoteGardenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGardenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuoteGarden;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93DEB53625284527006B9BF5 /* Build configuration list for PBXProject "QuoteGarden" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93DEB56625284529006B9BF5 /* Debug */,
+				93DEB56725284529006B9BF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93DEB56825284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGarden" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93DEB56925284529006B9BF5 /* Debug */,
+				93DEB56A25284529006B9BF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93DEB56B25284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGardenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93DEB56C25284529006B9BF5 /* Debug */,
+				93DEB56D25284529006B9BF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93DEB56E25284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGardenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93DEB56F25284529006B9BF5 /* Debug */,
+				93DEB57025284529006B9BF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93DEB54325284527006B9BF5 /* QuoteGarden.xcdatamodel */,
+			);
+			currentVersion = 93DEB54325284527006B9BF5 /* QuoteGarden.xcdatamodel */;
+			path = QuoteGarden.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 93DEB53325284527006B9BF5 /* Project object */;
+}
