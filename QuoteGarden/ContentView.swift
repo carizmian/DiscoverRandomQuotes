@@ -6,15 +6,33 @@
 //
 
 import SwiftUI
+import Foundation
+
 
 struct ContentView: View {
+    
+   @State private var quotes: [Quote] = []
+    
+    
     var body: some View {
-        Text("Hello, world!").padding()
+        List(quotes, id: \.id) { quote in
+            Text(quote.quoteText)
+            Text(quote.quoteAuthor)
+        }.onAppear {
+            quoteGardenApi().getAllQuotes { (quotes) in
+                self.quotes = quotes
+            }
+        }
     }
 }
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
+
