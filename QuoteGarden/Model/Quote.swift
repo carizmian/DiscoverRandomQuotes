@@ -25,14 +25,15 @@ struct Quote: Decodable {
 
 class quoteGardenApi {
     
+    @Published var page = 1
+    @Published var chunkSize = 1000
+    
+    
     func getAllQuotes(completion: @escaping ([Quote]) -> Void) {
         
         var semaphore = DispatchSemaphore (value: 0)
         
-        let page = "1"
-        let limit = "100"
-        
-        let url = URL(string: "https://quote-garden.herokuapp.com/api/v2/quotes?page=\(page)&limit=\(limit)")
+        let url = URL(string: "https://quote-garden.herokuapp.com/api/v2/quotes?page=\(page)&limit=\(chunkSize)")
         
         var request = URLRequest(url: url!, timeoutInterval: Double.infinity)
         request.httpMethod = "GET"
@@ -47,22 +48,23 @@ class quoteGardenApi {
                 print(String(describing: error))
                 return
             }
-            
-            completion(response.quotes)
+            DispatchQueue.main.async {
+                completion(response.quotes)
+            }
             
             
             print(String(data: data, encoding: .utf8)!)
             semaphore.signal()
         }
         
-        
         task.resume()
         semaphore.wait()
     }
     
+    
     func searchAuthor(author: String, completion: @escaping ([Quote]) -> Void) {
-        var semaphore = DispatchSemaphore (value: 0)
         
+        var semaphore = DispatchSemaphore (value: 0)
         
         let url = URL(string: "https://quote-garden.herokuapp.com/api/v2/authors/\(author)?page=1&limit=10")
         
@@ -80,13 +82,16 @@ class quoteGardenApi {
                 return
             }
             
-            completion(response.quotes)
+            
+            
+            DispatchQueue.main.async {
+                completion(response.quotes)
+            }
             
             
             print(String(data: data, encoding: .utf8)!)
             semaphore.signal()
         }
-        
         
         task.resume()
         semaphore.wait()
