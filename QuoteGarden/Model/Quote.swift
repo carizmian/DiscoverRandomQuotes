@@ -15,11 +15,11 @@ struct Response: Decodable {
 
 // MARK: - Quote
 struct Quote: Decodable {
-    let id, quoteText, quoteAuthor: String
+    let id, quoteText, quoteAuthor, quoteGenre: String
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case quoteText, quoteAuthor
+        case quoteText, quoteAuthor, quoteGenre
     }
 }
 
@@ -56,6 +56,7 @@ class quoteGardenApi {
         task.resume()
         semaphore.wait()
     }
+    
     
     
 }

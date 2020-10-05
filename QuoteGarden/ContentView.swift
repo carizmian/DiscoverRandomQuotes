@@ -11,14 +11,19 @@ import Foundation
 
 struct ContentView: View {
     
-    @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević")
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
+    
+    @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     @State private var searchText = ""
     
-    #warning("napravi da jedan quote po jedan gledas i da je random i da ga mores lajkat i to je to")
-    #warning("Favorites using CoreData")
     
     var body: some View {
-        VStack {
+        
+        TabView {
+            
+            VStack {
+                Text("#\(quote.quoteGenre)")
                 HStack {
                     Text("'\(quote.quoteText)'")
                         .italic()
@@ -26,15 +31,64 @@ struct ContentView: View {
                     Text("~\(quote.quoteAuthor)")
                         .foregroundColor(.gray)
                         .font(.subheadline)
-                }.animation(.interpolatingSpring(mass: 1.9, stiffness: 2.2, damping: 2.2, initialVelocity: 5.2))
-            
-            //  SearchBar(text: $searchText)
-            
-            Button(action: { quoteGardenApi().getRandomQuote { (quote) in
-                self.quote = quote
-            } }) {
+                }
+                
+                
+                
+                
+                
+                Button(action: { quoteGardenApi().getRandomQuote { (quote) in
+                    self.quote = quote
+                } }) {
+                    Text("New quote")
+                }
+                
+                
+                
+                
+                Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
+                    Text("Add to favorites")
+                }
+                
+            }.tabItem {
+                Image(systemName: "gift.fill")
+                    .renderingMode(.original)
                 Text("Random")
             }
+            
+            
+            List {
+                ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
+                    Text(favoriteQuote.quoteText ?? "No Favorite Quote Yet")
+                }.onDelete(perform: removeQuote)
+            }.tabItem {
+                Image(systemName: "bookmark.fill")
+                    .renderingMode(.original)
+                Text("Favorites")
+            }
+        }
+    }
+    
+    func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
+        let favoriteQuote = QuoteCD(context: self.moc)
+        favoriteQuote.id = id
+        favoriteQuote.quoteText = text
+        favoriteQuote.quoteAuthor = author
+        favoriteQuote.quoteGenre = genre
+        
+        try? self.moc.save()
+    }
+    
+    func removeQuote(at offsets: IndexSet) {
+        for index in offsets {
+            let favoriteQuote = favoriteQuotes[index]
+            moc.delete(favoriteQuote)
+        }
+        
+        do {
+            try moc.save()
+        } catch  {
+            return
         }
     }
 }
