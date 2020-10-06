@@ -22,16 +22,33 @@ struct ContentView: View {
         
         TabView {
             
+            
+            
             VStack {
-                Text("#\(quote.quoteGenre)")
-                HStack {
+                
+                VStack {
+                    
+                    Text("# \(quote.quoteGenre)")
+                        .font(Font.system(.subheadline, design: .serif).weight(.light))
+                    
+                    
                     Text("'\(quote.quoteText)'")
                         .italic()
-                        .bold()
+                        .font(Font.system(.title, design: .serif).weight(.ultraLight))
+                        .allowsTightening(true)
+                        .multilineTextAlignment(.center)
+                        .layoutPriority(2)
+                    
+                    
                     Text("~\(quote.quoteAuthor)")
                         .foregroundColor(.gray)
-                        .font(.subheadline)
-                }
+                        
+                        .font(Font.system(.callout, design: .serif).weight(.black))
+                    
+                }.padding()
+
+                
+                
                 
                 
                 
@@ -40,32 +57,53 @@ struct ContentView: View {
                 Button(action: { quoteGardenApi().getRandomQuote { (quote) in
                     self.quote = quote
                 } }) {
-                    Text("New quote")
-                }
+                    VStack {
+                        Image(systemName: "plus")
+                        Text("New quote")
+                    }.padding()
+                    .border(Color.accentColor)
+                    .cornerRadius(10)
+                    
+                }.padding()
                 
                 
                 
                 
                 Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
-                    Text("Add to favorites")
+                    
+                    VStack {
+                        Image(systemName: "star.fill")
+                        Text("Add to favorites")
+                            
+                        
+                    }.padding()
+                    .border(Color.accentColor)
+                    .cornerRadius(10)
                 }
                 
+                
             }.tabItem {
-                Image(systemName: "gift.fill")
-                    .renderingMode(.original)
+                Image(systemName: "wand.and.stars")
                 Text("Random")
             }
             
             
-            List {
-                ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
-                    Text(favoriteQuote.quoteText ?? "No Favorite Quote Yet")
-                }.onDelete(perform: removeQuote)
+            NavigationView {
+                
+                List {
+                    ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
+                        Text(favoriteQuote.quoteText ?? "No Favorite Quote Yet")
+                    }.onDelete(perform: removeQuote)
+                    
+                    
+                }.navigationTitle(Text("Your Favorites"))
+                .navigationBarItems(trailing: EditButton())
+                
             }.tabItem {
-                Image(systemName: "bookmark.fill")
-                    .renderingMode(.original)
+                Image(systemName: "star.fill")
                 Text("Favorites")
             }
+            
         }
     }
     
