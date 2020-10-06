@@ -17,7 +17,9 @@ struct ContentView: View {
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     @State private var searchText = ""
     
-    
+    #warning("Quote detail View")
+    #warning("share to twitter")
+    #warning("Animations")
     var body: some View {
         
         TabView {
