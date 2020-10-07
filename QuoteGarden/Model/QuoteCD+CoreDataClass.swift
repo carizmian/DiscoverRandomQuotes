@@ -20,5 +20,18 @@ public class QuoteCD: NSManagedObject {
     @NSManaged public var quoteAuthor: String?
     @NSManaged public var quoteText: String?
     @NSManaged public var quoteGenre: String?
+    
+    
+    var wrappedQuoteAuthor: String {
+        return quoteAuthor ?? "Unknown Author"
+    }
+    
+    var wrappedQuoteText: String {
+        return quoteText ?? "Unknown Quote Text"
+    }
+    
+    var wrappedQuoteGenre: String {
+        return quoteGenre ?? "Unknown Quote Genre"
+    }
 
 }

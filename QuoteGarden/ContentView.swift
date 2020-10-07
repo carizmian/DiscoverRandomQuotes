@@ -15,11 +15,15 @@ struct ContentView: View {
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
-    @State private var searchText = ""
     
-    #warning("Quote detail View")
-    #warning("share to twitter")
-    #warning("Animations")
+    @State private var change = false
+    
+    #warning("Share on social media (copy to clipboard --- minimun)")
+    #warning("Card Flip Animation")
+    #warning("Swipe up gesture = new quote")
+    #warning("double tap or swipe down = add to favorites")
+    #warning("asscesibilty")
+    
     var body: some View {
         
         TabView {
@@ -31,7 +35,11 @@ struct ContentView: View {
                 VStack {
                     
                     Text("# \(quote.quoteGenre)")
+                        .padding()
                         .font(Font.system(.subheadline, design: .serif).weight(.light))
+                        .opacity(change ? 1 : 0)
+                        .offset(x: change ? 0 : -400)
+                        .animation(Animation.easeOut(duration: 0.5).delay(0.5))
                     
                     
                     Text("'\(quote.quoteText)'")
@@ -40,47 +48,54 @@ struct ContentView: View {
                         .allowsTightening(true)
                         .multilineTextAlignment(.center)
                         .layoutPriority(2)
+                        .offset(x: change ? 0 : -400)
+                        .animation(Animation.easeOut(duration: 0.5).delay(0.5))
+                        
                     
                     
-                    Text("~\(quote.quoteAuthor)")
+                    
+                    Text("~ \(quote.quoteAuthor)")
+                        .padding()
                         .foregroundColor(.gray)
-                        
                         .font(Font.system(.callout, design: .serif).weight(.black))
+                        .opacity(change ? 1 : 0)
+                        .offset(x: change ? 0 : -400)
+                        .animation(Animation.easeOut(duration: 0.5).delay(0.5))
                     
                 }.padding()
-
+                .onAppear {
+                    change = true
+                }
                 
                 
                 
                 
                 
                 
-                
-                Button(action: { quoteGardenApi().getRandomQuote { (quote) in
-                    self.quote = quote
-                } }) {
-                    VStack {
-                        Image(systemName: "plus")
-                        Text("New quote")
-                    }.padding()
-                    .border(Color.accentColor)
-                    .cornerRadius(10)
+                HStack {
                     
-                }.padding()
-                
-                
-                
-                
-                Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
-                    
-                    VStack {
-                        Image(systemName: "star.fill")
-                        Text("Add to favorites")
-                            
+                    Button(action: { quoteGardenApi().getRandomQuote { (quote) in
+                        self.quote = quote
+                    } }) {
+                        VStack {
+                            Text("New quote")
+                        }.padding()
+                        .border(Color.accentColor)
                         
                     }.padding()
-                    .border(Color.accentColor)
-                    .cornerRadius(10)
+                    
+                    
+                    
+                    
+                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
+                        
+                        VStack {
+                            Text("Add to favorites")
+                            
+                        }.padding()
+                        .border(Color.accentColor)
+                        
+                    }
                 }
                 
                 
@@ -94,7 +109,9 @@ struct ContentView: View {
                 
                 List {
                     ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
-                        Text(favoriteQuote.quoteText ?? "No Favorite Quote Yet")
+                        NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
+                            Text(favoriteQuote.quoteText ?? "No Favorite Quote Yet")
+                        }
                     }.onDelete(perform: removeQuote)
                     
                     
