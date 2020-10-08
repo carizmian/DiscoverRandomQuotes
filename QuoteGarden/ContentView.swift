@@ -16,15 +16,10 @@ struct ContentView: View {
     
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     
-    @State private var flipped = false
+    @State private var change = false
     
-    #warning("Share on social media (copy to clipboard --- minimun)")
-    #warning("double tap or swipe down = add to favorites")
-    #warning("asscesibilty")
-    #warning("widget with your favorite quote")
+    #warning("Widgets with one of your favorite quote")
     
-    #warning("Swipe up gesture = new quote")
-    @State private var dragOffSet: CGSize = .zero
     
     var body: some View {
         
@@ -32,70 +27,17 @@ struct ContentView: View {
     TabView {
         
         
-        
         VStack {
             
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(.white)
-                    .shadow(radius: 20)
-                VStack {
-                    
-                    Text("# \(quote.quoteGenre)")
-                        .padding()
-                        .font(Font.system(.subheadline, design: .serif).weight(.light))
-                        .opacity(flipped ? 1 : 0)
-                        .offset(x: flipped ? 0 : -400)
-                        .animation(.spring())
-                    
-                    
-                    Text("'\(quote.quoteText)'")
-                        .italic()
-                        .font(Font.system(.title, design: .serif).weight(.ultraLight))
-                        .allowsTightening(true)
-                        .multilineTextAlignment(.center)
-                        .layoutPriority(2)
-                        .offset(x: flipped ? 0 : -400)
-                        .animation(.spring())
-                    
-                    
-                    
-                    
-                    Text("~ \(quote.quoteAuthor)")
-                        .padding()
-                        .foregroundColor(.gray)
-                        .font(Font.system(.callout, design: .serif).weight(.black))
-                        .opacity(flipped ? 1 : 0)
-                        .offset(x: flipped ? 0 : -400)
-                        .animation(.spring())
-                }
-                
-            }.animation(.spring())
-            .offset(y: self.dragOffSet.height)
-            .gesture(DragGesture().onChanged{
-                value in
-                self.dragOffSet = value.translation
-            } .onEnded {
-                value in
-                self.dragOffSet = .zero
-            })
-            .padding()
-            .onTapGesture(count: 2) {
-                addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre)
-            }
-            .onAppear {
-                flipped = true
-            }
             
-            
-            
-            
-            
-            
-            
+            QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
+
             HStack {
                 
                 Button(action: { quoteGardenApi().getRandomQuote { (quote) in
+                    withAnimation(.easeInOut(duration: 1)) {
+                    change.toggle()
+                    }
                     self.quote = quote
                 } }) {
                     VStack {
@@ -138,6 +80,7 @@ struct ContentView: View {
                 
             }.navigationTitle(Text("Your Favorites"))
             .navigationBarItems(trailing: EditButton())
+            
             
         }.tabItem {
             Image(systemName: "star.fill")

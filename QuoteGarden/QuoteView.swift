@@ -13,45 +13,32 @@ struct QuoteView: View {
     var quoteText: String
     var quoteAuthor: String
     
-    let heartImage = UIImage(systemName: "heart.fill")!
-    //  let redHeartImage = heartImage.withTintColor(.red, renderingMode: .alwaysOriginal)
     
     var body: some View {
+
         
-        
-        ZStack {
-            Image(systemName: "heart")
-                .resizable()
-                .frame(width: 350, height: 300)
-                .aspectRatio(contentMode: .fill)
-                .opacity(0.1)
+        VStack {
             
-            VStack {
-                
-                Text("# \(quoteGenre)")
-                    .padding()
-                    .font(Font.system(.subheadline, design: .serif).weight(.light))
-                
-                
-                
-                Text("'\(quoteText)'")
-                    .italic()
-                    .font(Font.system(.title, design: .serif).weight(.ultraLight))
-                    .allowsTightening(true)
-                    .multilineTextAlignment(.center)
-                    .layoutPriority(2)
-                
-                
-                
-                
-                
-                Text("~ \(quoteAuthor)")
-                    .padding()
-                    .foregroundColor(.gray)
-                    .font(Font.system(.callout, design: .serif).weight(.black))
-                
-            }
-        }
+            Text("# \(quoteGenre)")
+                .padding()
+                .font(Font.system(.subheadline, design: .serif).weight(.light))
+            
+            
+            
+            Text("'\(quoteText)'")
+                .italic()
+                .font(Font.system(.title, design: .serif).weight(.ultraLight))
+                .allowsTightening(true)
+                .multilineTextAlignment(.center)
+                .layoutPriority(2)
+
+            
+            Text("~ \(quoteAuthor)")
+                .padding()
+                .foregroundColor(.gray)
+                .font(Font.system(.callout, design: .serif).weight(.black))
+            
+        }.padding()
     }
 }
 
