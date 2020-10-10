@@ -16,22 +16,26 @@ struct QuoteDetailView: View {
         VStack {
 
             Text("# \(favoriteQuote.wrappedQuoteGenre)")
-                .padding()
-                .font(Font.system(.subheadline, design: .serif).weight(.light))
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
+                .font(Font.system(.title3, design: .serif).weight(.ultraLight))
             
             
             Text("'\(favoriteQuote.wrappedQuoteText)'")
                 .italic()
-                .font(Font.system(.title, design: .serif).weight(.ultraLight))
+                .font(Font.system(.title, design: .serif).weight(.regular))
+                .padding(.horizontal)
                 .allowsTightening(true)
                 .multilineTextAlignment(.center)
                 .layoutPriority(2)
+
             
             
             Text("~ \(favoriteQuote.wrappedQuoteAuthor)")
-                .padding()
+                .multilineTextAlignment(.center)
+                .padding(.top)
                 .foregroundColor(.gray)
-                .font(Font.system(.callout, design: .serif).weight(.black))
+                .font(Font.system(.title2, design: .serif).weight(.light))
             
         }.padding()
 

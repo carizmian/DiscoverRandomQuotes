@@ -17,33 +17,36 @@ struct QuoteView: View {
     var body: some View {
 
         
-        VStack {
+        VStack(alignment: .center) {
             
             Text("# \(quoteGenre)")
-                .padding()
-                .font(Font.system(.subheadline, design: .serif).weight(.light))
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
+                .font(Font.system(.title3, design: .serif).weight(.ultraLight))
             
             
             
             Text("'\(quoteText)'")
                 .italic()
-                .font(Font.system(.title, design: .serif).weight(.ultraLight))
+                .font(Font.system(.title, design: .serif).weight(.regular))
+                .padding(.horizontal)
                 .allowsTightening(true)
                 .multilineTextAlignment(.center)
                 .layoutPriority(2)
 
             
             Text("~ \(quoteAuthor)")
-                .padding()
+                .multilineTextAlignment(.center)
+                .padding(.top)
                 .foregroundColor(.gray)
-                .font(Font.system(.callout, design: .serif).weight(.black))
+                .font(Font.system(.title2, design: .serif).weight(.light))
             
-        }.padding()
+        }.padding(.vertical, 100.0)
     }
 }
 
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteView(quoteGenre: "knowledge", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević")
+        QuoteView(quoteGenre: "nature", quoteText: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", quoteAuthor: "Edward Thorndike")
     }
 }

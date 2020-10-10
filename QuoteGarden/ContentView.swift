@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 
 #warning("widget")
+#warning("share button")
 
 struct ContentView: View {
     
@@ -28,14 +29,17 @@ struct ContentView: View {
                 
                 
                 QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
+                    .animation(.default)
+                    
+                Spacer()
                 
-                VStack {
+                HStack {
                     
                     Button(action: { quoteGardenApi().getRandomQuote { (quote) in
                         addedToFavorites = false
                         self.quote = quote
                     } }) {
-                        VStack {
+
                             Text("New quote")
                                 .fontWeight(.bold)
                                 .font(.title3)
@@ -43,14 +47,12 @@ struct ContentView: View {
                                 .background(Color.accentColor)
                                 .foregroundColor(.white)
                                 .cornerRadius(40)
-                        }
                         
-                    }
+                    }.padding(.bottom)
                     
 
                     Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
                         
-                        VStack {
                             Text("Add to favorites")
                                 .fontWeight(.bold)
                                 .font(.title3)
@@ -60,10 +62,9 @@ struct ContentView: View {
                                 .cornerRadius(40)
                                 .offset(y: addedToFavorites ? 400 : 0)
                                 .animation(Animation.easeOut(duration: 1))
-
-                        }
+     
                         
-                    }
+                    }.padding([.leading, .bottom])
                     
                 }
                 
