@@ -16,10 +16,7 @@ struct ContentView: View {
     
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     @State private var addedToFavorites = false
-    
-    #warning("Widgets with your favorite quote")
-    
-    
+        
     var body: some View {
         
         
@@ -98,6 +95,13 @@ struct ContentView: View {
         }
     }
     
+    /// saves to Core Data
+    /// - Parameters:
+    ///   - id: id is a string
+    ///   - text: the text of the quote
+    ///   - author: the author of the quote
+    ///   - genre: the genre of the quote
+    
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
         let favoriteQuote = QuoteCD(context: self.moc)
         favoriteQuote.id = id
@@ -108,6 +112,8 @@ struct ContentView: View {
         addedToFavorites = true
         try? self.moc.save()
     }
+    
+    
     
     func removeQuote(at offsets: IndexSet) {
         for index in offsets {
