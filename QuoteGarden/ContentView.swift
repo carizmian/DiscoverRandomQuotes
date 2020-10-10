@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 
+#warning("widget")
 
 struct ContentView: View {
     
@@ -57,8 +58,8 @@ struct ContentView: View {
                                 .background(Color.accentColor)
                                 .foregroundColor(.white)
                                 .cornerRadius(40)
-                                .opacity(addedToFavorites ? 0 : 1)
-                                .animation(.default)
+                                .offset(y: addedToFavorites ? 400 : 0)
+                                .animation(Animation.easeOut(duration: 1))
 
                         }
                         
@@ -92,7 +93,7 @@ struct ContentView: View {
                 Text("Favorites")
             }
             
-        }
+        }.accentColor(.purple)
     }
     
     /// saves to Core Data

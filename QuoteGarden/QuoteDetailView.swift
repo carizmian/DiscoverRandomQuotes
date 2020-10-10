@@ -14,7 +14,7 @@ struct QuoteDetailView: View {
     var body: some View {
         
         VStack {
-            
+
             Text("# \(favoriteQuote.wrappedQuoteGenre)")
                 .padding()
                 .font(Font.system(.subheadline, design: .serif).weight(.light))
