@@ -10,6 +10,7 @@ import Foundation
 
 #warning("widget")
 #warning("share button")
+#warning("notifications")
 
 struct ContentView: View {
     
@@ -44,7 +45,7 @@ struct ContentView: View {
                                 .fontWeight(.bold)
                                 .font(.title3)
                                 .padding()
-                                .background(Color.accentColor)
+                                .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .leading, endPoint: .trailing))
                                 .foregroundColor(.white)
                                 .cornerRadius(40)
                         
@@ -57,7 +58,7 @@ struct ContentView: View {
                                 .fontWeight(.bold)
                                 .font(.title3)
                                 .padding()
-                                .background(Color.accentColor)
+                                .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .trailing, endPoint: .leading))
                                 .foregroundColor(.white)
                                 .cornerRadius(40)
                                 .offset(y: addedToFavorites ? 400 : 0)
@@ -80,7 +81,7 @@ struct ContentView: View {
                 List {
                     ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
                         NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
-                            Text(favoriteQuote.quoteText ?? "No Favorite Quote Yet")
+                            Text("~ \(favoriteQuote.wrappedQuoteAuthor)")
                         }
                     }.onDelete(perform: removeQuote)
                     
