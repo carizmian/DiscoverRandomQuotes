@@ -10,7 +10,7 @@ import Foundation
 
 #warning("widget")
 #warning("share button")
-#warning("notifications")
+#warning("user can set reminder")
 
 struct ContentView: View {
     
@@ -31,6 +31,10 @@ struct ContentView: View {
                 
                 QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
                     .animation(.default)
+                
+                Button(action: { copyToClipboard(quoteText: quote.quoteText )}) {
+                    Image(systemName: "doc.on.clipboard")
+                }
                     
                 Spacer()
                 
@@ -117,8 +121,7 @@ struct ContentView: View {
     }
     
     
-    
-    func removeQuote(at offsets: IndexSet) {
+        func removeQuote(at offsets: IndexSet) {
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
             moc.delete(favoriteQuote)
@@ -128,6 +131,15 @@ struct ContentView: View {
             try moc.save()
         } catch  {
             return
+        }
+    }
+    
+    func copyToClipboard(quoteText: String) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = quoteText
+        
+        if let string = pasteboard.string {
+            print(quoteText)
         }
     }
 }
