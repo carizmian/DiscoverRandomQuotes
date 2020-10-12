@@ -7,9 +7,10 @@
 
 import SwiftUI
 import Foundation
+import Social
 
 #warning("widget")
-#warning("share button")
+#warning("fix share button")
 #warning("user can set reminder")
 
 struct ContentView: View {
@@ -19,7 +20,7 @@ struct ContentView: View {
     
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     @State private var addedToFavorites = false
-        
+    
     var body: some View {
         
         
@@ -32,10 +33,17 @@ struct ContentView: View {
                 QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
                     .animation(.default)
                 
-                Button(action: { copyToClipboard(quoteText: quote.quoteText )}) {
-                    Image(systemName: "doc.on.clipboard")
-                }
+                HStack {
                     
+                    Button(action: { shareToFacebook() }) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    
+                    Button(action: { copyToClipboard(quoteText: quote.quoteText )}) {
+                        Image(systemName: "doc.on.clipboard")
+                    }
+                }
+                
                 Spacer()
                 
                 HStack {
@@ -44,30 +52,30 @@ struct ContentView: View {
                         addedToFavorites = false
                         self.quote = quote
                     } }) {
-
-                            Text("New quote")
-                                .fontWeight(.bold)
-                                .font(.title3)
-                                .padding()
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .leading, endPoint: .trailing))
-                                .foregroundColor(.white)
-                                .cornerRadius(40)
+                        
+                        Text("New quote")
+                            .fontWeight(.bold)
+                            .font(.title3)
+                            .padding()
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                            .foregroundColor(.white)
+                            .cornerRadius(40)
                         
                     }.padding(.bottom)
                     
-
+                    
                     Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
                         
-                            Text("Add to favorites")
-                                .fontWeight(.bold)
-                                .font(.title3)
-                                .padding()
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .trailing, endPoint: .leading))
-                                .foregroundColor(.white)
-                                .cornerRadius(40)
-                                .offset(y: addedToFavorites ? 400 : 0)
-                                .animation(Animation.easeOut(duration: 1))
-     
+                        Text("Add to favorites")
+                            .fontWeight(.bold)
+                            .font(.title3)
+                            .padding()
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .trailing, endPoint: .leading))
+                            .foregroundColor(.white)
+                            .cornerRadius(40)
+                            .offset(y: addedToFavorites ? 400 : 0)
+                            .animation(Animation.easeOut(duration: 1))
+                        
                         
                     }.padding([.leading, .bottom])
                     
@@ -121,7 +129,7 @@ struct ContentView: View {
     }
     
     
-        func removeQuote(at offsets: IndexSet) {
+    func removeQuote(at offsets: IndexSet) {
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
             moc.delete(favoriteQuote)
@@ -142,6 +150,15 @@ struct ContentView: View {
             print(quoteText)
         }
     }
+    func shareToFacebook() {
+        if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
+            vc.setInitialText("Look at this grea quote!")
+            vc.add(URL(string: "https://github.com/FranicevicNikola/QuoteGarden"))
+            vc.present(vc, animated: false, completion: nil)
+        }
+        
+    }
+    
 }
 
 
