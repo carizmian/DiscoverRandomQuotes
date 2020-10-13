@@ -10,6 +10,7 @@
 		93621306252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
 		93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
@@ -56,9 +57,9 @@
 		93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuoteCD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		9370D5A625356310001CD387 /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
 		9374AF042532BAC100412C9E /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		9374AF082532BB4E00412C9E /* FullTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullTests.xctestplan; sourceTree = "<group>"; };
-		939D200325317E14003C34D8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		93DEB53B25284527006B9BF5 /* QuoteGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DEB53E25284527006B9BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		939D200225317E14003C34D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				939D200325317E14003C34D8 /* WidgetKit.framework */,
 				939D200525317E14003C34D8 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
@@ -144,6 +144,7 @@
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
 				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
 				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
+				9370D5A625356310001CD387 /* ShareSheetView.swift */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
@@ -320,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
+				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,

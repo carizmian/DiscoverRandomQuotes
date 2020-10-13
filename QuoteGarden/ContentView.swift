@@ -7,11 +7,13 @@
 
 import SwiftUI
 import Foundation
-import Social
 
 #warning("widget")
-#warning("fix share button")
-#warning("user can set reminder")
+#warning("user can set reminder (tab view)")
+#warning("core data checks for duplicate quotes stored")
+#warning("iMessage extension, mozda ne treba jer imas share button")
+#warning("app clip")
+#warning("spotlight indexing")
 
 struct ContentView: View {
     
@@ -20,6 +22,7 @@ struct ContentView: View {
     
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     @State private var addedToFavorites = false
+    @State private var showingShareSheetView = false
     
     var body: some View {
         
@@ -35,57 +38,45 @@ struct ContentView: View {
                 
                 HStack {
                     
-                    Button(action: { shareToFacebook() }) {
+                    Button(action: { showingShareSheetView = true }) {
                         Image(systemName: "square.and.arrow.up")
                     }
                     
-                    Button(action: { copyToClipboard(quoteText: quote.quoteText )}) {
-                        Image(systemName: "doc.on.clipboard")
+                    Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
+                        Image(systemName: "doc.on.doc")
                     }
+                    
+                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
+                        Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+                    }.disabled(addedToFavorites)
+                    .animation(.default)
                 }
                 
                 Spacer()
                 
-                HStack {
+                
+                Button(action: { quoteGardenApi().getRandomQuote { (quote) in
+                    addedToFavorites = false
+                    self.quote = quote
+                } }) {
                     
-                    Button(action: { quoteGardenApi().getRandomQuote { (quote) in
-                        addedToFavorites = false
-                        self.quote = quote
-                    } }) {
-                        
-                        Text("New quote")
-                            .fontWeight(.bold)
-                            .font(.title3)
-                            .padding()
-                            .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .leading, endPoint: .trailing))
-                            .foregroundColor(.white)
-                            .cornerRadius(40)
-                        
-                    }.padding(.bottom)
+                    Text("New quote")
+                        .fontWeight(.bold)
+                        .font(.title3)
+                        .padding()
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                        .foregroundColor(.white)
+                        .cornerRadius(40)
                     
-                    
-                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
-                        
-                        Text("Add to favorites")
-                            .fontWeight(.bold)
-                            .font(.title3)
-                            .padding()
-                            .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .trailing, endPoint: .leading))
-                            .foregroundColor(.white)
-                            .cornerRadius(40)
-                            .offset(y: addedToFavorites ? 400 : 0)
-                            .animation(Animation.easeOut(duration: 1))
-                        
-                        
-                    }.padding([.leading, .bottom])
-                    
-                }
+                }.padding(.bottom)
                 
                 
             }.tabItem {
                 Image(systemName: "wand.and.stars")
                 Text("Random")
             }
+            
+            
             
             
             NavigationView {
@@ -98,7 +89,7 @@ struct ContentView: View {
                     }.onDelete(perform: removeQuote)
                     
                     
-                }.navigationTitle(Text("Your Favorites"))
+                }.navigationBarTitle(Text("Your Favorites"))
                 .navigationBarItems(trailing: EditButton())
                 
                 
@@ -108,6 +99,16 @@ struct ContentView: View {
             }
             
         }.accentColor(.purple)
+        .sheet(isPresented: $showingShareSheetView) {
+            ShareSheetView(activityItems: ["""
+            \(quote.quoteGenre)
+
+            \(quote.quoteText)
+
+            \(quote.quoteAuthor)
+            """
+            ])
+        }
     }
     
     /// saves to Core Data
@@ -142,21 +143,22 @@ struct ContentView: View {
         }
     }
     
-    func copyToClipboard(quoteText: String) {
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = quoteText
+    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
         
-        if let string = pasteboard.string {
+        let quoteString = """
+        \(quoteGenre)
+
+        \(quoteText)
+
+        \(quoteAuthor)
+        """
+        
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = quoteString
+        
+        if pasteboard.string != nil {
             print(quoteText)
         }
-    }
-    func shareToFacebook() {
-        if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
-            vc.setInitialText("Look at this grea quote!")
-            vc.add(URL(string: "https://github.com/FranicevicNikola/QuoteGarden"))
-            vc.present(vc, animated: false, completion: nil)
-        }
-        
     }
     
 }

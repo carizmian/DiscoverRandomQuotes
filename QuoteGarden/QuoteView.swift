@@ -26,7 +26,9 @@ struct QuoteView: View {
             
             
             
-            Text("'\(quoteText)'")
+            Text("""
+                "\(quoteText)"
+                """)
                 .italic()
                 .font(Font.system(.title, design: .serif).weight(.regular))
                 .padding(.horizontal)
