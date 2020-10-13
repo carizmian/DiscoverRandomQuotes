@@ -15,6 +15,7 @@ import Foundation
 #warning("app clip")
 #warning("spotlight indexing")
 
+
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var moc
@@ -24,49 +25,48 @@ struct ContentView: View {
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
     
+    #warning("dovrši unit testing na raywenderlichu")
+    
     var body: some View {
         
         
         TabView {
             
-            
-            VStack {
-                
+            VStack(alignment: .center) {
                 
                 QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
                     .animation(.default)
+                    .layoutPriority(2)
+                    .edgesIgnoringSafeArea(.all)
+                
+                Spacer()
                 
                 HStack {
                     
                     Button(action: { showingShareSheetView = true }) {
                         Image(systemName: "square.and.arrow.up")
+                          
                     }
                     
                     Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
                         Image(systemName: "doc.on.doc")
+                        
                     }
                     
                     Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
                         Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+                        
                     }.disabled(addedToFavorites)
-                    .animation(.default)
+                    
                 }
-                
-                Spacer()
-                
+                                
                 
                 Button(action: { quoteGardenApi().getRandomQuote { (quote) in
                     addedToFavorites = false
                     self.quote = quote
                 } }) {
                     
-                    Text("New quote")
-                        .fontWeight(.bold)
-                        .font(.title3)
-                        .padding()
-                        .background(LinearGradient(gradient: Gradient(colors: [Color.accentColor, Color.blue]), startPoint: .leading, endPoint: .trailing))
-                        .foregroundColor(.white)
-                        .cornerRadius(40)
+                    Image(systemName: "wand.and.stars")
                     
                 }.padding(.bottom)
                 
@@ -89,12 +89,12 @@ struct ContentView: View {
                     }.onDelete(perform: removeQuote)
                     
                     
-                }.navigationBarTitle(Text("Your Favorites"))
+                }.navigationBarTitle(Text("Your Favorite Quotes"))
                 .navigationBarItems(trailing: EditButton())
                 
                 
             }.tabItem {
-                Image(systemName: "star.fill")
+                Image(systemName: "heart.fill")
                 Text("Favorites")
             }
             
