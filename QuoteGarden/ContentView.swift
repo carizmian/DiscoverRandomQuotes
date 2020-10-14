@@ -15,6 +15,8 @@ import Foundation
 #warning("app clip")
 #warning("spotlight indexing")
 
+#warning("long press on favorite quote ~ rate the quote")
+
 
 struct ContentView: View {
     
@@ -45,16 +47,19 @@ struct ContentView: View {
                     
                     Button(action: { showingShareSheetView = true }) {
                         Image(systemName: "square.and.arrow.up")
+                            .accessibilityLabel(Text("Share quote"))
                           
                     }
                     
                     Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
                         Image(systemName: "doc.on.doc")
+                            .accessibilityLabel(Text("Copy quote"))
                         
                     }
                     
                     Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
                         Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+                            .accessibilityLabel(Text("Add quote to your favorites"))
                         
                     }.disabled(addedToFavorites)
                     
@@ -66,13 +71,14 @@ struct ContentView: View {
                     self.quote = quote
                 } }) {
                     
-                    Image(systemName: "wand.and.stars")
+                    Image(systemName: "wand.and.rays").accessibilityLabel(Text("New Quote"))
                     
                 }.padding(.bottom)
                 
                 
             }.tabItem {
                 Image(systemName: "wand.and.stars")
+                    .accessibilityLabel(Text("New Quote"))
                 Text("Random")
             }
             
@@ -95,6 +101,7 @@ struct ContentView: View {
                 
             }.tabItem {
                 Image(systemName: "heart.fill")
+                    .accessibilityLabel(Text("Your favorite quotes"))
                 Text("Favorites")
             }
             
