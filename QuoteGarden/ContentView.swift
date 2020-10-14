@@ -48,7 +48,7 @@ struct ContentView: View {
                     Button(action: { showingShareSheetView = true }) {
                         Image(systemName: "square.and.arrow.up")
                             .accessibilityLabel(Text("Share quote"))
-                          
+                        
                     }
                     
                     Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
@@ -64,7 +64,7 @@ struct ContentView: View {
                     }.disabled(addedToFavorites)
                     
                 }
-                                
+                
                 
                 Button(action: { quoteGardenApi().getRandomQuote { (quote) in
                     addedToFavorites = false
@@ -81,6 +81,20 @@ struct ContentView: View {
                     .accessibilityLabel(Text("New Quote"))
                 Text("Random")
             }
+            
+            
+            
+            
+            
+            VStack {
+                Text("set reminders here")
+            }.tabItem {
+                Image(systemName: "deskclock.fill")
+                    .accessibility(label: Text("Set reminder"))
+                Text("Reminder")
+            }
+            
+            
             
             
             
