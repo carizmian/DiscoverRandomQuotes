@@ -16,6 +16,7 @@ import Foundation
 #warning("spotlight indexing")
 
 #warning("long press on favorite quote ~ rate the quote")
+#warning("@SceneStorage")
 
 
 struct ContentView: View {
@@ -24,6 +25,7 @@ struct ContentView: View {
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
+    
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
     
@@ -41,7 +43,10 @@ struct ContentView: View {
                     .layoutPriority(2)
                     .edgesIgnoringSafeArea(.all)
                 
-                Spacer()
+                
+                if addedToFavorites {
+                    Text("Added to favorites")
+                }
                 
                 HStack {
                     
@@ -49,31 +54,35 @@ struct ContentView: View {
                         Image(systemName: "square.and.arrow.up")
                             .accessibilityLabel(Text("Share quote"))
                         
-                    }
+                    }.padding(.trailing)
                     
                     Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
                         Image(systemName: "doc.on.doc")
                             .accessibilityLabel(Text("Copy quote"))
                         
-                    }
+                    }.padding([.leading, .trailing])
                     
                     Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
                         Image(systemName: addedToFavorites ? "heart.fill" : "heart")
                             .accessibilityLabel(Text("Add quote to your favorites"))
                         
+                        
                     }.disabled(addedToFavorites)
+                    .padding([.leading, .trailing])
                     
-                }
-                
-                
-                Button(action: { quoteGardenApi().getRandomQuote { (quote) in
-                    addedToFavorites = false
-                    self.quote = quote
-                } }) {
-                    
-                    Image(systemName: "wand.and.rays").accessibilityLabel(Text("New Quote"))
+
+                    Button(action: { quoteGardenApi().getRandomQuote { (quote) in
+                            addedToFavorites = false
+                        self.quote = quote
+                    } }) {
+                        
+                        Image(systemName: "wand.and.rays").accessibilityLabel(Text("New Quote"))
+                        
+                    }.padding(.leading)
                     
                 }.padding(.bottom)
+                .font(.largeTitle)
+                
                 
                 
             }.tabItem {
@@ -104,7 +113,7 @@ struct ContentView: View {
                 List {
                     ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
                         NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
-                            Text("~ \(favoriteQuote.wrappedQuoteAuthor)")
+                            Text("~ \(favoriteQuote.wrappedQuoteAuthor)  # \(favoriteQuote.wrappedQuoteGenre)")
                         }
                     }.onDelete(perform: removeQuote)
                     
@@ -146,7 +155,10 @@ struct ContentView: View {
         favoriteQuote.quoteAuthor = author
         favoriteQuote.quoteGenre = genre
         
+        withAnimation(.spring()) {
         addedToFavorites = true
+        }
+        
         try? self.moc.save()
     }
     

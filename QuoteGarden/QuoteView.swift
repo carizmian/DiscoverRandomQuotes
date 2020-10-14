@@ -22,33 +22,52 @@ struct QuoteView: View {
             Text("# \(quoteGenre)")
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
-                .font(Font.system(.title3, design: .serif).weight(.ultraLight))
-            
-            
+                .font(Font.system(.subheadline, design: .serif).weight(.ultraLight))
+
             
             Text("""
                 "\(quoteText)"
                 """)
                 .italic()
-                .font(Font.system(.title, design: .serif).weight(.regular))
+                .font(Font.system(.body, design: .serif).weight(.regular))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .multilineTextAlignment(.center)
                 .layoutPriority(2)
-
+                
             
             Text("~ \(quoteAuthor)")
                 .multilineTextAlignment(.center)
                 .padding(.top)
                 .foregroundColor(.gray)
-                .font(Font.system(.title2, design: .serif).weight(.light))
+                .font(Font.system(.callout, design: .serif).weight(.light))
             
-        }.padding(.vertical, 100.0)
+            
+        }.padding(.vertical)
     }
 }
 
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteView(quoteGenre: "nature", quoteText: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", quoteAuthor: "Edward Thorndike")
+        
+        Group {
+            
+            
+            QuoteView(quoteGenre: "nature", quoteText: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", quoteAuthor: "Edward Thorndike")
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                            .previewDisplayName("iPhone 11 Pro Max")
+                
+            QuoteView(quoteGenre: "nature", quoteText: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", quoteAuthor: "Edward Thorndike")
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                            .previewDisplayName("iPhone SE")
+            
+            QuoteView(quoteGenre: "nature", quoteText: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", quoteAuthor: "Edward Thorndike")
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                            .previewDisplayName("iPhone 8")
+            
+            QuoteView(quoteGenre: "nature", quoteText: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", quoteAuthor: "Edward Thorndike")
+                .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
+            
+        }
     }
 }

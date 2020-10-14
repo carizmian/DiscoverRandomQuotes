@@ -18,12 +18,12 @@ struct QuoteDetailView: View {
             Text("# \(favoriteQuote.wrappedQuoteGenre)")
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
-                .font(Font.system(.title3, design: .serif).weight(.ultraLight))
+                .font(Font.system(.title3, design: .monospaced).weight(.ultraLight))
             
             
             Text("'\(favoriteQuote.wrappedQuoteText)'")
                 .italic()
-                .font(Font.system(.title, design: .serif).weight(.regular))
+                .font(Font.system(.title, design: .monospaced).weight(.regular))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .multilineTextAlignment(.center)
