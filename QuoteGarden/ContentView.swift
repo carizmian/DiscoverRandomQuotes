@@ -10,14 +10,9 @@ import Foundation
 
 #warning("widget")
 #warning("user can set reminder (tab view)")
-#warning("core data checks for duplicate quotes stored")
 #warning("iMessage extension, mozda ne treba jer imas share button")
 #warning("app clip")
 #warning("spotlight indexing")
-
-#warning("long press on favorite quote ~ rate the quote")
-#warning("@SceneStorage")
-
 
 struct ContentView: View {
     
@@ -28,6 +23,7 @@ struct ContentView: View {
     
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
+    @State private var userStartedDiscovering = false
     
     #warning("dovrši unit testing na raywenderlichu")
     
@@ -45,34 +41,47 @@ struct ContentView: View {
                 
                 
                 if addedToFavorites {
-                    Text("Added to favorites")
+                    Text("Quote added to your favorites")
+                        .transition(.opacity)
                 }
                 
                 HStack {
                     
-                    Button(action: { showingShareSheetView = true }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .accessibilityLabel(Text("Share quote"))
+                    if userStartedDiscovering {
                         
-                    }.padding(.trailing)
+                        Group {
+                            
+                            Button(action: { showingShareSheetView = true }) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .accessibilityLabel(Text("Share quote"))
+                                
+                            }.padding(.trailing)
+                            
+                            Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
+                                Image(systemName: "doc.on.doc")
+                                    .accessibilityLabel(Text("Copy quote"))
+                                
+                            }.padding([.leading, .trailing])
+                            
+                            Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
+                                Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+                                    .accessibilityLabel(Text("Add quote to your favorites"))
+                                
+                                
+                            }.disabled(addedToFavorites)
+                            .padding([.leading, .trailing])
+                            
+                        }.transition(.opacity)
+                        
+                    }
                     
-                    Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
-                        Image(systemName: "doc.on.doc")
-                            .accessibilityLabel(Text("Copy quote"))
-                        
-                    }.padding([.leading, .trailing])
                     
-                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
-                        Image(systemName: addedToFavorites ? "heart.fill" : "heart")
-                            .accessibilityLabel(Text("Add quote to your favorites"))
-                        
-                        
-                    }.disabled(addedToFavorites)
-                    .padding([.leading, .trailing])
-                    
-
                     Button(action: { quoteGardenApi().getRandomQuote { (quote) in
-                            addedToFavorites = false
+                        addedToFavorites = false
+                        
+                        withAnimation(.default) {
+                            userStartedDiscovering = true
+                        }
                         self.quote = quote
                     } }) {
                         
@@ -96,7 +105,7 @@ struct ContentView: View {
             
             
             VStack {
-                Text("set reminders here")
+                RemindersView()
             }.tabItem {
                 Image(systemName: "deskclock.fill")
                     .accessibility(label: Text("Set reminder"))
@@ -116,6 +125,9 @@ struct ContentView: View {
                             Text("~ \(favoriteQuote.wrappedQuoteAuthor)  # \(favoriteQuote.wrappedQuoteGenre)")
                         }
                     }.onDelete(perform: removeQuote)
+                    .onLongPressGesture {
+                        #warning("rate quote")
+                    }
                     
                     
                 }.navigationBarTitle(Text("Your Favorite Quotes"))
@@ -155,12 +167,13 @@ struct ContentView: View {
         favoriteQuote.quoteAuthor = author
         favoriteQuote.quoteGenre = genre
         
-        withAnimation(.spring()) {
-        addedToFavorites = true
+        withAnimation(.default) {
+            addedToFavorites = true
         }
         
         try? self.moc.save()
     }
+    
     
     
     func removeQuote(at offsets: IndexSet) {
@@ -193,6 +206,7 @@ struct ContentView: View {
             print(quoteText)
         }
     }
+    
     
 }
 
