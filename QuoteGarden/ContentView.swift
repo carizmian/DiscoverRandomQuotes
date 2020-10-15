@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 
 #warning("widget")
-#warning("user can set reminder (tab view)")
 #warning("iMessage extension, mozda ne treba jer imas share button")
 #warning("app clip")
 #warning("spotlight indexing")

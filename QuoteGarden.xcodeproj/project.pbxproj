@@ -138,6 +138,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		935562062538134400BF2F0A /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				935562002538050700BF2F0A /* LocalNotificationManager.swift */,
+				935561FA2538014F00BF2F0A /* RemindersView.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		935562072538135A00BF2F0A /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
+				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
 		9370D5C225361B5D001CD387 /* FavoriteQuote */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,13 +205,11 @@
 			isa = PBXGroup;
 			children = (
 				93DEB571252845D2006B9BF5 /* Model */,
+				935562062538134400BF2F0A /* Reminders */,
+				935562072538135A00BF2F0A /* Quotes */,
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
-				935561FA2538014F00BF2F0A /* RemindersView.swift */,
-				935562002538050700BF2F0A /* LocalNotificationManager.swift */,
-				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
-				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
 				9370D5A625356310001CD387 /* ShareSheetView.swift */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */,
