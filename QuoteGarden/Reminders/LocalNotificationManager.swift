@@ -14,6 +14,7 @@ struct Notification {
 }
 
 class LocalNotificationManager {
+    
     var notifications = [Notification]()
     
     
@@ -35,19 +36,16 @@ class LocalNotificationManager {
     
     func scheduleNotifications(date: DateComponents) -> Void {
         for notification in notifications {
+            
             let content = UNMutableNotificationContent()
             content.title = notification.title
-            
-           // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            
-            
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
             
             UNUserNotificationCenter.current().add(request) { error in
                 guard error == nil else { return }
-                print("Scheduling notification with id: \(notification.id)")
+                print("Scheduling notification with id: \(notification.id), title: \(notification.title)")
             }
         }
     }

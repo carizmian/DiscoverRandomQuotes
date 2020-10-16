@@ -10,20 +10,42 @@ import SwiftUI
 struct RemindersView: View {
     
     @State private var date = Date()
+    @State private var reminderIsSet = false
     
+    #warning("display array of notifications and enable reminder deletion!")
     
+    var dateString: String {
+        
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        let string = formatter.string(from: date)
+        return string
+    }
+
     var body: some View {
+        
+        
+        
         VStack {
-            Text("When do you want to learn new quotes?")
+            Text("When do you want to discover new quotes?")
                 .font(.largeTitle)
-            DatePicker("Enter time", selection: $date)
+            DatePicker("Please enter time", selection: $date, displayedComponents: .hourAndMinute)
                 .datePickerStyle(WheelDatePickerStyle())
+                .labelsHidden()
                 .frame(maxHeight: 400)
             
-            Button(action: { setNotification() }) {
+
+            Button(action: {
+                
+                setNotification()
+                reminderIsSet = true
+                
+            }) {
                 Text("Set Reminder")
             }
-        }
+        }.alert(isPresented: $reminderIsSet, content: {
+            Alert(title: Text("Success!"), message: Text("You will get reminded to discover quotes at \(dateString) every day!"))
+        })
     }
     
     func setNotification() -> Void {
@@ -31,6 +53,7 @@ struct RemindersView: View {
         let components = Calendar.current.dateComponents([.hour, .minute], from: date)
         manager.addNotification(title: "Discover new quotes now!")
         manager.schedule(components: components)
+        print(manager.notifications)
     }
 }
 

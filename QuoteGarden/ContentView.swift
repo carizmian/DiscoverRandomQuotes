@@ -25,6 +25,7 @@ struct ContentView: View {
     @State private var userStartedDiscovering = false
     
     #warning("dovrši unit testing na raywenderlichu")
+    #warning("accessibility")
     
     var body: some View {
         
