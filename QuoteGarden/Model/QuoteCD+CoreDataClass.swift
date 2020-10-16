@@ -11,7 +11,7 @@ import CoreData
 
 @objc(QuoteCD)
 public class QuoteCD: NSManagedObject {
-    
+        
     @nonobjc public class func fetchRequest() -> NSFetchRequest<QuoteCD> {
         return NSFetchRequest<QuoteCD>(entityName: "QuoteCD")
     }
@@ -33,5 +33,8 @@ public class QuoteCD: NSManagedObject {
     var wrappedQuoteGenre: String {
         return quoteGenre ?? "Unknown Quote Genre"
     }
-
+    
+    
+    let storeURL = AppGroup.facts.containerURL.appendingPathComponent("QuoteGarden.xcdatamodeld")
+    
 }

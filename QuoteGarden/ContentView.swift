@@ -13,6 +13,12 @@ import Foundation
 #warning("app clip")
 #warning("spotlight indexing")
 
+
+#warning("dovrši unit testing na raywenderlichu")
+#warning("vidi fastlane")
+#warning("accessibility")
+
+
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var moc
@@ -23,9 +29,6 @@ struct ContentView: View {
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
     @State private var userStartedDiscovering = false
-    
-    #warning("dovrši unit testing na raywenderlichu")
-    #warning("accessibility")
     
     var body: some View {
         
