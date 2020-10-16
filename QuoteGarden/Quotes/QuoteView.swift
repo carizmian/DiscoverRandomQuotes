@@ -22,25 +22,28 @@ struct QuoteView: View {
             Text("# \(quoteGenre)")
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
-                .font(Font.system(.subheadline, design: .serif).weight(.ultraLight))
+                .font(Font.system(.subheadline, design: .monospaced).weight(.ultraLight))
+                .accessibilityLabel(Text("quote genre is hashtag \(quoteGenre)"))
 
             
             Text("""
                 "\(quoteText)"
                 """)
                 .italic()
-                .font(Font.system(.body, design: .serif).weight(.regular))
+                .font(Font.system(.body, design: .monospaced).weight(.regular))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .multilineTextAlignment(.center)
                 .layoutPriority(2)
+                .accessibilityLabel(Text("quote text is \(quoteText)"))
                 
             
             Text("~ \(quoteAuthor)")
                 .multilineTextAlignment(.center)
                 .padding(.top)
                 .foregroundColor(.gray)
-                .font(Font.system(.callout, design: .serif).weight(.light))
+                .font(Font.system(.callout, design: .monospaced).weight(.light))
+                .accessibilityLabel(Text("quote author is \(quoteAuthor)"))
             
             
         }.padding(.vertical)

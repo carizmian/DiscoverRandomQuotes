@@ -19,6 +19,7 @@ struct QuoteDetailView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
                 .font(Font.system(.title3, design: .monospaced).weight(.ultraLight))
+                .accessibilityLabel(Text("quote genre is \(favoriteQuote.wrappedQuoteGenre)"))
             
             
             Text("'\(favoriteQuote.wrappedQuoteText)'")
@@ -28,6 +29,7 @@ struct QuoteDetailView: View {
                 .allowsTightening(true)
                 .multilineTextAlignment(.center)
                 .layoutPriority(2)
+                .accessibilityLabel(Text("quote text is \(favoriteQuote.wrappedQuoteText)"))
 
             
             
@@ -35,7 +37,8 @@ struct QuoteDetailView: View {
                 .multilineTextAlignment(.center)
                 .padding(.top)
                 .foregroundColor(.gray)
-                .font(Font.system(.title2, design: .serif).weight(.light))
+                .font(Font.system(.title2, design: .monospaced).weight(.light))
+                .accessibilityLabel(Text("quote author is \(favoriteQuote.wrappedQuoteAuthor)"))
             
         }.padding()
 

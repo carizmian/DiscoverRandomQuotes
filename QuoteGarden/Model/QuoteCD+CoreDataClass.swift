@@ -34,7 +34,5 @@ public class QuoteCD: NSManagedObject {
         return quoteGenre ?? "Unknown Quote Genre"
     }
     
-    
-    let storeURL = AppGroup.facts.containerURL.appendingPathComponent("QuoteGarden.xcdatamodeld")
-    
+        
 }

@@ -88,7 +88,8 @@ struct ContentView: View {
                         self.quote = quote
                     } }) {
                         
-                        Image(systemName: "wand.and.rays").accessibilityLabel(Text("New Quote"))
+                        Image(systemName: "wand.and.rays")
+                            .accessibilityLabel(Text("New Quote"))
                         
                     }.padding(.leading)
                     
@@ -111,7 +112,7 @@ struct ContentView: View {
                 RemindersView()
             }.tabItem {
                 Image(systemName: "deskclock.fill")
-                    .accessibility(label: Text("Set reminder"))
+                    .accessibility(label: Text("Reminder"))
                 Text("Reminder")
             }
             
