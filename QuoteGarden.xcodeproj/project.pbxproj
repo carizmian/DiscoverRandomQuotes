@@ -20,8 +20,9 @@
 		9370D5C925361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5C525361B5D001CD387 /* FavoriteQuote.intentdefinition */; };
 		9370D5CA25361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5C525361B5D001CD387 /* FavoriteQuote.intentdefinition */; };
 		9370D5CD25361B61001CD387 /* FavoriteQuoteExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9370D5BE25361B5D001CD387 /* FavoriteQuoteExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		93AB96E3253960D60010E150 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB96E2253960D60010E150 /* AppGroup.swift */; };
-		93AB96E4253960D60010E150 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB96E2253960D60010E150 /* AppGroup.swift */; };
+		939DBE6E253AA76800A54AD2 /* QuoteCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */; };
+		939DBE6F253AA76800A54AD2 /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
+		939DBE74253AA7B200A54AD2 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
 		93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
@@ -89,7 +90,6 @@
 		9374AF082532BB4E00412C9E /* FullTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullTests.xctestplan; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		93AB96DD25395F7E0010E150 /* FavoriteQuoteExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavoriteQuoteExtension.entitlements; sourceTree = "<group>"; };
-		93AB96E2253960D60010E150 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		93DEB53B25284527006B9BF5 /* QuoteGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DEB53E25284527006B9BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DEB54025284527006B9BF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,12 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				93AB96DD25395F7E0010E150 /* FavoriteQuoteExtension.entitlements */,
-				9374AF042532BAC100412C9E /* UnitTests.xctestplan */,
-				9374AF082532BB4E00412C9E /* FullTests.xctestplan */,
 				93DEB53D25284527006B9BF5 /* QuoteGarden */,
+				9370D5C225361B5D001CD387 /* FavoriteQuote */,
 				93DEB55725284529006B9BF5 /* QuoteGardenTests */,
 				93DEB56225284529006B9BF5 /* QuoteGardenUITests */,
-				9370D5C225361B5D001CD387 /* FavoriteQuote */,
 				939D200225317E14003C34D8 /* Frameworks */,
 				93DEB53C25284527006B9BF5 /* Products */,
 			);
@@ -213,7 +211,6 @@
 				935562062538134400BF2F0A /* Reminders */,
 				935562072538135A00BF2F0A /* Quotes */,
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
-				93AB96E2253960D60010E150 /* AppGroup.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
 				9370D5A625356310001CD387 /* ShareSheetView.swift */,
@@ -237,6 +234,7 @@
 		93DEB55725284529006B9BF5 /* QuoteGardenTests */ = {
 			isa = PBXGroup;
 			children = (
+				9374AF042532BAC100412C9E /* UnitTests.xctestplan */,
 				93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */,
 				93DEB55A25284529006B9BF5 /* Info.plist */,
 			);
@@ -246,6 +244,7 @@
 		93DEB56225284529006B9BF5 /* QuoteGardenUITests */ = {
 			isa = PBXGroup;
 			children = (
+				9374AF082532BB4E00412C9E /* FullTests.xctestplan */,
 				93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */,
 				93DEB56525284529006B9BF5 /* Info.plist */,
 			);
@@ -422,9 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939DBE6F253AA76800A54AD2 /* QuoteDetailView.swift in Sources */,
 				9370D5C425361B5D001CD387 /* FavoriteQuote.swift in Sources */,
-				93AB96E4253960D60010E150 /* AppGroup.swift in Sources */,
 				9370D5C925361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */,
+				939DBE74253AA7B200A54AD2 /* QuoteView.swift in Sources */,
+				939DBE6E253AA76800A54AD2 /* QuoteCD+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +439,6 @@
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
 				9370D5CA25361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */,
-				93AB96E3253960D60010E150 /* AppGroup.swift in Sources */,
 				935562012538050700BF2F0A /* LocalNotificationManager.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,

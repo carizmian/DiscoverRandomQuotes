@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import CoreData
 
 
 struct Provider: IntentTimelineProvider {
@@ -42,10 +43,11 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct FavoriteQuoteEntryView : View {
+    
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        Text("hi")
     }
 }
 
@@ -57,14 +59,16 @@ struct FavoriteQuote: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             FavoriteQuoteEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Favorite Quote")
+        .description("Look at your favorite quote")
+        .supportedFamilies([.systemLarge, .systemMedium])
     }
 }
 
 struct FavoriteQuote_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteQuoteEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        QuoteView(quoteGenre: "finance", quoteText: "What gets measured gets managed", quoteAuthor: "Peter Drucker")
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
+}
 }

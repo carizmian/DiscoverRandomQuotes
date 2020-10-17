@@ -8,15 +8,15 @@
 import SwiftUI
 import Foundation
 
-#warning("widget")
-#warning("iMessage extension, mozda ne treba jer imas share button")
+// PRIMARY
+#warning("widget, add core data to widget extension")
+#warning("accessibility")
+
+//Secondary
 #warning("app clip")
 #warning("spotlight indexing")
 
 
-#warning("dovrši unit testing na raywenderlichu")
-#warning("vidi fastlane")
-#warning("accessibility")
 
 
 struct ContentView: View {
