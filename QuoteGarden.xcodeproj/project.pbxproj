@@ -20,9 +20,12 @@
 		9370D5C925361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5C525361B5D001CD387 /* FavoriteQuote.intentdefinition */; };
 		9370D5CA25361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5C525361B5D001CD387 /* FavoriteQuote.intentdefinition */; };
 		9370D5CD25361B61001CD387 /* FavoriteQuoteExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9370D5BE25361B5D001CD387 /* FavoriteQuoteExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C5840253CB73A0002D7E4 /* AppGroup.swift */; };
+		937C5842253CB73A0002D7E4 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C5840253CB73A0002D7E4 /* AppGroup.swift */; };
 		939DBE6E253AA76800A54AD2 /* QuoteCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */; };
 		939DBE6F253AA76800A54AD2 /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		939DBE74253AA7B200A54AD2 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
 		93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
@@ -88,7 +91,9 @@
 		9370D5C825361B61001CD387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9374AF042532BAC100412C9E /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		9374AF082532BB4E00412C9E /* FullTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullTests.xctestplan; sourceTree = "<group>"; };
+		937C5840253CB73A0002D7E4 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRowView.swift; sourceTree = "<group>"; };
 		93AB96DD25395F7E0010E150 /* FavoriteQuoteExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavoriteQuoteExtension.entitlements; sourceTree = "<group>"; };
 		93DEB53B25284527006B9BF5 /* QuoteGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DEB53E25284527006B9BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 			children = (
 				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
 				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
+				939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 			children = (
 				93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */,
 				93DEB57225284631006B9BF5 /* Quote.swift */,
+				937C5840253CB73A0002D7E4 /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				939DBE6F253AA76800A54AD2 /* QuoteDetailView.swift in Sources */,
+				937C5842253CB73A0002D7E4 /* AppGroup.swift in Sources */,
 				9370D5C425361B5D001CD387 /* FavoriteQuote.swift in Sources */,
 				9370D5C925361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */,
 				939DBE74253AA7B200A54AD2 /* QuoteView.swift in Sources */,
@@ -436,10 +444,12 @@
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
+				937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
 				9370D5CA25361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */,
 				935562012538050700BF2F0A /* LocalNotificationManager.swift in Sources */,
+				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				935561FB2538014F00BF2F0A /* RemindersView.swift in Sources */,
@@ -665,6 +675,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
@@ -676,6 +687,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -688,6 +700,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
@@ -699,6 +712,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

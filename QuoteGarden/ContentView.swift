@@ -11,6 +11,7 @@ import Foundation
 // PRIMARY
 #warning("widget, add core data to widget extension")
 #warning("accessibility")
+#warning("bolji gesturi manje botuna")
 
 //Secondary
 #warning("app clip")
@@ -29,6 +30,7 @@ struct ContentView: View {
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
     @State private var userStartedDiscovering = false
+    @State private var quoteSelectedForWidget = false
     
     var body: some View {
         
@@ -126,12 +128,12 @@ struct ContentView: View {
                 List {
                     ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
                         NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
-                            Text("~ \(favoriteQuote.wrappedQuoteAuthor)  # \(favoriteQuote.wrappedQuoteGenre)")
+                            HStack {
+                                QuoteRowView(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
+                            }
                         }
                     }.onDelete(perform: removeQuote)
-                    .onLongPressGesture {
-                        #warning("rate quote")
-                    }
+            
                     
                     
                 }.navigationBarTitle(Text("Your Favorite Quotes"))
@@ -156,13 +158,6 @@ struct ContentView: View {
             ])
         }
     }
-    
-    /// saves to Core Data
-    /// - Parameters:
-    ///   - id: id is a string
-    ///   - text: the text of the quote
-    ///   - author: the author of the quote
-    ///   - genre: the genre of the quote
     
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
         let favoriteQuote = QuoteCD(context: self.moc)

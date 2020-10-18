@@ -11,6 +11,8 @@ import Intents
 import CoreData
 
 
+
+
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationIntent())
@@ -71,4 +73,4 @@ struct FavoriteQuote_Previews: PreviewProvider {
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
-}
+
