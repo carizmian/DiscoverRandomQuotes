@@ -10,7 +10,9 @@ import SwiftUI
 struct QuoteDetailView: View {
     
     var favoriteQuote: QuoteCD
+    var userDefaults = UserDefaults.init(suiteName: "group.com.example.QuoteGarden")
     @State private var displayingOnWidget = false
+    
     
     var body: some View {
         
@@ -22,6 +24,7 @@ struct QuoteDetailView: View {
                 .padding(.bottom)
                 .font(Font.system(.subheadline, design: .monospaced).weight(.ultraLight))
                 .accessibilityLabel(Text("quote genre is \(favoriteQuote.wrappedQuoteGenre)"))
+            
             
             ScrollView {
             Text("""
@@ -45,7 +48,7 @@ struct QuoteDetailView: View {
                 .font(Font.system(.callout, design: .monospaced).weight(.light))
                 .accessibilityLabel(Text("quote author is \(favoriteQuote.wrappedQuoteAuthor)"))
             
-            Button(action: { forTheWidget(favoriteQuote) }, label: {
+            Button(action: { forTheWidget(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor) }, label: {
                 Text("Display on widget")
             })
             
@@ -54,21 +57,15 @@ struct QuoteDetailView: View {
 
         
     }
+
     
-    func forTheWidget(_: QuoteCD)  {
+    func forTheWidget(quoteGenre: String, quoteText: String, quoteAuthor: String)  {
         displayingOnWidget.toggle()
-        
-        let encoder = JSONEncoder()
-        let decoder = JSONDecoder
-        
-        let encodedData = try? encoder.encode(favoriteQuote)
+        userDefaults!.set(quoteGenre, forKey: "genre")
+        userDefaults!.set(quoteText, forKey: "text")
+        userDefaults!.set(quoteAuthor, forKey: "author")
         
         
-        if displayingOnWidget {
-            let quoteForWidget = 
-        }
-        
-        print(displayingOnWidget)
     }
 
 }

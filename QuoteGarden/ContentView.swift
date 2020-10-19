@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 // PRIMARY
-#warning("widget, add core data to widget extension")
+#warning("widget")
 #warning("accessibility")
 #warning("bolji gesturi manje botuna")
 

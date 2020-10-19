@@ -41,7 +41,13 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
     
-    let widgetData: [Quote] = [Quote]()
+    
+    //TODO
+    #warning("populate the views with this data below!")
+    
+    let quoteGenre = UserDefaults(suiteName: "group.com.example.QuoteGarden")!.string(forKey: "genre")
+    let quoteText = UserDefaults(suiteName: "group.com.example.QuoteGarden")!.string(forKey: "text")
+    let quoteAuthore = UserDefaults(suiteName: "group.com.example.QuoteGarden")!.string(forKey: "author")
 }
 
 struct PlaceholderView: View {
