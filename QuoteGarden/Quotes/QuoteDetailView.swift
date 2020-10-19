@@ -10,6 +10,7 @@ import SwiftUI
 struct QuoteDetailView: View {
     
     var favoriteQuote: QuoteCD
+    @State private var displayingOnWidget = false
     
     var body: some View {
         
@@ -44,11 +45,32 @@ struct QuoteDetailView: View {
                 .font(Font.system(.callout, design: .monospaced).weight(.light))
                 .accessibilityLabel(Text("quote author is \(favoriteQuote.wrappedQuoteAuthor)"))
             
+            Button(action: { forTheWidget(favoriteQuote) }, label: {
+                Text("Display on widget")
+            })
+            
         }.padding()
         
 
         
     }
+    
+    func forTheWidget(_: QuoteCD)  {
+        displayingOnWidget.toggle()
+        
+        let encoder = JSONEncoder()
+        let decoder = JSONDecoder
+        
+        let encodedData = try? encoder.encode(favoriteQuote)
+        
+        
+        if displayingOnWidget {
+            let quoteForWidget = 
+        }
+        
+        print(displayingOnWidget)
+    }
+
 }
 
 

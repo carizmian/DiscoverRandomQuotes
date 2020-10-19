@@ -8,8 +8,6 @@
 import WidgetKit
 import SwiftUI
 import Intents
-import CoreData
-
 
 
 
@@ -42,14 +40,23 @@ struct Provider: IntentTimelineProvider {
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
+    
+    let widgetData: [Quote] = [Quote]()
 }
+
+struct PlaceholderView: View {
+    var body: some View {
+        QuoteView(quoteGenre: "finance", quoteText: "What gets measured gets managed", quoteAuthor: "Peter Drucker")
+    }
+}
+
 
 struct FavoriteQuoteEntryView : View {
     
     var entry: Provider.Entry
 
     var body: some View {
-        Text("hi")
+        QuoteView(quoteGenre: "finance", quoteText: "What gets measured gets managed", quoteAuthor: "Peter Drucker")
     }
 }
 
@@ -63,14 +70,21 @@ struct FavoriteQuote: Widget {
         }
         .configurationDisplayName("Favorite Quote")
         .description("Look at your favorite quote")
-        .supportedFamilies([.systemLarge, .systemMedium])
+        .supportedFamilies([.systemLarge])
     }
 }
 
 struct FavoriteQuote_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteView(quoteGenre: "finance", quoteText: "What gets measured gets managed", quoteAuthor: "Peter Drucker")
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        
+        Group {
+            QuoteView(quoteGenre: "finance", quoteText: "What gets measured gets managed", quoteAuthor: "Peter Drucker")
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+            
+            
+            PlaceholderView()
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+        }
     }
 }
 

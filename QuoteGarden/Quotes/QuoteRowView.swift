@@ -14,7 +14,7 @@ struct QuoteRowView: View {
     
     var body: some View {
         
-        HStack {
+        HStack{
             Text("\(quoteGenre)")
             Text("\(quoteAuthor)")
             

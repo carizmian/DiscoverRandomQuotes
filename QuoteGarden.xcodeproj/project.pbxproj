@@ -21,10 +21,10 @@
 		9370D5CA25361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5C525361B5D001CD387 /* FavoriteQuote.intentdefinition */; };
 		9370D5CD25361B61001CD387 /* FavoriteQuoteExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9370D5BE25361B5D001CD387 /* FavoriteQuoteExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C5840253CB73A0002D7E4 /* AppGroup.swift */; };
-		937C5842253CB73A0002D7E4 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C5840253CB73A0002D7E4 /* AppGroup.swift */; };
-		939DBE6E253AA76800A54AD2 /* QuoteCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */; };
-		939DBE6F253AA76800A54AD2 /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
-		939DBE74253AA7B200A54AD2 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		937C5864253D41240002D7E4 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		937C5869253D44630002D7E4 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
+		937C5877253D4DBD0002D7E4 /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
+		937C587C253D4DC00002D7E4 /* QuoteCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
@@ -428,12 +428,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939DBE6F253AA76800A54AD2 /* QuoteDetailView.swift in Sources */,
-				937C5842253CB73A0002D7E4 /* AppGroup.swift in Sources */,
+				937C5869253D44630002D7E4 /* Quote.swift in Sources */,
+				937C587C253D4DC00002D7E4 /* QuoteCD+CoreDataClass.swift in Sources */,
 				9370D5C425361B5D001CD387 /* FavoriteQuote.swift in Sources */,
+				937C5864253D41240002D7E4 /* QuoteView.swift in Sources */,
 				9370D5C925361B61001CD387 /* FavoriteQuote.intentdefinition in Sources */,
-				939DBE74253AA7B200A54AD2 /* QuoteView.swift in Sources */,
-				939DBE6E253AA76800A54AD2 /* QuoteCD+CoreDataClass.swift in Sources */,
+				937C5877253D4DBD0002D7E4 /* QuoteDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
