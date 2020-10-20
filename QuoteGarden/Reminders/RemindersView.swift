@@ -13,6 +13,7 @@ struct RemindersView: View {
     @State private var reminderIsSet = false
     
     #warning("display array of notifications and enable reminder deletion!")
+    #warning("toggle button disables alerts")
     
     var dateString: String {
         

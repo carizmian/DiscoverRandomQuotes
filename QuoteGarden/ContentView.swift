@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 
 // PRIMARY
-#warning("widget")
 #warning("accessibility")
 #warning("bolji gesturi manje botuna")
 

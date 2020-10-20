@@ -53,19 +53,24 @@ struct QuoteDetailView: View {
             })
             
         }.padding()
+        .alert(isPresented: $displayingOnWidget, content:  {
+            Alert(title: Text("Quote will be displayed in widget"))
+        })
         
 
         
     }
-
+    #warning("widget not updating it is supossed to.")
     
     func forTheWidget(quoteGenre: String, quoteText: String, quoteAuthor: String)  {
-        displayingOnWidget.toggle()
+        displayingOnWidget = true
+        print(displayingOnWidget)
         userDefaults!.set(quoteGenre, forKey: "genre")
         userDefaults!.set(quoteText, forKey: "text")
         userDefaults!.set(quoteAuthor, forKey: "author")
-        
-        
+        displayingOnWidget = false
+        print(displayingOnWidget)
+
     }
 
 }
