@@ -60,7 +60,6 @@ struct QuoteDetailView: View {
 
         
     }
-    #warning("widget not updating it is supossed to.")
     
     func forTheWidget(quoteGenre: String, quoteText: String, quoteAuthor: String)  {
         displayingOnWidget = true
