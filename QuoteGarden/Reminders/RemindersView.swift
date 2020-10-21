@@ -25,28 +25,30 @@ struct RemindersView: View {
 
     var body: some View {
         
-        
-        
-        VStack {
-            Text("When do you want to discover new quotes?")
-                .font(.largeTitle)
-            DatePicker("Please enter time", selection: $date, displayedComponents: .hourAndMinute)
-                .datePickerStyle(WheelDatePickerStyle())
-                .labelsHidden()
-                .frame(maxHeight: 400)
-            
 
-            Button(action: {
+            VStack {
+                Text("When do you want to discover new quotes?")
+                    .font(.largeTitle)
+                DatePicker("Select time", selection: $date, displayedComponents: .hourAndMinute)
+                    .datePickerStyle(WheelDatePickerStyle())
+                    .labelsHidden()
+
                 
-                setNotification()
-                reminderIsSet = true
-                
-            }) {
-                Text("Set Reminder")
-            }
-        }.alert(isPresented: $reminderIsSet, content: {
-            Alert(title: Text("Success!"), message: Text("You will get reminded to discover quotes at \(dateString) every day!"))
+
+                Button(action: {
+                    
+                    setNotification()
+                    reminderIsSet = true
+                    
+                }) {
+                    Text("Set Reminder")
+                        .font(.title)
+                }
+            }.alert(isPresented: $reminderIsSet, content: {
+                Alert(title: Text("Success!"), message: Text("You will get reminded to discover quotes at \(dateString) every day!"))
         })
+            .padding()
+        
     }
     
     func setNotification() -> Void {

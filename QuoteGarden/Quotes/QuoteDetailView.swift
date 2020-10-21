@@ -22,37 +22,37 @@ struct QuoteDetailView: View {
             Text("# \(favoriteQuote.wrappedQuoteGenre)")
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
-                .font(Font.system(.subheadline, design: .monospaced).weight(.ultraLight))
+                .allowsTightening(true)
+                .font(Font.system(.callout, design: .monospaced).weight(.bold))
                 .accessibilityLabel(Text("quote genre is \(favoriteQuote.wrappedQuoteGenre)"))
             
-            
-            ScrollView {
+
             Text("""
                 "\(favoriteQuote.wrappedQuoteText)"
                 """)
                 .italic()
-                .font(Font.system(.body, design: .monospaced).weight(.regular))
+                .font(Font.system(.title, design: .monospaced).weight(.black))
                 .padding(.horizontal)
                 .allowsTightening(true)
-                .multilineTextAlignment(.center)
                 .layoutPriority(2)
+                .minimumScaleFactor(0.3)
                 .accessibilityLabel(Text("quote text is \(favoriteQuote.wrappedQuoteText)"))
-            }
 
             
-            
             Text("~ \(favoriteQuote.wrappedQuoteAuthor)")
-                .multilineTextAlignment(.center)
                 .padding(.top)
-                .foregroundColor(.gray)
-                .font(Font.system(.callout, design: .monospaced).weight(.light))
+                .allowsTightening(true)
+                .font(Font.system(.callout, design: .monospaced).weight(.bold))
                 .accessibilityLabel(Text("quote author is \(favoriteQuote.wrappedQuoteAuthor)"))
+            
             
             Button(action: { forTheWidget(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor) }, label: {
                 Text("Display on widget")
-            })
+                    .font(.title)
+            }).padding(.top)
             
-        }.padding()
+        }.padding(.vertical)
+        .multilineTextAlignment(.center)
         .alert(isPresented: $displayingOnWidget, content:  {
             Alert(title: Text("Quote will be displayed in widget"))
         })
@@ -67,7 +67,6 @@ struct QuoteDetailView: View {
         userDefaults!.set(quoteGenre, forKey: "genre")
         userDefaults!.set(quoteText, forKey: "text")
         userDefaults!.set(quoteAuthor, forKey: "author")
-        displayingOnWidget = false
         print(displayingOnWidget)
 
     }

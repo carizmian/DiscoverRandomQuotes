@@ -16,38 +16,41 @@ struct QuoteView: View {
     
     var body: some View {
 
-        
         VStack(alignment: .center) {
             
+            
             Text("# \(quoteGenre)")
-                .multilineTextAlignment(.center)
                 .padding(.bottom)
-                .font(Font.system(.title3, design: .monospaced).weight(.ultraLight))
+                .allowsTightening(true)
+                .font(Font.system(.callout, design: .monospaced).weight(.bold))
                 .accessibilityLabel(Text("quote genre is hashtag \(quoteGenre)"))
-
 
             Text("""
                 "\(quoteText)"
                 """)
                 .italic()
-                .font(Font.system(.title, design: .monospaced).weight(.regular))
+                .font(Font.system(.title, design: .monospaced).weight(.black))
                 .padding(.horizontal)
                 .allowsTightening(true)
-                .multilineTextAlignment(.center)
                 .layoutPriority(2)
+                .minimumScaleFactor(0.3)
                 .accessibilityLabel(Text("quote text is \(quoteText)"))
+                
             
                 
             
             Text("~ \(quoteAuthor)")
-                .multilineTextAlignment(.center)
                 .padding(.top)
-                .foregroundColor(.gray)
-                .font(Font.system(.title2, design: .monospaced).weight(.light))
+                .allowsTightening(true)
+                .font(Font.system(.callout, design: .monospaced).weight(.bold))
                 .accessibilityLabel(Text("quote author is \(quoteAuthor)"))
+                
+            
             
             
         }.padding(.vertical)
+        .multilineTextAlignment(.center)
+        
     }
 }
 

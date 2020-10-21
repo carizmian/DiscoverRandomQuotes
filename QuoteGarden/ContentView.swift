@@ -38,16 +38,12 @@ struct ContentView: View {
             
             VStack(alignment: .center) {
                 
+                
                 QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
-                    .animation(.default)
                     .layoutPriority(2)
                     .edgesIgnoringSafeArea(.all)
-                
-                
-                if addedToFavorites {
-                    Text("Quote added to your favorites")
-                        .transition(.opacity)
-                }
+                    .animation(.default)
+                    
                 
                 HStack {
                     
@@ -61,11 +57,11 @@ struct ContentView: View {
                                 
                             }.padding(.trailing)
                             
-                            Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
-                                Image(systemName: "doc.on.doc")
-                                    .accessibilityLabel(Text("Copy quote"))
-                                
-                            }.padding([.leading, .trailing])
+//                            Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
+//                                Image(systemName: "doc.on.doc")
+//                                    .accessibilityLabel(Text("Copy quote"))
+//
+//                            }.padding([.leading, .trailing])
                             
                             Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
                                 Image(systemName: addedToFavorites ? "heart.fill" : "heart")
@@ -79,23 +75,25 @@ struct ContentView: View {
                         
                     }
                     
-                    
-                    Button(action: { quoteGardenApi().getRandomQuote { (quote) in
-                        addedToFavorites = false
-                        
-                        withAnimation(.default) {
-                            userStartedDiscovering = true
-                        }
-                        self.quote = quote
-                    } }) {
-                        
-                        Image(systemName: "wand.and.rays")
-                            .accessibilityLabel(Text("New Quote"))
-                        
-                    }.padding(.leading)
-                    
                 }.padding(.bottom)
                 .font(.largeTitle)
+                
+                Button(action: { quoteGardenApi().getRandomQuote { (quote) in
+                    
+                    withAnimation(.default) {
+                        userStartedDiscovering = true
+                        addedToFavorites = false
+                    }
+                    self.quote = quote
+                } }) {
+                    
+                    Image(systemName: "wand.and.rays")
+                        .accessibilityLabel(Text("New Quote"))
+
+                    
+                }.font(.largeTitle)
+                
+
                 
                 
                 
@@ -135,8 +133,13 @@ struct ContentView: View {
             
                     
                     
-                }.navigationBarTitle(Text("Your Favorite Quotes"))
-                .navigationBarItems(trailing: EditButton())
+                }.listStyle(InsetListStyle())
+                .navigationBarTitle(Text("Your Favorite Quotes"))
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(leading: EditButton(), trailing: Text("Sort"))
+                .edgesIgnoringSafeArea(.bottom)
+                #warning("sort quotes by author, or genre")
+                #warning("search bar")
                 
                 
             }.tabItem {
@@ -147,6 +150,8 @@ struct ContentView: View {
             
         }.accentColor(.purple)
         .sheet(isPresented: $showingShareSheetView) {
+            #warning("share-aj image a ne text")
+            
             ShareSheetView(activityItems: ["""
             \(quote.quoteGenre)
 
@@ -155,6 +160,9 @@ struct ContentView: View {
             \(quote.quoteAuthor)
             """
             ])
+        }
+        .alert(isPresented: $addedToFavorites) {
+            Alert(title: Text("Quote added to your favorites"))
         }
     }
     
@@ -187,23 +195,23 @@ struct ContentView: View {
         }
     }
     
-    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-        
-        let quoteString = """
-        \(quoteGenre)
-
-        \(quoteText)
-
-        \(quoteAuthor)
-        """
-        
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = quoteString
-        
-        if pasteboard.string != nil {
-            print(quoteText)
-        }
-    }
+//    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
+//
+//        let quoteString = """
+//        \(quoteGenre)
+//
+//        \(quoteText)
+//
+//        \(quoteAuthor)
+//        """
+//
+//        let pasteboard = UIPasteboard.general
+//        pasteboard.string = quoteString
+//
+//        if pasteboard.string != nil {
+//            print(quoteText)
+//        }
+//    }
     
     
 }
@@ -215,6 +223,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
 
 

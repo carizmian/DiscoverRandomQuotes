@@ -9,6 +9,7 @@ import WidgetKit
 import SwiftUI
 
 let userDefaults = UserDefaults(suiteName: "group.com.example.QuoteGarden")
+#warning("user more birat koji ce citat stavit kada stvara widget")
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
