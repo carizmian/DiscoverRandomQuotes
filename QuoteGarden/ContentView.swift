@@ -31,6 +31,8 @@ struct ContentView: View {
     @State private var userStartedDiscovering = false
     @State private var quoteSelectedForWidget = false
     
+    @State private var searchText = ""
+    
     var body: some View {
         
         
@@ -121,9 +123,12 @@ struct ContentView: View {
             
             
             NavigationView {
+                                
+                VStack {
+                    SearchBar(text: $searchText)
                 
                 List {
-                    ForEach(favoriteQuotes, id: \.id) { favoriteQuote in
+                    ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
                         NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
                             HStack {
                                 QuoteRowView(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
@@ -135,11 +140,10 @@ struct ContentView: View {
                     
                 }.listStyle(InsetListStyle())
                 .navigationBarTitle(Text("Your Favorite Quotes"))
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: EditButton(), trailing: Text("Sort"))
+                .navigationBarItems(trailing: EditButton())
                 .edgesIgnoringSafeArea(.bottom)
-                #warning("sort quotes by author, or genre")
-                #warning("search bar")
+                
+            }
                 
                 
             }.tabItem {

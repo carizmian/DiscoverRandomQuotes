@@ -13,7 +13,6 @@ struct RemindersView: View {
     @State private var reminderIsSet = false
     
     #warning("display array of notifications and enable reminder deletion!")
-    #warning("toggle button disables alerts")
     
     var dateString: String {
         
@@ -27,14 +26,13 @@ struct RemindersView: View {
         
 
             VStack {
+                
                 Text("When do you want to discover new quotes?")
                     .font(.largeTitle)
                 DatePicker("Select time", selection: $date, displayedComponents: .hourAndMinute)
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
-
                 
-
                 Button(action: {
                     
                     setNotification()
@@ -44,6 +42,7 @@ struct RemindersView: View {
                     Text("Set Reminder")
                         .font(.title)
                 }
+                
             }.alert(isPresented: $reminderIsSet, content: {
                 Alert(title: Text("Success!"), message: Text("You will get reminded to discover quotes at \(dateString) every day!"))
         })
