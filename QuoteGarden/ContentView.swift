@@ -21,7 +21,6 @@ import Foundation
 
 struct ContentView: View {
     
-    @EnvironmentObject var observer: SwipeObserver
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     
@@ -29,80 +28,96 @@ struct ContentView: View {
     
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
-    @State private var userStartedDiscovering = false
     @State private var quoteSelectedForWidget = false
     
     @State private var searchText = ""
     
+    var userDefaults = UserDefaults.init()
+    
+    @State private var showButtons = false
     
     
     var body: some View {
         
-        #warning("swipeeeee right")
         TabView {
             
-            VStack(alignment: .center) {
+            ZStack(alignment: .center) {
                 
-                
-                QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
-                    .layoutPriority(2)
-                    .edgesIgnoringSafeArea(.all)
-                    .animation(.default)
+                VStack {
                     
-                
-                HStack {
+                    QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
+                        .layoutPriority(2)
+                        .edgesIgnoringSafeArea(.all)
+                        .animation(.default)
+                        .onTapGesture(count: 2) {
+                            quoteGardenApi().getRandomQuote { quote in
+                                withAnimation(.default) {
+                                    addedToFavorites = false
+                                }
+                                self.quote = quote
+                                userDefaults.setValue(self.quote.quoteGenre, forKey: "qg")
+                                userDefaults.setValue(self.quote.quoteText, forKey: "qt")
+                                userDefaults.setValue(self.quote.quoteAuthor, forKey: "qa")
+                                #warning("user defaults for the last loaded quote")
+                                
+                            }
+                        }
+                }
+     
+                // The cool popup
+                Group {
                     
-                    if userStartedDiscovering {
+                    Button(action: { showingShareSheetView = true }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .accessibilityLabel(Text("Share quote"))
+                            .padding()
+                            .rotationEffect(Angle.degrees(showButtons ? 0 : -90))
                         
-                        Group {
-                            
-                            Button(action: { showingShareSheetView = true }) {
-                                Image(systemName: "square.and.arrow.up")
-                                    .accessibilityLabel(Text("Share quote"))
-                                
-                            }.padding(.trailing)
-                            
-//                            Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
-//                                Image(systemName: "doc.on.doc")
-//                                    .accessibilityLabel(Text("Copy quote"))
-//
-//                            }.padding([.leading, .trailing])
-                            
-                            Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
-                                Image(systemName: addedToFavorites ? "heart.fill" : "heart")
-                                    .accessibilityLabel(Text("Add quote to your favorites"))
-                                
-                                
-                            }.disabled(addedToFavorites)
-                            .padding([.leading, .trailing])
-                            
-                        }.transition(.opacity)
+                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    .offset(x: 0, y: showButtons ? -150 : 0)
+                    .opacity(showButtons ? 1 : 0)
+                    
+                    Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
+                        Image(systemName: "doc.on.doc")
+                            .accessibilityLabel(Text("Copy quote"))
+                            .padding()
+                            .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
                         
-                    }
+                        
+                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    .offset(x: showButtons ? -110 : 0, y: showButtons ? -110 : 0)
+                    .opacity(showButtons ? 1 : 0)
                     
-                }.padding(.bottom)
-                .font(.largeTitle)
-                
-                Button(action: { quoteGardenApi().getRandomQuote { (quote) in
                     
-                    withAnimation(.default) {
-                        userStartedDiscovering = true
-                        addedToFavorites = false
-                    }
-                    self.quote = quote
-                } }) {
+                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
+                        Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+                            .accessibilityLabel(Text("Add quote to your favorites"))
+                            .padding()
+                            .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
+                        
+                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    .offset(x: showButtons ? -150 : 0, y: 0)
+                    .opacity(showButtons ? 1 : 0)
                     
-                    Image(systemName: "wand.and.rays")
-                        .accessibilityLabel(Text("New Quote"))
-
                     
-                }.font(.largeTitle)
+                    
+                    
+                    Button(action: { showButtons.toggle() }) {
+                        Image(systemName: "plus")
+                            .padding()
+                            .rotationEffect(Angle.degrees(showButtons ? 45 : 0))
+                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    
+                    
+                    
+                }.padding(.trailing)
+                .accentColor(.white)
+                .animation(.default)
                 
-
+            
                 
-                
-                
-            }.tabItem {
+            }.font(.title)
+            .tabItem {
                 Image(systemName: "wand.and.stars")
                     .accessibilityLabel(Text("New Quote"))
                 Text("Random")
@@ -122,31 +137,28 @@ struct ContentView: View {
             
             
             
-            
-            
-            
             NavigationView {
-                                
+                
                 VStack {
                     SearchBar(text: $searchText)
-                
-                List {
-                    ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
-                        NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
-                            HStack {
-                                QuoteRowView(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
+                    
+                    List {
+                        ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
+                            NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
+                                HStack {
+                                    QuoteRowView(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
+                                }
                             }
-                        }
-                    }.onDelete(perform: removeQuote)
-            
+                        }.onDelete(perform: removeQuote)
+                        
+                        
+                        
+                    }.listStyle(InsetListStyle())
+                    .navigationBarTitle(Text("Your Favorite Quotes"))
+                    .navigationBarItems(trailing: EditButton())
+                    .edgesIgnoringSafeArea(.bottom)
                     
-                    
-                }.listStyle(InsetListStyle())
-                .navigationBarTitle(Text("Your Favorite Quotes"))
-                .navigationBarItems(trailing: EditButton())
-                .edgesIgnoringSafeArea(.bottom)
-                
-            }
+                }
                 
                 
             }.tabItem {
@@ -168,21 +180,22 @@ struct ContentView: View {
             """
             ])
         }
-        .alert(isPresented: $addedToFavorites) {
-            Alert(title: Text("Quote added to your favorites"))
-        }
+        //        .alert(isPresented: $addedToFavorites) {
+        //            Alert(title: Text("Quote added to your favorites"))
+        //        }
     }
     
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
+        
+        addedToFavorites.toggle()
+        
         let favoriteQuote = QuoteCD(context: self.moc)
         favoriteQuote.id = id
         favoriteQuote.quoteText = text
         favoriteQuote.quoteAuthor = author
         favoriteQuote.quoteGenre = genre
         
-        withAnimation(.default) {
-            addedToFavorites = true
-        }
+        addedToFavorites = true
         
         try? self.moc.save()
     }
@@ -202,23 +215,23 @@ struct ContentView: View {
         }
     }
     
-//    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-//
-//        let quoteString = """
-//        \(quoteGenre)
-//
-//        \(quoteText)
-//
-//        \(quoteAuthor)
-//        """
-//
-//        let pasteboard = UIPasteboard.general
-//        pasteboard.string = quoteString
-//
-//        if pasteboard.string != nil {
-//            print(quoteText)
-//        }
-//    }
+    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
+        
+        let quoteString = """
+        \(quoteGenre)
+
+        \(quoteText)
+
+        \(quoteAuthor)
+        """
+        
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = quoteString
+        
+        if pasteboard.string != nil {
+            print(quoteText)
+        }
+    }
     
     
 }

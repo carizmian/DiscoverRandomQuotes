@@ -47,7 +47,6 @@ struct QuoteView: View {
                 
             
             
-            
         }.padding(.vertical)
         .multilineTextAlignment(.center)
         

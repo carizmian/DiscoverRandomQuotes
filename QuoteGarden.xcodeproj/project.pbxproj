@@ -24,7 +24,6 @@
 		9392E49F253EA01F004BF68E /* QuoteCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93621304252B56D3009A7CDE /* QuoteCD+CoreDataClass.swift */; };
 		9392E4A0253EA01F004BF68E /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
-		9392E4B9254144BF004BF68E /* SwipeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4B8254144BE004BF68E /* SwipeObserver.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
@@ -93,7 +92,6 @@
 		9392E492253EA003004BF68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9392E4A5253EA043004BF68E /* QuoteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		9392E4B8254144BE004BF68E /* SwipeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeObserver.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRowView.swift; sourceTree = "<group>"; };
 		93DEB53B25284527006B9BF5 /* QuoteGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,7 +217,6 @@
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
-				9392E4B8254144BE004BF68E /* SwipeObserver.swift */,
 				9392E4AE25408806004BF68E /* SearchBar.swift */,
 				9370D5A625356310001CD387 /* ShareSheetView.swift */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
@@ -444,7 +441,6 @@
 			files = (
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
-				9392E4B9254144BF004BF68E /* SwipeObserver.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
 				937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
