@@ -25,6 +25,7 @@ struct WidgetQuote {
 
 
 struct Provider: TimelineProvider {
+    
     func placeholder(in context: Context) -> SimpleEntry {
         return SimpleEntry(date: Date(), quote: WidgetQuote() )
     }
@@ -35,8 +36,9 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let entries: [SimpleEntry] = [SimpleEntry(date: Date(), quote: WidgetQuote())]
-        let timeline = Timeline(entries: entries, policy: .never)
+        let entry = SimpleEntry(date: Date(), quote: WidgetQuote())
+        let timeline = Timeline(entries: [entry], policy: .never)
+        // never jer nemamo array of entry
         completion(timeline)
     }
 }
@@ -58,8 +60,8 @@ struct QuoteWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             QuoteWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Favorite quote")
-        .description("See your favorite quote in a widget.")
+        .configurationDisplayName("Your favorite quote")
+        .description("Read your favorite quote on your homescreen.")
         .supportedFamilies([.systemLarge])
     }
 }

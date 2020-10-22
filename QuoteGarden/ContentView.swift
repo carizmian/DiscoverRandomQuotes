@@ -21,6 +21,7 @@ import Foundation
 
 struct ContentView: View {
     
+    @EnvironmentObject var observer: SwipeObserver
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     
@@ -33,9 +34,11 @@ struct ContentView: View {
     
     @State private var searchText = ""
     
+    
+    
     var body: some View {
         
-        
+        #warning("swipeeeee right")
         TabView {
             
             VStack(alignment: .center) {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct QuoteDetailView: View {
     
@@ -68,6 +69,13 @@ struct QuoteDetailView: View {
         userDefaults!.set(quoteText, forKey: "text")
         userDefaults!.set(quoteAuthor, forKey: "author")
         print(displayingOnWidget)
+        
+        // requests a reload for all of the widgets
+        if userDefaults?.string(forKey: "text") == quoteText {
+        
+        WidgetCenter.shared.reloadAllTimelines()
+            
+        }
 
     }
 
