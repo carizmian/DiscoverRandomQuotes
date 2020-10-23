@@ -8,6 +8,7 @@
 import SwiftUI
 import WidgetKit
 
+
 struct QuoteDetailView: View {
     
     var favoriteQuote: QuoteCD
@@ -19,15 +20,17 @@ struct QuoteDetailView: View {
         
         
         VStack {
-
+            
             Text("# \(favoriteQuote.wrappedQuoteGenre)")
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
                 .allowsTightening(true)
                 .font(Font.system(.callout, design: .monospaced).weight(.bold))
                 .accessibilityLabel(Text("quote genre is \(favoriteQuote.wrappedQuoteGenre)"))
+                
+                
             
-
+            
             Text("""
                 "\(favoriteQuote.wrappedQuoteText)"
                 """)
@@ -38,7 +41,7 @@ struct QuoteDetailView: View {
                 .layoutPriority(2)
                 .minimumScaleFactor(0.3)
                 .accessibilityLabel(Text("quote text is \(favoriteQuote.wrappedQuoteText)"))
-
+            
             
             Text("~ \(favoriteQuote.wrappedQuoteAuthor)")
                 .padding(.top)
@@ -47,10 +50,20 @@ struct QuoteDetailView: View {
                 .accessibilityLabel(Text("quote author is \(favoriteQuote.wrappedQuoteAuthor)"))
             
             
-            Button(action: { forTheWidget(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor) }, label: {
+            Button(action: { forTheWidget(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor) }) {
+                Image(systemName: "arrow.turn.up.forward.iphone")
                 Text("Display on widget")
-                    .font(.title)
-            }).padding(.top)
+                    
+            }.font(.title)
+            .padding()
+            .background(Capsule().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+            .accentColor(.white)
+            .overlay(
+                Capsule()
+                    .stroke(Color.purple, lineWidth: 4)
+                    .scaleEffect(displayingOnWidget ? 2 : 1)
+                    .opacity(displayingOnWidget ? 0 : 1))
+            .animation(Animation.easeOut(duration: 0.6))
             
         }.padding(.vertical)
         .multilineTextAlignment(.center)
@@ -58,7 +71,7 @@ struct QuoteDetailView: View {
             Alert(title: Text("Quote will be displayed in widget"))
         })
         
-
+        
         
     }
     
@@ -72,13 +85,13 @@ struct QuoteDetailView: View {
         
         // requests a reload for all of the widgets
         if userDefaults?.string(forKey: "text") == quoteText {
-        
-        WidgetCenter.shared.reloadAllTimelines()
+            
+            WidgetCenter.shared.reloadAllTimelines()
             
         }
-
+        
     }
-
+    
 }
 
 

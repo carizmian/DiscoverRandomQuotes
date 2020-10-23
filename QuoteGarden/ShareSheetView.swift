@@ -13,7 +13,7 @@ struct ShareSheetView: UIViewControllerRepresentable {
 
     typealias Callback = (_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ Error: Error?) -> Void
     
-    let activityItems: [Any]
+    let activityItems: [UIImage]
     let applicationActivities: [UIActivity]? = nil
     let excludedActivityTypes: [UIActivity.ActivityType]? = nil
     let callback: Callback? = nil
@@ -27,11 +27,5 @@ struct ShareSheetView: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
         // nothing
-    }
-}
-
-struct ShareSheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShareSheetView(activityItems: ["a quote" as NSString])
     }
 }

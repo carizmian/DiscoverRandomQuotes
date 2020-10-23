@@ -18,6 +18,33 @@ import Foundation
 
 
 
+extension UIView {
+    func asImage(rect: CGRect) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: rect)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}
+
+struct RectGetter: View {
+    @Binding var rect: CGRect
+
+    var body: some View {
+        GeometryReader { proxy in
+            self.createView(proxy: proxy)
+        }
+    }
+
+    func createView(proxy: GeometryProxy) -> some View {
+        DispatchQueue.main.async {
+            self.rect = proxy.frame(in: .global)
+        }
+
+        return Rectangle().fill(Color.clear)
+    }
+}
+
 
 struct ContentView: View {
     
@@ -36,6 +63,14 @@ struct ContentView: View {
     
     @State private var showButtons = false
     
+    @State private var changedQuote = false
+    
+    //get image
+    
+    @State private var rect1: CGRect = .zero
+    @State private var rect2: CGRect = .zero
+    @State private var uiimage: UIImage? = nil
+    
     
     var body: some View {
         
@@ -45,11 +80,17 @@ struct ContentView: View {
                 
                 VStack {
                     
+                    #warning("swipe right for new quote")
                     QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
                         .layoutPriority(2)
                         .edgesIgnoringSafeArea(.all)
-                        .animation(.default)
+                        .rotation3DEffect(changedQuote ? Angle(degrees: 360) : Angle(degrees: 0), axis: (x: 0, y: 1, z: 0))
                         .onTapGesture(count: 2) {
+                            
+                            withAnimation(Animation.easeOut(duration: 1)) {
+                                changedQuote.toggle()
+                            }
+                            
                             quoteGardenApi().getRandomQuote { quote in
                                 withAnimation(.default) {
                                     addedToFavorites = false
@@ -59,32 +100,35 @@ struct ContentView: View {
                                 userDefaults.setValue(self.quote.quoteText, forKey: "qt")
                                 userDefaults.setValue(self.quote.quoteAuthor, forKey: "qa")
                                 #warning("user defaults for the last loaded quote")
-                                
                             }
                         }
+                        .background(RectGetter(rect: $rect1))
+                        .onTapGesture {
+                            self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
+                        }
+
                 }
      
                 // The cool popup
                 Group {
                     
+                    
                     Button(action: { showingShareSheetView = true }) {
                         Image(systemName: "square.and.arrow.up")
                             .accessibilityLabel(Text("Share quote"))
-                            .padding()
                             .rotationEffect(Angle.degrees(showButtons ? 0 : -90))
                         
-                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    }.customCircleButtonStyle()
                     .offset(x: 0, y: showButtons ? -150 : 0)
                     .opacity(showButtons ? 1 : 0)
                     
                     Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
                         Image(systemName: "doc.on.doc")
                             .accessibilityLabel(Text("Copy quote"))
-                            .padding()
                             .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
                         
                         
-                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    }.customCircleButtonStyle()
                     .offset(x: showButtons ? -110 : 0, y: showButtons ? -110 : 0)
                     .opacity(showButtons ? 1 : 0)
                     
@@ -92,10 +136,9 @@ struct ContentView: View {
                     Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
                         Image(systemName: addedToFavorites ? "heart.fill" : "heart")
                             .accessibilityLabel(Text("Add quote to your favorites"))
-                            .padding()
                             .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
                         
-                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    }.customCircleButtonStyle()
                     .offset(x: showButtons ? -150 : 0, y: 0)
                     .opacity(showButtons ? 1 : 0)
                     
@@ -104,15 +147,19 @@ struct ContentView: View {
                     
                     Button(action: { showButtons.toggle() }) {
                         Image(systemName: "plus")
-                            .padding()
                             .rotationEffect(Angle.degrees(showButtons ? 45 : 0))
-                    }.background(Circle().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
+                    }.customCircleButtonStyle()
+                    .overlay(
+                        Capsule()
+                            .stroke(Color.purple, lineWidth: 4)
+                            .scaleEffect(showButtons ? 2 : 1)
+                            .opacity(showButtons ? 0 : 1))
+                    .animation(Animation.easeOut(duration: 0.6))
                     
                     
                     
                 }.padding(.trailing)
-                .accentColor(.white)
-                .animation(.default)
+                .animation(.linear)
                 
             
                 
@@ -170,15 +217,11 @@ struct ContentView: View {
         }.accentColor(.purple)
         .sheet(isPresented: $showingShareSheetView) {
             #warning("share-aj image a ne text")
-            
-            ShareSheetView(activityItems: ["""
-            \(quote.quoteGenre)
-
-            \(quote.quoteText)
-
-            \(quote.quoteAuthor)
-            """
+            if uiimage != nil {
+            ShareSheetView(activityItems: [
+                self.uiimage!
             ])
+            }
         }
         //        .alert(isPresented: $addedToFavorites) {
         //            Alert(title: Text("Quote added to your favorites"))

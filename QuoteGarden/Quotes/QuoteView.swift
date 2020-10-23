@@ -15,40 +15,46 @@ struct QuoteView: View {
     
     
     var body: some View {
+        
+        
 
-        VStack(alignment: .center) {
+        ZStack {
+        
             
-            
-            Text("# \(quoteGenre)")
-                .padding(.bottom)
-                .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote genre is hashtag \(quoteGenre)"))
+            VStack(alignment: .center) {
+                
+                
+                Text("# \(quoteGenre)")
+                    .padding(.bottom)
+                    .allowsTightening(true)
+                    .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                    .accessibilityLabel(Text("quote genre is hashtag \(quoteGenre)"))
 
-            Text("""
-                "\(quoteText)"
-                """)
-                .italic()
-                .font(Font.system(.title, design: .monospaced).weight(.black))
-                .padding(.horizontal)
-                .allowsTightening(true)
-                .layoutPriority(2)
-                .minimumScaleFactor(0.3)
-                .accessibilityLabel(Text("quote text is \(quoteText)"))
+                Text("""
+                    "\(quoteText)"
+                    """)
+                    .italic()
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .padding(.horizontal)
+                    .allowsTightening(true)
+                    .layoutPriority(2)
+                    .minimumScaleFactor(0.3)
+                    .accessibilityLabel(Text("quote text is \(quoteText)"))
+                    
                 
-            
+                    
                 
-            
-            Text("~ \(quoteAuthor)")
-                .padding(.top)
-                .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote author is \(quoteAuthor)"))
+                Text("~ \(quoteAuthor)")
+                    .padding(.top)
+                    .allowsTightening(true)
+                    .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                    .accessibilityLabel(Text("quote author is \(quoteAuthor)"))
+                    
                 
-            
-            
-        }.padding(.vertical)
-        .multilineTextAlignment(.center)
+                
+            }.padding(.vertical)
+            .multilineTextAlignment(.center)
+        }
         
     }
 }

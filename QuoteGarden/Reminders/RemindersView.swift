@@ -39,9 +39,16 @@ struct RemindersView: View {
                     reminderIsSet = true
                     
                 }) {
-                    Text("Set Reminder")
-                        .font(.title)
-                }
+                    Image(systemName: "deskclock")
+                    Text("Set reminder")
+                }.customCapsuleButtonStyle()
+                .overlay(
+                    Capsule()
+                        .stroke(Color.purple, lineWidth: 4)
+                        .scaleEffect(reminderIsSet ? 2 : 1)
+                        .opacity(reminderIsSet ? 0 : 1))
+                .animation(Animation.easeOut(duration: 0.6))
+                
                 
             }.alert(isPresented: $reminderIsSet, content: {
                 Alert(title: Text("Success!"), message: Text("You will get reminded to discover quotes at \(dateString) every day!"))
