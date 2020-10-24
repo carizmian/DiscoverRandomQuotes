@@ -10,7 +10,7 @@ import Foundation
 
 // PRIMARY
 #warning("accessibility")
-#warning("bolji gesturi manje botuna")
+
 
 //Secondary
 #warning("app clip")
@@ -29,18 +29,18 @@ extension UIView {
 
 struct RectGetter: View {
     @Binding var rect: CGRect
-
+    
     var body: some View {
         GeometryReader { proxy in
             self.createView(proxy: proxy)
         }
     }
-
+    
     func createView(proxy: GeometryProxy) -> some View {
         DispatchQueue.main.async {
             self.rect = proxy.frame(in: .global)
         }
-
+        
         return Rectangle().fill(Color.clear)
     }
 }
@@ -65,10 +65,11 @@ struct ContentView: View {
     
     @State private var changedQuote = false
     
+    
+    
     //get image
     
     @State private var rect1: CGRect = .zero
-    @State private var rect2: CGRect = .zero
     @State private var uiimage: UIImage? = nil
     
     
@@ -76,73 +77,75 @@ struct ContentView: View {
         
         TabView {
             
-            ZStack(alignment: .center) {
+            VStack {
                 
-                VStack {
-                    
-                    #warning("swipe right for new quote")
-                    QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
-                        .layoutPriority(2)
-                        .edgesIgnoringSafeArea(.all)
-                        .rotation3DEffect(changedQuote ? Angle(degrees: 360) : Angle(degrees: 0), axis: (x: 0, y: 1, z: 0))
-                        .onTapGesture(count: 2) {
-                            
-                            withAnimation(Animation.easeOut(duration: 1)) {
-                                changedQuote.toggle()
-                            }
-                            
-                            quoteGardenApi().getRandomQuote { quote in
-                                withAnimation(.default) {
-                                    addedToFavorites = false
-                                }
-                                self.quote = quote
-                                userDefaults.setValue(self.quote.quoteGenre, forKey: "qg")
-                                userDefaults.setValue(self.quote.quoteText, forKey: "qt")
-                                userDefaults.setValue(self.quote.quoteAuthor, forKey: "qa")
-                                #warning("user defaults for the last loaded quote")
-                            }
-                        }
-                        .background(RectGetter(rect: $rect1))
-                        .onTapGesture {
-                            self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
-                        }
-
-                }
-     
+                
+                QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
+                    .layoutPriority(2)
+                    .edgesIgnoringSafeArea(.all)
+                    .rotation3DEffect(changedQuote ? Angle(degrees: 360) : Angle(degrees: 0), axis: (x: 0, y: 1, z: 0))
+                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                                .onEnded({ value in
+                                    
+                                    if value.translation.width < 0 {
+                                        
+                                        withAnimation(Animation.easeOut(duration: 1)) {
+                                            changedQuote.toggle()
+                                        }
+                                        
+                                        quoteGardenApi().getRandomQuote { quote in
+                                            withAnimation(.default) {
+                                                addedToFavorites = false
+                                            }
+                                            self.quote = quote
+                                            userDefaults.setValue(self.quote.quoteGenre, forKey: "qg")
+                                            userDefaults.setValue(self.quote.quoteText, forKey: "qt")
+                                            userDefaults.setValue(self.quote.quoteAuthor, forKey: "qa")
+                                            #warning("user defaults for the last loaded quote")
+                                        }
+                                    }
+                                }))
+                    .background(RectGetter(rect: $rect1))
+                    .onTapGesture {
+                        self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
+                    }
+                
+                
+                
                 // The cool popup
                 Group {
                     
-                    
-                    Button(action: { showingShareSheetView = true }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .accessibilityLabel(Text("Share quote"))
-                            .rotationEffect(Angle.degrees(showButtons ? 0 : -90))
+                    HStack {
+                        Button(action: { showingShareSheetView = true }) {
+                            Image(systemName: "square.and.arrow.up")
+                                .accessibilityLabel(Text("Share quote"))
+                                .rotationEffect(Angle.degrees(showButtons ? 0 : -90))
+                            
+                        }.customCircleButtonStyle()
+                        .offset(x: showButtons ? 0 : 0, y: showButtons ? 0 : 50)
+                        .opacity(showButtons ? 1 : 0)
                         
-                    }.customCircleButtonStyle()
-                    .offset(x: 0, y: showButtons ? -150 : 0)
-                    .opacity(showButtons ? 1 : 0)
-                    
-                    Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
-                        Image(systemName: "doc.on.doc")
-                            .accessibilityLabel(Text("Copy quote"))
-                            .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
+                        Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
+                            Image(systemName: "doc.on.doc")
+                                .accessibilityLabel(Text("Copy quote"))
+                                .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
+                            
+                            
+                        }.customCircleButtonStyle()
+                        .offset(x: showButtons ?  0 : 0, y: showButtons ? 0 : 50)
+                        .opacity(showButtons ? 1 : 0)
                         
                         
-                    }.customCircleButtonStyle()
-                    .offset(x: showButtons ? -110 : 0, y: showButtons ? -110 : 0)
-                    .opacity(showButtons ? 1 : 0)
-                    
-                    
-                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
-                        Image(systemName: addedToFavorites ? "heart.fill" : "heart")
-                            .accessibilityLabel(Text("Add quote to your favorites"))
-                            .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
+                        Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
+                            Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+                                .accessibilityLabel(Text("Add quote to your favorites"))
+                                .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
+                            
+                        }.customCircleButtonStyle()
+                        .offset(x: showButtons ? 0 : 0, y: showButtons ? 0 : 50)
+                        .opacity(showButtons ? 1 : 0)
                         
-                    }.customCircleButtonStyle()
-                    .offset(x: showButtons ? -150 : 0, y: 0)
-                    .opacity(showButtons ? 1 : 0)
-                    
-                    
+                    }
                     
                     
                     Button(action: { showButtons.toggle() }) {
@@ -158,10 +161,10 @@ struct ContentView: View {
                     
                     
                     
-                }.padding(.trailing)
-                .animation(.linear)
+                }.padding()
+                .animation(.default)
                 
-            
+                
                 
             }.font(.title)
             .tabItem {
@@ -216,11 +219,10 @@ struct ContentView: View {
             
         }.accentColor(.purple)
         .sheet(isPresented: $showingShareSheetView) {
-            #warning("share-aj image a ne text")
             if uiimage != nil {
-            ShareSheetView(activityItems: [
-                self.uiimage!
-            ])
+                ShareSheetView(activityItems: [
+                    self.uiimage!
+                ])
             }
         }
         //        .alert(isPresented: $addedToFavorites) {

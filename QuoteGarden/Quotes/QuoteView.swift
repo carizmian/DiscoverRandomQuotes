@@ -15,11 +15,7 @@ struct QuoteView: View {
     
     
     var body: some View {
-        
-        
 
-        ZStack {
-        
             
             VStack(alignment: .center) {
                 
@@ -54,7 +50,6 @@ struct QuoteView: View {
                 
             }.padding(.vertical)
             .multilineTextAlignment(.center)
-        }
         
     }
 }
