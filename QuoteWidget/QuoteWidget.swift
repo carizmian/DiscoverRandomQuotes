@@ -13,7 +13,7 @@ let userDefaults = UserDefaults(suiteName: "group.com.example.QuoteGarden")
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let quote: WidgetQuote
-    
+
 }
 
 struct WidgetQuote {
@@ -22,9 +22,8 @@ struct WidgetQuote {
     let author = userDefaults?.string(forKey: "author") ?? "not set"
 }
 
-
 struct Provider: TimelineProvider {
-    
+
     func placeholder(in context: Context) -> SimpleEntry {
         return SimpleEntry(date: Date(), quote: WidgetQuote() )
     }
@@ -34,7 +33,7 @@ struct Provider: TimelineProvider {
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         let entry = SimpleEntry(date: Date(), quote: WidgetQuote())
         let timeline = Timeline(entries: [entry], policy: .never)
         // never jer nemamo array of entry
@@ -42,8 +41,7 @@ struct Provider: TimelineProvider {
     }
 }
 
-
-struct QuoteWidgetEntryView : View {
+struct QuoteWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {

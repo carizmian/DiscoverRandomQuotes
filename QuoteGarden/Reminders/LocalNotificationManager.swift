@@ -14,11 +14,10 @@ struct Notification {
 }
 
 class LocalNotificationManager {
-    
+
     var notifications = [Notification]()
-    
-    
-    func requestPermission() -> Void {
+
+    func requestPermission() {
         UNUserNotificationCenter
             .current()
             .requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
@@ -26,43 +25,42 @@ class LocalNotificationManager {
                     self.scheduleNotifications(date: DateComponents())
                 }
             }
-        
+
     }
-    
-    func addNotification(title: String) -> Void {
+
+    func addNotification(title: String) {
         notifications.append(Notification(id: UUID().uuidString, title: title))
     }
-    
-    
-    func scheduleNotifications(date: DateComponents) -> Void {
+
+    func scheduleNotifications(date: DateComponents) {
         for notification in notifications {
-            
+
             let content = UNMutableNotificationContent()
             content.title = notification.title
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
-            
+
             UNUserNotificationCenter.current().add(request) { error in
                 guard error == nil else { return }
                 print("Scheduling notification with id: \(notification.id), title: \(notification.title)")
             }
         }
     }
-    
-    func schedule(components: DateComponents) -> Void {
+
+    func schedule(components: DateComponents) {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .notDetermined:
                 self.requestPermission()
-                
+
             case .authorized, .provisional:
                 self.scheduleNotifications(date: components)
-                
+
             default:
                 break
             }
-            
+
         }
     }
 }

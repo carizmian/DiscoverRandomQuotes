@@ -8,7 +8,6 @@
 import SwiftUI
 import Foundation
 
-
 // PRIMARY
 #warning("accessibility")
 #warning("swift lint")
@@ -17,32 +16,27 @@ import Foundation
 #warning("app clip")
 #warning("spotlight indexing")
 
-
-
 struct ContentView: View {
-    
+
     // Data
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
-    
-    
+
     var userDefaults = UserDefaults.init()
-    
+
     // Booleans
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
     // @State private var showButtons = false
     @State private var changedQuote = false
-    
+
     // Other
-    @State private var rect1: CGRect = .zero
-    @State private var uiimage: UIImage? = nil
-    
-    
+    @State private var uiimage: UIImage?
+
     var body: some View {
-        
+
         TabView {
-            
+
 //            VStack {
 //
 //                Color.clear
@@ -72,12 +66,7 @@ struct ContentView: View {
 //                    .onAppear{
 //                        self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
 //                    }
-                #warning("The app's Info.plist must contain an NSPhotoLibraryAddUsageDescription key with a string value explaining to the user how the app uses this data.")
-                
-                
-                
-                
-                
+
                 // The cool popup
                 //                Group {
                 //
@@ -130,8 +119,7 @@ struct ContentView: View {
                 //
                 //                }.padding()
                 //                .animation(.default)
-                
-                
+
 //                HStack {
 //                    Button(action: { showingShareSheetView = true }) {
 //                        Image(systemName: "square.and.arrow.up")
@@ -159,32 +147,27 @@ struct ContentView: View {
 //
 //                }
 //          }.font(.title)
-            QuoteGeneratorView(copyToClipboard: copyToClipboard(quoteGenre:quoteText:quoteAuthor:), addToFavorites: addToFavorites(_:_:_:_:), changedQuote: $changedQuote, addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView, rect1: $rect1, uiimage: $uiimage)
+            QuoteGeneratorView(copyToClipboard: copyToClipboard(quoteGenre:quoteText:quoteAuthor:), addToFavorites: addToFavorites(_:_:_:_:), changedQuote: $changedQuote, addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView, uiimage: $uiimage)
                 .tabItem {
                 Image(systemName: "wand.and.stars")
                     .accessibilityLabel(Text("New Quote"))
                 Text("Random")
             }
-            
-            
-            
-            
-            
-            
+
             RemindersView()
                 .tabItem {
                     Image(systemName: "deskclock.fill")
                         .accessibility(label: Text("Reminder"))
                     Text("Reminder")
                 }
-            
+
             QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
             .tabItem {
                 Image(systemName: "heart.fill")
                     .accessibilityLabel(Text("Your favorite quotes"))
                 Text("Favorites")
             }
-            
+
         }.accentColor(.purple)
         .sheet(isPresented: $showingShareSheetView) {
             if uiimage != nil {
@@ -197,39 +180,37 @@ struct ContentView: View {
         //            Alert(title: Text("Quote added to your favorites"))
         //        }
     }
-    
+
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
-        
+
         addedToFavorites.toggle()
-        
+
         let favoriteQuote = QuoteCD(context: self.moc)
         favoriteQuote.id = id
         favoriteQuote.quoteText = text
         favoriteQuote.quoteAuthor = author
         favoriteQuote.quoteGenre = genre
-        
+
         addedToFavorites = true
-        
+
         try? self.moc.save()
     }
-    
-    
-    
+
     func removeQuote(at offsets: IndexSet) {
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
             moc.delete(favoriteQuote)
         }
-        
+
         do {
             try moc.save()
-        } catch  {
+        } catch {
             return
         }
     }
-    
+
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-        
+
         let quoteString = """
         \(quoteGenre)
 
@@ -237,27 +218,19 @@ struct ContentView: View {
 
         \(quoteAuthor)
         """
-        
+
         let pasteboard = UIPasteboard.general
         pasteboard.string = quoteString
-        
+
         if pasteboard.string != nil {
             print(quoteText)
         }
     }
-    
-    
+
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-
-
-
-

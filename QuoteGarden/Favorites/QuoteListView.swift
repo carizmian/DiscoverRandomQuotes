@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct QuoteListView: View {
-    
+
     var removeQuote: (IndexSet) -> Void
     var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var searchText = ""
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 SearchBar(text: $searchText)
-                
+
                 List {
                     ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
                         NavigationLink(destination: QuoteDetailView(genre: favoriteQuote.wrappedQuoteGenre, text: favoriteQuote.wrappedQuoteText, author: favoriteQuote.wrappedQuoteAuthor)) {
@@ -26,18 +26,16 @@ struct QuoteListView: View {
                             }
                         }
                     }.onDelete(perform: removeQuote)
-                    
-                    
-                    
+
                 }.listStyle(InsetListStyle())
                 .navigationBarTitle(Text("Your Favorite Quotes"))
                 .navigationBarItems(trailing: EditButton())
                 .edgesIgnoringSafeArea(.bottom)
-                
+
             }
-            
+
         }
-        
+
     }
 }
 //struct QuoteListView_Previews: PreviewProvider {

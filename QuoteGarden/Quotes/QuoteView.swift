@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct QuoteView: View {
-    
+
     var genre: String
     var text: String
     var author: String
-    
-    
+
     var body: some View {
 
-            
             VStack(alignment: .center) {
-                
-                
+
                 Text("# \(genre)")
                     .padding(.bottom)
                     .allowsTightening(true)
@@ -36,34 +33,28 @@ struct QuoteView: View {
                     .layoutPriority(2)
                     .minimumScaleFactor(0.3)
                     .accessibilityLabel(Text("quote text is \(text)"))
-                    
-                
-                    
-                
+
                 Text("~ \(author)")
                     .padding(.top)
                     .allowsTightening(true)
                     .font(Font.system(.callout, design: .monospaced).weight(.bold))
                     .accessibilityLabel(Text("quote author is \(author)"))
-                    
-                
-                
+
             }.padding(.vertical)
             .multilineTextAlignment(.center)
-        
+
     }
 }
 
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        
+
         Group {
-            
-            
+
             QuoteView(genre: "nature", text: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", author: "Edward Thorndike")
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                             .previewDisplayName("iPhone 11 Pro Max")
-                
+
         }
     }
 }

@@ -8,23 +8,19 @@
 import Foundation
 import SwiftUI
 
-
 extension QuoteCD {
     var wrappedQuoteAuthor: String {
         return quoteAuthor ?? "Unknown Author"
     }
-    
+
     var wrappedQuoteText: String {
         return quoteText ?? "Unknown Quote Text"
     }
-    
+
     var wrappedQuoteGenre: String {
         return quoteGenre ?? "Unknown Quote Genre"
     }
 }
-
-
-
 
 extension View {
     func customCapsuleButtonStyle() -> some View {
@@ -38,7 +34,6 @@ extension View {
     }
 }
 
-
 extension UIView {
     func asImage(rect: CGRect) -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: rect)
@@ -47,6 +42,3 @@ extension UIView {
         }
     }
 }
-
-
-
