@@ -23,35 +23,8 @@ struct QuoteDetailView: View {
         
         
         VStack {
-            
-            Text("# \(genre)")
-                .multilineTextAlignment(.center)
-                .padding(.bottom)
-                .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote genre is \(genre)"))
-                
-                
-            
-            
-            Text("""
-                "\(text)"
-                """)
-                .italic()
-                .font(Font.system(.title, design: .monospaced).weight(.black))
-                .padding(.horizontal)
-                .allowsTightening(true)
-                .layoutPriority(2)
-                .minimumScaleFactor(0.3)
-                .accessibilityLabel(Text("quote text is \(text)"))
-            
-            
-            Text("~ \(author)")
-                .padding(.top)
-                .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote author is \(author)"))
-            
+
+            QuoteView(genre: genre, text: text, author: author)
             
             Button(action: { forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author) }) {
                 Image(systemName: "arrow.turn.up.forward.iphone")
@@ -68,9 +41,7 @@ struct QuoteDetailView: View {
                     .opacity(displayingOnWidget ? 0 : 1))
             .animation(Animation.easeOut(duration: 0.6))
             
-        }.padding(.vertical)
-        .multilineTextAlignment(.center)
-        .alert(isPresented: $displayingOnWidget, content:  {
+        }.alert(isPresented: $displayingOnWidget, content:  {
             Alert(title: Text("Quote will be displayed in widget"))
         })
         

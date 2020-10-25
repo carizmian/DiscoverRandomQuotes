@@ -47,7 +47,7 @@ struct QuoteWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        QuoteView(quoteGenre: entry.quote.genre, quoteText: entry.quote.text, quoteAuthor: entry.quote.author)
+        QuoteView(genre: entry.quote.genre, text: entry.quote.text, author: entry.quote.author)
     }
 }
 

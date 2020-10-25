@@ -17,68 +17,62 @@ import Foundation
 #warning("app clip")
 #warning("spotlight indexing")
 
+
+
 struct ContentView: View {
     
     // Data
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     
-    @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     
     var userDefaults = UserDefaults.init()
     
     // Booleans
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
-    @State private var quoteSelectedForWidget = false
-    @State private var showButtons = false
+    // @State private var showButtons = false
     @State private var changedQuote = false
     
     // Other
-    @State private var searchText = ""
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage? = nil
     
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         
         TabView {
             
-            VStack {
-                
-                Color.clear
-                    .overlay (
-                        
-                        QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
-                            .layoutPriority(2)
-                            .edgesIgnoringSafeArea(.all)
-                            .rotation3DEffect(changedQuote ? Angle(degrees: 360) : Angle(degrees: 0), axis: (x: 0, y: 1, z: 0))
-                            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                                        .onEnded({ value in
-                                            
-                                            if value.translation.width < 0 {
-                                                withAnimation(Animation.easeOut(duration: 1)) {
-                                                    changedQuote.toggle()
-                                                }
-                                                quoteGardenApi().getRandomQuote { quote in
-                                                    withAnimation(.default) {
-                                                        addedToFavorites = false
-                                                    }
-                                                    self.quote = quote
-                                                    userDefaults.setValue(self.quote.quoteGenre, forKey: "qg")
-                                                    userDefaults.setValue(self.quote.quoteText, forKey: "qt")
-                                                    userDefaults.setValue(self.quote.quoteAuthor, forKey: "qa")
-                                                    #warning("user defaults for the last loaded quote")
-                                                }
-                                            }
-                                        }))
-                            .background(RectGetter(rect: $rect1))
-                            .onTapGesture {
-                                self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
-                            }
-                        
-                    )
+//            VStack {
+//
+//                Color.clear
+//                    .overlay (
+//
+//                        QuoteView(genre: "\(quote.quoteGenre)", text: "\(quote.quoteText)", author: "\(quote.quoteAuthor)")
+//                            .layoutPriority(2)
+//                            .edgesIgnoringSafeArea(.all)
+//                            .rotation3DEffect(changedQuote ? Angle(degrees: 360) : Angle(degrees: 0), axis: (x: 0, y: 1, z: 0))
+//                            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+//                                        .onEnded({ value in
+//
+//                                            if value.translation.width < 0 {
+//                                                withAnimation(Animation.easeOut(duration: 1)) {
+//                                                    changedQuote.toggle()
+//                                                }
+//                                                quoteGardenApi().getRandomQuote { quote in
+//                                                    withAnimation(.default) {
+//                                                        addedToFavorites = false
+//                                                    }
+//                                                }
+//                                            }
+//                                        }))
+//
+//                    )
+//                    .background(RectGetter(rect: $rect1))
+//                    .onAppear{
+//                        self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
+//                    }
+                #warning("The app's Info.plist must contain an NSPhotoLibraryAddUsageDescription key with a string value explaining to the user how the app uses this data.")
                 
                 
                 
@@ -138,37 +132,35 @@ struct ContentView: View {
                 //                .animation(.default)
                 
                 
-                HStack {
-                    Button(action: { showingShareSheetView = true }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .accessibilityLabel(Text("Share quote"))
-                        
-                    }.customCircleButtonStyle()
-
-                    
-                    Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
-                        Image(systemName: "doc.on.doc")
-                            .accessibilityLabel(Text("Copy quote"))
-    
-                        
-                        
-                    }.customCircleButtonStyle()
-
-                    
-                    
-                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
-                        Image(systemName: addedToFavorites ? "heart.fill" : "heart")
-                            .accessibilityLabel(Text("Add quote to your favorites"))
-                        
-                    }.customCircleButtonStyle()
-
-                    
-                }
-                
-                
-                
-            }.font(.title)
-            .tabItem {
+//                HStack {
+//                    Button(action: { showingShareSheetView = true }) {
+//                        Image(systemName: "square.and.arrow.up")
+//                            .accessibilityLabel(Text("Share quote"))
+//
+//                    }.customCircleButtonStyle()
+//
+//
+//                    Button(action: { copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor )}) {
+//                        Image(systemName: "doc.on.doc")
+//                            .accessibilityLabel(Text("Copy quote"))
+//
+//
+//
+//                    }.customCircleButtonStyle()
+//
+//
+//
+//                    Button(action: { addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre) }) {
+//                        Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+//                            .accessibilityLabel(Text("Add quote to your favorites"))
+//
+//                    }.customCircleButtonStyle()
+//
+//
+//                }
+//          }.font(.title)
+            QuoteGeneratorView(copyToClipboard: copyToClipboard(quoteGenre:quoteText:quoteAuthor:), addToFavorites: addToFavorites(_:_:_:_:), changedQuote: $changedQuote, addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView, rect1: $rect1, uiimage: $uiimage)
+                .tabItem {
                 Image(systemName: "wand.and.stars")
                     .accessibilityLabel(Text("New Quote"))
                 Text("Random")
@@ -186,30 +178,8 @@ struct ContentView: View {
                     Text("Reminder")
                 }
             
-            
-            
-            NavigationView {
-                VStack {
-                    SearchBar(text: $searchText)
-                    
-                    List {
-                        ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
-                            NavigationLink(destination: QuoteDetailView(genre: favoriteQuote.wrappedQuoteGenre, text: favoriteQuote.wrappedQuoteText, author: favoriteQuote.wrappedQuoteAuthor)) {
-                                HStack {
-                                    QuoteRowView(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
-                                }
-                            }
-                        }.onDelete(perform: removeQuote)
-                        
-                        
-                        
-                    }.listStyle(InsetListStyle())
-                    .navigationBarTitle(Text("Your Favorite Quotes"))
-                    .navigationBarItems(trailing: EditButton())
-                    .edgesIgnoringSafeArea(.bottom)
-                    
-                }
-            }.tabItem {
+            QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
+            .tabItem {
                 Image(systemName: "heart.fill")
                     .accessibilityLabel(Text("Your favorite quotes"))
                 Text("Favorites")

@@ -10,7 +10,7 @@ import UIKit
 
 
 struct ShareSheetView: UIViewControllerRepresentable {
-
+    #warning("share sheet not showing anything")
     typealias Callback = (_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ Error: Error?) -> Void
     
     let activityItems: [UIImage]

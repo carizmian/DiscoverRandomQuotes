@@ -39,8 +39,6 @@ extension View {
 }
 
 
-
-
 extension UIView {
     func asImage(rect: CGRect) -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: rect)
@@ -49,3 +47,6 @@ extension UIView {
         }
     }
 }
+
+
+
