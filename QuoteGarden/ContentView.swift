@@ -10,75 +10,39 @@ import Foundation
 
 // PRIMARY
 #warning("accessibility")
-
+#warning("swift lint")
 
 //Secondary
 #warning("app clip")
 #warning("spotlight indexing")
 
-
-
-extension UIView {
-    func asImage(rect: CGRect) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: rect)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-        }
-    }
-}
-
-struct RectGetter: View {
-    @Binding var rect: CGRect
-    
-    var body: some View {
-        GeometryReader { proxy in
-            self.createView(proxy: proxy)
-        }
-    }
-    
-    func createView(proxy: GeometryProxy) -> some View {
-        DispatchQueue.main.async {
-            self.rect = proxy.frame(in: .global)
-        }
-        
-        return Rectangle().fill(Color.clear)
-    }
-}
-
-
 struct ContentView: View {
     
+    // Data
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     
+    var userDefaults = UserDefaults.init()
+    
+    // Booleans
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
     @State private var quoteSelectedForWidget = false
-    
-    @State private var searchText = ""
-    
-    var userDefaults = UserDefaults.init()
-    
     @State private var showButtons = false
-    
     @State private var changedQuote = false
     
-    
-    
-    //get image
-    
+    // Other
+    @State private var searchText = ""
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage? = nil
-    
     
     var body: some View {
         
         TabView {
             
             VStack {
-                
                 
                 QuoteView(quoteGenre: "\(quote.quoteGenre)", quoteText: "\(quote.quoteText)", quoteAuthor: "\(quote.quoteAuthor)")
                     .layoutPriority(2)
@@ -88,11 +52,9 @@ struct ContentView: View {
                                 .onEnded({ value in
                                     
                                     if value.translation.width < 0 {
-                                        
                                         withAnimation(Animation.easeOut(duration: 1)) {
                                             changedQuote.toggle()
                                         }
-                                        
                                         quoteGardenApi().getRandomQuote { quote in
                                             withAnimation(.default) {
                                                 addedToFavorites = false
@@ -119,7 +81,7 @@ struct ContentView: View {
                         Button(action: { showingShareSheetView = true }) {
                             Image(systemName: "square.and.arrow.up")
                                 .accessibilityLabel(Text("Share quote"))
-                                .rotationEffect(Angle.degrees(showButtons ? 0 : -90))
+                                .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
                             
                         }.customCircleButtonStyle()
                         .offset(x: showButtons ? 0 : 0, y: showButtons ? 0 : 50)
@@ -142,7 +104,7 @@ struct ContentView: View {
                                 .rotationEffect(Angle.degrees(showButtons ? 0 : 90))
                             
                         }.customCircleButtonStyle()
-                        .offset(x: showButtons ? 0 : 0, y: showButtons ? 0 : 50)
+                        .offset(x: showButtons ?  0 : 0, y: showButtons ? 0 : 50)
                         .opacity(showButtons ? 1 : 0)
                         
                     }
@@ -151,7 +113,8 @@ struct ContentView: View {
                     Button(action: { showButtons.toggle() }) {
                         Image(systemName: "plus")
                             .rotationEffect(Angle.degrees(showButtons ? 45 : 0))
-                    }.customCircleButtonStyle()
+                            .padding(.horizontal)
+                    }.customCapsuleButtonStyle()
                     .overlay(
                         Capsule()
                             .stroke(Color.purple, lineWidth: 4)
@@ -177,18 +140,17 @@ struct ContentView: View {
             
             
             
-            VStack {
-                RemindersView()
-            }.tabItem {
-                Image(systemName: "deskclock.fill")
-                    .accessibility(label: Text("Reminder"))
-                Text("Reminder")
-            }
+            
+            RemindersView()
+                .tabItem {
+                    Image(systemName: "deskclock.fill")
+                        .accessibility(label: Text("Reminder"))
+                    Text("Reminder")
+                }
             
             
             
             NavigationView {
-                
                 VStack {
                     SearchBar(text: $searchText)
                     
@@ -209,8 +171,6 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.bottom)
                     
                 }
-                
-                
             }.tabItem {
                 Image(systemName: "heart.fill")
                     .accessibilityLabel(Text("Your favorite quotes"))
