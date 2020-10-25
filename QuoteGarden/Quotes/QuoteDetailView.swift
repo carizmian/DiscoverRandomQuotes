@@ -7,11 +7,14 @@
 
 import SwiftUI
 import WidgetKit
+import CoreData
 
 
 struct QuoteDetailView: View {
     
-    var favoriteQuote: QuoteCD
+    var genre: String
+    var text: String
+    var author: String
     var userDefaults = UserDefaults.init(suiteName: "group.com.example.QuoteGarden")
     @State private var displayingOnWidget = false
     
@@ -21,18 +24,18 @@ struct QuoteDetailView: View {
         
         VStack {
             
-            Text("# \(favoriteQuote.wrappedQuoteGenre)")
+            Text("# \(genre)")
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
                 .allowsTightening(true)
                 .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote genre is \(favoriteQuote.wrappedQuoteGenre)"))
+                .accessibilityLabel(Text("quote genre is \(genre)"))
                 
                 
             
             
             Text("""
-                "\(favoriteQuote.wrappedQuoteText)"
+                "\(text)"
                 """)
                 .italic()
                 .font(Font.system(.title, design: .monospaced).weight(.black))
@@ -40,17 +43,17 @@ struct QuoteDetailView: View {
                 .allowsTightening(true)
                 .layoutPriority(2)
                 .minimumScaleFactor(0.3)
-                .accessibilityLabel(Text("quote text is \(favoriteQuote.wrappedQuoteText)"))
+                .accessibilityLabel(Text("quote text is \(text)"))
             
             
-            Text("~ \(favoriteQuote.wrappedQuoteAuthor)")
+            Text("~ \(author)")
                 .padding(.top)
                 .allowsTightening(true)
                 .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote author is \(favoriteQuote.wrappedQuoteAuthor)"))
+                .accessibilityLabel(Text("quote author is \(author)"))
             
             
-            Button(action: { forTheWidget(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor) }) {
+            Button(action: { forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author) }) {
                 Image(systemName: "arrow.turn.up.forward.iphone")
                 Text("Display on widget")
                     

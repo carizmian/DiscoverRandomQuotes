@@ -35,14 +35,3 @@ struct CapsuleButtonViewModifier: ViewModifier {
     }
 }
 
-extension View {
-    func customCapsuleButtonStyle() -> some View {
-        self.modifier(CapsuleButtonViewModifier())
-    }
-}
-
-extension View {
-    func customCircleButtonStyle() -> some View {
-        self.modifier(CircleButtonViewModifier())
-    }
-}
