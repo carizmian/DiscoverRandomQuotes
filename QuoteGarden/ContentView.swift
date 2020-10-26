@@ -18,11 +18,11 @@ import Foundation
 
 struct ContentView: View {
 
+    
     // Data
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
 
-    var userDefaults = UserDefaults.init()
 
     // Booleans
     @State private var addedToFavorites = false
@@ -36,7 +36,7 @@ struct ContentView: View {
     var body: some View {
 
         TabView {
-
+            
 //            VStack {
 //
 //                Color.clear

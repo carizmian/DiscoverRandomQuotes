@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
+        #warning("iCloud")
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -78,6 +79,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func createSampleData() throws {
+        // the pool of data, holds active objects
+        let context = persistentContainer.viewContext
+        
+        // context - where do they live
+        let quote = QuoteCD(context: context)
+        quote.id = "123"
+        quote.quoteGenre = "science"
+        quote.quoteText = "Knowledge is power"
+        quote.quoteAuthor = "Nikola Franičević"
+        
+        try context.save()
+    }
+    
+    func deleteAll() {
+        let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = QuoteCD.fetchRequest()
+        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
+        _ = try? persistentContainer.viewContext.execute(batchDeleteRequest1)
     }
 
 }

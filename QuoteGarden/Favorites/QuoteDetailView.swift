@@ -20,23 +20,20 @@ struct QuoteDetailView: View {
     var body: some View {
 
         VStack {
+            
+            Color.clear.overlay(
 
             QuoteView(genre: genre, text: text, author: author)
+                
+                )
 
             Button(action: { forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author) }) {
+                HStack{
                 Image(systemName: "arrow.turn.up.forward.iphone")
                 Text("Display on widget")
+                }
 
-            }.font(.title)
-            .padding()
-            .background(Capsule().fill(Color.purple).shadow(radius: 8, x: 4, y: 4))
-            .accentColor(.white)
-            .overlay(
-                Capsule()
-                    .stroke(Color.purple, lineWidth: 4)
-                    .scaleEffect(displayingOnWidget ? 2 : 1)
-                    .opacity(displayingOnWidget ? 0 : 1))
-            .animation(Animation.easeOut(duration: 0.6))
+            }.buttonStyle(ColoredButtonStyle())
 
         }.alert(isPresented: $displayingOnWidget, content: {
             Alert(title: Text("Quote will be displayed in widget"))

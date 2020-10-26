@@ -22,17 +22,6 @@ extension QuoteCD {
     }
 }
 
-extension View {
-    func customCapsuleButtonStyle() -> some View {
-        self.modifier(CapsuleButtonViewModifier())
-    }
-}
-
-extension View {
-    func customCircleButtonStyle() -> some View {
-        self.modifier(CircleButtonViewModifier())
-    }
-}
 
 extension UIView {
     func asImage(rect: CGRect) -> UIImage {

@@ -62,8 +62,7 @@ struct QuoteGeneratorView: View {
                     Image(systemName: "square.and.arrow.up")
                         .accessibilityLabel(Text("Share quote"))
 
-                }.customCircleButtonStyle()
-
+                }.buttonStyle(ColoredButtonStyle())
                 Button(action: {
                     self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
                     copyToClipboard(_: quote.quoteGenre, quote.quoteText, quote.quoteAuthor )
@@ -71,7 +70,7 @@ struct QuoteGeneratorView: View {
                     Image(systemName: "doc.on.doc")
                         .accessibilityLabel(Text("Copy quote"))
 
-                }.customCircleButtonStyle()
+                }.buttonStyle(ColoredButtonStyle())
 
                 Button(action: {
                     self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
@@ -80,7 +79,7 @@ struct QuoteGeneratorView: View {
                     Image(systemName: addedToFavorites ? "heart.fill" : "heart")
                         .accessibilityLabel(Text("Add quote to your favorites"))
 
-                }.customCircleButtonStyle()
+                }.buttonStyle(ColoredButtonStyle())
 
             }
 
