@@ -24,29 +24,37 @@ struct RemindersView: View {
     
     var body: some View {
         
-        VStack {
-            
-            Color.clear.overlay(
-                VStack {
-                Text("When do you want to discover new quotes?")
-                    .font(.largeTitle)
-                DatePicker("Select time", selection: $date, displayedComponents: .hourAndMinute)
-                    .datePickerStyle(WheelDatePickerStyle())
-                    .labelsHidden()
+        NavigationView {
+            VStack {
+
+                NavigationLink(destination: Text("reminders")) {
+                    Text("List of reminders")
                 }
-            )
-            Button(action: {
+
+                Color.clear.overlay(
+                    VStack {
+                        Text("When do you want to discover new quotes?")
+                            .font(.title)
+                        
+                        DatePicker("Select time", selection: $date, displayedComponents: .hourAndMinute)
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .labelsHidden()
+                    }.padding()
+                )
+                Button(action: {
+                    
+                    setNotification()
+                    reminderIsSet = true
+                    
+                }) {
+                    HStack {
+                        Image(systemName: "deskclock")
+                        Text("Set reminder")
+                    }
+                }.buttonStyle(ColoredButtonStyle())
                 
-                setNotification()
-                reminderIsSet = true
-                
-            }) {
-                HStack {
-                    Image(systemName: "deskclock")
-                    Text("Set reminder")
-                }
-            }.buttonStyle(ColoredButtonStyle())
-            
+            }.navigationBarTitle("Reminders")
+            .navigationBarItems(trailing: EditButton())
         }.alert(isPresented: $reminderIsSet, content: {
             Alert(title: Text("Success!"), message: Text("You will get reminded to discover quotes at \(dateString) every day!"))
         })

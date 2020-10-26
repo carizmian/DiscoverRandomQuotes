@@ -42,6 +42,7 @@ struct QuoteGeneratorView: View {
                                             withAnimation(.default) {
                                                 self.quote = quote
                                                 addedToFavorites = false
+                                                self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
                                             }
                                         }
                                     }
