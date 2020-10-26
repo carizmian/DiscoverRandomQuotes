@@ -20,15 +20,15 @@ struct QuoteDetailView: View {
     var body: some View {
 
         VStack {
-            
+
             Color.clear.overlay(
 
             QuoteView(genre: genre, text: text, author: author)
-                
+
                 )
 
             Button(action: { forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author) }) {
-                HStack{
+                HStack {
                 Image(systemName: "arrow.turn.up.forward.iphone")
                 Text("Display on widget")
                 }

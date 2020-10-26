@@ -9,6 +9,8 @@ import SwiftUI
 import Foundation
 
 // PRIMARY
+#warning("haptics")
+#warning("use system's sound services for short sounds and vibrations")
 #warning("accessibility")
 #warning("swift lint")
 
@@ -18,11 +20,9 @@ import Foundation
 
 struct ContentView: View {
 
-    
     // Data
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
-
 
     // Booleans
     @State private var addedToFavorites = false
@@ -36,7 +36,7 @@ struct ContentView: View {
     var body: some View {
 
         TabView {
-            
+
 //            VStack {
 //
 //                Color.clear

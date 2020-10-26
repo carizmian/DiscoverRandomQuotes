@@ -80,21 +80,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
+
     func createSampleData() throws {
         // the pool of data, holds active objects
         let context = persistentContainer.viewContext
-        
+
         // context - where do they live
         let quote = QuoteCD(context: context)
         quote.id = "123"
         quote.quoteGenre = "science"
         quote.quoteText = "Knowledge is power"
         quote.quoteAuthor = "Nikola Franičević"
-        
+
         try context.save()
     }
-    
+
     func deleteAll() {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = QuoteCD.fetchRequest()
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)

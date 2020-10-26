@@ -19,19 +19,17 @@ struct QuoteListView: View {
                 SearchBar(text: $searchText)
 
                 List {
-                    
+
                     ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
                         NavigationLink(destination: QuoteDetailView(genre: favoriteQuote.wrappedQuoteGenre, text: favoriteQuote.wrappedQuoteText, author: favoriteQuote.wrappedQuoteAuthor)) {
 
                             HStack {
                                 QuoteRowView(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
                             }
-                            
+
                         }
-                        
+                        #warning("show alert for deleting object")
                     }.onDelete(perform: removeQuote)
-                    
-                    
 
                 }.listStyle(InsetListStyle())
                 .navigationBarTitle(Text("Your Favorite Quotes"))

@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct QuoteRowView: View {
-    
+
     var quoteGenre: String
     var quoteAuthor: String
-    
+
     var body: some View {
-        
+
         HStack {
             Text("\(quoteAuthor)")
             Text("about").foregroundColor(.accentColor)
 
             Text("\(quoteGenre)")
-            
+
         }
     }
 }
