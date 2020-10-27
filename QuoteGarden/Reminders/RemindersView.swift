@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RemindersView: View {
+    
+    static let tag: String? = "Reminders"
 
     @State private var date = Date()
     @State private var reminderIsSet = false

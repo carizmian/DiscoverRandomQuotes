@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
-        #warning("iCloud")
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the

@@ -10,6 +10,8 @@ import Foundation
 
 struct QuoteGeneratorView: View {
     
+    static let tag: String? = "Home"
+    
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap the random button", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     
     var copyToClipboard: (_ quoteGenre: String, _ quoteText: String, _ quoteAuthor: String) -> Void
