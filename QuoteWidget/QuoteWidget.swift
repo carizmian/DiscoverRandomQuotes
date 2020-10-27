@@ -8,6 +8,8 @@
 import WidgetKit
 import SwiftUI
 
+#warning("tapping on widget deeplinks inside app")
+#warning("implement from WWWDC 2 video")
 let userDefaults = UserDefaults(suiteName: "group.com.example.QuoteGarden")
 
 struct SimpleEntry: TimelineEntry {
@@ -17,9 +19,9 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct WidgetQuote {
-    let genre = userDefaults?.string(forKey: "genre") ?? "not set"
-    let text = userDefaults?.string(forKey: "text") ?? "not set"
-    let author = userDefaults?.string(forKey: "author") ?? "not set"
+    let genre = userDefaults?.string(forKey: "genre") ?? ""
+    let text = userDefaults?.string(forKey: "text") ?? "Please select a  quote to display here"
+    let author = userDefaults?.string(forKey: "author") ?? ""
 }
 
 struct Provider: TimelineProvider {
@@ -43,9 +45,29 @@ struct Provider: TimelineProvider {
 
 struct QuoteWidgetEntryView: View {
     var entry: Provider.Entry
-
+    @Environment(\.widgetFamily) var family
+    @ViewBuilder
     var body: some View {
-        QuoteView(genre: entry.quote.genre, text: entry.quote.text, author: entry.quote.author)
+
+        switch family {
+        case .systemMedium:
+
+            VStack(alignment: .center) {
+                Text("\(entry.quote.text)")
+                    .italic()
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .padding(.horizontal)
+                    .allowsTightening(true)
+                    .layoutPriority(2)
+                    .minimumScaleFactor(0.3)
+                    .accessibilityLabel(Text("quote text is \(entry.quote.text)"))
+            }.multilineTextAlignment(.center)
+            .padding()
+
+        default:
+            QuoteView(genre: entry.quote.genre, text: entry.quote.text, author: entry.quote.author)
+        }
+
     }
 }
 
@@ -59,13 +81,13 @@ struct QuoteWidget: Widget {
         }
         .configurationDisplayName("Your favorite quote")
         .description("Read your favorite quote on your homescreen.")
-        .supportedFamilies([.systemLarge])
+        .supportedFamilies([.systemMedium, .systemLarge])
     }
 }
 
 struct QuoteWidget_Previews: PreviewProvider {
     static var previews: some View {
         QuoteWidgetEntryView(entry: SimpleEntry(date: Date(), quote: WidgetQuote()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

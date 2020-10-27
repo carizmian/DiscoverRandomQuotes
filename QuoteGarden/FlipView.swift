@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct FlipView<Front: View, Back: View>: View {
-    
+
     var isFlipped: Bool
     var front: () -> Front
     var back: () -> Back
-    
+
     init(isFlipped: Bool = false, @ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back) {
         self.isFlipped = isFlipped
         self.front = front
         self.back = back
     }
-    
+
     var body: some View {
         ZStack {
             front()

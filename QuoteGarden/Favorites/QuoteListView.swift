@@ -10,7 +10,7 @@ import SwiftUI
 struct QuoteListView: View {
 
     static let tag: String? = "Favorites"
-    
+
     var removeQuote: (IndexSet) -> Void
     var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var searchText = ""

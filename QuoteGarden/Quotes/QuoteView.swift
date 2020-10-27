@@ -19,7 +19,7 @@ struct QuoteView: View {
 
             HStack {
                 Text("#")
-                    .foregroundColor(Color.accentColor)
+                    .foregroundColor(.green)
                 Text("\(genre)")
             }.padding(.bottom)
             .allowsTightening(true)
@@ -37,7 +37,7 @@ struct QuoteView: View {
 
             HStack {
                 Text("~")
-                    .foregroundColor(Color.accentColor)
+                    .foregroundColor(.green)
                 Text("\(author)")
 
             }.padding(.top)
