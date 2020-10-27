@@ -24,7 +24,7 @@ struct Quote: Decodable, Hashable {
 }
 
 class quoteGardenApi {
-
+    #warning("deal with poor network or no network connection")
     func getRandomQuote(completion: @escaping (Quote) -> Void) {
 
         let semaphore = DispatchSemaphore(value: 0)
