@@ -12,6 +12,7 @@
 		935947E72547E6EC008C6811 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935947E62547E6EC008C6811 /* FlipView.swift */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		936597BC2547F7BD0010DC6F /* ReminderSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936597BB2547F7BD0010DC6F /* ReminderSheetView.swift */; };
 		936886632545C8320034F960 /* QuoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886622545C8320034F960 /* QuoteListView.swift */; };
 		936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886852545D18E0034F960 /* QuoteGeneratorView.swift */; };
 		936886C125468F2E0034F960 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886C025468F2D0034F960 /* DataController.swift */; };
@@ -85,6 +86,7 @@
 		935947E62547E6EC008C6811 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		936597BB2547F7BD0010DC6F /* ReminderSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSheetView.swift; sourceTree = "<group>"; };
 		936886622545C8320034F960 /* QuoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListView.swift; sourceTree = "<group>"; };
 		936886852545D18E0034F960 /* QuoteGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGeneratorView.swift; sourceTree = "<group>"; };
 		936886C025468F2D0034F960 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				935561FA2538014F00BF2F0A /* RemindersView.swift */,
+				936597BB2547F7BD0010DC6F /* ReminderSheetView.swift */,
 				935562002538050700BF2F0A /* LocalNotificationManager.swift */,
 			);
 			path = Reminders;
@@ -464,6 +467,7 @@
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
+				936597BC2547F7BD0010DC6F /* ReminderSheetView.swift in Sources */,
 				937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,

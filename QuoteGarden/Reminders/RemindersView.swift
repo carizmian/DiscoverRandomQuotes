@@ -11,65 +11,30 @@ struct RemindersView: View {
     
     static let tag: String? = "Reminders"
 
-    @State private var date = Date()
-    @State private var reminderIsSet = false
+    @State private var addingReminder = false
 
     #warning("show sheet when setting reminder(googlaj appleov reminder app example)")
     #warning("display array of notifications and enable reminder deletion! pojavljuju se svi reminderi koji su setani bili, to moramo popravit pod hitno!")
-    var dateString: String {
-
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        let string = formatter.string(from: date)
-        return string
-    }
+    
 
     var body: some View {
 
         NavigationView {
             VStack {
 
-                NavigationLink(destination: Text("reminders")) {
-                    Text("List of reminders")
+                Button("tap me") {
+                    addingReminder.toggle()
                 }
 
-                Color.clear.overlay(
-                    VStack {
-                        Text("When do you want to discover new quotes?")
-                            .font(.title)
-
-                        DatePicker("Select time", selection: $date, displayedComponents: .hourAndMinute)
-                            .datePickerStyle(WheelDatePickerStyle())
-                            .labelsHidden()
-                    }.padding()
-                )
-                Button(action: {
-
-                    setNotification()
-                    reminderIsSet = true
-
-                }) {
-                    HStack {
-                        Image(systemName: "deskclock")
-                        Text("Set reminder")
-                    }
-                }.buttonStyle(ColoredButtonStyle())
 
             }.navigationBarTitle("Reminders")
             .navigationBarItems(trailing: EditButton())
-        }.alert(isPresented: $reminderIsSet, content: {
-            Alert(title: Text("Success!"), message: Text("You will get reminded to discover quotes at \(dateString) every day!"))
-        })
+        }.sheet(isPresented: $addingReminder) {
+            ReminderSheetView()
+        }
 
     }
 
-    func setNotification() {
-        let manager = LocalNotificationManager()
-        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
-        manager.addNotification(title: "Discover new quotes now!")
-        manager.schedule(components: components)
-        print(manager.notifications)
-    }
 }
 
 struct RemindersView_Previews: PreviewProvider {

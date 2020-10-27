@@ -14,7 +14,7 @@ import Foundation
 
 struct ContentView: View {
 
-    @SceneStorage("selectedView") var selectedView: String?
+    @AppStorage("selectedView") var selectedView: String?
     
     // Data
     @Environment(\.managedObjectContext) var moc
