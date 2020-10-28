@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		935561FB2538014F00BF2F0A /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935561FA2538014F00BF2F0A /* RemindersView.swift */; };
 		935562012538050700BF2F0A /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935562002538050700BF2F0A /* LocalNotificationManager.swift */; };
+		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		935947E72547E6EC008C6811 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935947E62547E6EC008C6811 /* FlipView.swift */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		935561FA2538014F00BF2F0A /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
 		935562002538050700BF2F0A /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		935947E62547E6EC008C6811 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				93DEB57225284631006B9BF5 /* Quote.swift */,
+				9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */,
 				937C5840253CB73A0002D7E4 /* AppGroup.swift */,
 				936886C025468F2D0034F960 /* DataController.swift */,
 			);
@@ -475,6 +478,7 @@
 				935562012538050700BF2F0A /* LocalNotificationManager.swift in Sources */,
 				9392E4AF25408808004BF68E /* SearchBar.swift in Sources */,
 				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
+				9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */,
 				936886C125468F2E0034F960 /* DataController.swift in Sources */,
 				936886632545C8320034F960 /* QuoteListView.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,

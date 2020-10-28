@@ -40,13 +40,13 @@ struct ContentView: View {
                 Text("Random")
             }
 
-            RemindersView()
-                .tag(RemindersView.tag)
-                .tabItem {
-                    Image(systemName: "deskclock.fill")
-                        .accessibility(label: Text("Reminder"))
-                    Text("Reminder")
-                }
+//            RemindersView()
+//                .tag(RemindersView.tag)
+//                .tabItem {
+//                    Image(systemName: "deskclock.fill")
+//                        .accessibility(label: Text("Reminder"))
+//                    Text("Reminder")
+//                }
 
             QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
                 .tag(QuoteListView.tag)

@@ -30,3 +30,29 @@ extension UIView {
         }
     }
 }
+
+extension View {
+    func glow(color: Color = .red, radius: CGFloat = 20) -> some View {
+        self
+            .overlay(self.blur(radius: radius / 6))
+            .shadow(color: color, radius: radius / 3)
+            .shadow(color: color, radius: radius / 3)
+            .shadow(color: color, radius: radius / 3)
+    }
+}
+
+extension View {
+    func multicolorGlow() -> some View {
+        ZStack {
+            ForEach(0..<2) { i in
+                Rectangle()
+                    .fill(AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center))
+                    .frame(width: 400, height: 300)
+                    .mask(self.blur(radius: 20))
+                    .overlay(self.blur(radius: 5 - CGFloat(i * 5)))
+                // + atach this to the view
+                // .overlay(self.blur(radius: CGFloat(i * 2)))
+            }
+        }
+    }
+}

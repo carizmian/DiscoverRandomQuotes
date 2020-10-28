@@ -16,7 +16,7 @@ struct Notification {
 class LocalNotificationManager {
 
     var notifications = [Notification]()
-
+    
     func requestPermission() {
         UNUserNotificationCenter
             .current()
@@ -32,11 +32,13 @@ class LocalNotificationManager {
         notifications.append(Notification(id: UUID().uuidString, title: title))
     }
 
+    
     func scheduleNotifications(date: DateComponents) {
         for notification in notifications {
 
             let content = UNMutableNotificationContent()
             content.title = notification.title
+            content.sound = UNNotificationSound.default
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
