@@ -56,7 +56,7 @@ struct QuoteView_Previews: PreviewProvider {
 
         Group {
 
-            QuoteView(genre: "nature", text: "Human beings are accustomed to think of intellect as the power of having and controlling ideas and of abilty to learn as synonymous with ability to have ideas. But learning by having ideas is really one of the rare and isolated events in nature.", author: "Edward Thorndike")
+            QuoteView(genre: "nature", text: "Human beings are accustomed  ", author: "Edward Thorndike")
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
 

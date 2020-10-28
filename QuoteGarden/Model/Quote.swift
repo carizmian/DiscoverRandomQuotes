@@ -24,7 +24,7 @@ struct Quote: Decodable, Hashable {
     }
 }
 
-class quoteGardenApi {
+class QuoteGardenApi {
     #warning("deal with poor network or no network connection")
     func getRandomQuote(completion: @escaping (Quote) -> Void) {
 
@@ -34,7 +34,7 @@ class quoteGardenApi {
         config.allowsCellularAccess = true
         config.waitsForConnectivity = true
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
-        
+
         let semaphore = DispatchSemaphore(value: 0)
 
         let url = URL(string: "https://quote-garden.herokuapp.com/api/v2/quotes/random")
@@ -42,7 +42,6 @@ class quoteGardenApi {
         var request = URLRequest(url: url!, timeoutInterval: Double.infinity)
         request.httpMethod = "GET"
 
-        
         let task = URLSession(configuration: config).dataTask(with: request) { data, response, error in
             guard let data = data else {
                 print(String(describing: error))

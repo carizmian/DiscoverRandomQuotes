@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 #warning("haptics")
-#warning("use system's sound services for short sounds and vibrations")
+#warning("use system's sound services for and vibrations")
 
 struct ContentView: View {
 
@@ -25,17 +25,14 @@ struct ContentView: View {
     // @State private var showButtons = false
     @State private var changedQuote = false
 
-    // Other
-    @State private var uiimage: UIImage?
-
     var body: some View {
 
         TabView(selection: $selectedView) {
 
-            QuoteGeneratorView(copyToClipboard: copyToClipboard(quoteGenre:quoteText:quoteAuthor:), addToFavorites: addToFavorites(_:_:_:_:), changedQuote: $changedQuote, addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView, uiimage: $uiimage)
+            QuoteGeneratorView(addToFavorites: addToFavorites(_:_:_:_:), changedQuote: $changedQuote, addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView)
                 .tag(QuoteGeneratorView.tag)
                 .tabItem {
-                Image(systemName: "wand.and.stars")
+                Image(systemName: "wand.and.stars.inverse")
                     .accessibilityLabel(Text("New Quote"))
                 Text("Random")
             }
@@ -57,21 +54,12 @@ struct ContentView: View {
             }
 
         }.accentColor(.purple)
-        .sheet(isPresented: $showingShareSheetView) {
-            if uiimage != nil {
-                ShareSheetView(activityItems: [
-                    self.uiimage!
-                ])
-            }
-        }
         //        .alert(isPresented: $addedToFavorites) {
         //            Alert(title: Text("Quote added to your favorites"))
         //        }
     }
 
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
-
-        addedToFavorites.toggle()
 
         let favoriteQuote = QuoteCD(context: self.moc)
         favoriteQuote.id = id
@@ -94,24 +82,6 @@ struct ContentView: View {
             try moc.save()
         } catch {
             return
-        }
-    }
-
-    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-
-        let quoteString = """
-        \(quoteGenre)
-
-        \(quoteText)
-
-        \(quoteAuthor)
-        """
-
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = quoteString
-
-        if pasteboard.string != nil {
-            print(quoteText)
         }
     }
 

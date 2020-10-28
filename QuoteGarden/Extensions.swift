@@ -44,12 +44,12 @@ extension View {
 extension View {
     func multicolorGlow() -> some View {
         ZStack {
-            ForEach(0..<2) { i in
+            ForEach(0..<2) { number in
                 Rectangle()
                     .fill(AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center))
                     .frame(width: 400, height: 300)
                     .mask(self.blur(radius: 20))
-                    .overlay(self.blur(radius: 5 - CGFloat(i * 5)))
+                    .overlay(self.blur(radius: 5 - CGFloat(number * 5)))
                 // + atach this to the view
                 // .overlay(self.blur(radius: CGFloat(i * 2)))
             }
