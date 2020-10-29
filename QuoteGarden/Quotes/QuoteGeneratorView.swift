@@ -60,12 +60,13 @@ struct QuoteGeneratorView: View {
                             addedToFavorites = false
                             addedToClipboard = false
                         }
-                        self.uiimage = self.rect1.uiImage
                     }
                     .animation(.default)
                 
             ).getRect($rect1)
-            
+            .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
+
+
             
             HStack {
                 Button(action: {
@@ -80,7 +81,6 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    self.uiimage = self.rect1.uiImage
                     addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre)
                 }) {
                     Image(systemName: addedToFavorites ? "heart.fill" : "heart")
@@ -89,7 +89,6 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Add quote to your favorites"))
                 
                 Button(action: {
-                    self.uiimage = self.rect1.uiImage
                     copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor)
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
@@ -110,9 +109,9 @@ struct QuoteGeneratorView: View {
         .alert(isPresented: $showingNetworkAlert) {
             Alert(title: Text("No internet connection"), message: Text("Please connect to the internet!"))
         }
+        .onChange(of: rect1) {_ in self.uiimage = self.rect1.uiImage }
     }
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-        
         let quoteString = """
         \(quoteGenre)
 

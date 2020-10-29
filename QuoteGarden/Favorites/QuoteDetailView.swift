@@ -29,11 +29,11 @@ struct QuoteDetailView: View {
             Color.clear.overlay(
                 
                 QuoteView(genre: genre, text: text, author: author)
-                
+
             ).getRect($rect1)
-            .onAppear {
-                self.uiimage = self.rect1.uiImage
-            }
+            .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
+
+
             
             HStack {
                 Button(action: {
@@ -48,8 +48,17 @@ struct QuoteDetailView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
+                    forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author)
+                }) {
+                    HStack {
+                        Image(systemName: "arrow.turn.up.forward.iphone")
+                        Text("Display on widget")
+                    }
+                    
+                }.buttonStyle(ColoredButtonStyle())
+                
+                Button(action: {
                     copyToClipboard(quoteGenre: genre, quoteText: text, quoteAuthor: author)
-                    self.uiimage = self.rect1.uiImage
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
                     
@@ -57,17 +66,6 @@ struct QuoteDetailView: View {
                 .accessibilityLabel(Text("Copy quote"))
                 
             }
-            
-            Button(action: {
-                forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author)
-                self.uiimage = self.rect1.uiImage
-            }) {
-                HStack {
-                    Image(systemName: "arrow.turn.up.forward.iphone")
-                    Text("Display on widget")
-                }
-                
-            }.buttonStyle(ColoredButtonStyle())
             
         }.alert(isPresented: $displayingOnWidget, content: {
             Alert(title: Text("Quote will be displayed in widget"))
@@ -100,7 +98,6 @@ struct QuoteDetailView: View {
     }
     
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-        
         let quoteString = """
         \(quoteGenre)
 
