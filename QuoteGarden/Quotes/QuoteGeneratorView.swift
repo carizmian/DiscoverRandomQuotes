@@ -27,7 +27,7 @@ struct QuoteGeneratorView: View {
     @Binding var showingShareSheetView: Bool
     
     @State private var rect1: CGRect = .zero
-    @State private var uiimage: UIImage?
+    @State private var uiimage: UIImage? = nil
     
     let reachability = try! Reachability()
     
@@ -60,23 +60,18 @@ struct QuoteGeneratorView: View {
                             addedToFavorites = false
                             addedToClipboard = false
                         }
-                        
-                        self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
-                        showingNetworkAlert = false
-
+                        self.uiimage = self.rect1.uiImage
                     }
                     .animation(.default)
                 
-            )
-            .background(RectGetter(rect: $rect1))
+            ).getRect($rect1)
+            
             
             HStack {
                 Button(action: {
-                    print(self.uiimage.debugDescription)
-                    self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
+                    self.uiimage = self.rect1.uiImage
                     if self.uiimage != nil {
                         showingShareSheetView = true
-                        print(self.uiimage.debugDescription)
                     }
                 }) {
                     Image(systemName: "square.and.arrow.up")
@@ -85,7 +80,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
+                    self.uiimage = self.rect1.uiImage
                     addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre)
                 }) {
                     Image(systemName: addedToFavorites ? "heart.fill" : "heart")
@@ -94,7 +89,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Add quote to your favorites"))
                 
                 Button(action: {
-                    self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
+                    self.uiimage = self.rect1.uiImage
                     copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor)
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
