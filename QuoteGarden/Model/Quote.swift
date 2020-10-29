@@ -8,7 +8,6 @@
 import Foundation
 import Network
 
-
 // MARK: - Response
 struct Response: Decodable {
     let statusCode: Int
@@ -24,8 +23,6 @@ struct Quote: Decodable, Hashable {
         case quoteText, quoteAuthor, quoteGenre
     }
 }
-
-
 
 class QuoteGardenApi {
     

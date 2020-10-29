@@ -27,7 +27,7 @@ struct QuoteGeneratorView: View {
     @Binding var showingShareSheetView: Bool
     
     @State private var rect1: CGRect = .zero
-    @State private var uiimage: UIImage? = nil
+    @State private var uiimage: UIImage?
     
     let reachability = try! Reachability()
     
@@ -65,8 +65,6 @@ struct QuoteGeneratorView: View {
                 
             ).getRect($rect1)
             .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
-
-
             
             HStack {
                 Button(action: {

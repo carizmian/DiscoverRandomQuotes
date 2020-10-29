@@ -10,8 +10,7 @@ import SwiftUI
 
 #warning("tapping on widget deeplinks inside app")
 #warning("implement from WWWDC 2 video")
-let userDefaults = UserDefaults(suiteName: "group.com.example.QuoteGarden")
-
+let userDefaults = UserDefaults.shared
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let quote: WidgetQuote
@@ -19,9 +18,9 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct WidgetQuote {
-    let genre = userDefaults?.string(forKey: "genre") ?? ""
-    let text = userDefaults?.string(forKey: "text") ?? "Please select a  quote to display here"
-    let author = userDefaults?.string(forKey: "author") ?? ""
+    let genre = userDefaults.string(forKey: "genre") ?? ""
+    let text = userDefaults.string(forKey: "text") ?? "Please select a  quote to display here"
+    let author = userDefaults.string(forKey: "author") ?? ""
 }
 
 struct Provider: TimelineProvider {

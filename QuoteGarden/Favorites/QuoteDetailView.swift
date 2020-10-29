@@ -15,12 +15,12 @@ struct QuoteDetailView: View {
     var genre: String
     var text: String
     var author: String
-    var userDefaults = UserDefaults.init(suiteName: "group.com.example.QuoteGarden")
+    var userDefaults = UserDefaults.shared
     @State private var displayingOnWidget = false
     @State private var addedToClipboard = false
     @State private var showingShareSheetView = false
     @State private var rect1: CGRect = .zero
-    @State private var uiimage: UIImage? = nil
+    @State private var uiimage: UIImage?
     
     var body: some View {
         
@@ -32,8 +32,6 @@ struct QuoteDetailView: View {
 
             ).getRect($rect1)
             .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
-
-
             
             HStack {
                 Button(action: {
@@ -83,13 +81,13 @@ struct QuoteDetailView: View {
     func forTheWidget(quoteGenre: String, quoteText: String, quoteAuthor: String) {
         displayingOnWidget = true
         print(displayingOnWidget)
-        userDefaults!.set(quoteGenre, forKey: "genre")
-        userDefaults!.set(quoteText, forKey: "text")
-        userDefaults!.set(quoteAuthor, forKey: "author")
+        userDefaults.set(quoteGenre, forKey: "genre")
+        userDefaults.set(quoteText, forKey: "text")
+        userDefaults.set(quoteAuthor, forKey: "author")
         print(displayingOnWidget)
         
         // requests a reload for all of the widgets
-        if userDefaults?.string(forKey: "text") == quoteText {
+        if userDefaults.string(forKey: "text") == quoteText {
             
             WidgetCenter.shared.reloadAllTimelines()
             

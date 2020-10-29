@@ -32,6 +32,8 @@
 		9392E4A0253EA01F004BF68E /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
+		93C80DD5254B464000CF1148 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C80DD4254B464000CF1148 /* UserDefaults.swift */; };
+		93C80DD6254B464000CF1148 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C80DD4254B464000CF1148 /* UserDefaults.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
 		93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
@@ -109,6 +111,7 @@
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRowView.swift; sourceTree = "<group>"; };
+		93C80DD4254B464000CF1148 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		93DEB53B25284527006B9BF5 /* QuoteGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DEB53E25284527006B9BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DEB54025284527006B9BF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -239,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
+				93C80DD4254B464000CF1148 /* UserDefaults.swift */,
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
 				936886CA25469D460034F960 /* ButtonStyle.swift */,
 				935947E62547E6EC008C6811 /* FlipView.swift */,
@@ -486,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C80DD6254B464000CF1148 /* UserDefaults.swift in Sources */,
 				9392E4A0253EA01F004BF68E /* QuoteView.swift in Sources */,
 				9392E49D253EA01F004BF68E /* Quote.swift in Sources */,
 				9392E48F253EA001004BF68E /* QuoteWidget.swift in Sources */,
@@ -510,6 +515,7 @@
 				9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */,
 				936886C125468F2E0034F960 /* DataController.swift in Sources */,
 				936886632545C8320034F960 /* QuoteListView.swift in Sources */,
+				93C80DD5254B464000CF1148 /* UserDefaults.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				9370A52C2545609A00F2C029 /* Extensions.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,

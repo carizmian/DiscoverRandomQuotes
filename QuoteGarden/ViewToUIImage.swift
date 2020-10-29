@@ -8,23 +8,6 @@
 import Foundation
 import SwiftUI
 
-extension CGRect {
-    var uiImage: UIImage? {
-        UIApplication.shared.windows
-            .filter{ $0.isKeyWindow }
-            .first?.rootViewController?.view
-            .asImage(rect: self)
-    }
-}
-
-
-extension View {
-    func getRect(_ rect: Binding<CGRect>) -> some View {
-        self.modifier(GetRect(rect: rect))
-    }
-}
-
-
 struct GetRect: ViewModifier {
 
     @Binding var rect: CGRect
@@ -32,7 +15,7 @@ struct GetRect: ViewModifier {
     var measureRect: some View {
         GeometryReader { proxy in
             Rectangle().fill(Color.clear)
-                .preference(key: RectPreferenceKey.self, value:  proxy.frame(in: .global))
+                .preference(key: RectPreferenceKey.self, value: proxy.frame(in: .global))
         }
     }
 
@@ -45,26 +28,5 @@ struct GetRect: ViewModifier {
                 }
             }
 
-    }
-}
-
-extension GetRect {
-    struct RectPreferenceKey: PreferenceKey {
-        static func reduce(value: inout CGRect?, nextValue: () -> CGRect?) {
-            value = nextValue()
-        }
-
-        typealias Value = CGRect?
-
-        static var defaultValue: CGRect? = nil
-    }
-}
-
-extension UIView {
-    func asImage(rect: CGRect) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: rect)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-        }
     }
 }

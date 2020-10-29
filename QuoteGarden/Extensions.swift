@@ -22,7 +22,6 @@ extension QuoteCD {
     }
 }
 
-
 extension View {
     func glow(color: Color = .red, radius: CGFloat = 20) -> some View {
         self
@@ -46,5 +45,41 @@ extension View {
                 // .overlay(self.blur(radius: CGFloat(i * 2)))
             }
         }
+    }
+}
+
+extension GetRect {
+    struct RectPreferenceKey: PreferenceKey {
+        static func reduce(value: inout CGRect?, nextValue: () -> CGRect?) {
+            value = nextValue()
+        }
+
+        typealias Value = CGRect?
+
+        static var defaultValue: CGRect?
+    }
+}
+
+extension UIView {
+    func asImage(rect: CGRect) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: rect)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}
+
+extension CGRect {
+    var uiImage: UIImage? {
+        UIApplication.shared.windows
+            .filter { $0.isKeyWindow }
+            .first?.rootViewController?.view
+            .asImage(rect: self)
+    }
+}
+
+extension View {
+    func getRect(_ rect: Binding<CGRect>) -> some View {
+        self.modifier(GetRect(rect: rect))
     }
 }
