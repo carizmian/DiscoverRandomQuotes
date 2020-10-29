@@ -7,53 +7,69 @@
 
 import SwiftUI
 import Foundation
+import Reachability
+import SystemConfiguration
 
 struct QuoteGeneratorView: View {
-
+    
     static let tag: String? = "Home"
-
+    
     @EnvironmentObject var network: NetworkMonitor
-
+    
     @State private var quote: Quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
-
+    
     var addToFavorites: (_ id: String, _ text: String, _ author: String, _ genre: String) -> Void
-
+    
     @Binding var changedQuote: Bool
     @Binding var addedToFavorites: Bool
     @State private var addedToClipboard = false
+    @State private var showingNetworkAlert = false
     @Binding var showingShareSheetView: Bool
-
+    
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
-
+    
+    let reachability = try! Reachability()
+    
     var body: some View {
-
+        
         VStack {
-
+            
             Color.clear.overlay(
-
+                
                 QuoteView(genre: "\(quote.quoteGenre)", text: "\(quote.quoteText)", author: "\(quote.quoteAuthor)")
                     .layoutPriority(2)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
                         changedQuote.toggle()
 
+                        reachability.whenUnreachable = { _ in
+                            showingNetworkAlert = true
+                            print("Not reachable")
+                        }
+                        
+                        do {
+                            try reachability.startNotifier()
+                        } catch {
+                            print("Unable to start notifier")
+                        }
+                       
                         QuoteGardenApi().getRandomQuote { quote in
-
+                            
                             self.quote = quote
                             addedToFavorites = false
                             addedToClipboard = false
-
                         }
-
+                        
                         self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
+                        showingNetworkAlert = false
 
                     }
                     .animation(.default)
-
+                
             )
             .background(RectGetter(rect: $rect1))
-
+            
             HStack {
                 Button(action: {
                     print(self.uiimage.debugDescription)
@@ -64,30 +80,30 @@ struct QuoteGeneratorView: View {
                     }
                 }) {
                     Image(systemName: "square.and.arrow.up")
-                        .accessibilityLabel(Text("Share quote"))
-
+                    
                 }.buttonStyle(ColoredButtonStyle())
-
+                .accessibilityLabel(Text("Share quote"))
+                
                 Button(action: {
                     self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
                     addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre)
                 }) {
                     Image(systemName: addedToFavorites ? "heart.fill" : "heart")
-                        .accessibilityLabel(Text("Add quote to your favorites"))
-
+                    
                 }.buttonStyle(ColoredButtonStyle())
-
+                .accessibilityLabel(Text("Add quote to your favorites"))
+                
                 Button(action: {
                     self.uiimage = UIApplication.shared.windows[0].rootViewController?.view.asImage(rect: rect1)
                     copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor)
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
-                        .accessibilityLabel(Text("Copy quote"))
-
+                    
                 }.buttonStyle(ColoredButtonStyle())
-
+                .accessibilityLabel(Text("Copy quote"))
+                
             }
-
+            
         }.animation(.default)
         .sheet(isPresented: $showingShareSheetView) {
             if uiimage != nil {
@@ -96,9 +112,12 @@ struct QuoteGeneratorView: View {
                 ])
             }
         }
+        .alert(isPresented: $showingNetworkAlert) {
+            Alert(title: Text("No internet connection"), message: Text("Please connect to the internet!"))
+        }
     }
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-
+        
         let quoteString = """
         \(quoteGenre)
 
@@ -106,16 +125,17 @@ struct QuoteGeneratorView: View {
 
         \(quoteAuthor)
         """
-
+        
         let pasteboard = UIPasteboard.general
         pasteboard.string = quoteString
-
+        
         if pasteboard.string != nil {
             print(quoteText)
         }
-
+        
         addedToClipboard = true
     }
+    
 }
 
 //struct QuoteGeneratorView_Previews: PreviewProvider {

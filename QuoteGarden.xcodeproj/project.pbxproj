@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		935561FB2538014F00BF2F0A /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935561FA2538014F00BF2F0A /* RemindersView.swift */; };
 		935562012538050700BF2F0A /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935562002538050700BF2F0A /* LocalNotificationManager.swift */; };
 		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
+		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
 		935947E72547E6EC008C6811 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935947E62547E6EC008C6811 /* FlipView.swift */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
@@ -140,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +334,9 @@
 				9392E494253EA003004BF68E /* PBXTargetDependency */,
 			);
 			name = QuoteGarden;
+			packageProductDependencies = (
+				9358ED1C254A88A800C04DC8 /* Reachability */,
+			);
 			productName = QuoteGarden;
 			productReference = 93DEB53B25284527006B9BF5 /* QuoteGarden.app */;
 			productType = "com.apple.product-type.application";
@@ -406,6 +411,9 @@
 				Base,
 			);
 			mainGroup = 93DEB53225284527006B9BF5;
+			packageReferences = (
+				9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */,
+			);
 			productRefGroup = 93DEB53C25284527006B9BF5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -908,6 +916,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9358ED1C254A88A800C04DC8 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */ = {

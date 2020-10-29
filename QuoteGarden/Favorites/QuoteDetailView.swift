@@ -28,10 +28,8 @@ struct QuoteDetailView: View {
                 )
 
             Button(action: { forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author) }) {
-                HStack {
                 Image(systemName: "arrow.turn.up.forward.iphone")
                 Text("Display on widget")
-                }
 
             }.buttonStyle(ColoredButtonStyle())
 

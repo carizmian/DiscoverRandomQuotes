@@ -8,6 +8,7 @@
 import Foundation
 import Network
 
+
 // MARK: - Response
 struct Response: Decodable {
     let statusCode: Int
@@ -24,18 +25,18 @@ struct Quote: Decodable, Hashable {
     }
 }
 
-class QuoteGardenApi {
-    #warning("deal with poor network or no network connection")
-    func getRandomQuote(completion: @escaping (Quote) -> Void) {
 
+
+class QuoteGardenApi {
+    
+    func getRandomQuote(completion: @escaping (Quote) -> Void) {
+        
         let config = URLSessionConfiguration.default
         config.allowsExpensiveNetworkAccess = true
         config.allowsConstrainedNetworkAccess = true
         config.allowsCellularAccess = true
-        config.waitsForConnectivity = true
-        config.requestCachePolicy = .reloadIgnoringLocalCacheData
-
-        let semaphore = DispatchSemaphore(value: 0)
+        config.waitsForConnectivity = false
+//        config.requestCachePolicy = .reloadIgnoringLocalCacheData
 
         let url = URL(string: "https://quote-garden.herokuapp.com/api/v2/quotes/random")
 
@@ -57,11 +58,9 @@ class QuoteGardenApi {
             }
 
             print(String(data: data, encoding: .utf8)!)
-            semaphore.signal()
         }
 
         task.resume()
-        semaphore.wait()
     }
 
 }
