@@ -5,7 +5,6 @@
 //  Created by Master Family on 25/10/2020.
 //
 
-import Foundation
 import SwiftUI
 
 struct GetRect: ViewModifier {

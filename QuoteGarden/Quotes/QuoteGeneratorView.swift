@@ -36,8 +36,6 @@ struct QuoteGeneratorView: View {
             Color.clear.overlay(
                 
                 QuoteView(genre: "\(quote.quoteGenre)", text: "\(quote.quoteText)", author: "\(quote.quoteAuthor)")
-                    .layoutPriority(2)
-                    .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
 
                         reachability.whenUnreachable = { _ in
@@ -61,7 +59,7 @@ struct QuoteGeneratorView: View {
                     .animation(.default)
                 
             ).getRect($rect1)
-            .onChange(of: rect1) {_ in self.uiimage = self.rect1.uiImage }
+            .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
             
             HStack {
                 Button(action: {
@@ -76,7 +74,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    addToFavorites(_: self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre)
+                    addToFavorites(self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre)
                 }) {
                     Image(systemName: addedToFavorites ? "heart.fill" : "heart")
                     

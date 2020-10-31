@@ -8,21 +8,17 @@
 import SwiftUI
 import Foundation
 
-#warning("haptics")
-#warning("use system's sound services for and vibrations")
+
+// TODO: Implement haptics, vibrations and sound
 
 struct ContentView: View {
     
     @AppStorage("selectedView") var selectedView: String?
-    
-    // Data
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
-    
-    // Booleans
     @State private var addedToFavorites = false
     @State private var showingShareSheetView = false
-
+    
     var body: some View {
         
         TabView(selection: $selectedView) {
@@ -42,29 +38,31 @@ struct ContentView: View {
                 }
             
         }.accentColor(.purple)
-  
+        
     }
-    
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
+        // FIXME: User can delete object when he taps the favorite button again (toggle)
+        
+        addedToFavorites = true
         
         let favoriteQuote = QuoteCD(context: self.moc)
+        
         favoriteQuote.id = id
         favoriteQuote.quoteText = text
         favoriteQuote.quoteAuthor = author
         favoriteQuote.quoteGenre = genre
         
-        addedToFavorites = true
-        
         try? self.moc.save()
+        
     }
     
     func removeQuote(at offsets: IndexSet) {
-                
+        
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
-
+            
             moc.delete(favoriteQuote)
-
+            
         }
         
         do {
@@ -72,7 +70,7 @@ struct ContentView: View {
         } catch {
             return
         }
-
+        
     }
     
 }

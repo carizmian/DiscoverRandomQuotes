@@ -8,8 +8,9 @@
 import WidgetKit
 import SwiftUI
 
-#warning("tapping on widget deeplinks inside app")
-#warning("implement from WWWDC 2 video")
+
+// TODO: Implementation from WWDC 2'nd video
+
 let userDefaults = UserDefaults.shared
 struct SimpleEntry: TimelineEntry {
     let date: Date
