@@ -19,7 +19,7 @@ struct ColoredButtonStyle: ButtonStyle {
             .overlay(
                 Color.black
                     .opacity(configuration.isPressed ? 0.3 : 0)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .circular))
             )
             .padding()
     }

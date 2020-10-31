@@ -37,7 +37,7 @@ struct ContentView: View {
                         .accessibilityLabel(Text("Your favorite quotes"))
                 }
             
-        }.accentColor(.purple)
+        }.accentColor(.pink)
         
     }
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {

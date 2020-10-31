@@ -56,7 +56,7 @@ struct QuoteView_Previews: PreviewProvider {
 
         Group {
 
-            QuoteView(genre: "nature", text: "Human beings are accustomed  ", author: "Edward Thorndike")
+            QuoteView(genre: "nature", text: "Human beings are accustomed", author: "Edward Thorndike")
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
 
