@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		935561FB2538014F00BF2F0A /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935561FA2538014F00BF2F0A /* RemindersView.swift */; };
-		935562012538050700BF2F0A /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935562002538050700BF2F0A /* LocalNotificationManager.swift */; };
 		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
 		935947E72547E6EC008C6811 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935947E62547E6EC008C6811 /* FlipView.swift */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
-		936597BC2547F7BD0010DC6F /* ReminderSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936597BB2547F7BD0010DC6F /* ReminderSheetView.swift */; };
 		936886632545C8320034F960 /* QuoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886622545C8320034F960 /* QuoteListView.swift */; };
 		936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886852545D18E0034F960 /* QuoteGeneratorView.swift */; };
 		936886C125468F2E0034F960 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886C025468F2D0034F960 /* DataController.swift */; };
@@ -85,13 +82,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		935561FA2538014F00BF2F0A /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
-		935562002538050700BF2F0A /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		935947E62547E6EC008C6811 /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
-		936597BB2547F7BD0010DC6F /* ReminderSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSheetView.swift; sourceTree = "<group>"; };
 		936886622545C8320034F960 /* QuoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListView.swift; sourceTree = "<group>"; };
 		936886852545D18E0034F960 /* QuoteGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGeneratorView.swift; sourceTree = "<group>"; };
 		936886C025468F2D0034F960 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -165,16 +159,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		935562062538134400BF2F0A /* Reminders */ = {
-			isa = PBXGroup;
-			children = (
-				935561FA2538014F00BF2F0A /* RemindersView.swift */,
-				936597BB2547F7BD0010DC6F /* ReminderSheetView.swift */,
-				935562002538050700BF2F0A /* LocalNotificationManager.swift */,
-			);
-			path = Reminders;
-			sourceTree = "<group>";
-		};
 		935562072538135A00BF2F0A /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +232,6 @@
 				935947E62547E6EC008C6811 /* FlipView.swift */,
 				93DEB571252845D2006B9BF5 /* Model */,
 				935562072538135A00BF2F0A /* Quotes */,
-				935562062538134400BF2F0A /* Reminders */,
 				936886702545CCAD0034F960 /* Favorites */,
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
@@ -504,12 +487,10 @@
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
-				936597BC2547F7BD0010DC6F /* ReminderSheetView.swift in Sources */,
 				937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
 				936886CB25469D460034F960 /* ButtonStyle.swift in Sources */,
-				935562012538050700BF2F0A /* LocalNotificationManager.swift in Sources */,
 				9392E4AF25408808004BF68E /* SearchBar.swift in Sources */,
 				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
 				9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */,
@@ -520,7 +501,6 @@
 				9370A52C2545609A00F2C029 /* Extensions.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				935947E72547E6EC008C6811 /* FlipView.swift in Sources */,
-				935561FB2538014F00BF2F0A /* RemindersView.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
 				9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */,
 				936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */,
@@ -585,7 +565,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				INFOPLIST_FILE = QuoteWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -595,7 +575,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -609,7 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				INFOPLIST_FILE = QuoteWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -619,7 +599,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -674,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -729,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -760,7 +740,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -785,7 +765,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

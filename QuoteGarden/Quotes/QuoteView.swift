@@ -45,8 +45,8 @@ struct QuoteView: View {
             .font(Font.system(.callout, design: .monospaced).weight(.bold))
             .accessibilityLabel(Text("quote author is \(author)"))
 
-        }.padding(.vertical)
-        .multilineTextAlignment(.center)
+        }.multilineTextAlignment(.center)
+        .padding(.top)
 
     }
 }

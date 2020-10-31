@@ -15,7 +15,7 @@ struct Response: Decodable {
 }
 
 // MARK: - Quote
-struct Quote: Decodable, Hashable {
+struct Quote: Decodable, Hashable, Identifiable {
     let id, quoteText, quoteAuthor, quoteGenre: String
 
     enum CodingKeys: String, CodingKey {

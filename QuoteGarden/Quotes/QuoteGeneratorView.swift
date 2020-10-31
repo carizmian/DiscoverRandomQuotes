@@ -13,18 +13,16 @@ import SystemConfiguration
 struct QuoteGeneratorView: View {
     
     static let tag: String? = "Home"
-    
-    @EnvironmentObject var network: NetworkMonitor
-    
-    @State private var quote: Quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
+        
+    @State private var quote: Quote = Quote(id: "1", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     
     var addToFavorites: (_ id: String, _ text: String, _ author: String, _ genre: String) -> Void
     
-    @Binding var changedQuote: Bool
     @Binding var addedToFavorites: Bool
+    @Binding var showingShareSheetView: Bool
+    
     @State private var addedToClipboard = false
     @State private var showingNetworkAlert = false
-    @Binding var showingShareSheetView: Bool
     
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
@@ -41,7 +39,6 @@ struct QuoteGeneratorView: View {
                     .layoutPriority(2)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
-                        changedQuote.toggle()
 
                         reachability.whenUnreachable = { _ in
                             showingNetworkAlert = true
@@ -64,7 +61,7 @@ struct QuoteGeneratorView: View {
                     .animation(.default)
                 
             ).getRect($rect1)
-            .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
+            .onChange(of: rect1) {_ in self.uiimage = self.rect1.uiImage }
             
             HStack {
                 Button(action: {
@@ -107,7 +104,7 @@ struct QuoteGeneratorView: View {
         .alert(isPresented: $showingNetworkAlert) {
             Alert(title: Text("No internet connection"), message: Text("Please connect to the internet!"))
         }
-        .onChange(of: rect1) {_ in self.uiimage = self.rect1.uiImage }
+        
     }
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
         let quoteString = """
