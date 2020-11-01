@@ -16,16 +16,16 @@ struct SearchBar: View {
         HStack {
 
             TextField("Search by author", text: $text)
-                .padding(7)
-                .padding(.horizontal, 25)
+                .padding()
+                .padding(.horizontal)
                 .background(Color(.systemGray6))
-                .cornerRadius(8)
+                .cornerRadius(10)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 8)
+                            .padding(.leading)
 
                         if isEditing {
                             Button(action: {
@@ -34,15 +34,15 @@ struct SearchBar: View {
                             }) {
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
-                                    .padding(.trailing, 8)
+                                    .padding(.trailing)
                             }
                         }
                     }
                 )
-                .padding(.horizontal, 10)
+                .padding(.horizontal)
                 .onTapGesture {
                     self.isEditing = true
-                }
+                }.animation(.default)
 
             if isEditing {
                 Button(action: {
@@ -54,7 +54,7 @@ struct SearchBar: View {
                 }) {
                     Text("Cancel")
                 }
-                .padding(.trailing, 10)
+                .padding(.trailing)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
             }

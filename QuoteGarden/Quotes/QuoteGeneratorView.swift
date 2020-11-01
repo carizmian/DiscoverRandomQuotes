@@ -10,10 +10,11 @@ import Foundation
 import Reachability
 import SystemConfiguration
 
+
 struct QuoteGeneratorView: View {
     
     static let tag: String? = "Home"
-        
+    
     @State private var quote: Quote = Quote(id: "1", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
     
     var addToFavorites: (_ id: String, _ text: String, _ author: String, _ genre: String) -> Void
@@ -29,6 +30,8 @@ struct QuoteGeneratorView: View {
     
     let reachability = try! Reachability()
     
+    @State var viewState = CGSize.zero
+    
     var body: some View {
         
         VStack {
@@ -36,27 +39,40 @@ struct QuoteGeneratorView: View {
             Color.clear.overlay(
                 
                 QuoteView(genre: "\(quote.quoteGenre)", text: "\(quote.quoteText)", author: "\(quote.quoteAuthor)")
-                    .onTapGesture {
-
-                        reachability.whenUnreachable = { _ in
-                            showingNetworkAlert = true
-                            print("Not reachable")
-                        }
-                        
-                        do {
-                            try reachability.startNotifier()
-                        } catch {
-                            print("Unable to start notifier")
-                        }
-                       
-                        QuoteGardenApi().getRandomQuote { quote in
+                    .background(Color.pink.clipShape(RoundedRectangle(cornerRadius: 10)))
+                    .gesture(
+                        LongPressGesture().onChanged { value in
                             
-                            self.quote = quote
-                            addedToFavorites = false
-                            addedToClipboard = false
+                            reachability.whenUnreachable = { _ in
+                                showingNetworkAlert = true
+                                print("Not reachable")
+                            }
+                            
+                            do {
+                                try reachability.startNotifier()
+                            } catch {
+                                print("Unable to start notifier")
+                            }
+                            
+                            QuoteGardenApi().getRandomQuote { quote in
+                                
+                                self.quote = quote
+                                addedToFavorites = false
+                                addedToClipboard = false
+                            }
                         }
-                    }
-                    .animation(.default)
+                    )
+                    .offset(x: viewState.width, y: viewState.height)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                viewState = value.translation
+                            }
+                            .onEnded { value in
+                                viewState = .zero
+                            }
+                    )
+                    .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
                 
             ).getRect($rect1)
             .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
@@ -91,7 +107,7 @@ struct QuoteGeneratorView: View {
                 
             }
             
-        }.animation(.default)
+        }
         .sheet(isPresented: $showingShareSheetView) {
             if uiimage != nil {
                 ShareSheetView(activityItems: [

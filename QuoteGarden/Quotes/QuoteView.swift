@@ -14,40 +14,41 @@ struct QuoteView: View {
     var author: String
 
     var body: some View {
+    
+                
+            VStack(alignment: .center) {
 
-        VStack(alignment: .center) {
-
-            HStack {
-                Text("#")
-                    .foregroundColor(.green)
-                Text("\(genre)")
-            }.padding(.bottom)
-            .allowsTightening(true)
-            .font(Font.system(.callout, design: .monospaced).weight(.bold))
-            .accessibilityLabel(Text("quote genre is hashtag \(genre)"))
-
-            Text("\(text)")
-                .italic()
-                .font(Font.system(.title, design: .monospaced).weight(.black))
-                .padding(.horizontal)
+                HStack {
+                    Text("#")
+                        .foregroundColor(.green)
+                    Text("\(genre)")
+                }.padding(.bottom)
                 .allowsTightening(true)
-                .layoutPriority(2)
-                .minimumScaleFactor(0.3)
-                .accessibilityLabel(Text("quote text is \(text)"))
+                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .accessibilityLabel(Text("quote genre is hashtag \(genre)"))
 
-            HStack {
-                Text("~")
-                    .foregroundColor(.green)
-                Text("\(author)")
+                Text("\(text)")
+                    .italic()
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .padding(.horizontal)
+                    .allowsTightening(true)
+                    .layoutPriority(2)
+                    .minimumScaleFactor(0.3)
+                    .accessibilityLabel(Text("quote text is \(text)"))
 
-            }.padding(.top)
-            .allowsTightening(true)
-            .font(Font.system(.callout, design: .monospaced).weight(.bold))
-            .accessibilityLabel(Text("quote author is \(author)"))
+                HStack {
+                    Text("~")
+                        .foregroundColor(.green)
+                    Text("\(author)")
 
-        }.multilineTextAlignment(.center)
-        .padding(.top)
+                }.padding(.top)
+                .allowsTightening(true)
+                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .accessibilityLabel(Text("quote author is \(author)"))
 
+            }.multilineTextAlignment(.center)
+            .padding()
+        
     }
 }
 

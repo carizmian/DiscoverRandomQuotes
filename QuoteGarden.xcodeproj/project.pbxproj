@@ -171,6 +171,7 @@
 				939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */,
 				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
 				9392E4AE25408806004BF68E /* SearchBar.swift */,
+				9370D5A625356310001CD387 /* ShareSheetView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -231,7 +232,6 @@
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
-				9370D5A625356310001CD387 /* ShareSheetView.swift */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,

@@ -29,15 +29,18 @@ struct ContentView: View {
                     Label("Random", systemImage: "text.quote")
                         .accessibilityLabel(Text("New Quote"))
                 }
-            
+                .transition(.slide)
+
             QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
                 .tag(QuoteListView.tag)
                 .tabItem {
                     Label("Favorites", systemImage: "heart.fill")
                         .accessibilityLabel(Text("Your favorite quotes"))
                 }
-            
+                .transition(.slide)
+
         }.accentColor(.pink)
+        .transition(.slide)
         
     }
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
