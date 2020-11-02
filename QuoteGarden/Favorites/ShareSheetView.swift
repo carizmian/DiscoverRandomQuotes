@@ -27,6 +27,3 @@ struct ShareSheetView: UIViewControllerRepresentable {
         // nothing
     }
 }
-
-
-// comment
