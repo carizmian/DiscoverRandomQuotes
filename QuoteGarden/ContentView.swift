@@ -20,27 +20,30 @@ struct ContentView: View {
     @State private var showingShareSheetView = false
     
     var body: some View {
-        
-        TabView(selection: $selectedView) {
             
-            QuoteGeneratorView(addToFavorites: addToFavorites(_:_:_:_:), addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView)
-                .tag(QuoteGeneratorView.tag)
-                .tabItem {
-                    Label("Random", systemImage: "text.quote")
-                        .accessibilityLabel(Text("New Quote"))
-                }
-                .transition(.slide)
-
-            QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
-                .tag(QuoteListView.tag)
-                .tabItem {
-                    Label("Favorites", systemImage: "heart.fill")
-                        .accessibilityLabel(Text("Your favorite quotes"))
-                }
-                .transition(.slide)
-
-        }.accentColor(.pink)
-        .transition(.slide)
+            
+            TabView(selection: $selectedView) {
+                
+                
+                QuoteGeneratorView(addToFavorites: addToFavorites(_:_:_:_:), addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView)
+                    .tag(QuoteGeneratorView.tag)
+                    .tabItem {
+                        Label("Random", systemImage: "text.quote")
+                            .accessibilityLabel(Text("New Quote"))
+                    }
+                    .transition(.slide)
+                
+                QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
+                    .tag(QuoteListView.tag)
+                    .tabItem {
+                        Label("Favorites", systemImage: "heart.fill")
+                            .accessibilityLabel(Text("Your favorite quotes"))
+                    }
+                
+                
+                
+                
+            }
         
     }
     func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {

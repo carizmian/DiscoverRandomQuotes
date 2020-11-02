@@ -14,8 +14,9 @@ import SystemConfiguration
 struct QuoteGeneratorView: View {
     
     static let tag: String? = "Home"
+
     
-    @State private var quote: Quote = Quote(id: "1", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "knowledge")
+    @State private var quote: Quote = Quote(id: "1", quoteText: "Hello friend, tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "technology")
     
     var addToFavorites: (_ id: String, _ text: String, _ author: String, _ genre: String) -> Void
     
@@ -24,6 +25,7 @@ struct QuoteGeneratorView: View {
     
     @State private var addedToClipboard = false
     @State private var showingNetworkAlert = false
+
     
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
@@ -37,6 +39,7 @@ struct QuoteGeneratorView: View {
         VStack {
             
             Color.clear.overlay(
+                
                 
                 QuoteView(genre: "\(quote.quoteGenre)", text: "\(quote.quoteText)", author: "\(quote.quoteAuthor)")
                     .background(Color.pink.clipShape(RoundedRectangle(cornerRadius: 10)))

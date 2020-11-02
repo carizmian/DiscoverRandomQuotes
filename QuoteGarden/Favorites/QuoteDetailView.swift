@@ -64,7 +64,7 @@ struct QuoteDetailView: View {
             }
             
         }.alert(isPresented: $displayingOnWidget, content: {
-            Alert(title: Text("Quote will be displayed in widget"))
+            Alert(title: Text("Quote will be displayed on the widget"))
         })
         .sheet(isPresented: $showingShareSheetView) {
             if uiimage != nil {
