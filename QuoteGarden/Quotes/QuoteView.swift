@@ -14,7 +14,6 @@ struct QuoteView: View {
     var author: String
 
     var body: some View {
-    
                 
             VStack(alignment: .center) {
 

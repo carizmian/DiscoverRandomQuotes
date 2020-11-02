@@ -8,7 +8,6 @@
 import SwiftUI
 import Foundation
 
-
 // TODO: Implement haptics, vibrations and sound
 
 struct ContentView: View {
@@ -21,9 +20,7 @@ struct ContentView: View {
     
     var body: some View {
             
-            
             TabView(selection: $selectedView) {
-                
                 
                 QuoteGeneratorView(addToFavorites: addToFavorites(_:_:_:_:), addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView)
                     .tag(QuoteGeneratorView.tag)
@@ -39,9 +36,6 @@ struct ContentView: View {
                         Label("Favorites", systemImage: "heart.fill")
                             .accessibilityLabel(Text("Your favorite quotes"))
                     }
-                
-                
-                
                 
             }
         

@@ -8,7 +8,6 @@
 import WidgetKit
 import SwiftUI
 
-
 // TODO: Implementation from WWDC 2'nd video
 
 let userDefaults = UserDefaults.shared
