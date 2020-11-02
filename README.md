@@ -1,1 +1,1 @@
-# DiscoverRandomQuotes
+# Discover - Random quotes
