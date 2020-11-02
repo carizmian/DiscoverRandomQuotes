@@ -1,3 +1,3 @@
 # Discover - Random quotes
 
-[Privacy Policy](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/privacyPolicy.md).
+[Privacy Policy](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/privacyPolicy.md)
