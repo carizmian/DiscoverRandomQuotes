@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Get the managed object context from the shared persistent container.
         guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         else {
-            fatalError()
+             fatalError()
         }
         context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
         

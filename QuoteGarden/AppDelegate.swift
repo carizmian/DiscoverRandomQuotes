@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import CoreData
 import Social
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -46,10 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     fileprivate func resetState() {
         let defaultsName = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: defaultsName)
-        
-        
+                
     }
-
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -58,13 +57,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "QuoteGarden")
+        let storeURL = URL.storeURL(for: "group.com.example.QuoteGarden", databaseName: "QuoteGarden")
+        let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        container.persistentStoreDescriptions = [storeDescription]
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -78,9 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -94,25 +96,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-
+    
     func createSampleData() throws {
         // the pool of data, holds active objects
         let context = persistentContainer.viewContext
-
+        
         // context - where do they live
         let quote = QuoteCD(context: context)
         quote.id = "123"
         quote.quoteGenre = "science"
         quote.quoteText = "Knowledge is power"
         quote.quoteAuthor = "Nikola Franičević"
-
+        
         try context.save()
     }
-
+    
     func deleteAll() {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = QuoteCD.fetchRequest()
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
         _ = try? persistentContainer.viewContext.execute(batchDeleteRequest1)
     }
-
 }

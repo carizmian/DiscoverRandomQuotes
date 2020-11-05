@@ -15,9 +15,9 @@ struct QuoteRowView: View {
     var body: some View {
 
         HStack {
-            Text("\(quoteAuthor)").foregroundColor(.accentColor)
+            Text("\(quoteAuthor)")
             Text("#").foregroundColor(.green)
-            Text("\(quoteGenre)").foregroundColor(.accentColor)
+            Text("\(quoteGenre)")
 
         }
     }

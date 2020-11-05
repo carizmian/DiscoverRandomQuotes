@@ -17,6 +17,7 @@
 		936886632545C8320034F960 /* QuoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886622545C8320034F960 /* QuoteListView.swift */; };
 		936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886852545D18E0034F960 /* QuoteGeneratorView.swift */; };
 		936886CB25469D460034F960 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886CA25469D460034F960 /* ButtonStyle.swift */; };
+		936E72BF2553B9CC0085F003 /* QuoteGarden.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
 		9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C5840253CB73A0002D7E4 /* AppGroup.swift */; };
@@ -202,9 +203,9 @@
 			children = (
 				9392E4A5253EA043004BF68E /* QuoteWidgetExtension.entitlements */,
 				93DEB53D25284527006B9BF5 /* QuoteGarden */,
+				9392E48D253EA001004BF68E /* QuoteWidget */,
 				93DEB55725284529006B9BF5 /* QuoteGardenTests */,
 				93DEB56225284529006B9BF5 /* QuoteGardenUITests */,
-				9392E48D253EA001004BF68E /* QuoteWidget */,
 				939D200225317E14003C34D8 /* Frameworks */,
 				93DEB53C25284527006B9BF5 /* Products */,
 			);
@@ -415,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				936E72BF2553B9CC0085F003 /* QuoteGarden.xcdatamodeld in Resources */,
 				9392E491253EA003004BF68E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +574,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -597,7 +599,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -739,7 +741,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -765,7 +767,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

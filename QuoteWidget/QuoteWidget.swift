@@ -7,8 +7,10 @@
 
 import WidgetKit
 import SwiftUI
+import CoreData
 
 // TODO: Implementation from WWDC 2'nd video
+
 
 let userDefaults = UserDefaults.shared
 struct SimpleEntry: TimelineEntry {
@@ -68,6 +70,7 @@ struct QuoteWidgetEntryView: View {
         }
 
     }
+    
 }
 
 @main
