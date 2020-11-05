@@ -20,7 +20,6 @@
 		936E72BF2553B9CC0085F003 /* QuoteGarden.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
 		9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
-		937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C5840253CB73A0002D7E4 /* AppGroup.swift */; };
 		937CCC902550390E003F56B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CCC8F2550390D003F56B1 /* SnapshotHelper.swift */; };
 		9392E48B253EA001004BF68E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9370D5BF25361B5D001CD387 /* WidgetKit.framework */; };
 		9392E48C253EA001004BF68E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939D200525317E14003C34D8 /* SwiftUI.framework */; };
@@ -95,7 +94,6 @@
 		9370D5BF25361B5D001CD387 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		9374AF042532BAC100412C9E /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		9374AF082532BB4E00412C9E /* FullTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullTests.xctestplan; sourceTree = "<group>"; };
-		937C5840253CB73A0002D7E4 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		937CCC8F2550390D003F56B1 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		9392E48A253EA001004BF68E /* QuoteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuoteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9392E48E253EA001004BF68E /* QuoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWidget.swift; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 			children = (
 				93DEB57225284631006B9BF5 /* Quote.swift */,
 				9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */,
-				937C5840253CB73A0002D7E4 /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -486,7 +483,6 @@
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
-				937C5841253CB73A0002D7E4 /* AppGroup.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
 				936886CB25469D460034F960 /* ButtonStyle.swift in Sources */,
