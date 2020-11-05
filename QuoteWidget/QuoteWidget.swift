@@ -11,7 +11,9 @@ import CoreData
 
 // TODO: Implementation from WWDC 2'nd video
 
+let moc = CoreDataStack.shared.managedObjectContext
 let userDefaults = UserDefaults.shared
+
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let quote: WidgetQuote
