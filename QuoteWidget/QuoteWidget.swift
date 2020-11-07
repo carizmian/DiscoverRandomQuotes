@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 import CoreData
 
-// TODO: Implementation from WWDC 2'nd video
+// TODO: IntentConfiguration instead of StaticConfiguration
 
 let moc = CoreDataStack.shared.managedObjectContext
 let quotesFetch = NSFetchRequest<QuoteCD>(entityName: "QuoteCD")
@@ -22,21 +22,6 @@ struct SimpleEntry: TimelineEntry {
     let quote: QuoteCD
     
 }
-
-//struct Quotes {
-//
-//    var quotes: [QuoteCD] {
-//        do {
-//            let quotes = try moc.fetch(request)
-//            print("Quotes count \(quotes.count)")
-//            return quotes
-//        } catch let error as NSError {
-//            print("Could not fetch. \(error), \(error.userInfo)")
-//            return [QuoteCD]()
-//        }
-//    }
-//
-//}
 
 struct Provider: TimelineProvider {
     
@@ -64,8 +49,7 @@ struct Provider: TimelineProvider {
     // Handles updating the widget
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         let entry = SimpleEntry(date: Date(), quote: quotes[0])
-        let timeline = Timeline(entries: [entry], policy: .never)
-        // never jer nemamo array of entry
+        let timeline = Timeline(entries: [entry], policy: .atEnd)
         completion(timeline)
     }
 }
