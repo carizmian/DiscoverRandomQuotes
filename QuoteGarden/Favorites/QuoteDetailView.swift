@@ -15,8 +15,6 @@ struct QuoteDetailView: View {
     var genre: String
     var text: String
     var author: String
-    var userDefaults = UserDefaults.shared
-    @State private var displayingOnWidget = false
     @State private var addedToClipboard = false
     @State private var showingShareSheetView = false
     @State private var rect1: CGRect = .zero
@@ -46,14 +44,6 @@ struct QuoteDetailView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    forTheWidget(quoteGenre: genre, quoteText: text, quoteAuthor: author)
-                }) {
-//                    Label("Display on widget", systemImage: "arrow.turn.up.forward.iphone")
-                    Image(systemName: "arrow.turn.up.forward.iphone")
-                    
-                }.buttonStyle(ColoredButtonStyle())
-                
-                Button(action: {
                     copyToClipboard(quoteGenre: genre, quoteText: text, quoteAuthor: author)
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
@@ -63,32 +53,12 @@ struct QuoteDetailView: View {
                 
             }
             
-        }.alert(isPresented: $displayingOnWidget, content: {
-            Alert(title: Text("Quote will be displayed on the widget"))
-        })
-        .sheet(isPresented: $showingShareSheetView) {
+        }.sheet(isPresented: $showingShareSheetView) {
             if uiimage != nil {
                 ShareSheetView(activityItems: [
                     self.uiimage!
                 ])
             }
-        }
-        
-    }
-    
-    func forTheWidget(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-        displayingOnWidget = true
-        print(displayingOnWidget)
-        userDefaults.set(quoteGenre, forKey: "genre")
-        userDefaults.set(quoteText, forKey: "text")
-        userDefaults.set(quoteAuthor, forKey: "author")
-        print(displayingOnWidget)
-        
-        // requests a reload for all of the widgets
-        if userDefaults.string(forKey: "text") == quoteText {
-            
-            WidgetCenter.shared.reloadAllTimelines()
-            
         }
         
     }

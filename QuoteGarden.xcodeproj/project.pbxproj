@@ -17,7 +17,6 @@
 		936886632545C8320034F960 /* QuoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886622545C8320034F960 /* QuoteListView.swift */; };
 		936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886852545D18E0034F960 /* QuoteGeneratorView.swift */; };
 		936886CB25469D460034F960 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886CA25469D460034F960 /* ButtonStyle.swift */; };
-		936E72BF2553B9CC0085F003 /* QuoteGarden.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
 		9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		937CCC902550390E003F56B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CCC8F2550390D003F56B1 /* SnapshotHelper.swift */; };
@@ -26,11 +25,11 @@
 		9392E48F253EA001004BF68E /* QuoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E48E253EA001004BF68E /* QuoteWidget.swift */; };
 		9392E491253EA003004BF68E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9392E490253EA003004BF68E /* Assets.xcassets */; };
 		9392E495253EA003004BF68E /* QuoteWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9392E48A253EA001004BF68E /* QuoteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9392E49D253EA01F004BF68E /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
 		9392E4A0253EA01F004BF68E /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
 		9395DD77255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
+		9395DD8425550D5C00B30BC2 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
@@ -417,7 +416,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				936E72BF2553B9CC0085F003 /* QuoteGarden.xcdatamodeld in Resources */,
 				9392E491253EA003004BF68E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,9 +472,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9395DD77255454A300B30BC2 /* CoreDataStack.swift in Sources */,
+				9395DD8425550D5C00B30BC2 /* QuoteGarden.xcdatamodeld in Sources */,
 				93426360254DC5B00023B6FF /* UserDefaults.swift in Sources */,
 				9392E4A0253EA01F004BF68E /* QuoteView.swift in Sources */,
-				9392E49D253EA01F004BF68E /* Quote.swift in Sources */,
 				9392E48F253EA001004BF68E /* QuoteWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
