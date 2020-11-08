@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		93426350254DC5840023B6FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
-		9342635F254DC5B00023B6FF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342635E254DC5B00023B6FF /* UserDefaults.swift */; };
-		93426360254DC5B00023B6FF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342635E254DC5B00023B6FF /* UserDefaults.swift */; };
 		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
@@ -20,16 +18,8 @@
 		9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		937CCC902550390E003F56B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CCC8F2550390D003F56B1 /* SnapshotHelper.swift */; };
-		9392E48B253EA001004BF68E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9370D5BF25361B5D001CD387 /* WidgetKit.framework */; };
-		9392E48C253EA001004BF68E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939D200525317E14003C34D8 /* SwiftUI.framework */; };
-		9392E48F253EA001004BF68E /* QuoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E48E253EA001004BF68E /* QuoteWidget.swift */; };
-		9392E491253EA003004BF68E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9392E490253EA003004BF68E /* Assets.xcassets */; };
-		9392E495253EA003004BF68E /* QuoteWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9392E48A253EA001004BF68E /* QuoteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9392E4A0253EA01F004BF68E /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
-		9395DD77255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
-		9395DD8425550D5C00B30BC2 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
@@ -44,13 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9392E493253EA003004BF68E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93DEB53325284527006B9BF5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9392E489253EA001004BF68E;
-			remoteInfo = QuoteWidgetExtension;
-		};
 		93DEB55525284529006B9BF5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93DEB53325284527006B9BF5 /* Project object */;
@@ -74,7 +57,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9392E495253EA003004BF68E /* QuoteWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,7 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9342635E254DC5B00023B6FF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -92,15 +73,9 @@
 		9370A51D25454CD100F2C029 /* ViewToUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToUIImage.swift; sourceTree = "<group>"; };
 		9370A52B2545609A00F2C029 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9370D5A625356310001CD387 /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
-		9370D5BF25361B5D001CD387 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		9374AF042532BAC100412C9E /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		9374AF082532BB4E00412C9E /* FullTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullTests.xctestplan; sourceTree = "<group>"; };
 		937CCC8F2550390D003F56B1 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		9392E48A253EA001004BF68E /* QuoteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuoteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		9392E48E253EA001004BF68E /* QuoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWidget.swift; sourceTree = "<group>"; };
-		9392E490253EA003004BF68E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9392E492253EA003004BF68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9392E4A5253EA043004BF68E /* QuoteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		9395DD75255454A300B30BC2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -124,15 +99,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9392E487253EA001004BF68E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9392E48C253EA001004BF68E /* SwiftUI.framework in Frameworks */,
-				9392E48B253EA001004BF68E /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93DEB53825284527006B9BF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,21 +145,10 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
-		9392E48D253EA001004BF68E /* QuoteWidget */ = {
-			isa = PBXGroup;
-			children = (
-				9392E48E253EA001004BF68E /* QuoteWidget.swift */,
-				9392E490253EA003004BF68E /* Assets.xcassets */,
-				9392E492253EA003004BF68E /* Info.plist */,
-			);
-			path = QuoteWidget;
-			sourceTree = "<group>";
-		};
 		939D200225317E14003C34D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				939D200525317E14003C34D8 /* SwiftUI.framework */,
-				9370D5BF25361B5D001CD387 /* WidgetKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,9 +156,7 @@
 		93DEB53225284527006B9BF5 = {
 			isa = PBXGroup;
 			children = (
-				9392E4A5253EA043004BF68E /* QuoteWidgetExtension.entitlements */,
 				93DEB53D25284527006B9BF5 /* QuoteGarden */,
-				9392E48D253EA001004BF68E /* QuoteWidget */,
 				93DEB55725284529006B9BF5 /* QuoteGardenTests */,
 				93DEB56225284529006B9BF5 /* QuoteGardenUITests */,
 				939D200225317E14003C34D8 /* Frameworks */,
@@ -217,7 +170,6 @@
 				93DEB53B25284527006B9BF5 /* QuoteGarden.app */,
 				93DEB55425284529006B9BF5 /* QuoteGardenTests.xctest */,
 				93DEB55F25284529006B9BF5 /* QuoteGardenUITests.xctest */,
-				9392E48A253EA001004BF68E /* QuoteWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
-				9342635E254DC5B00023B6FF /* UserDefaults.swift */,
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
 				936886CA25469D460034F960 /* ButtonStyle.swift */,
 				93DEB571252845D2006B9BF5 /* Model */,
@@ -286,23 +237,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9392E489253EA001004BF68E /* QuoteWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9392E496253EA003004BF68E /* Build configuration list for PBXNativeTarget "QuoteWidgetExtension" */;
-			buildPhases = (
-				9392E486253EA001004BF68E /* Sources */,
-				9392E487253EA001004BF68E /* Frameworks */,
-				9392E488253EA001004BF68E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = QuoteWidgetExtension;
-			productName = QuoteWidgetExtension;
-			productReference = 9392E48A253EA001004BF68E /* QuoteWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		93DEB53A25284527006B9BF5 /* QuoteGarden */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93DEB56825284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGarden" */;
@@ -316,7 +250,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9392E494253EA003004BF68E /* PBXTargetDependency */,
 			);
 			name = QuoteGarden;
 			packageProductDependencies = (
@@ -371,9 +304,6 @@
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					9392E489253EA001004BF68E = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					93DEB53A25284527006B9BF5 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -406,20 +336,11 @@
 				93DEB53A25284527006B9BF5 /* QuoteGarden */,
 				93DEB55325284529006B9BF5 /* QuoteGardenTests */,
 				93DEB55E25284529006B9BF5 /* QuoteGardenUITests */,
-				9392E489253EA001004BF68E /* QuoteWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9392E488253EA001004BF68E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9392E491253EA003004BF68E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93DEB53925284527006B9BF5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,18 +388,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9392E486253EA001004BF68E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9395DD77255454A300B30BC2 /* CoreDataStack.swift in Sources */,
-				9395DD8425550D5C00B30BC2 /* QuoteGarden.xcdatamodeld in Sources */,
-				93426360254DC5B00023B6FF /* UserDefaults.swift in Sources */,
-				9392E4A0253EA01F004BF68E /* QuoteView.swift in Sources */,
-				9392E48F253EA001004BF68E /* QuoteWidget.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93DEB53725284527006B9BF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,7 +406,6 @@
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
-				9342635F254DC5B00023B6FF /* UserDefaults.swift in Sources */,
 				93426350254DC5840023B6FF /* Extensions.swift in Sources */,
 				9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */,
 				936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */,
@@ -524,11 +432,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9392E494253EA003004BF68E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9392E489253EA001004BF68E /* QuoteWidgetExtension */;
-			targetProxy = 9392E493253EA003004BF68E /* PBXContainerItemProxy */;
-		};
 		93DEB55625284529006B9BF5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 93DEB53A25284527006B9BF5 /* QuoteGarden */;
@@ -553,56 +456,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9392E497253EA003004BF68E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = QuoteWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = LJF744GC3Q;
-				INFOPLIST_FILE = QuoteWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.QuoteWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		9392E498253EA003004BF68E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = QuoteWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = LJF744GC3Q;
-				INFOPLIST_FILE = QuoteWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.QuoteWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		93DEB56625284529006B9BF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -728,6 +581,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -754,6 +608,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -858,15 +713,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9392E496253EA003004BF68E /* Build configuration list for PBXNativeTarget "QuoteWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9392E497253EA003004BF68E /* Debug */,
-				9392E498253EA003004BF68E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		93DEB53625284527006B9BF5 /* Build configuration list for PBXProject "QuoteGarden" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
