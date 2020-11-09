@@ -7,18 +7,6 @@
 
 import CoreData
 
-public extension URL {
-
-    /// Returns a URL for the given app group and database pointing to the sqlite database.
-    static func storeURL(for appGroup: String, databaseName: String) -> URL {
-        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
-            fatalError("Shared file container could not be created.")
-        }
-
-        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
-    }
-}
-
 class CoreDataStack {
     static let shared = CoreDataStack()
 
@@ -44,9 +32,6 @@ class CoreDataStack {
          error conditions that could cause the creation of the store to fail.
          */
         let container = NSPersistentContainer(name: "QuoteGarden")
-        let storeURL = URL.storeURL(for: "group.com.example.QuoteGarden", databaseName: "QuoteGarden")
-        let storeDescription = NSPersistentStoreDescription(url: storeURL)
-        container.persistentStoreDescriptions = [storeDescription]
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -94,7 +79,6 @@ class CoreDataStack {
         errorHandlingQuote.quoteAuthor = "Nikola Franičević"
         
         try? context.save()
-        
         
         try context.save()
     }
