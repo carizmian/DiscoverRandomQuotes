@@ -66,27 +66,5 @@ class CoreDataStack {
             }
         }
     }
-    
-    func createSampleData() throws {
-        // the pool of data, holds active objects
-        let context = persistentContainer.viewContext
-        
-        // context - where do they live
-        let errorHandlingQuote = QuoteCD(context: context)
-        errorHandlingQuote.id = "1"
-        errorHandlingQuote.quoteGenre = "error"
-        errorHandlingQuote.quoteText = "No favorite quotes! Please add a quote to your favorites to display it here!"
-        errorHandlingQuote.quoteAuthor = "Nikola Franičević"
-        
-        try? context.save()
-        
-        try context.save()
-    }
-    
-//    func deleteAll() {
-//        let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = QuoteCD.fetchRequest()
-//        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
-//        _ = try? persistentContainer.viewContext.execute(batchDeleteRequest1)
-//    }
-    
+
 }

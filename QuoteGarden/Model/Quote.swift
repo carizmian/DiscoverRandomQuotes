@@ -16,7 +16,7 @@ struct Response: Decodable {
 
 // MARK: - Quote
 struct Quote: Decodable, Hashable {
-    let id, quoteText, quoteAuthor, quoteGenre: String
+    var id, quoteText, quoteAuthor, quoteGenre: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

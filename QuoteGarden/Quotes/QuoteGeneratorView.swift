@@ -14,8 +14,8 @@ struct QuoteGeneratorView: View {
     
     static let tag: String? = "Home"
     
-    @State private var quote: Quote = Quote(id: "1", quoteText: "Hello friend, tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "technology")
-    
+    @StateObject var viewModel = QuoteViewModel()
+     
     var addToFavorites: (_ id: String, _ text: String, _ author: String, _ genre: String) -> Void
     
     @Binding var addedToFavorites: Bool
@@ -37,7 +37,7 @@ struct QuoteGeneratorView: View {
             
             Color.clear.overlay(
                 
-                QuoteView(genre: "\(quote.quoteGenre)", text: "\(quote.quoteText)", author: "\(quote.quoteAuthor)")
+                QuoteView(genre: "\(viewModel.quoteGenre)", text: "\(viewModel.quoteText)", author: "\(viewModel.quoteAuthor)")
                     .background(Color.pink.clipShape(RoundedRectangle(cornerRadius: 10)))
                     .gesture(
                         LongPressGesture().onChanged { _ in
@@ -55,7 +55,7 @@ struct QuoteGeneratorView: View {
                             
                             QuoteGardenApi().getRandomQuote { quote in
                                 
-                                self.quote = quote
+                                self.viewModel.update(quote.id, quote.quoteText, quote.quoteAuthor, quote.quoteGenre)
                                 addedToFavorites = false
                                 addedToClipboard = false
                             }
@@ -89,7 +89,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    addToFavorites(self.quote.id, self.quote.quoteText, self.quote.quoteAuthor, self.quote.quoteGenre)
+                    addToFavorites(self.viewModel.id, self.viewModel.quoteText, self.viewModel.quoteAuthor, self.viewModel.quoteGenre)
                 }) {
                     Image(systemName: addedToFavorites ? "heart.fill" : "heart")
                     
@@ -97,7 +97,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Add quote to your favorites"))
                 
                 Button(action: {
-                    copyToClipboard(quoteGenre: quote.quoteGenre, quoteText: quote.quoteText, quoteAuthor: quote.quoteAuthor)
+                    copyToClipboard(quoteGenre: viewModel.quoteGenre, quoteText: viewModel.quoteText, quoteAuthor: viewModel.quoteAuthor)
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
                     

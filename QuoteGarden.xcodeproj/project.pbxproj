@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932CDAE625641107003B8F8D /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932CDAE525641107003B8F8D /* QuoteViewModel.swift */; };
 		93426350254DC5840023B6FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		932CDAE525641107003B8F8D /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		932CDAEA2564110D003B8F8D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				932CDAE525641107003B8F8D /* QuoteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		935562072538135A00BF2F0A /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,12 +191,12 @@
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
 				936886CA25469D460034F960 /* ButtonStyle.swift */,
 				93DEB571252845D2006B9BF5 /* Model */,
+				932CDAEA2564110D003B8F8D /* ViewModel */,
 				935562072538135A00BF2F0A /* Quotes */,
 				936886702545CCAD0034F960 /* Favorites */,
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
-				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
@@ -228,6 +238,7 @@
 		93DEB571252845D2006B9BF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				93DEB57225284631006B9BF5 /* Quote.swift */,
 				9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */,
 			);
@@ -401,6 +412,7 @@
 				936886CB25469D460034F960 /* ButtonStyle.swift in Sources */,
 				9392E4AF25408808004BF68E /* SearchBar.swift in Sources */,
 				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
+				932CDAE625641107003B8F8D /* QuoteViewModel.swift in Sources */,
 				9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */,
 				936886632545C8320034F960 /* QuoteListView.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,

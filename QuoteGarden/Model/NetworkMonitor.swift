@@ -36,7 +36,7 @@ class NetworkMonitor: ObservableObject {
 
 }
 
-class QuoteGardenApi {
+struct QuoteGardenApi {
     
     func getRandomQuote(completion: @escaping (Quote) -> Void) {
         
