@@ -12,9 +12,8 @@ import Foundation
 
 struct QuoteDetailView: View {
     
-    var genre: String
-    var text: String
-    var author: String
+    var favoriteQuote: QuoteCD
+    
     @State private var addedToClipboard = false
     @State private var showingShareSheetView = false
     @State private var rect1: CGRect = .zero
@@ -26,12 +25,21 @@ struct QuoteDetailView: View {
             
             Color.clear.overlay(
                 
-                QuoteView(genre: genre, text: text, author: author)
+                QuoteView(genre: favoriteQuote.wrappedQuoteGenre, text: favoriteQuote.wrappedQuoteText, author: favoriteQuote.wrappedQuoteAuthor)
 
             ).getRect($rect1)
             .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
             
             HStack {
+                
+                Button(action: {
+                    savePrimary(quote: favoriteQuote)
+                }) {
+                    Image(systemName: "arrow.turn.up.forward.iphone")
+                    
+                }.buttonStyle(ColoredButtonStyle())
+                .accessibilityLabel(Text("Display on widget"))
+                
                 Button(action: {
                     self.uiimage = self.rect1.uiImage
                     if self.uiimage != nil {
@@ -44,7 +52,7 @@ struct QuoteDetailView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    copyToClipboard(quoteGenre: genre, quoteText: text, quoteAuthor: author)
+                    copyToClipboard(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
                     
@@ -80,6 +88,16 @@ struct QuoteDetailView: View {
         }
         
         addedToClipboard = true
+    }
+    
+    func savePrimary(quote: QuoteCD) {
+        
+        let main = Quote(id: quote.id ?? "", quoteText: quote.wrappedQuoteText, quoteAuthor: quote.wrappedQuoteAuthor, quoteGenre: quote.wrappedQuoteGenre)
+        
+        if #available(iOS 14, *) {
+        let newPrimary = PrimaryQuote(primaryQuote: main)
+        newPrimary.storeQuote()
+        }
     }
     
 }

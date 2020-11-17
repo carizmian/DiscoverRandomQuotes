@@ -9,13 +9,13 @@ import Foundation
 import Network
 
 // MARK: - Response
-struct Response: Decodable {
+struct Response: Codable {
     let statusCode: Int
     let quote: Quote
 }
 
 // MARK: - Quote
-struct Quote: Decodable, Hashable {
+struct Quote: Codable, Hashable {
     var id, quoteText, quoteAuthor, quoteGenre: String
 
     enum CodingKeys: String, CodingKey {

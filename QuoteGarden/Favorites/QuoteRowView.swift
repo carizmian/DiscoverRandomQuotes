@@ -9,15 +9,14 @@ import SwiftUI
 
 struct QuoteRowView: View {
 
-    var quoteGenre: String
-    var quoteAuthor: String
+    var favoriteQuote: QuoteCD
 
     var body: some View {
 
         HStack {
-            Text("\(quoteAuthor)")
+            Text("\(favoriteQuote.wrappedQuoteAuthor)")
             Text("#").foregroundColor(.green)
-            Text("\(quoteGenre)")
+            Text("\(favoriteQuote.wrappedQuoteGenre)")
 
         }
     }
@@ -29,14 +28,14 @@ struct QuoteRowView_Previews: PreviewProvider {
             List {
                 NavigationLink(
                     destination: Text("Destination")) {
-                    QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
+//                    QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
                 }
-                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
+//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
+//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
+//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
+//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
+//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
+//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
             }
         }
     }

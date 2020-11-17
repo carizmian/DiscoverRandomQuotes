@@ -32,4 +32,5 @@ class QuoteViewModel: ObservableObject {
         quote.quoteAuthor = author
         quote.quoteGenre = genre
     }
+    
 }

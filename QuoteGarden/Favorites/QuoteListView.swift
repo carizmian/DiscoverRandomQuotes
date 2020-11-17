@@ -23,10 +23,10 @@ struct QuoteListView: View {
                 List {
                     
                     ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
-                        NavigationLink(destination: QuoteDetailView(genre: favoriteQuote.wrappedQuoteGenre, text: favoriteQuote.wrappedQuoteText, author: favoriteQuote.wrappedQuoteAuthor)) {
+                        NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
                             
                             HStack {
-                                QuoteRowView(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
+                                QuoteRowView(favoriteQuote: favoriteQuote)
                             }
                             
                         }
