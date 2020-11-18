@@ -14,11 +14,11 @@ struct QuoteGeneratorView: View {
     
     static let tag: String? = "Home"
     
-    @StateObject var viewModel = QuoteViewModel()
-     
-    var addToFavorites: (_ id: String, _ text: String, _ author: String, _ genre: String) -> Void
-    
-    @Binding var addedToFavorites: Bool
+    @Environment(\.managedObjectContext) var moc
+
+    @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
+         
+    @Binding var savedToDevice: Bool
     @Binding var showingShareSheetView: Bool
     
     @State private var addedToClipboard = false
@@ -37,7 +37,7 @@ struct QuoteGeneratorView: View {
             
             Color.clear.overlay(
                 
-                QuoteView(genre: "\(viewModel.quoteGenre)", text: "\(viewModel.quoteText)", author: "\(viewModel.quoteAuthor)")
+                QuoteView(quote: quote)
                     .background(Color.pink.clipShape(RoundedRectangle(cornerRadius: 10)))
                     .gesture(
                         LongPressGesture().onChanged { _ in
@@ -55,8 +55,8 @@ struct QuoteGeneratorView: View {
                             
                             QuoteGardenApi().getRandomQuote { quote in
                                 
-                                self.viewModel.update(quote.id, quote.quoteText, quote.quoteAuthor, quote.quoteGenre)
-                                addedToFavorites = false
+                                self.quote = quote
+                                savedToDevice = false
                                 addedToClipboard = false
                             }
                         }
@@ -89,15 +89,15 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    addToFavorites(self.viewModel.id, self.viewModel.quoteText, self.viewModel.quoteAuthor, self.viewModel.quoteGenre)
+                    addToFavorites(quote: quote)
                 }) {
-                    Image(systemName: addedToFavorites ? "heart.fill" : "heart")
+                    Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
                     
                 }.buttonStyle(ColoredButtonStyle())
-                .accessibilityLabel(Text("Add quote to your favorites"))
+                .accessibilityLabel(Text("Save quote to your device"))
                 
                 Button(action: {
-                    copyToClipboard(quoteGenre: viewModel.quoteGenre, quoteText: viewModel.quoteText, quoteAuthor: viewModel.quoteAuthor)
+                    copyToClipboard(quote: quote)
                 }) {
                     Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
                     
@@ -119,29 +119,39 @@ struct QuoteGeneratorView: View {
         }
         
     }
-    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
+    func copyToClipboard(quote: Quote) {
         let quoteString = """
-        \(quoteGenre)
+        \(quote.quoteGenre)
 
-        \(quoteText)
+        \(quote.quoteText)
 
-        \(quoteAuthor)
+        \(quote.quoteAuthor)
         """
         
         let pasteboard = UIPasteboard.general
         pasteboard.string = quoteString
         
         if pasteboard.string != nil {
-            print(quoteText)
+            print(quote.quoteText)
         }
         
         addedToClipboard = true
     }
     
+    func addToFavorites(quote: Quote) {
+        // FIXME: User can delete object when he taps the favorite button again (toggle)
+        
+        savedToDevice = true
+        
+        let favoriteQuote = QuoteCD(context: self.moc)
+        
+        favoriteQuote.id = quote.id
+        favoriteQuote.quoteText = quote.quoteText
+        favoriteQuote.quoteAuthor = quote.quoteAuthor
+        favoriteQuote.quoteGenre = quote.quoteGenre
+        
+        try? self.moc.save()
+        
+    }
+    
 }
-
-//struct QuoteGeneratorView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QuoteGeneratorView()
-//    }
-//}

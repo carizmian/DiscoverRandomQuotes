@@ -21,22 +21,3 @@ struct QuoteRowView: View {
         }
     }
 }
-
-struct QuoteRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            List {
-                NavigationLink(
-                    destination: Text("Destination")) {
-//                    QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-                }
-//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-//                QuoteRowView(quoteGenre: "science", quoteAuthor: "Leslie Fiedler")
-            }
-        }
-    }
-}

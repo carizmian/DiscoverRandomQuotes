@@ -15,14 +15,14 @@ struct ContentView: View {
     @AppStorage("selectedView") var selectedView: String?
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
-    @State private var addedToFavorites = false
+    @State private var savedToDevice = false
     @State private var showingShareSheetView = false
     
     var body: some View {
             
             TabView(selection: $selectedView) {
                 
-                QuoteGeneratorView(addToFavorites: addToFavorites(_:_:_:_:), addedToFavorites: $addedToFavorites, showingShareSheetView: $showingShareSheetView)
+                QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView)
                     .tag(QuoteGeneratorView.tag)
                     .tabItem {
                         Label("Random", systemImage: "text.quote")
@@ -33,29 +33,13 @@ struct ContentView: View {
                 QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
                     .tag(QuoteListView.tag)
                     .tabItem {
-                        Label("Favorites", systemImage: "heart.fill")
-                            .accessibilityLabel(Text("Your favorite quotes"))
+                        Label("Saved", systemImage: "bookmark.fill")
+                            .accessibilityLabel(Text("Your saved quotes"))
                     }
                 
             }
         
     }
-    func addToFavorites(_ id: String, _ text: String, _ author: String, _ genre: String) {
-        // FIXME: User can delete object when he taps the favorite button again (toggle)
-        
-        addedToFavorites = true
-        
-        let favoriteQuote = QuoteCD(context: self.moc)
-        
-        favoriteQuote.id = id
-        favoriteQuote.quoteText = text
-        favoriteQuote.quoteAuthor = author
-        favoriteQuote.quoteGenre = genre
-        
-        try? self.moc.save()
-        
-    }
-    
     func removeQuote(at offsets: IndexSet) {
         
         for index in offsets {
