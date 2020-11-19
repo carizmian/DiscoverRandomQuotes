@@ -9,7 +9,7 @@ import SwiftUI
 
 struct QuoteListView: View {
     
-    static let tag: String? = "Favorites"
+    static let tag: String? = "Saved Quotes"
     
     var removeQuote: (IndexSet) -> Void
     var favoriteQuotes: FetchedResults<QuoteCD>
@@ -33,7 +33,7 @@ struct QuoteListView: View {
                     }.onDelete(perform: removeQuote)
                     
                 }.listStyle(InsetListStyle())
-                .navigationBarTitle(Text("Your Favorite Quotes"))
+                .navigationBarTitle(Text("Your Saved Quotes"))
                 .navigationBarItems(trailing: EditButton())
                 .edgesIgnoringSafeArea(.bottom)
                 

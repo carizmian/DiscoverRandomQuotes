@@ -45,7 +45,6 @@ struct Provider: TimelineProvider {
     }
 }
 
-
 // MARK: View
 struct QuoteGardenWidgetEntryView: View {
     @Environment(\.widgetFamily) var family
@@ -87,10 +86,6 @@ struct LargeWidget: View {
         QuoteView(quote: entry.quote)
     }
 }
-
-
-
-
 
 @main
 struct QuoteGardenWidget: Widget {
