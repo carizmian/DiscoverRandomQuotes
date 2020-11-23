@@ -19,13 +19,13 @@ struct SearchBar: View {
                 .padding()
                 .padding(.horizontal)
                 .background(Color(.systemGray6))
-                .cornerRadius(10)
+                .cornerRadius(50)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
+                            .foregroundColor(.accentColor)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading)
+                            .padding()
 
                         if isEditing {
                             Button(action: {
@@ -34,7 +34,7 @@ struct SearchBar: View {
                             }) {
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
-                                    .padding(.trailing)
+                                    .padding()
                             }
                         }
                     }

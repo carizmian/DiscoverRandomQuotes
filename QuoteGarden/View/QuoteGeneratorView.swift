@@ -77,6 +77,7 @@ struct QuoteGeneratorView: View {
             .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
             
             HStack {
+                
                 Button(action: {
                     self.uiimage = self.rect1.uiImage
                     if self.uiimage != nil {
@@ -89,7 +90,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 
                 Button(action: {
-                    addToFavorites(quote: quote)
+                    saveToDevice(quote: quote)
                 }) {
                     Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
                     
@@ -138,7 +139,7 @@ struct QuoteGeneratorView: View {
         addedToClipboard = true
     }
     
-    func addToFavorites(quote: Quote) {
+    func saveToDevice(quote: Quote) {
         // FIXME: User can delete object when he taps the favorite button again (toggle)
         
         savedToDevice = true

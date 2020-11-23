@@ -35,7 +35,6 @@
 		93DEB54625284527006B9BF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54525284527006B9BF5 /* ContentView.swift */; };
 		93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54725284529006B9BF5 /* Assets.xcassets */; };
 		93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */; };
-		93DEB54E25284529006B9BF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */; };
 		93DEB55925284529006B9BF5 /* QuoteGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */; };
 		93DEB56425284529006B9BF5 /* QuoteGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */; };
 		93DEB57325284631006B9BF5 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
@@ -110,7 +109,6 @@
 		93DEB54525284527006B9BF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		93DEB54725284529006B9BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		93DEB54D25284529006B9BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93DEB54F25284529006B9BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93DEB55425284529006B9BF5 /* QuoteGardenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteGardenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGardenTests.swift; sourceTree = "<group>"; };
@@ -156,13 +154,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		935562072538135A00BF2F0A /* Quotes */ = {
+		935562072538135A00BF2F0A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
 				936886852545D18E0034F960 /* QuoteGeneratorView.swift */,
+				936886702545CCAD0034F960 /* Favorites */,
 			);
-			path = Quotes;
+			path = View;
 			sourceTree = "<group>";
 		};
 		936886702545CCAD0034F960 /* Favorites */ = {
@@ -228,13 +227,11 @@
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
 				936886CA25469D460034F960 /* ButtonStyle.swift */,
 				93DEB571252845D2006B9BF5 /* Model */,
-				935562072538135A00BF2F0A /* Quotes */,
-				936886702545CCAD0034F960 /* Favorites */,
+				935562072538135A00BF2F0A /* View */,
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
-				93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
 				93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */,
 				93DEB54925284529006B9BF5 /* Preview Content */,
@@ -422,7 +419,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DEB54E25284529006B9BF5 /* LaunchScreen.storyboard in Resources */,
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
 			);
@@ -536,17 +532,6 @@
 			targetProxy = 93DEB56025284529006B9BF5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		93DEB54C25284529006B9BF5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93DEB54D25284529006B9BF5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		93C8F6B82564DF180072589B /* Debug */ = {
@@ -724,12 +709,12 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = QuoteGarden/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -752,12 +737,12 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = QuoteGarden/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

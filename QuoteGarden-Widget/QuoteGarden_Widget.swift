@@ -95,7 +95,7 @@ struct QuoteGardenWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             QuoteGardenWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Discover - Random quotes")
+        .configurationDisplayName("Spontaneous - Random quotes")
         .description("These are the Widgets which display a quote.")
         .supportedFamilies([.systemMedium, .systemLarge])
     }
