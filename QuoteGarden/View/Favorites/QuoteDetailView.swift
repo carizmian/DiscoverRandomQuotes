@@ -9,6 +9,7 @@ import SwiftUI
 import WidgetKit
 import CoreData
 import Foundation
+import StoreKit
 
 struct QuoteDetailView: View {
     
@@ -68,6 +69,9 @@ struct QuoteDetailView: View {
                     self.uiimage!
                 ])
             }
+        }
+        .onAppear {
+            AppReviewRequest.requestReviewIfNeeded()
         }
     }
     

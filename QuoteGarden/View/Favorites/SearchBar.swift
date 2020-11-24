@@ -15,13 +15,11 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             
-            
             HStack {
                 Image(systemName: "magnifyingglass")
                     .font(.title2)
                     .foregroundColor(.gray)
                 TextField("Search by author", text: $text)
-                
                 
             }.padding()
             .padding(.horizontal)
@@ -49,7 +47,6 @@ struct SearchBar: View {
         }.animation(.default)
     }
 }
-
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {

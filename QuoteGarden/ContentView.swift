@@ -21,14 +21,13 @@ struct ContentView: View {
     var body: some View {
             
             TabView(selection: $selectedView) {
-                
+
                 QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView)
                     .tag(QuoteGeneratorView.tag)
                     .tabItem {
                         Label("Random", systemImage: "text.quote")
                             .accessibilityLabel(Text("New Quote"))
                     }
-                    .transition(.slide)
                 
                 QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
                     .tag(QuoteListView.tag)

@@ -38,6 +38,7 @@
 		93DEB55925284529006B9BF5 /* QuoteGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */; };
 		93DEB56425284529006B9BF5 /* QuoteGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */; };
 		93DEB57325284631006B9BF5 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
+		93F0BE66256CD29000ABC037 /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGardenUITests.swift; sourceTree = "<group>"; };
 		93DEB56525284529006B9BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93DEB57225284631006B9BF5 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		93DEB53D25284527006B9BF5 /* QuoteGarden */ = {
 			isa = PBXGroup;
 			children = (
+				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
 				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
@@ -482,6 +485,7 @@
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
 				93C8F69F256423FE0072589B /* PrimaryQuote.swift in Sources */,
+				93F0BE66256CD29000ABC037 /* AppReviewRequest.swift in Sources */,
 				936886CB25469D460034F960 /* ButtonStyle.swift in Sources */,
 				9392E4AF25408808004BF68E /* SearchBar.swift in Sources */,
 				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
@@ -635,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -690,7 +694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -709,7 +713,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -719,7 +723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -737,7 +741,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -747,7 +751,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
