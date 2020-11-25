@@ -38,7 +38,6 @@ struct QuoteGeneratorView: View {
             Color.clear.overlay(
                 
                 QuoteView(quote: quote)
-                    .background(Color.pink.clipShape(RoundedRectangle(cornerRadius: 10)))
                     .gesture(
                         LongPressGesture().onChanged { _ in
                             

@@ -32,7 +32,7 @@ struct QuoteListView: View {
                         }
                     }.onDelete(perform: removeQuote)
                     
-                }.listStyle(InsetListStyle())
+                }.listStyle(PlainListStyle())
                 .navigationBarTitle(Text("Your Saved Quotes"))
                 .navigationBarItems(trailing: EditButton())
                 .edgesIgnoringSafeArea(.bottom)

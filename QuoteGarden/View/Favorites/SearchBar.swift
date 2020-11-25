@@ -24,7 +24,7 @@ struct SearchBar: View {
             }.padding()
             .padding(.horizontal)
             .background(Color(.systemGray6))
-            .cornerRadius(50)
+            .cornerRadius(25)
             .onTapGesture {
                 isEditing = true
             }
@@ -44,7 +44,8 @@ struct SearchBar: View {
                 .animation(.default)
                 
             }
-        }.animation(.default)
+        }.padding([.leading,.trailing])
+        .animation(.default)
     }
 }
 
