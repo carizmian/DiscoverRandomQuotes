@@ -83,7 +83,38 @@ struct LargeWidget: View {
     var entry: Provider.Entry
     
     var body: some View {
-        QuoteView(quote: entry.quote)
+        VStack(alignment: .center) {
+
+            HStack {
+                Text("#")
+                    .foregroundColor(.green)
+                Text("\(entry.quote.quoteGenre)")
+            }.padding(.bottom)
+            .allowsTightening(true)
+            .font(Font.system(.callout, design: .monospaced).weight(.bold))
+            .accessibilityLabel(Text("quote genre is hashtag \(entry.quote.quoteGenre)"))
+
+            Text("\(entry.quote.quoteText)")
+                .italic()
+                .font(Font.system(.title, design: .monospaced).weight(.black))
+                .padding(.horizontal)
+                .allowsTightening(true)
+                .layoutPriority(2)
+                .minimumScaleFactor(0.3)
+                .accessibilityLabel(Text("quote text is \(entry.quote.quoteText)"))
+
+            HStack {
+                Text("~")
+                    .foregroundColor(.green)
+                Text("\(entry.quote.quoteAuthor)")
+
+            }.padding(.top)
+            .allowsTightening(true)
+            .font(Font.system(.callout, design: .monospaced).weight(.bold))
+            .accessibilityLabel(Text("quote author is \(entry.quote.quoteAuthor)"))
+
+        }.multilineTextAlignment(.center)
+        .padding()
     }
 }
 

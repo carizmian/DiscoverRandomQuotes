@@ -12,7 +12,7 @@ struct QuoteView: View {
     var quote: Quote
 
     var body: some View {
-                
+
             VStack(alignment: .center) {
 
                 HStack {
