@@ -45,7 +45,7 @@ struct QuoteView: View {
 
             }.multilineTextAlignment(.center)
             .padding()
-            .background(Color.pink.clipShape(RoundedRectangle(cornerRadius: 25)))
+            .background(Color.accentColor.clipShape(RoundedRectangle(cornerRadius: 25)))
         
     }
 }

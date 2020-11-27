@@ -3,23 +3,9 @@
     {
       "color" : {
         "platform" : "ios",
-        "reference" : "systemPinkColor"
+        "reference" : "systemIndigoColor"
       },
       "idiom" : "universal"
-    },
-    {
-      "color" : {
-        "platform" : "ios",
-        "reference" : "systemPinkColor"
-      },
-      "idiom" : "iphone"
-    },
-    {
-      "color" : {
-        "platform" : "ios",
-        "reference" : "systemPinkColor"
-      },
-      "idiom" : "ipad"
     }
   ],
   "info" : {

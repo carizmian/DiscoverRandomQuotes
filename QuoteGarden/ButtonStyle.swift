@@ -15,18 +15,11 @@ struct ColoredButtonStyle: ButtonStyle {
             .padding(.horizontal)
             .background(Color.accentColor)
             .clipShape(Circle())
-//            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .foregroundColor(.white)
-//            .overlay(
-//                Color.black
-//                    .
-//                   .opacity(configuration.isPressed ? 0.3 : 0)
-//                    .clipShape(Circle())
-//                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .circular))
-//            )
+            .foregroundColor(Color("TextColor"))
             .padding()
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
+        
         
     }
 }
