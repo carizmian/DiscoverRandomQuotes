@@ -21,7 +21,7 @@ struct SearchBar: View {
                     .foregroundColor(.gray)
                 TextField("Search by author", text: $text)
                 
-            }.padding()
+            }.padding(8)
             .padding(.horizontal)
             .background(Color(.systemGray6))
             .cornerRadius(25)
