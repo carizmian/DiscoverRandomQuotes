@@ -25,7 +25,6 @@ struct QuoteView: View {
                 .accessibilityLabel(Text("quote genre is hashtag \(quote.quoteGenre)"))
 
                 Text("\(quote.quoteText)")
-                    .italic()
                     .font(Font.system(.title, design: .monospaced).weight(.black))
                     .padding(.horizontal)
                     .allowsTightening(true)
