@@ -74,6 +74,9 @@ struct QuoteGeneratorView: View {
                 
             ).getRect($rect1)
             .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
+            .accessibility(addTraits: .isButton)
+            .accessibility(label: Text("Change quote"))
+            .accessibility(hint: Text("Changes quote when tapped, and display them"))
             
             HStack {
                 
@@ -87,6 +90,7 @@ struct QuoteGeneratorView: View {
                     
                 }.buttonStyle(ColoredButtonStyle())
                 .accessibilityLabel(Text("Share quote"))
+                .accessibility(hint: Text("opens a share sheet view"))
                 
                 Button(action: {
                     saveToDevice(quote: quote)
@@ -94,7 +98,8 @@ struct QuoteGeneratorView: View {
                     Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
                     
                 }.buttonStyle(ColoredButtonStyle())
-                .accessibilityLabel(Text("Save quote to your device"))
+                .accessibilityLabel(Text("Save quote"))
+                .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
                 
                 Button(action: {
                     copyToClipboard(quote: quote)
@@ -103,6 +108,7 @@ struct QuoteGeneratorView: View {
                     
                 }.buttonStyle(ColoredButtonStyle())
                 .accessibilityLabel(Text("Copy quote"))
+                .accessibility(hint: Text("Copy the quote text to your clipboard"))
                 
             }
             

@@ -27,6 +27,7 @@ struct QuoteListView: View {
                             
                             HStack {
                                 QuoteRowView(favoriteQuote: favoriteQuote)
+                                
                             }
                             
                         }

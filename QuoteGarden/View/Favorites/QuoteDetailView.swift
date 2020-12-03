@@ -40,18 +40,21 @@ struct QuoteDetailView: View {
                     Image(systemName: addedToFavorites ? "arrow.turn.up.forward.iphone.fill" : "arrow.turn.up.forward.iphone")
                     
                 }.buttonStyle(ColoredButtonStyle())
-                .accessibilityLabel(Text("Display on widget"))
+                .accessibilityLabel(Text("Display on a widget"))
+                .accessibility(hint: Text("Display the quote on a widget"))
                 
                 Button(action: {
                     self.uiimage = self.rect1.uiImage
                     if self.uiimage != nil {
                         showingShareSheetView = true
                     }
+                    
                 }) {
                     Image(systemName: "square.and.arrow.up")
                     
                 }.buttonStyle(ColoredButtonStyle())
                 .accessibilityLabel(Text("Share quote"))
+                .accessibility(hint: Text("opens a share sheet view"))
                 
                 Button(action: {
                     copyToClipboard(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
@@ -60,6 +63,7 @@ struct QuoteDetailView: View {
                     
                 }.buttonStyle(ColoredButtonStyle())
                 .accessibilityLabel(Text("Copy quote"))
+                .accessibility(hint: Text("Copy the quote text to your clipboard"))
                 
             }
             
