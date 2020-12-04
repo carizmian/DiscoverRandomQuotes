@@ -1,7 +1,7 @@
 # Spontaneous - Random quotes
 ## Find out quotations
 
-![1|414×896,20%](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/Generate%20quotesiPhone%2011%20Pro%20Max.png)
+![1|207×448](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/Generate%20quotesiPhone%2011%20Pro%20Max.png)
 ![2|414×896,20%](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/Save%20quotesiPhone%2011%20Pro%20Max.png)
 ![3|414×896,20%](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/WidgetiPhone%2011%20Pro%20Max.png)
 
