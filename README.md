@@ -15,3 +15,6 @@ In this app you can:
 
 
 [Privacy Policy](privacyPolicy.md)
+
+## License
+Spontaneous - Random quotes is written in **Swift 5** and is open source (MIT license).
