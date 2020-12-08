@@ -13,6 +13,8 @@ In this app you can:
 * Share your favorite quotes
 * Display your favorite quote using a widget
 
+[<img src="https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917%201.png">](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374)
+
 
 [Privacy Policy](privacyPolicy.md)
 
