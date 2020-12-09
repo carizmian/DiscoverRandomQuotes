@@ -30,7 +30,7 @@ struct QuoteGeneratorView: View {
     let reachability = try! Reachability()
     
     @State var viewState = CGSize.zero
-    
+        
     var body: some View {
         
         VStack {

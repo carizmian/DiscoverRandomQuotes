@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "9A2BF66B-1E93-498B-92A4-F7F2DC186393",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:QuoteGarden.xcodeproj",
+        "identifier" : "93DEB55325284529006B9BF5",
+        "name" : "QuoteGardenTests"
+      }
+    }
+  ],
+  "version" : 1
+}
