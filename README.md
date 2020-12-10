@@ -20,7 +20,7 @@ This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneou
 ## MIT License
 Spontaneous - Random quotes is written in **Swift 5** and is open source (MIT license).
 
-Copyright (c) 2020 Nikola Franičević. All rights reserved.
+`Copyright (c) 2020 Nikola Franičević. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -39,4 +39,4 @@ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
