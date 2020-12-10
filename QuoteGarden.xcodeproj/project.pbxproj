@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		932B13072580ABA100AE83D5 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 932B13062580ABA100AE83D5 /* quotes.json */; };
-		932B13082580ABA100AE83D5 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 932B13062580ABA100AE83D5 /* quotes.json */; };
 		93426350254DC5840023B6FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
@@ -128,7 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		932B13062580ABA100AE83D5 /* quotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
 		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -268,7 +265,6 @@
 		93A3EC7A257B47570099B08C /* QuoteGarden-Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				932B13062580ABA100AE83D5 /* quotes.json */,
 				938D8375257F583F00F0FD17 /* Model.swift */,
 				938D8383257F58A300F0FD17 /* QuoteView.swift */,
 				93A3EC7B257B47570099B08C /* ContentView.swift */,
@@ -566,7 +562,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				932B13072580ABA100AE83D5 /* quotes.json in Resources */,
 				93A3EC70257B47570099B08C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,7 +572,6 @@
 			files = (
 				93A3EC85257B47590099B08C /* Preview Assets.xcassets in Resources */,
 				93A3EC82257B47590099B08C /* Assets.xcassets in Resources */,
-				932B13082580ABA100AE83D5 /* quotes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
