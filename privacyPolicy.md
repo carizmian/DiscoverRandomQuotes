@@ -1,6 +1,6 @@
 # Privacy Policy
 
-## Discover - Random quotes
+## Spontaneous - Random quotes
 ##### Last updated [November 03, 2020]
 
 This Privacy Policy explains how we collect, use, disclose and safeguard your information when you visit our mobile application Discover – Random quotes. Please read this Privacy Policy carefully.  IF YOU DO NOT AGREE WITH THE TERMS OF THIS PRIVACY POLICY, PLEASE DO NOT ACCESS THE APPLICATION.
