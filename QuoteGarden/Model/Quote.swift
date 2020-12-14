@@ -11,7 +11,7 @@ import Network
 // MARK: - Response
 struct Response: Codable {
     let statusCode: Int
-    let quote: Quote
+    let data: [Quote]
 }
 
 // MARK: - Quote

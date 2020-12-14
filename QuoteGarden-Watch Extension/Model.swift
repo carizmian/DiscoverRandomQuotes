@@ -10,7 +10,7 @@ import Network
 
 // MARK: - Response
 struct Response: Codable {
-    let quote: Quote
+    let data: [Quote]
 }
 
 // MARK: - Quote
@@ -34,7 +34,7 @@ struct QuoteGardenApi {
         config.waitsForConnectivity = false
 //        config.requestCachePolicy = .reloadIgnoringLocalCacheData
 
-        let url = URL(string: "https://quote-garden.herokuapp.com/api/v2/quotes/random")
+        let url = URL(string: "https://quote-garden.herokuapp.com/api/v3/quotes/random")
 
         var request = URLRequest(url: url!, timeoutInterval: Double.infinity)
         request.httpMethod = "GET"
@@ -50,7 +50,7 @@ struct QuoteGardenApi {
                 return
             }
             DispatchQueue.main.async {
-                completion(response.quote)
+                completion(response.data[0])
             }
 
             print(String(data: data, encoding: .utf8)!)
