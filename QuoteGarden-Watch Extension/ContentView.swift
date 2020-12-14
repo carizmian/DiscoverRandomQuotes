@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     // TODO: WatchOS app can generate new quotes and that is it (user muzst be connected to the internet maybe try fixing this by downloading quotes on the watch)
     @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
     @State var viewState = CGSize.zero
-    
     
     var body: some View {
         QuoteView(quote: quote)

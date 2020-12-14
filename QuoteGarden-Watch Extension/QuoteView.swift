@@ -45,7 +45,6 @@ struct QuoteView: View {
     }
 }
 
-
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteView(quote: Quote.init(id: "", quoteText: "This is just for a test, because I do not know any quote by hea", quoteAuthor: "Nikola Franičević", quoteGenre: "test"))
