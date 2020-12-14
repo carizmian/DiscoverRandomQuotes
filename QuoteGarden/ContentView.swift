@@ -26,15 +26,17 @@ struct ContentView: View {
                     .tag(QuoteGeneratorView.tag)
                     .tabItem {
                         Label("Random", systemImage: "text.quote")
-                            .accessibilityLabel(Text("New Quote"))
                     }
+                    .accessibilityLabel(Text("Random quotes"))
+                    .accessibility(hint: Text("Find new quotes here"))
                 
                 QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
                     .tag(QuoteListView.tag)
                     .tabItem {
                         Label("Saved", systemImage: "bookmark.fill")
-                            .accessibilityLabel(Text("Your saved quotes"))
                     }
+                    .accessibilityLabel(Text("Saved quotes"))
+                    .accessibility(hint: Text("Find your saved quotes here"))
                 
             }
         

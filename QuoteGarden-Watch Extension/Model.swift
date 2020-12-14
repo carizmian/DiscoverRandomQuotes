@@ -1,39 +1,26 @@
 //
-//  NetworkMonitor.swift
+//  Quote.swift
 //  QuoteGarden
 //
-//  Created by Master Family on 28/10/2020.
+//  Created by Master Family on 08/12/2020.
 //
 
 import Foundation
 import Network
 
-class NetworkMonitor: ObservableObject {
-    private let monitor = NWPathMonitor()
-    private let queue = DispatchQueue(label: "Monitor")
+// MARK: - Response
+struct Response: Codable {
+    let data: [Quote]
+}
 
-    var isActive = false
-    var isExpensive = false
-    var isConstrained = false
-    var connectionType = NWInterface.InterfaceType.other
-
-    init() {
-        monitor.pathUpdateHandler = { path in
-            self.isActive = path.status == .satisfied
-            self.isExpensive = path.isExpensive
-            self.isConstrained = path.isConstrained
-
-            let connectionTypes: [NWInterface.InterfaceType] = [.cellular, .wifi, .wiredEthernet]
-            self.connectionType = connectionTypes.first(where: path.usesInterfaceType) ?? .other
-
-            DispatchQueue.main.async {
-                self.objectWillChange.send()
-            }
-        }
-
-        monitor.start(queue: queue)
+// MARK: - Quote
+struct Quote: Codable, Hashable {
+    var id, quoteText, quoteAuthor, quoteGenre: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case quoteText, quoteAuthor, quoteGenre
     }
-
 }
 
 struct QuoteGardenApi {
@@ -71,5 +58,5 @@ struct QuoteGardenApi {
 
         task.resume()
     }
-
+    
 }

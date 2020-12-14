@@ -22,7 +22,7 @@ struct QuoteView: View {
                 }.padding(.bottom)
                 .allowsTightening(true)
                 .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote genre is hashtag \(quote.quoteGenre)"))
+                .accessibility(value: Text("quote genre is hashtag \(quote.quoteGenre)"))
 
                 Text("\(quote.quoteText)")
                     .italic()
@@ -31,7 +31,7 @@ struct QuoteView: View {
                     .allowsTightening(true)
                     .layoutPriority(2)
                     .minimumScaleFactor(0.3)
-                    .accessibilityLabel(Text("quote text is \(quote.quoteText)"))
+                    .accessibility(value: Text("quote text is \(quote.quoteText)"))
 
                 HStack {
                     Text("~")
@@ -41,7 +41,7 @@ struct QuoteView: View {
                 }.padding(.top)
                 .allowsTightening(true)
                 .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .accessibilityLabel(Text("quote author is \(quote.quoteAuthor)"))
+                .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
 
             }.multilineTextAlignment(.center)
             .padding()

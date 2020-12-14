@@ -44,8 +44,11 @@ struct SearchBar: View {
                 .animation(.default)
                 
             }
-        }.padding([.leading,.trailing])
+        }.padding([.leading, .trailing])
         .animation(.default)
+        .accessibility(label: Text("Searchbar"))
+        .accessibility(hint: Text("Search favorite quotes by quote author"))
+        .accessibility(addTraits: .isSearchField)
     }
 }
 

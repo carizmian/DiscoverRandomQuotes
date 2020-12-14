@@ -18,9 +18,19 @@
 		9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		937CCC902550390E003F56B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CCC8F2550390D003F56B1 /* SnapshotHelper.swift */; };
+		938D8376257F583F00F0FD17 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D8375257F583F00F0FD17 /* Model.swift */; };
+		938D8384257F58A300F0FD17 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D8383257F58A300F0FD17 /* QuoteView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
+		93A3EC70257B47570099B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC6F257B47570099B08C /* Assets.xcassets */; };
+		93A3EC77257B47570099B08C /* QuoteGarden-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93A3EC76257B47570099B08C /* QuoteGarden-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		93A3EC7C257B47570099B08C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3EC7B257B47570099B08C /* ContentView.swift */; };
+		93A3EC7E257B47580099B08C /* QuoteGardenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3EC7D257B47580099B08C /* QuoteGardenApp.swift */; };
+		93A3EC80257B47580099B08C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3EC7F257B47580099B08C /* ComplicationController.swift */; };
+		93A3EC82257B47590099B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC81257B47590099B08C /* Assets.xcassets */; };
+		93A3EC85257B47590099B08C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC84257B47590099B08C /* Preview Assets.xcassets */; };
+		93A3EC89257B47590099B08C /* QuoteGarden-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 93A3EC6D257B47530099B08C /* QuoteGarden-Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		93C8F69F256423FE0072589B /* PrimaryQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8F69E256423FE0072589B /* PrimaryQuote.swift */; };
 		93C8F6AC2564DF140072589B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C8F6AB2564DF140072589B /* WidgetKit.framework */; };
 		93C8F6AD2564DF140072589B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939D200525317E14003C34D8 /* SwiftUI.framework */; };
@@ -42,6 +52,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		93A3EC78257B47570099B08C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93DEB53325284527006B9BF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93A3EC75257B47570099B08C;
+			remoteInfo = "QuoteGarden-Watch Extension";
+		};
+		93A3EC87257B47590099B08C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93DEB53325284527006B9BF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93A3EC6C257B47530099B08C;
+			remoteInfo = "QuoteGarden-Watch";
+		};
 		93C8F6B42564DF180072589B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93DEB53325284527006B9BF5 /* Project object */;
@@ -77,6 +101,28 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		93A3EC8D257B47590099B08C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				93A3EC77257B47570099B08C /* QuoteGarden-Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3EC91257B47590099B08C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				93A3EC89257B47590099B08C /* QuoteGarden-Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -92,10 +138,23 @@
 		9374AF042532BAC100412C9E /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		9374AF082532BB4E00412C9E /* FullTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullTests.xctestplan; sourceTree = "<group>"; };
 		937CCC8F2550390D003F56B1 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		938D8374257F583F00F0FD17 /* QuoteGarden-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteGarden-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
+		938D8375257F583F00F0FD17 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		938D8383257F58A300F0FD17 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		9395DD75255454A300B30BC2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRowView.swift; sourceTree = "<group>"; };
+		93A3EC6D257B47530099B08C /* QuoteGarden-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuoteGarden-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A3EC6F257B47570099B08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93A3EC71257B47570099B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A3EC76257B47570099B08C /* QuoteGarden-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteGarden-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A3EC7B257B47570099B08C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		93A3EC7D257B47580099B08C /* QuoteGardenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGardenApp.swift; sourceTree = "<group>"; };
+		93A3EC7F257B47580099B08C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		93A3EC81257B47590099B08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93A3EC84257B47590099B08C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		93A3EC86257B47590099B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93C8F69E256423FE0072589B /* PrimaryQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryQuote.swift; sourceTree = "<group>"; };
 		93C8F6AA2564DF140072589B /* QuoteGarden-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteGarden-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C8F6AB2564DF140072589B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -122,6 +181,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		93A3EC73257B47570099B08C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93C8F6A72564DF140072589B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +253,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		93A3EC6E257B47540099B08C /* QuoteGarden-Watch */ = {
+			isa = PBXGroup;
+			children = (
+				93A3EC6F257B47570099B08C /* Assets.xcassets */,
+				93A3EC71257B47570099B08C /* Info.plist */,
+			);
+			path = "QuoteGarden-Watch";
+			sourceTree = "<group>";
+		};
+		93A3EC7A257B47570099B08C /* QuoteGarden-Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				938D8375257F583F00F0FD17 /* Model.swift */,
+				938D8383257F58A300F0FD17 /* QuoteView.swift */,
+				93A3EC7B257B47570099B08C /* ContentView.swift */,
+				93A3EC7D257B47580099B08C /* QuoteGardenApp.swift */,
+				93A3EC7F257B47580099B08C /* ComplicationController.swift */,
+				93A3EC81257B47590099B08C /* Assets.xcassets */,
+				93A3EC86257B47590099B08C /* Info.plist */,
+				93A3EC83257B47590099B08C /* Preview Content */,
+				938D8374257F583F00F0FD17 /* QuoteGarden-Watch-Bridging-Header.h */,
+			);
+			path = "QuoteGarden-Watch Extension";
+			sourceTree = "<group>";
+		};
+		93A3EC83257B47590099B08C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				93A3EC84257B47590099B08C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		93C8F6AE2564DF140072589B /* QuoteGarden-Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,8 +302,10 @@
 				93C8F6BE2564DF360072589B /* QuoteGarden-WidgetExtension.entitlements */,
 				93DEB53D25284527006B9BF5 /* QuoteGarden */,
 				93C8F6AE2564DF140072589B /* QuoteGarden-Widget */,
-				93DEB55725284529006B9BF5 /* QuoteGardenTests */,
-				93DEB56225284529006B9BF5 /* QuoteGardenUITests */,
+				93A3EC6E257B47540099B08C /* QuoteGarden-Watch */,
+				93A3EC7A257B47570099B08C /* QuoteGarden-Watch Extension */,
+				93DEB55725284529006B9BF5 /* Tests */,
+				93DEB56225284529006B9BF5 /* UITests */,
 				939D200225317E14003C34D8 /* Frameworks */,
 				93DEB53C25284527006B9BF5 /* Products */,
 			);
@@ -217,6 +318,8 @@
 				93DEB55425284529006B9BF5 /* QuoteGardenTests.xctest */,
 				93DEB55F25284529006B9BF5 /* QuoteGardenUITests.xctest */,
 				93C8F6AA2564DF140072589B /* QuoteGarden-WidgetExtension.appex */,
+				93A3EC6D257B47530099B08C /* QuoteGarden-Watch.app */,
+				93A3EC76257B47570099B08C /* QuoteGarden-Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,17 +353,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		93DEB55725284529006B9BF5 /* QuoteGardenTests */ = {
+		93DEB55725284529006B9BF5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				9374AF042532BAC100412C9E /* UnitTests.xctestplan */,
 				93DEB55825284529006B9BF5 /* QuoteGardenTests.swift */,
 				93DEB55A25284529006B9BF5 /* Info.plist */,
 			);
-			path = QuoteGardenTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		93DEB56225284529006B9BF5 /* QuoteGardenUITests */ = {
+		93DEB56225284529006B9BF5 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
 				9374AF082532BB4E00412C9E /* FullTests.xctestplan */,
@@ -268,7 +371,7 @@
 				93DEB56325284529006B9BF5 /* QuoteGardenUITests.swift */,
 				93DEB56525284529006B9BF5 /* Info.plist */,
 			);
-			path = QuoteGardenUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 		93DEB571252845D2006B9BF5 /* Model */ = {
@@ -284,6 +387,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		93A3EC6C257B47530099B08C /* QuoteGarden-Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A3EC8E257B47590099B08C /* Build configuration list for PBXNativeTarget "QuoteGarden-Watch" */;
+			buildPhases = (
+				93A3EC6B257B47530099B08C /* Resources */,
+				93A3EC8D257B47590099B08C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93A3EC79257B47570099B08C /* PBXTargetDependency */,
+			);
+			name = "QuoteGarden-Watch";
+			productName = "QuoteGarden-Watch";
+			productReference = 93A3EC6D257B47530099B08C /* QuoteGarden-Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		93A3EC75257B47570099B08C /* QuoteGarden-Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A3EC8A257B47590099B08C /* Build configuration list for PBXNativeTarget "QuoteGarden-Watch Extension" */;
+			buildPhases = (
+				93A3EC72257B47570099B08C /* Sources */,
+				93A3EC73257B47570099B08C /* Frameworks */,
+				93A3EC74257B47570099B08C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QuoteGarden-Watch Extension";
+			productName = "QuoteGarden-Watch Extension";
+			productReference = 93A3EC76257B47570099B08C /* QuoteGarden-Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		93C8F6A92564DF140072589B /* QuoteGarden-WidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93C8F6B72564DF180072589B /* Build configuration list for PBXNativeTarget "QuoteGarden-WidgetExtension" */;
@@ -310,11 +447,13 @@
 				93DEB53925284527006B9BF5 /* Resources */,
 				939D201625317E17003C34D8 /* Embed App Extensions */,
 				9358ED0E2549EF5500C04DC8 /* ShellScript */,
+				93A3EC91257B47590099B08C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				93C8F6B52564DF180072589B /* PBXTargetDependency */,
+				93A3EC88257B47590099B08C /* PBXTargetDependency */,
 			);
 			name = QuoteGarden;
 			packageProductDependencies = (
@@ -369,6 +508,13 @@
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					93A3EC6C257B47530099B08C = {
+						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
+					};
+					93A3EC75257B47570099B08C = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					93C8F6A92564DF140072589B = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -405,11 +551,30 @@
 				93DEB55325284529006B9BF5 /* QuoteGardenTests */,
 				93DEB55E25284529006B9BF5 /* QuoteGardenUITests */,
 				93C8F6A92564DF140072589B /* QuoteGarden-WidgetExtension */,
+				93A3EC6C257B47530099B08C /* QuoteGarden-Watch */,
+				93A3EC75257B47570099B08C /* QuoteGarden-Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		93A3EC6B257B47530099B08C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A3EC70257B47570099B08C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3EC74257B47570099B08C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A3EC85257B47590099B08C /* Preview Assets.xcassets in Resources */,
+				93A3EC82257B47590099B08C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93C8F6A82564DF140072589B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -464,6 +629,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		93A3EC72257B47570099B08C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938D8376257F583F00F0FD17 /* Model.swift in Sources */,
+				938D8384257F58A300F0FD17 /* QuoteView.swift in Sources */,
+				93A3EC7C257B47570099B08C /* ContentView.swift in Sources */,
+				93A3EC7E257B47580099B08C /* QuoteGardenApp.swift in Sources */,
+				93A3EC80257B47580099B08C /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93C8F6A62564DF140072589B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,6 +697,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		93A3EC79257B47570099B08C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93A3EC75257B47570099B08C /* QuoteGarden-Watch Extension */;
+			targetProxy = 93A3EC78257B47570099B08C /* PBXContainerItemProxy */;
+		};
+		93A3EC88257B47590099B08C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93A3EC6C257B47530099B08C /* QuoteGarden-Watch */;
+			targetProxy = 93A3EC87257B47590099B08C /* PBXContainerItemProxy */;
+		};
 		93C8F6B52564DF180072589B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 93C8F6A92564DF140072589B /* QuoteGarden-WidgetExtension */;
@@ -538,6 +725,119 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		93A3EC8B257B47590099B08C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "QuoteGarden-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+			};
+			name = Debug;
+		};
+		93A3EC8C257B47590099B08C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "QuoteGarden-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+			};
+			name = Release;
+		};
+		93A3EC8F257B47590099B08C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				IBSC_MODULE = QuoteGarden_Watch_Extension;
+				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuoteGarden-Watch Extension/QuoteGarden-Watch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+			};
+			name = Debug;
+		};
+		93A3EC90257B47590099B08C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				IBSC_MODULE = QuoteGarden_Watch_Extension;
+				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuoteGarden-Watch Extension/QuoteGarden-Watch-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+			};
+			name = Release;
+		};
 		93C8F6B82564DF180072589B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -555,7 +855,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -582,7 +882,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -727,7 +1027,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -755,7 +1055,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -851,6 +1151,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		93A3EC8A257B47590099B08C /* Build configuration list for PBXNativeTarget "QuoteGarden-Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A3EC8B257B47590099B08C /* Debug */,
+				93A3EC8C257B47590099B08C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93A3EC8E257B47590099B08C /* Build configuration list for PBXNativeTarget "QuoteGarden-Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A3EC8F257B47590099B08C /* Debug */,
+				93A3EC90257B47590099B08C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		93C8F6B72564DF180072589B /* Build configuration list for PBXNativeTarget "QuoteGarden-WidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
