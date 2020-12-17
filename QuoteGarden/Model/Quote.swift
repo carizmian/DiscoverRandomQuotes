@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import Network
-
+ 
 // MARK: - Response
 struct Response: Codable {
     let statusCode: Int
