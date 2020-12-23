@@ -40,7 +40,7 @@ struct QuoteGeneratorView: View {
                 QuoteView(quote: quote)
                     .gesture(
                         LongPressGesture().onChanged { _ in
-                            
+                            quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
                             reachability.whenUnreachable = { _ in
                                 showingNetworkAlert = true
                                 print("Not reachable")
@@ -60,17 +60,7 @@ struct QuoteGeneratorView: View {
                             }
                         }
                     )
-                    .offset(x: viewState.width, y: viewState.height)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                viewState = value.translation
-                            }
-                            .onEnded { _ in
-                                viewState = .zero
-                            }
-                    )
-                    .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
+                    .animation(.spring())
                 
             ).getRect($rect1)
             .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
