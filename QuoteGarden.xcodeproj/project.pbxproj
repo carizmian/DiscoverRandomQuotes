@@ -729,9 +729,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "QuoteGarden-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -739,10 +740,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -755,9 +756,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "QuoteGarden-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -765,10 +767,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -786,7 +788,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LJF744GC3Q;
 				IBSC_MODULE = QuoteGarden_Watch_Extension;
 				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -794,10 +796,10 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteGarden-Watch Extension/QuoteGarden-Watch-Bridging-Header.h";
@@ -817,7 +819,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LJF744GC3Q;
 				IBSC_MODULE = QuoteGarden_Watch_Extension;
 				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -825,10 +827,10 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteGarden-Watch Extension/QuoteGarden-Watch-Bridging-Header.h";
@@ -855,7 +857,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -882,7 +884,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -1027,7 +1029,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -1055,7 +1057,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.61;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
