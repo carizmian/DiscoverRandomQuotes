@@ -1,0 +1,8 @@
+app_identifier("com.example.QuoteGarden") # The bundle identifier of your app
+apple_id("nikola007f@gmail.com") # Your Apple email address
+
+itc_team_id("122220123") # App Store Connect Team ID
+team_id("LJF744GC3Q") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

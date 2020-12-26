@@ -17,4 +17,4 @@ Our application does not collect personal information from anyone, including chi
 
 ### Contact Us
 If you have questions or comments about this Privacy Policy, please contact us at
-nikola007f1@gmail.com
+nikola007f@gmail.com
