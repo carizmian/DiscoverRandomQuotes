@@ -18,7 +18,8 @@ struct QuoteListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $searchText).padding(.top, 8)
+                SearchBar(text: $searchText)
+                    .padding(.top, 8)
                 
                 List {
                     

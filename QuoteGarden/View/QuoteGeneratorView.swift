@@ -100,7 +100,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Copy quote"))
                 .accessibility(hint: Text("Copy the quote text to your clipboard"))
                 
-            }
+            }.disabled(quote.quoteText == "")
             
         }
         .sheet(isPresented: $showingShareSheetView) {
