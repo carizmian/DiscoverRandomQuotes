@@ -39,11 +39,12 @@ struct ContentView: View {
                     .accessibilityLabel(Text("Saved quotes"))
                     .accessibility(hint: Text("Find your saved quotes here"))
                 
+            }.onAppear {
+                moc.undoManager = UndoManager()
             }
         
     }
     func removeQuote(at offsets: IndexSet) {
-        moc.undoManager = UndoManager()
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
             

@@ -136,14 +136,18 @@ struct QuoteGeneratorView: View {
     
     func saveToDevice(quote: Quote) {
 
-        savedToDevice = true
+        savedToDevice.toggle()
         
+        if savedToDevice == true {
         let favoriteQuote = QuoteCD(context: self.moc)
         favoriteQuote.id = quote.id
         favoriteQuote.quoteText = quote.quoteText
         favoriteQuote.quoteAuthor = quote.quoteAuthor
         favoriteQuote.quoteGenre = quote.quoteGenre
         try? self.moc.save()
+        } else {
+            moc.undo()
+        }
 
     }
     
