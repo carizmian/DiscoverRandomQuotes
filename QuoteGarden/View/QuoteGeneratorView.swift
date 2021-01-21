@@ -15,7 +15,7 @@ struct QuoteGeneratorView: View {
     static let tag: String? = "Home"
     
     @Environment(\.managedObjectContext) var moc
-
+    
     @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
          
     @Binding var savedToDevice: Bool
@@ -30,7 +30,7 @@ struct QuoteGeneratorView: View {
     let reachability = try! Reachability()
     
     @State var viewState = CGSize.zero
-        
+    
     var body: some View {
         
         VStack {
@@ -135,19 +135,16 @@ struct QuoteGeneratorView: View {
     }
     
     func saveToDevice(quote: Quote) {
-        // FIXME: User can delete object when he taps the favorite button again (toggle)
-        
+
         savedToDevice = true
         
         let favoriteQuote = QuoteCD(context: self.moc)
-        
         favoriteQuote.id = quote.id
         favoriteQuote.quoteText = quote.quoteText
         favoriteQuote.quoteAuthor = quote.quoteAuthor
         favoriteQuote.quoteGenre = quote.quoteGenre
-        
         try? self.moc.save()
-        
+
     }
     
 }

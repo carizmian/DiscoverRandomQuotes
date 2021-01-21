@@ -30,6 +30,7 @@ struct ContentView: View {
                     .accessibilityLabel(Text("Random quotes"))
                     .accessibility(hint: Text("Find new quotes here"))
                 
+                
                 QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
                     .tag(QuoteListView.tag)
                     .tabItem {
@@ -42,7 +43,7 @@ struct ContentView: View {
         
     }
     func removeQuote(at offsets: IndexSet) {
-        
+        moc.undoManager = UndoManager()
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
             
