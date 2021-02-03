@@ -10,6 +10,7 @@ In this app you can:
 * Generate random quotes
 * Save your favorite quotes
 * Share your favorite quotes
+* Shake to undo
 * Display your favorite quote using a widget
 
 This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374).
