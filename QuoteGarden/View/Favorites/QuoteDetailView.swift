@@ -74,9 +74,7 @@ struct QuoteDetailView: View {
                 ])
             }
         }
-        .onAppear {
-            AppReviewRequest.requestReviewIfNeeded()
-        }
+
     }
     
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {

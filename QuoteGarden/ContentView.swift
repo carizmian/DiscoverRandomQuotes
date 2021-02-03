@@ -41,6 +41,7 @@ struct ContentView: View {
                 
             }.onAppear {
                 moc.undoManager = UndoManager()
+                AppReviewRequest.requestReviewIfNeeded()
             }
         
     }
