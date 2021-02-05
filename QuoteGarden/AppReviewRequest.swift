@@ -23,6 +23,7 @@ enum AppReviewRequest {
         
         if thisVersion != version {
             if runsSinceLastRequest >= threshold {
+
                 if let scene = UIApplication.shared.connectedScenes.first(where: {$0.activationState == .foregroundActive}) as? UIWindowScene {
                     SKStoreReviewController.requestReview(in: scene)
                     version = thisVersion
@@ -32,6 +33,6 @@ enum AppReviewRequest {
         } else {
             runsSinceLastRequest = 0
         }
-
+        
     }
 }

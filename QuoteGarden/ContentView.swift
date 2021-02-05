@@ -13,6 +13,7 @@ import Foundation
 struct ContentView: View {
     
     @AppStorage("selectedView") var selectedView: String?
+    
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var savedToDevice = false
@@ -29,7 +30,6 @@ struct ContentView: View {
                     }
                     .accessibilityLabel(Text("Random quotes"))
                     .accessibility(hint: Text("Find new quotes here"))
-                
                 
                 QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
                     .tag(QuoteListView.tag)
