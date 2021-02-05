@@ -79,18 +79,18 @@ struct QuoteDetailView: View {
     
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
         let quoteString = """
-        \(quoteGenre)
-
+        # \(quoteGenre)
         \(quoteText)
+        ~ \(quoteAuthor)
 
-        \(quoteAuthor)
+        From the Spontaneous app: https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374
         """
         
         let pasteboard = UIPasteboard.general
         pasteboard.string = quoteString
         
         if pasteboard.string != nil {
-            print(quoteText)
+            print(quoteString)
         }
         
         addedToClipboard = true
