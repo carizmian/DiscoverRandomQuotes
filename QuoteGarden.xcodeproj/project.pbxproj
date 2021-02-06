@@ -23,6 +23,13 @@
 		9377471B25CE56F1005CFB46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471A25CE56F1005CFB46 /* Assets.xcassets */; };
 		9377471E25CE56F1005CFB46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */; };
 		9377472325CE56F1005CFB46 /* QuoteGarden-AppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 9377471425CE56EA005CFB46 /* QuoteGarden-AppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9377473A25CE5B8C005CFB46 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377473925CE5B8C005CFB46 /* QuoteView.swift */; };
+		9377475025CE5EEC005CFB46 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377474F25CE5EEC005CFB46 /* Extensions.swift */; };
+		9377475725CE5EF6005CFB46 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377475625CE5EF6005CFB46 /* ViewToUIImage.swift */; };
+		9377475E25CE5EFF005CFB46 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377475D25CE5EFF005CFB46 /* ButtonStyle.swift */; };
+		9377476525CE5F0B005CFB46 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377476425CE5F0B005CFB46 /* Quote.swift */; };
+		9377476C25CE5F18005CFB46 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377476B25CE5F18005CFB46 /* NetworkMonitor.swift */; };
+		9377477A25CE5F68005CFB46 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377477925CE5F68005CFB46 /* ShareSheetView.swift */; };
 		938D8376257F583F00F0FD17 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D8375257F583F00F0FD17 /* Model.swift */; };
 		938D8384257F58A300F0FD17 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D8383257F58A300F0FD17 /* QuoteView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
@@ -150,6 +157,13 @@
 		9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9377471F25CE56F1005CFB46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9377472025CE56F1005CFB46 /* QuoteGarden_AppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteGarden_AppClip.entitlements; sourceTree = "<group>"; };
+		9377473925CE5B8C005CFB46 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		9377474F25CE5EEC005CFB46 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9377475625CE5EF6005CFB46 /* ViewToUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToUIImage.swift; sourceTree = "<group>"; };
+		9377475D25CE5EFF005CFB46 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		9377476425CE5F0B005CFB46 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		9377476B25CE5F18005CFB46 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		9377477925CE5F68005CFB46 /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
 		938D8374257F583F00F0FD17 /* QuoteGarden-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteGarden-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
 		938D8375257F583F00F0FD17 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		938D8383257F58A300F0FD17 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -246,8 +260,14 @@
 		9377471525CE56EA005CFB46 /* QuoteGarden-AppClip */ = {
 			isa = PBXGroup;
 			children = (
+				9377474F25CE5EEC005CFB46 /* Extensions.swift */,
+				9377475D25CE5EFF005CFB46 /* ButtonStyle.swift */,
+				9377475625CE5EF6005CFB46 /* ViewToUIImage.swift */,
+				9377478525CE6019005CFB46 /* Model */,
+				9377478625CE601E005CFB46 /* View */,
 				9377471625CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift */,
 				9377471825CE56EA005CFB46 /* ContentView.swift */,
+				9377473925CE5B8C005CFB46 /* QuoteView.swift */,
 				9377471A25CE56F1005CFB46 /* Assets.xcassets */,
 				9377471F25CE56F1005CFB46 /* Info.plist */,
 				9377472025CE56F1005CFB46 /* QuoteGarden_AppClip.entitlements */,
@@ -262,6 +282,23 @@
 				9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9377478525CE6019005CFB46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9377476425CE5F0B005CFB46 /* Quote.swift */,
+				9377476B25CE5F18005CFB46 /* NetworkMonitor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9377478625CE601E005CFB46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9377477925CE5F68005CFB46 /* ShareSheetView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		939D200225317E14003C34D8 /* Frameworks */ = {
@@ -603,8 +640,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9377475025CE5EEC005CFB46 /* Extensions.swift in Sources */,
 				9377471925CE56EA005CFB46 /* ContentView.swift in Sources */,
+				9377475725CE5EF6005CFB46 /* ViewToUIImage.swift in Sources */,
+				9377476525CE5F0B005CFB46 /* Quote.swift in Sources */,
 				9377471725CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift in Sources */,
+				9377477A25CE5F68005CFB46 /* ShareSheetView.swift in Sources */,
+				9377473A25CE5B8C005CFB46 /* QuoteView.swift in Sources */,
+				9377476C25CE5F18005CFB46 /* NetworkMonitor.swift in Sources */,
+				9377475E25CE5EFF005CFB46 /* ButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

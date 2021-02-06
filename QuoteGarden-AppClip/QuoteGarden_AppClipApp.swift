@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct QuoteGarden_AppClipApp: App {
+    @State private var showingShareSheetView = false
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(showingShareSheetView: $showingShareSheetView)
         }
     }
 }
