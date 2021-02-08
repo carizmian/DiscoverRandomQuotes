@@ -13,6 +13,7 @@ struct QuoteView: View {
 
     var body: some View {
 
+        #if os(iOS)
             VStack(alignment: .center) {
 
                 HStack {
@@ -46,6 +47,28 @@ struct QuoteView: View {
             }.multilineTextAlignment(.center)
             .padding()
             .background(Color.accentColor.clipShape(RoundedRectangle(cornerRadius: 25)))
+        #elseif os(watchOS)
+        VStack(alignment: .leading) {
+
+                Text("\(quote.quoteText)")
+                    .foregroundColor(.accentColor)
+                    .allowsTightening(true)
+                    .layoutPriority(2)
+                    .minimumScaleFactor(0.7)
+                    .accessibility(value: Text("quote text is \(quote.quoteText)"))
+                HStack {
+                    Text("~")
+                        .foregroundColor(.green)
+                    Text("\(quote.quoteAuthor)")
+
+                }.padding(.top, 1)
+                .allowsTightening(true)
+                .font(.footnote)
+                .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
+
+        }.multilineTextAlignment(.leading)
+        .edgesIgnoringSafeArea(.all)
+        #endif
         
     }
 }

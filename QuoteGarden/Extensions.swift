@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
+#if !APPCLIP
 extension QuoteCD {
     var wrappedQuoteAuthor: String {
         return quoteAuthor ?? "Unknown Author"
@@ -22,6 +23,7 @@ extension QuoteCD {
         return quoteGenre ?? "Unknown Quote Genre"
     }
 }
+#endif
 
 extension GetRect {
     struct RectPreferenceKey: PreferenceKey {
