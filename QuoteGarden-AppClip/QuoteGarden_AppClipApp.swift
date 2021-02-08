@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct QuoteGarden_AppClipApp: App {
+struct QuoteGardenAppClipApp: App {
     @State private var showingShareSheetView = false
     var body: some Scene {
         WindowGroup {
