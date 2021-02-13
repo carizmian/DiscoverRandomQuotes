@@ -22,4 +22,4 @@ In this app you can:
 This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374).
 
 
-## [Privacy Policy](privacyPolicy.md)
+## [Privacy Policy](https://franicevicnikola.github.io/SpontaneousRandomQuotes/privacy.html)
