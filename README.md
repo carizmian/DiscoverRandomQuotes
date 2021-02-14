@@ -22,5 +22,4 @@ In this app you can:
 This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374).
 ### [Privacy Policy](https://franicevicnikola.github.io/SpontaneousRandomQuotes/privacy.html)
 
-### [Donate](https://www.buymeacoffee.com/FranicevicNiko)
-
+<a href="https://www.buymeacoffee.com/FranicevicNiko"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=FranicevicNiko&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
