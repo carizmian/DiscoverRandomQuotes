@@ -20,6 +20,7 @@ In this app you can:
 * Display your favorite quote using a widget
 
 This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374).
+### [Privacy Policy](https://franicevicnikola.github.io/SpontaneousRandomQuotes/privacy.html)
 
+### [Donate](https://www.buymeacoffee.com/FranicevicNiko)
 
-## [Privacy Policy](https://franicevicnikola.github.io/SpontaneousRandomQuotes/privacy.html)
