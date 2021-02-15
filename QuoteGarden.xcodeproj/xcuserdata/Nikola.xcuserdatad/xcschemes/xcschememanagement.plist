@@ -7,7 +7,7 @@
 		<key>QuoteGarden-AppClip.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>QuoteGarden-Watch (Complication).xcscheme_^#shared#^_</key>
 		<dict>
@@ -17,12 +17,12 @@
 		<key>QuoteGarden-Watch.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>2</integer>
 		</dict>
 		<key>QuoteGarden-WidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>QuoteGarden.xcscheme_^#shared#^_</key>
 		<dict>
@@ -43,6 +43,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>9370D5BD25361B5D001CD387</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9377471325CE56EA005CFB46</key>
 		<dict>
 			<key>primary</key>
 			<true/>
