@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applink:franicevicnikola.github.io</string>
+		<string>appclips:franicevicnikola.github.io/SpontaneousRandomQuotes/</string>
 	</array>
 	<key>com.apple.developer.parent-application-identifiers</key>
 	<array>
