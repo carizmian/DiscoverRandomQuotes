@@ -12,7 +12,15 @@ struct QuoteGardenAppClipApp: App {
     @State private var showingShareSheetView = false
     var body: some Scene {
         WindowGroup {
-            ContentView(showingShareSheetView: $showingShareSheetView)
+            ContentView(showingShareSheetView: $showingShareSheetView).onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: handleUserActivity)
+        }
+    }
+    
+    func handleUserActivity(_ userActivity: NSUserActivity) {
+        guard let incomingURL = userActivity.webpageURL,
+        let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true),
+              let queryItems = components.queryItems else {
+            return
         }
     }
 }
