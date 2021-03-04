@@ -39,6 +39,14 @@ struct ContentView: View {
                     .accessibilityLabel(Text("Saved quotes"))
                     .accessibility(hint: Text("Find your saved quotes here"))
                 
+                SettingsView()
+                    .tag(SettingsView.tag)
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape.2.fill")
+                    }
+                    .accessibilityLabel(Text("Settings"))
+                    .accessibility(hint: Text("Find settings and social links here"))
+                
             }.onAppear {
                 moc.undoManager = UndoManager()
                 AppReviewRequest.requestReviewIfNeeded()

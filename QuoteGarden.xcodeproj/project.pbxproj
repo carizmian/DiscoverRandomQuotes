@@ -41,6 +41,10 @@
 		93A3EC82257B47590099B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC81257B47590099B08C /* Assets.xcassets */; };
 		93A3EC85257B47590099B08C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC84257B47590099B08C /* Preview Assets.xcassets */; };
 		93A3EC89257B47590099B08C /* QuoteGarden-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 93A3EC6D257B47530099B08C /* QuoteGarden-Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		93AA437425EF5B8B00AB7DF0 /* SettingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */; };
+		93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */; };
+		93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA438725F0969A00AB7DF0 /* SettingsItems.swift */; };
+		93AA439425F0A2B300AB7DF0 /* ToggleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA439325F0A2B300AB7DF0 /* ToggleMode.swift */; };
 		93C1AFD325D1B32D00F78CC8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
 		93C1AFD925D1B35600F78CC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		93C1B00C25D1B5E400F78CC8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
@@ -173,6 +177,10 @@
 		93A3EC81257B47590099B08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A3EC84257B47590099B08C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93A3EC86257B47590099B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListView.swift; sourceTree = "<group>"; };
+		93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		93AA438725F0969A00AB7DF0 /* SettingsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItems.swift; sourceTree = "<group>"; };
+		93AA439325F0A2B300AB7DF0 /* ToggleMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMode.swift; sourceTree = "<group>"; };
 		93C8F69E256423FE0072589B /* PrimaryQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryQuote.swift; sourceTree = "<group>"; };
 		93C8F6AA2564DF140072589B /* QuoteGarden-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteGarden-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C8F6AB2564DF140072589B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -233,6 +241,7 @@
 				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
 				936886852545D18E0034F960 /* QuoteGeneratorView.swift */,
 				936886702545CCAD0034F960 /* Favorites */,
+				93AA437A25F0958700AB7DF0 /* Settings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +319,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		93AA437A25F0958700AB7DF0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */,
+				93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		93C8F6AE2564DF140072589B /* QuoteGarden-Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +400,8 @@
 				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				93DEB57225284631006B9BF5 /* Quote.swift */,
 				9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */,
+				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
+				93AA439325F0A2B300AB7DF0 /* ToggleMode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -646,10 +666,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AA437425EF5B8B00AB7DF0 /* SettingsListView.swift in Sources */,
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
 				9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */,
+				93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
 				93C8F69F256423FE0072589B /* PrimaryQuote.swift in Sources */,
@@ -662,7 +684,9 @@
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
+				93AA439425F0A2B300AB7DF0 /* ToggleMode.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
+				93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */,
 				93426350254DC5840023B6FF /* Extensions.swift in Sources */,
 				9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */,
 				936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */,
