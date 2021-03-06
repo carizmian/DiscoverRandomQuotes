@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CoreData
+import UIKit
 
 #if !APPCLIP
 extension QuoteCD {
@@ -59,6 +60,20 @@ extension View {
     func getRect(_ rect: Binding<CGRect>) -> some View {
         self.modifier(GetRect(rect: rect))
     }
+}
+
+extension UIColor {
+
+    static func colorWith(name:String) -> UIColor? {
+        let selector = Selector("\(name)Color")
+        if UIColor.self.responds(to: selector) {
+            let color = UIColor.self.perform(selector).takeUnretainedValue()
+            return (color as? UIColor)
+        } else {
+            return nil
+        }
+    }
+
 }
 
 //public extension URL {
