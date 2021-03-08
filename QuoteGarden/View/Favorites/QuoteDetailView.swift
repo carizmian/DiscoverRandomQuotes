@@ -10,6 +10,7 @@ import WidgetKit
 import CoreData
 import Foundation
 import StoreKit
+import AVFoundation
 
 struct QuoteDetailView: View {
     
@@ -20,6 +21,7 @@ struct QuoteDetailView: View {
     @State private var showingShareSheetView = false
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
+    let synthesizer =  AVSpeechSynthesizer()
     
     var body: some View {
         
@@ -65,6 +67,16 @@ struct QuoteDetailView: View {
                 .accessibilityLabel(Text("Copy quote"))
                 .accessibility(hint: Text("Copy the quote text to your clipboard"))
                 
+                Button(action: {
+                    textToSpeech(quote: favoriteQuote)
+                }) {
+                    Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
+                    
+                }.buttonStyle(ColoredButtonStyle())
+                .accessibilityLabel(Text("Quote text to speech"))
+                .accessibility(hint: Text("Speak the quote text to your ears"))
+                .disabled(synthesizer.isSpeaking)
+                
             }
             
         }.sheet(isPresented: $showingShareSheetView) {
@@ -75,6 +87,13 @@ struct QuoteDetailView: View {
             }
         }
 
+    }
+    
+    func textToSpeech(quote: QuoteCD) {
+        let quoteText = AVSpeechUtterance(string: "\(quote.wrappedQuoteAuthor) once said, \(quote.wrappedQuoteText)")
+        if synthesizer.isSpeaking == false {
+        synthesizer.speak(quoteText)
+        }
     }
     
     func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
