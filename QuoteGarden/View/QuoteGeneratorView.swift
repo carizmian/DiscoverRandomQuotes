@@ -32,7 +32,7 @@ struct QuoteGeneratorView: View {
     
     @State var viewState = CGSize.zero
     
-    let synthesizer = AVSpeechSynthesizer()
+    let synthesizer: AVSpeechSynthesizer
     
     var body: some View {
         

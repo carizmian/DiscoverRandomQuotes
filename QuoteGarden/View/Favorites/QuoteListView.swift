@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import AVFoundation
 
 struct QuoteListView: View {
     
@@ -16,6 +17,8 @@ struct QuoteListView: View {
     var removeQuote: (IndexSet) -> Void
     var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var searchText = ""
+    
+    let synthesizer: AVSpeechSynthesizer
     
     var body: some View {
         NavigationView {
@@ -29,7 +32,7 @@ struct QuoteListView: View {
                     List {
                         
                         ForEach(favoriteQuotes.filter({ searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }), id: \.id) { favoriteQuote in
-                            NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote)) {
+                            NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote, synthesizer: synthesizer)) {
                                 
                                 HStack {
                                     QuoteRowView(favoriteQuote: favoriteQuote)

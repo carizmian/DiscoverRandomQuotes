@@ -21,7 +21,7 @@ struct QuoteDetailView: View {
     @State private var showingShareSheetView = false
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
-    let synthesizer =  AVSpeechSynthesizer()
+    let synthesizer: AVSpeechSynthesizer
     
     var body: some View {
         
