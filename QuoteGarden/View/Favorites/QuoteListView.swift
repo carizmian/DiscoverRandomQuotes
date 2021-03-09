@@ -42,9 +42,6 @@ struct QuoteListView: View {
                             }
                         }.onDelete(perform: removeQuote)
                         
-                        
-                        
-                        
                     }.listStyle(PlainListStyle())
                     .navigationBarTitle(Text("Your Saved Quotes"))
                     .navigationBarItems(trailing: EditButton())
@@ -62,7 +59,6 @@ struct QuoteListView: View {
         }
         
     }
-    
     
 }
 //struct QuoteListView_Previews: PreviewProvider {
