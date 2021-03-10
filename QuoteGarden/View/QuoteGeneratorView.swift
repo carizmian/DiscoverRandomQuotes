@@ -133,9 +133,18 @@ struct QuoteGeneratorView: View {
         let utterance = AVSpeechUtterance(string: "\(quote.quoteAuthor) once said, \(quote.quoteText)")
         let voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.voice = voice
-        if synthesizer.isSpeaking == false {
-        synthesizer.speak(utterance)
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: .duckOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            if synthesizer.isSpeaking == false {
+                synthesizer.speak(utterance)
+            }
+        } catch {
+            print(error)
         }
+        
     }
     
     func copyToClipboard(quote: Quote) {
