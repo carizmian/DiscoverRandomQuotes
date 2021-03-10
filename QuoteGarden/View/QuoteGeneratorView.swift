@@ -130,9 +130,11 @@ struct QuoteGeneratorView: View {
     }
     
     func textToSpeech(quote: Quote) {
-        let quoteText = AVSpeechUtterance(string: "\(quote.quoteAuthor) once said, \(quote.quoteText)")
+        let utterance = AVSpeechUtterance(string: "\(quote.quoteAuthor) once said, \(quote.quoteText)")
+        let voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = voice
         if synthesizer.isSpeaking == false {
-        synthesizer.speak(quoteText)
+        synthesizer.speak(utterance)
         }
     }
     

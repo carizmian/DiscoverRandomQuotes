@@ -90,9 +90,11 @@ struct QuoteDetailView: View {
     }
     
     func textToSpeech(quote: QuoteCD) {
-        let quoteText = AVSpeechUtterance(string: "\(quote.wrappedQuoteAuthor) once said, \(quote.wrappedQuoteText)")
+        let utterance = AVSpeechUtterance(string: "\(quote.wrappedQuoteAuthor) once said, \(quote.wrappedQuoteText)")
+        let voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = voice
         if synthesizer.isSpeaking == false {
-        synthesizer.speak(quoteText)
+        synthesizer.speak(utterance)
         }
     }
     
