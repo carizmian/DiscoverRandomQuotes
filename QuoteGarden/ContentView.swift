@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import AVFoundation
 
 // TODO: Implement haptics, vibrations and sound
 
@@ -19,11 +20,13 @@ struct ContentView: View {
     @State private var savedToDevice = false
     @State private var showingShareSheetView = false
     
+    let synthesizer =  AVSpeechSynthesizer()
+    
     var body: some View {
             
             TabView(selection: $selectedView) {
 
-                QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView)
+                QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
                     .tag(QuoteGeneratorView.tag)
                     .tabItem {
                         Label("Random", systemImage: "text.quote")
@@ -31,7 +34,7 @@ struct ContentView: View {
                     .accessibilityLabel(Text("Random quotes"))
                     .accessibility(hint: Text("Find new quotes here"))
                 
-                QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes)
+                QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
                     .tag(QuoteListView.tag)
                     .tabItem {
                         Label("Saved", systemImage: "bookmark.fill")

@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 import Reachability
 import SystemConfiguration
+import AVFoundation
 
 struct QuoteGeneratorView: View {
     
@@ -17,7 +18,7 @@ struct QuoteGeneratorView: View {
     @Environment(\.managedObjectContext) var moc
     
     @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
-         
+    
     @Binding var savedToDevice: Bool
     @Binding var showingShareSheetView: Bool
     
@@ -30,6 +31,8 @@ struct QuoteGeneratorView: View {
     let reachability = try! Reachability()
     
     @State var viewState = CGSize.zero
+    
+    let synthesizer: AVSpeechSynthesizer
     
     var body: some View {
         
@@ -100,6 +103,16 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Copy quote"))
                 .accessibility(hint: Text("Copy the quote text to your clipboard"))
                 
+                Button(action: {
+                    textToSpeech(quote: quote)
+                }) {
+                    Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
+                    
+                }.buttonStyle(ColoredButtonStyle())
+                .accessibilityLabel(Text("Quote text to speech"))
+                .accessibility(hint: Text("Speak the quote text to your ears"))
+                .disabled(synthesizer.isSpeaking)
+                
             }.disabled(quote.quoteText == "")
             
         }
@@ -115,6 +128,25 @@ struct QuoteGeneratorView: View {
         }
         
     }
+    
+    func textToSpeech(quote: Quote) {
+        let utterance = AVSpeechUtterance(string: "\(quote.quoteAuthor) once said, \(quote.quoteText)")
+        let voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = voice
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: .duckOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            if synthesizer.isSpeaking == false {
+                synthesizer.speak(utterance)
+            }
+        } catch {
+            print(error)
+        }
+        
+    }
+    
     func copyToClipboard(quote: Quote) {
         let quoteString = """
         # \(quote.quoteGenre)
@@ -135,20 +167,20 @@ struct QuoteGeneratorView: View {
     }
     
     func saveToDevice(quote: Quote) {
-
+        
         savedToDevice.toggle()
         
         if savedToDevice == true {
-        let favoriteQuote = QuoteCD(context: self.moc)
-        favoriteQuote.id = quote.id
-        favoriteQuote.quoteText = quote.quoteText
-        favoriteQuote.quoteAuthor = quote.quoteAuthor
-        favoriteQuote.quoteGenre = quote.quoteGenre
-        try? self.moc.save()
+            let favoriteQuote = QuoteCD(context: self.moc)
+            favoriteQuote.id = quote.id
+            favoriteQuote.quoteText = quote.quoteText
+            favoriteQuote.quoteAuthor = quote.quoteAuthor
+            favoriteQuote.quoteGenre = quote.quoteGenre
+            try? self.moc.save()
         } else {
             moc.undo()
         }
-
+        
     }
     
 }

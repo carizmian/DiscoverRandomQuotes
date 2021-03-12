@@ -16,7 +16,7 @@ struct ColoredButtonStyle: ButtonStyle {
             .background(Color.accentColor)
             .clipShape(Circle())
             .foregroundColor(Color("TextColor"))
-            .padding()
+            .padding(8)
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
         
