@@ -11,7 +11,11 @@
 
 
 ## About
-Spontaneous - Random quotes is an app that generates random quotes. The app currently includes more than 75000 quotes, which you can only discover randomly. Once you find a quote that you like you can save it and display it on your home screen inside a widget. The point of the app is to spontaneously discover new quotes by complete randomness and not by searching for them.
+Spontaneous - Random quotes is a free iOS app that generates random quotes. It values ease-of-use just as much as the users' privacy, so there are no ads or trackers to disrupt their experience. The app currently includes more than 75000 quotes, which you can only discover randomly. Once you find a quote that you like, you can save it and display it on your home screen inside a widget. The purpose of the app is, to spontaneously discover new quotes. That works with complete randomness and not by searching for them. 
+
+This app is a randomizer of paraphrases. You could also call it a random generator paraphrase tool because it's completely arbitrary. The app also provides widget quotes for the home screen.
+
+Get it now if you want anxiety relief!
 
 ## Frameworks
 * SwiftUI
