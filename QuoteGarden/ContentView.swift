@@ -9,8 +9,6 @@ import SwiftUI
 import Foundation
 import AVFoundation
 
-// TODO: Implement haptics, vibrations and sound
-
 struct ContentView: View {
     
     @AppStorage("selectedView") var selectedView: String?
@@ -23,37 +21,43 @@ struct ContentView: View {
     let synthesizer =  AVSpeechSynthesizer()
     
     var body: some View {
+        
+        TabView(selection: $selectedView) {
             
-            TabView(selection: $selectedView) {
-
-                QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
-                    .tag(QuoteGeneratorView.tag)
-                    .tabItem {
-                        Label("Random", systemImage: "text.quote")
-                    }
-                    .accessibilityLabel(Text("Random quotes"))
-                    .accessibility(hint: Text("Find new quotes here"))
-                
-                QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
-                    .tag(QuoteListView.tag)
-                    .tabItem {
-                        Label("Saved", systemImage: "bookmark.fill")
-                    }
-                    .accessibilityLabel(Text("Saved quotes"))
-                    .accessibility(hint: Text("Find your saved quotes here"))
-                
-                SettingsView()
-                    .tag(SettingsView.tag)
-                    .tabItem {
-                        Label("Settings", systemImage: "gearshape.2.fill")
-                    }
-                    .accessibilityLabel(Text("Settings"))
-                    .accessibility(hint: Text("Find settings and social links here"))
-                
-            }.onAppear {
-                moc.undoManager = UndoManager()
-                AppReviewRequest.requestReviewIfNeeded()
-            }
+            QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
+                .tag(QuoteGeneratorView.tag)
+                .tabItem {
+                    Label("Random", systemImage: "text.quote")
+                }
+                .accessibilityLabel(Text("Random quotes"))
+                .accessibility(hint: Text("Find new quotes here"))
+            
+            QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
+                .tag(QuoteListView.tag)
+                .tabItem {
+                    Label("Saved", systemImage: "bookmark.fill")
+                }
+                .accessibilityLabel(Text("Saved quotes"))
+                .accessibility(hint: Text("Find your saved quotes here"))
+            
+            SettingsView()
+                .tag(SettingsView.tag)
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.2.fill")
+                }
+                .accessibilityLabel(Text("Settings"))
+                .accessibility(hint: Text("Find settings and social links here"))
+            
+            ReminderOnboardingView()
+                .tabItem {
+                    Label("test", systemImage: "gearshape.2.fill")
+                }
+            
+        }.onAppear {
+            moc.undoManager = UndoManager()
+            AppReviewRequest.requestReviewIfNeeded()
+        
+        }
         
     }
     func removeQuote(at offsets: IndexSet) {
@@ -71,7 +75,6 @@ struct ContentView: View {
         }
         
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
