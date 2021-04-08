@@ -1,8 +1,7 @@
 # Spontaneous - Random quotes
 
-<p align="leading">
+<p align="center">
     <img src="https://img.shields.io/badge/License-MIT-green" />
-    <img src="https://img.shields.io/badge/iOS-14.5-blueviolet" />
     <a href="https://twitter.com/FranicevicNiko">
         <img src="https://img.shields.io/badge/Contact-%40FranicevicNiko-blue" alt="Twitter: @FranicevicNiko" />
     </a>
