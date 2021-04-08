@@ -1,8 +1,5 @@
 # Spontaneous - Random quotes
 
-## Screenshots
-![1](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/iPhone%2011%20Pro%20Maxgithub.png)
-
 <p align="leading">
     <img src="https://img.shields.io/badge/License-MIT-green" />
     <img src="https://img.shields.io/badge/iOS-14.5-blueviolet" />
@@ -10,6 +7,9 @@
         <img src="https://img.shields.io/badge/Contact-%40FranicevicNiko-blue" alt="Twitter: @FranicevicNiko" />
     </a>
 </p>
+
+## Screenshots
+![1](https://github.com/FranicevicNikola/DiscoverRandomQuotes/blob/main/iPhone%2011%20Pro%20Maxgithub.png)
 
 ---
 
