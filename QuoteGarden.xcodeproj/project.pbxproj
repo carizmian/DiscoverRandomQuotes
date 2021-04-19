@@ -252,6 +252,7 @@
 				936886852545D18E0034F960 /* QuoteGeneratorView.swift */,
 				936886702545CCAD0034F960 /* Favorites */,
 				93AA437A25F0958700AB7DF0 /* Settings */,
+				9372A11C262DD57800276B08 /* Onboarding */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +267,14 @@
 				9370D5A625356310001CD387 /* ShareSheetView.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		9372A11C262DD57800276B08 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				938DD65426031B2C00C2FC6C /* ReminderOnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		9377471525CE56EA005CFB46 /* QuoteGarden-AppClip */ = {
@@ -344,7 +353,6 @@
 				93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */,
 				93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */,
 				938DD64D2601C1FF00C2FC6C /* ReminderDetailView.swift */,
-				938DD65426031B2C00C2FC6C /* ReminderOnboardingView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
