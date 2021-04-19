@@ -46,8 +46,11 @@ struct QuoteGardenApi {
         config.allowsCellularAccess = true
         config.waitsForConnectivity = false
 //        config.requestCachePolicy = .reloadIgnoringLocalCacheData
-
-        let url = URL(string: "https://quote-garden.herokuapp.com/api/v3/quotes/random")
+        
+        let randomPage = Int.random(in: 0..<1454)
+        let randomQuote = Int.random(in: 0..<50)
+        
+        let url = URL(string: "https://quote-garden.herokuapp.com/api/v3/quotes?limit=50&page=\(randomPage)")
 
         var request = URLRequest(url: url!, timeoutInterval: Double.infinity)
         request.httpMethod = "GET"
@@ -63,7 +66,7 @@ struct QuoteGardenApi {
                 return
             }
             DispatchQueue.main.async {
-                completion(response.data[0])
+                completion(response.data[randomQuote])
             }
 
             print(String(data: data, encoding: .utf8)!)

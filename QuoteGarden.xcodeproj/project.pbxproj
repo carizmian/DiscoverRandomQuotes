@@ -14,6 +14,7 @@
 		9308A1D325D1B7AD00F5F0E9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9308A1DE25D1B7EF00F5F0E9 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		9308A1E925D1B83200F5F0E9 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		931BE96B262AB92D0015DB14 /* clock.json in Resources */ = {isa = PBXBuildFile; fileRef = 931BE96A262AB92D0015DB14 /* clock.json */; };
 		93426350254DC5840023B6FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
@@ -36,6 +37,8 @@
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
+		939FDD99262AA25B007B8D19 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 939FDD98262AA25B007B8D19 /* Lottie */; };
+		939FDDA1262AA5E8007B8D19 /* working.json in Resources */ = {isa = PBXBuildFile; fileRef = 939FDDA0262AA5E8007B8D19 /* working.json */; };
 		93A3EC70257B47570099B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC6F257B47570099B08C /* Assets.xcassets */; };
 		93A3EC77257B47570099B08C /* QuoteGarden-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93A3EC76257B47570099B08C /* QuoteGarden-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		93A3EC7C257B47570099B08C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3EC7B257B47570099B08C /* ContentView.swift */; };
@@ -147,6 +150,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		931BE96A262AB92D0015DB14 /* clock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clock.json; sourceTree = "<group>"; };
 		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 		9395DD75255454A300B30BC2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRowView.swift; sourceTree = "<group>"; };
+		939FDDA0262AA5E8007B8D19 /* working.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = working.json; sourceTree = "<group>"; };
 		93A3EC6D257B47530099B08C /* QuoteGarden-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuoteGarden-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A3EC6F257B47570099B08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A3EC71257B47570099B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -233,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */,
+				939FDD99262AA25B007B8D19 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +296,15 @@
 				93C8F6AB2564DF140072589B /* WidgetKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		939FDD9F262AA5D2007B8D19 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				931BE96A262AB92D0015DB14 /* clock.json */,
+				939FDDA0262AA5E8007B8D19 /* working.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		93A3EC6E257B47540099B08C /* QuoteGarden-Watch */ = {
@@ -373,11 +388,12 @@
 		93DEB53D25284527006B9BF5 /* QuoteGarden */ = {
 			isa = PBXGroup;
 			children = (
+				939FDD9F262AA5D2007B8D19 /* Animations */,
 				9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */,
 				938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */,
-				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
 				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
+				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
 				936886CA25469D460034F960 /* ButtonStyle.swift */,
 				93DEB571252845D2006B9BF5 /* Model */,
@@ -505,6 +521,7 @@
 			name = QuoteGarden;
 			packageProductDependencies = (
 				9358ED1C254A88A800C04DC8 /* Reachability */,
+				939FDD98262AA25B007B8D19 /* Lottie */,
 			);
 			productName = QuoteGarden;
 			productReference = 93DEB53B25284527006B9BF5 /* QuoteGarden.app */;
@@ -548,6 +565,7 @@
 			mainGroup = 93DEB53225284527006B9BF5;
 			packageReferences = (
 				9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */,
+				939FDD97262AA25B007B8D19 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 93DEB53C25284527006B9BF5 /* Products */;
 			projectDirPath = "";
@@ -601,6 +619,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939FDDA1262AA5E8007B8D19 /* working.json in Resources */,
+				931BE96B262AB92D0015DB14 /* clock.json in Resources */,
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
 			);
@@ -1196,6 +1216,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		939FDD97262AA25B007B8D19 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1203,6 +1231,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
+		};
+		939FDD98262AA25B007B8D19 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 939FDD97262AA25B007B8D19 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
