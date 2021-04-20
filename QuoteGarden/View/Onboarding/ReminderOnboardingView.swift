@@ -40,34 +40,36 @@ struct ReminderOnboardingView: View {
     var body: some View {
         VStack {
             
-            LottieView(animationName: "clock")
-                .scaledToFit()
-                .frame(width: 150, height: 150)
-                .scaleEffect(0.3)
-                
-                
             
-            Text("Set daily Spontaneous reminders.")
-                .font(.body)
+            VStack {
+                LottieView(animationName: "clock")
+                    .scaledToFit()
+                    .frame(width: 150, height: 150)
+                    .scaleEffect(0.3)
 
+                
+                
+                
+                
+                Text("Set daily Spontaneous reminders.")
+                    .font(.headline)
+                
+            }.padding()
+            
             Form {
                 
                 HStack {
                     Text("Remind me")
-                        .fontWeight(.bold)
                     Stepper(value: $reminderFrequency, in: 3...16, step: 1.0) {
                         Text("\(reminderFrequency, specifier: "%g") times")
-                            .fontWeight(.bold)
                     }
                     
                 }
                 DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
                     Text("Start at")
-                        .fontWeight(.bold)
                 }
                 DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
                     Text("End at")
-                        .fontWeight(.bold)
                 }
                 
             }
@@ -75,10 +77,15 @@ struct ReminderOnboardingView: View {
                 Text("Continue")
                     .font(.title3)
                     .fontWeight(.black)
-            })
-            Button(action: {UNUserNotificationCenter.current().removeAllPendingNotificationRequests()}, label: {
-                Text("Cancel All")
-            })
+            }).padding(.vertical)
+            .padding(.horizontal, 100.0)
+            .background(Color.accentColor)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .foregroundColor(Color("TextColor"))
+            .padding(8)
+//            Button(action: {UNUserNotificationCenter.current().removeAllPendingNotificationRequests()}, label: {
+//                Text("Cancel All")
+//            })
         }
     }
     
@@ -93,7 +100,7 @@ struct ReminderOnboardingView: View {
             
             let hour = Int.random(in: firstDateComponents.hour!-1..<lastDateComponents.hour!-1 )
             let minute = Int.random(in: 0...59)
-
+            
             let date = Date(timeIntervalSince1970: TimeInterval(hour*60*60 + minute*60))
             
             let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: date)
