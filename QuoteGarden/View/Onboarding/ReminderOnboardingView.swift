@@ -44,43 +44,40 @@ struct ReminderOnboardingView: View {
             VStack {
                 LottieView(animationName: "clock")
                     .scaledToFit()
-                    .frame(width: 150, height: 150)
-                    .scaleEffect(0.3)
-
-                
-                
-                
-                
-                Text("Set daily Spontaneous reminders.")
-                    .font(.headline)
-                
+                    .frame(width: 200, height: 200)
+                    .scaleEffect(0.4)
             }.padding()
             
             Form {
-                
+                Text("Set daily Spontaneous reminders.")
+                    
                 HStack {
                     Text("Remind me")
+                        .fontWeight(.bold)
                     Stepper(value: $reminderFrequency, in: 3...16, step: 1.0) {
                         Text("\(reminderFrequency, specifier: "%g") times")
+                            .fontWeight(.bold)
                     }
                     
                 }
                 DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
                     Text("Start at")
+                        .fontWeight(.bold)
                 }
                 DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
                     Text("End at")
+                        .fontWeight(.bold)
                 }
                 
             }
             Button(action: {setNotification()}, label: {
                 Text("Continue")
                     .font(.title3)
-                    .fontWeight(.black)
+                    .fontWeight(.heavy)
             }).padding(.vertical)
             .padding(.horizontal, 100.0)
             .background(Color.accentColor)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
             .foregroundColor(Color("TextColor"))
             .padding(8)
 //            Button(action: {UNUserNotificationCenter.current().removeAllPendingNotificationRequests()}, label: {
