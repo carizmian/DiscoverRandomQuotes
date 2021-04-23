@@ -14,7 +14,6 @@
 		9308A1D325D1B7AD00F5F0E9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9308A1DE25D1B7EF00F5F0E9 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		9308A1E925D1B83200F5F0E9 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
-		931BE96B262AB92D0015DB14 /* clock.json in Resources */ = {isa = PBXBuildFile; fileRef = 931BE96A262AB92D0015DB14 /* clock.json */; };
 		93426350254DC5840023B6FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
@@ -38,7 +37,6 @@
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
 		939FDD99262AA25B007B8D19 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 939FDD98262AA25B007B8D19 /* Lottie */; };
-		939FDDA1262AA5E8007B8D19 /* working.json in Resources */ = {isa = PBXBuildFile; fileRef = 939FDDA0262AA5E8007B8D19 /* working.json */; };
 		93A3EC70257B47570099B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC6F257B47570099B08C /* Assets.xcassets */; };
 		93A3EC77257B47570099B08C /* QuoteGarden-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93A3EC76257B47570099B08C /* QuoteGarden-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		93A3EC7C257B47570099B08C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3EC7B257B47570099B08C /* ContentView.swift */; };
@@ -50,6 +48,7 @@
 		93AA437425EF5B8B00AB7DF0 /* SettingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */; };
 		93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */; };
 		93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA438725F0969A00AB7DF0 /* SettingsItems.swift */; };
+		93B04E9F26332B1400E999AA /* sandglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 93B04E9E26332B1400E999AA /* sandglass.json */; };
 		93C1AFD325D1B32D00F78CC8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
 		93C1AFD925D1B35600F78CC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		93C1B00C25D1B5E400F78CC8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
@@ -150,7 +149,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		931BE96A262AB92D0015DB14 /* clock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clock.json; sourceTree = "<group>"; };
 		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 		9395DD75255454A300B30BC2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRowView.swift; sourceTree = "<group>"; };
-		939FDDA0262AA5E8007B8D19 /* working.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = working.json; sourceTree = "<group>"; };
 		93A3EC6D257B47530099B08C /* QuoteGarden-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuoteGarden-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A3EC6F257B47570099B08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A3EC71257B47570099B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +187,7 @@
 		93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListView.swift; sourceTree = "<group>"; };
 		93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		93AA438725F0969A00AB7DF0 /* SettingsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItems.swift; sourceTree = "<group>"; };
+		93B04E9E26332B1400E999AA /* sandglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sandglass.json; sourceTree = "<group>"; };
 		93C8F69E256423FE0072589B /* PrimaryQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryQuote.swift; sourceTree = "<group>"; };
 		93C8F6AA2564DF140072589B /* QuoteGarden-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteGarden-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C8F6AB2564DF140072589B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -310,8 +308,7 @@
 		939FDD9F262AA5D2007B8D19 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				931BE96A262AB92D0015DB14 /* clock.json */,
-				939FDDA0262AA5E8007B8D19 /* working.json */,
+				93B04E9E26332B1400E999AA /* sandglass.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -627,8 +624,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939FDDA1262AA5E8007B8D19 /* working.json in Resources */,
-				931BE96B262AB92D0015DB14 /* clock.json in Resources */,
+				93B04E9F26332B1400E999AA /* sandglass.json in Resources */,
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
 			);

@@ -40,17 +40,18 @@ struct ReminderOnboardingView: View {
     var body: some View {
         VStack {
             
-            
             VStack {
-                LottieView(animationName: "clock")
+                LottieView(animationName: "sandglass")
                     .scaledToFit()
                     .frame(width: 200, height: 200)
                     .scaleEffect(0.4)
             }.padding()
             
-            Form {
+          //  Form {
+            VStack {
                 Text("Set daily Spontaneous reminders.")
-                    
+                    .multilineTextAlignment(.center)
+                
                 HStack {
                     Text("Remind me")
                         .fontWeight(.bold)
@@ -70,20 +71,22 @@ struct ReminderOnboardingView: View {
                 }
                 
             }
+            Spacer()
             Button(action: {setNotification()}, label: {
                 Text("Continue")
                     .font(.title3)
                     .fontWeight(.heavy)
             }).padding(.vertical)
-            .padding(.horizontal, 100.0)
+            .padding(.horizontal, 80)
             .background(Color.accentColor)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .foregroundColor(Color("TextColor"))
             .padding(8)
-//            Button(action: {UNUserNotificationCenter.current().removeAllPendingNotificationRequests()}, label: {
-//                Text("Cancel All")
-//            })
-        }
+            //            Button(action: {UNUserNotificationCenter.current().removeAllPendingNotificationRequests()}, label: {
+            //                Text("Cancel All")
+            //            })
+        //}
+        }.padding(.horizontal)
     }
     
     func setNotification() {
@@ -117,7 +120,13 @@ struct ReminderOnboardingView: View {
 
 struct ReminderOnboardingView_Previews: PreviewProvider {
     static var previews: some View {
+        Group {
         ReminderOnboardingView()
+          //  .previewLayout(.sizeThatFits)
+        ReminderOnboardingView()
+            .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
+        }
     }
 }
 

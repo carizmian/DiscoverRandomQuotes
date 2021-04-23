@@ -20,6 +20,9 @@ struct ContentView: View {
     
     let synthesizer =  AVSpeechSynthesizer()
     
+    @State private var showOnboarding = false
+    @AppStorage("OnboardBeenViewed") var hasOnboarded = false
+    
     var body: some View {
         
         TabView(selection: $selectedView) {
@@ -56,7 +59,19 @@ struct ContentView: View {
         }.onAppear {
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()
-        
+            
+            hasOnboarded = false // here for testing
+            if !hasOnboarded {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    withAnimation {
+                        showOnboarding.toggle()
+                        hasOnboarded = true
+                    }
+                }
+            }
+        }
+        .popover(isPresented: $showOnboarding) {
+            ReminderOnboardingView()
         }
         
     }
