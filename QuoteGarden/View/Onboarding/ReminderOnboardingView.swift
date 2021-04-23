@@ -41,7 +41,7 @@ struct ReminderOnboardingView: View {
         VStack {
             
             VStack {
-                LottieView(animationName: "sandglass")
+                LottieView(animationName: "countdown")
                     .scaledToFit()
                     .frame(width: 200, height: 200)
                     .scaleEffect(0.4)
