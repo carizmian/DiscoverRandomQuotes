@@ -18,7 +18,6 @@ struct QuoteView: View {
 
                 HStack {
                     Text("#")
-                        .foregroundColor(.green)
                     Text("\(quote.quoteGenre)")
                 }.padding(.bottom)
                 .allowsTightening(true)
@@ -36,7 +35,6 @@ struct QuoteView: View {
 
                 HStack {
                     Text("~")
-                        .foregroundColor(.green)
                     Text("\(quote.quoteAuthor)")
 
                 }.padding(.top)
@@ -44,9 +42,11 @@ struct QuoteView: View {
                 .font(Font.system(.callout, design: .monospaced).weight(.bold))
                 .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
 
-            }.multilineTextAlignment(.center)
+            }
+            .foregroundColor(Color("TextColor"))
+            .multilineTextAlignment(.center)
             .padding()
-            .background(Color.accentColor.clipShape(RoundedRectangle(cornerRadius: 25)))
+            .background(Color("AccentColor").clipShape(RoundedRectangle(cornerRadius: 25)))
         #elseif os(watchOS)
         VStack(alignment: .leading) {
 

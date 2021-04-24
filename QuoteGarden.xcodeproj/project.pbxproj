@@ -48,7 +48,7 @@
 		93AA437425EF5B8B00AB7DF0 /* SettingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */; };
 		93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */; };
 		93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA438725F0969A00AB7DF0 /* SettingsItems.swift */; };
-		93BA1582263343E400494043 /* countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 93BA1581263343E400494043 /* countdown.json */; };
+		93BA158E26347DE100494043 /* countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 93BA158D26347DE100494043 /* countdown.json */; };
 		93C1AFD325D1B32D00F78CC8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
 		93C1AFD925D1B35600F78CC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		93C1B00C25D1B5E400F78CC8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
@@ -187,7 +187,7 @@
 		93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListView.swift; sourceTree = "<group>"; };
 		93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		93AA438725F0969A00AB7DF0 /* SettingsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItems.swift; sourceTree = "<group>"; };
-		93BA1581263343E400494043 /* countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countdown.json; sourceTree = "<group>"; };
+		93BA158D26347DE100494043 /* countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countdown.json; path = ../../../../../../Volumes/HDD/countdown.json; sourceTree = "<group>"; };
 		93C8F69E256423FE0072589B /* PrimaryQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryQuote.swift; sourceTree = "<group>"; };
 		93C8F6AA2564DF140072589B /* QuoteGarden-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteGarden-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C8F6AB2564DF140072589B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -308,7 +308,7 @@
 		939FDD9F262AA5D2007B8D19 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				93BA1581263343E400494043 /* countdown.json */,
+				93BA158D26347DE100494043 /* countdown.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -626,7 +626,7 @@
 			files = (
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
-				93BA1582263343E400494043 /* countdown.json in Resources */,
+				93BA158E26347DE100494043 /* countdown.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
