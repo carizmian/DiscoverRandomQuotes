@@ -25,37 +25,54 @@ struct ContentView: View {
     
     var body: some View {
         
-        TabView(selection: $selectedView) {
+        // TabView(selection: $selectedView) {
+        
+        NavigationView {
             
             QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
                 .tag(QuoteGeneratorView.tag)
-                .tabItem {
-                    Label("Random", systemImage: "text.quote")
-                }
+                //                .tabItem {
+                //                    Label("Random", systemImage: "text.quote")
+                //                }
                 .accessibilityLabel(Text("Random quotes"))
                 .accessibility(hint: Text("Find new quotes here"))
+                .navigationBarItems(leading:
+                                        NavigationLink(destination:   QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
+                                                        //                .tag(QuoteListView.tag)
+                                                        //                .tabItem {
+                                                        //                    Label("Saved", systemImage: "bookmark.fill")
+                                                        //                }
+                                                        .accessibilityLabel(Text("Saved quotes"))
+                                                        .accessibility(hint: Text("Find your saved quotes here"))) {
+//                                            Image(systemName: "text.book.closed.fill")
+//                                                .font(.title)
+
+                                        }
+                                    
+                                    , trailing:
+                                        NavigationLink(destination: SettingsView()
+                                                        .tag(SettingsView.tag)
+                                                        //                .tabItem {
+                                                        //                    Label("Settings", systemImage: "gearshape.2.fill")
+                                                        //                }
+                                                        .accessibilityLabel(Text("Settings"))
+                                                        .accessibility(hint: Text("Find settings and social links here"))) {
+
+                                            Image(systemName: "line.horizontal.3")
+                                                .font(.title)
+                                                
+                                                
+                                        }
+                                    
+                )
             
-            QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
-                .tag(QuoteListView.tag)
-                .tabItem {
-                    Label("Saved", systemImage: "bookmark.fill")
-                }
-                .accessibilityLabel(Text("Saved quotes"))
-                .accessibility(hint: Text("Find your saved quotes here"))
             
-            SettingsView()
-                .tag(SettingsView.tag)
-                .tabItem {
-                    Label("Settings", systemImage: "gearshape.2.fill")
-                }
-                .accessibilityLabel(Text("Settings"))
-                .accessibility(hint: Text("Find settings and social links here"))
+            //            ReminderOnboardingView()
+            //                .tabItem {
+            //                    Label("test", systemImage: "gearshape.2.fill")
+            //                }
             
-            ReminderOnboardingView()
-                .tabItem {
-                    Label("test", systemImage: "gearshape.2.fill")
-                }
-            
+            // }
         }.onAppear {
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()

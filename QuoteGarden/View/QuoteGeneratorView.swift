@@ -94,14 +94,14 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Save quote"))
                 .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
                 
-                Button(action: {
-                    copyToClipboard(quote: quote)
-                }) {
-                    Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
-                    
-                }.buttonStyle(ColoredButtonStyle())
-                .accessibilityLabel(Text("Copy quote"))
-                .accessibility(hint: Text("Copy the quote text to your clipboard"))
+//                Button(action: {
+//                    copyToClipboard(quote: quote)
+//                }) {
+//                    Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
+//                    
+//                }.buttonStyle(ColoredButtonStyle())
+//                .accessibilityLabel(Text("Copy quote"))
+//                .accessibility(hint: Text("Copy the quote text to your clipboard"))
                 
                 Button(action: {
                     textToSpeech(quote: quote)
