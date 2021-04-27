@@ -21,12 +21,11 @@ struct QuoteView: View {
                     Text("\(quote.quoteGenre)")
                 }.padding(.bottom)
                 .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .font(Font.system(.callout, design: .rounded).weight(.regular))
                 .accessibility(value: Text("quote genre is hashtag \(quote.quoteGenre)"))
 
                 Text("\(quote.quoteText)")
-                    .italic()
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .font(Font.system(.title, design: .rounded).weight(.semibold))
                     .padding(.horizontal)
                     .allowsTightening(true)
                     .layoutPriority(2)
@@ -39,7 +38,7 @@ struct QuoteView: View {
 
                 }.padding(.top)
                 .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .font(Font.system(.callout, design: .rounded).weight(.regular))
                 .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
 
             }

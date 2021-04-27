@@ -23,6 +23,9 @@ struct ContentView: View {
     @State private var showOnboarding = false
     @AppStorage("OnboardBeenViewed") var hasOnboarded = false
     
+    @State private var showSettings = false
+    @State private var showSavedQuotes = false
+    
     var body: some View {
         
         // TabView(selection: $selectedView) {
@@ -37,34 +40,21 @@ struct ContentView: View {
                 .accessibilityLabel(Text("Random quotes"))
                 .accessibility(hint: Text("Find new quotes here"))
                 .navigationBarItems(leading:
-                                        NavigationLink(destination:   QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
-                                                        //                .tag(QuoteListView.tag)
-                                                        //                .tabItem {
-                                                        //                    Label("Saved", systemImage: "bookmark.fill")
-                                                        //                }
-                                                        .accessibilityLabel(Text("Saved quotes"))
-                                                        .accessibility(hint: Text("Find your saved quotes here"))) {
-//                                            Image(systemName: "text.book.closed.fill")
-//                                                .font(.title)
-
-                                        }
+                                        
+                                        Button(action: {showSavedQuotes.toggle()}, label: {
+                                            Image(systemName: "bookmark.fill")
+                                                .font(.title)
+                                        }).accessibilityLabel(Text("Saved quotes"))
+                                        .accessibility(hint: Text("Find your saved quotes here"))
                                     
                                     , trailing:
-                                        NavigationLink(destination: SettingsView()
-                                                        .tag(SettingsView.tag)
-                                                        //                .tabItem {
-                                                        //                    Label("Settings", systemImage: "gearshape.2.fill")
-                                                        //                }
-                                                        .accessibilityLabel(Text("Settings"))
-                                                        .accessibility(hint: Text("Find settings and social links here"))) {
-
-                                            Image(systemName: "line.horizontal.3")
+                                        
+                                        Button(action: {showSettings.toggle()}, label: {
+                                            Image(systemName: "gearshape.fill")
                                                 .font(.title)
-                                                
-                                                
-                                        }
-                                    
-                )
+                                        }).accessibilityLabel(Text("Settings"))
+                                        .accessibility(hint: Text("Find settings and social links here"))
+            )
             
             
             //            ReminderOnboardingView()
@@ -90,6 +80,14 @@ struct ContentView: View {
         .popover(isPresented: $showOnboarding) {
             ReminderOnboardingView()
         }
+        #warning("Settings not showing")
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+        }
+        .sheet(isPresented: $showSavedQuotes) {
+            QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
+        }
+        
         
     }
     func removeQuote(at offsets: IndexSet) {

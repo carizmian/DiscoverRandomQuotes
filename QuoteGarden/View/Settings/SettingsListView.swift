@@ -13,6 +13,7 @@ struct SettingsView: View {
     var items = Items()
     
     var body: some View {
+        
         NavigationView {
             
             List {
