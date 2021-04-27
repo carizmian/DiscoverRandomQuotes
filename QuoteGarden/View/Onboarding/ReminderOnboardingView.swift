@@ -19,10 +19,9 @@ struct LottieView: UIViewRepresentable {
         
     }
     
-    
     var animationName: String
     
-    func makeUIView(context: Context) -> AnimationView{
+    func makeUIView(context: Context) -> AnimationView {
         let view = AnimationView(name: animationName, bundle: Bundle.main)
         view.loopMode = .loop
         view.play()
@@ -129,5 +128,3 @@ struct ReminderOnboardingView_Previews: PreviewProvider {
         }
     }
 }
-
-

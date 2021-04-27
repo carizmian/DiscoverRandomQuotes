@@ -45,9 +45,7 @@ struct ContentView: View {
                                             Image(systemName: "bookmark.fill")
                                                 .font(.title)
                                         }).accessibilityLabel(Text("Saved quotes"))
-                                        .accessibility(hint: Text("Find your saved quotes here"))
-                                    
-                                    , trailing:
+                                        .accessibility(hint: Text("Find your saved quotes here")), trailing:
                                         
                                         Button(action: {showSettings.toggle()}, label: {
                                             Image(systemName: "gearshape.fill")
@@ -55,7 +53,6 @@ struct ContentView: View {
                                         }).accessibilityLabel(Text("Settings"))
                                         .accessibility(hint: Text("Find settings and social links here"))
             )
-            
             
             //            ReminderOnboardingView()
             //                .tabItem {
@@ -80,14 +77,13 @@ struct ContentView: View {
         .popover(isPresented: $showOnboarding) {
             ReminderOnboardingView()
         }
-        #warning("Settings not showing")
         .sheet(isPresented: $showSettings) {
+            #warning("Settings not showing")
             SettingsView()
         }
         .sheet(isPresented: $showSavedQuotes) {
             QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
         }
-        
         
     }
     func removeQuote(at offsets: IndexSet) {
