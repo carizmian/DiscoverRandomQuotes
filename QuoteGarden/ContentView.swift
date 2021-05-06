@@ -9,6 +9,19 @@ import SwiftUI
 import Foundation
 import AVFoundation
 
+final class ActiveSheet: ObservableObject {
+    enum Kind {
+        case onboard
+        case quotes
+        case settings
+        case none
+    }
+    @Published var kind: Kind = .none {
+        didSet { showSheet = kind != .none }
+    }
+    @Published var showSheet: Bool = false
+}
+
 struct ContentView: View {
     
     @AppStorage("selectedView") var selectedView: String?
@@ -20,18 +33,15 @@ struct ContentView: View {
     
     let synthesizer =  AVSpeechSynthesizer()
     
-    @State private var showOnboarding = false
     @AppStorage("OnboardBeenViewed") var hasOnboarded = false
     
-    @State private var showSettings = false
-    @State private var showSavedQuotes = false
+    @ObservedObject var activeSheet: ActiveSheet = ActiveSheet()
     
     var body: some View {
         
         // TabView(selection: $selectedView) {
-        
         NavigationView {
-            
+            #warning("fix ipad view it's in half!")
             QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
                 .tag(QuoteGeneratorView.tag)
                 //                .tabItem {
@@ -41,18 +51,22 @@ struct ContentView: View {
                 .accessibility(hint: Text("Find new quotes here"))
                 .navigationBarItems(leading:
                                         
-                                        Button(action: {showSavedQuotes.toggle()}, label: {
+                                        Button(action: {
+                                            activeSheet.kind = .quotes
+                                        }, label: {
                                             Image(systemName: "bookmark.fill")
                                                 .font(.title)
                                         }).accessibilityLabel(Text("Saved quotes"))
                                         .accessibility(hint: Text("Find your saved quotes here")), trailing:
-                                        
-                                        Button(action: {showSettings.toggle()}, label: {
-                                            Image(systemName: "gearshape.fill")
-                                                .font(.title)
-                                        }).accessibilityLabel(Text("Settings"))
-                                        .accessibility(hint: Text("Find settings and social links here"))
-            )
+                                            
+                                            Button(action: {
+                                                activeSheet.kind = .settings
+                                            }, label: {
+                                                Image(systemName: "gearshape.fill")
+                                                    .font(.title)
+                                            }).accessibilityLabel(Text("Settings"))
+                                            .accessibility(hint: Text("Find settings and social links here"))
+                )
             
             //            ReminderOnboardingView()
             //                .tabItem {
@@ -65,27 +79,32 @@ struct ContentView: View {
             AppReviewRequest.requestReviewIfNeeded()
             
             hasOnboarded = false // here for testing
+            // When the user dismisses the onboarding view by swiping down, we will also consider onboarding as complete
             if !hasOnboarded {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     withAnimation {
-                        showOnboarding.toggle()
+                        activeSheet.kind = .onboard
                         hasOnboarded = true
                     }
                 }
             }
         }
-        .popover(isPresented: $showOnboarding) {
-            ReminderOnboardingView()
-        }
-        .sheet(isPresented: $showSettings) {
-            #warning("Settings not showing")
-            SettingsView()
-        }
-        .sheet(isPresented: $showSavedQuotes) {
-            QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
-        }
-        
+        .sheet(isPresented: self.$activeSheet.showSheet, content: { self.sheet })
     }
+    private var sheet: some View {
+        #warning("prvi stisak ne radi!, pa onda proradi")
+        switch activeSheet.kind {
+        case .none:
+            return AnyView(ContentView())
+        case .onboard:
+            return AnyView(ReminderOnboardingView())
+        case .quotes:
+            return AnyView(QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer))
+        case .settings:
+            return AnyView(SettingsView())
+        }
+    }
+    
     func removeQuote(at offsets: IndexSet) {
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
