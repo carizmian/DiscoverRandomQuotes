@@ -11,12 +11,22 @@ struct SettingsView: View {
     
     static let tag: String? = "Settings"
     var items = Items()
+    @State private var showReminders = false
     
     var body: some View {
         
         NavigationView {
             
             List {
+                
+                Section(header: Text("Reminders")) {
+                    Button(action: {showReminders.toggle()}) {
+                        HStack {
+                            Image(systemName: "bell.badge.fill")
+                            Text("Reminders")
+                        }
+                    }
+                }
                 
                 Section(header: Text("Legal")) {
                     ForEach(items.legal, id: \.self) { item in
@@ -31,7 +41,7 @@ struct SettingsView: View {
                         Link(destination: URL(string: "\(item.url)")!) {
                             SettingsRowView(item: item)
                         }
-
+                        
                     }
                 }
                 
@@ -42,10 +52,10 @@ struct SettingsView: View {
                         }
                     }
                 }
-
+                
             }.listStyle(GroupedListStyle())
             .navigationBarTitle("Settings")
-        }
+        }.sheet(isPresented: $showReminders, content: {ReminderOnboardingView()})
     }
 }
 

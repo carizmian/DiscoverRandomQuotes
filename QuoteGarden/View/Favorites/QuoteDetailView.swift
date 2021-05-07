@@ -59,15 +59,6 @@ struct QuoteDetailView: View {
                 .accessibility(hint: Text("opens a share sheet view"))
                 
                 Button(action: {
-                    copyToClipboard(quoteGenre: favoriteQuote.wrappedQuoteGenre, quoteText: favoriteQuote.wrappedQuoteText, quoteAuthor: favoriteQuote.wrappedQuoteAuthor)
-                }) {
-                    Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
-                    
-                }.buttonStyle(ColoredButtonStyle())
-                .accessibilityLabel(Text("Copy quote"))
-                .accessibility(hint: Text("Copy the quote text to your clipboard"))
-                
-                Button(action: {
                     textToSpeech(quote: favoriteQuote)
                 }) {
                     Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
@@ -106,24 +97,24 @@ struct QuoteDetailView: View {
         }
     }
     
-    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-        let quoteString = """
-        # \(quoteGenre)
-        \(quoteText)
-        ~ \(quoteAuthor)
-
-        From the Spontaneous app: https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374
-        """
-        
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = quoteString
-        
-        if pasteboard.string != nil {
-            print(quoteString)
-        }
-        
-        addedToClipboard = true
-    }
+//    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
+//        let quoteString = """
+//        # \(quoteGenre)
+//        \(quoteText)
+//        ~ \(quoteAuthor)
+//
+//        From the Spontaneous app: https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374
+//        """
+//
+//        let pasteboard = UIPasteboard.general
+//        pasteboard.string = quoteString
+//
+//        if pasteboard.string != nil {
+//            print(quoteString)
+//        }
+//
+//        addedToClipboard = true
+//    }
     
     func savePrimary(quoteCD: QuoteCD) {
         

@@ -38,7 +38,7 @@ struct ReminderOnboardingView: View {
     
     var body: some View {
         VStack {
-            
+            #warning("Show a popup alert that reminder have been set!")
             VStack {
                 LottieView(animationName: "countdown")
                     .scaledToFit()
