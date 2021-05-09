@@ -35,6 +35,7 @@ struct ReminderOnboardingView: View {
     @State private var reminderStartTime = Date(timeIntervalSince1970: TimeInterval(7*60*60))
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
     let manager = LocalNotificationManager()
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
@@ -86,6 +87,9 @@ struct ReminderOnboardingView: View {
             //            })
         //}
         }.padding(.horizontal)
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Successfully set new reminders!"), message: Text("You will now receive Spontaneous reminders every day."), dismissButton: .default(Text("OK")))
+        }
     }
     
     func setNotification() {
@@ -107,13 +111,13 @@ struct ReminderOnboardingView: View {
             
             dateComponentsArray.append(dateComponent)
         }
-        
+        #warning("stavi pravi quote ode kao notifikaciju")
         for dateComponents in dateComponentsArray {
             manager.addNotification(title: "This is a test reminder", body: "This is the body", dateComponents: dateComponents)
         }
         
         manager.schedule()
-        
+        showingAlert.toggle()
     }
 }
 
