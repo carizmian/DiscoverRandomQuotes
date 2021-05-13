@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Foundation
-import Reachability
 import SystemConfiguration
 import AVFoundation
 
@@ -28,12 +27,10 @@ struct QuoteGeneratorView: View {
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
     
-    let reachability = try! Reachability()
-    
     @State var viewState = CGSize.zero
     
     let synthesizer: AVSpeechSynthesizer
-        
+    
     var body: some View {
         
         VStack {
@@ -44,18 +41,8 @@ struct QuoteGeneratorView: View {
                     .gesture(
                         LongPressGesture().onChanged { _ in
                             quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
-                            reachability.whenUnreachable = { _ in
-                                showingNetworkAlert = true
-                                print("Not reachable")
-                            }
                             
-                            do {
-                                try reachability.startNotifier()
-                            } catch {
-                                print("Unable to start notifier")
-                            }
-                            
-                            QuoteGardenApi().getRandomQuote { quote in
+                            getRandomQuote { quote in
                                 
                                 self.quote = quote
                                 savedToDevice = false
@@ -93,15 +80,6 @@ struct QuoteGeneratorView: View {
                 }.buttonStyle(ColoredButtonStyle())
                 .accessibilityLabel(Text("Save quote"))
                 .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
-                
-//                Button(action: {
-//                    copyToClipboard(quote: quote)
-//                }) {
-//                    Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
-//                    
-//                }.buttonStyle(ColoredButtonStyle())
-//                .accessibilityLabel(Text("Copy quote"))
-//                .accessibility(hint: Text("Copy the quote text to your clipboard"))
                 
                 Button(action: {
                     textToSpeech(quote: quote)
@@ -147,25 +125,6 @@ struct QuoteGeneratorView: View {
         
     }
     
-    func copyToClipboard(quote: Quote) {
-        let quoteString = """
-        # \(quote.quoteGenre)
-        \(quote.quoteText)
-        ~ \(quote.quoteAuthor)
-
-        From the Spontaneous app: https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374
-        """
-        
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = quoteString
-        
-        if pasteboard.string != nil {
-            print(quoteString)
-        }
-        
-        addedToClipboard = true
-    }
-    
     func saveToDevice(quote: Quote) {
         
         savedToDevice.toggle()
@@ -182,5 +141,29 @@ struct QuoteGeneratorView: View {
         }
         
     }
+    
+//    func getRandomQuote(completion: @escaping (Quote) -> Void) {
+//        
+//        let randomPage = Int.random(in: 1..<2)
+//        let randomQuote = Int.random(in: 0..<36335)
+//        
+//        let url = Bundle.main.url(forResource: "quotes\(randomPage).json", withExtension: nil)
+//        
+//        URLSession.shared.dataTask(with: url!) { data, response, error in
+//            guard let data = data else {
+//                print(String(describing: error))
+//                return
+//            }
+//            guard let response = try? JSONDecoder().decode(Response.self, from: data) else {
+//                print(String(describing: error))
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                completion(response.data[randomQuote])
+//            }
+//            //print(String(data: data, encoding: .utf8)!)
+//        }.resume()
+//        
+//    }
     
 }
