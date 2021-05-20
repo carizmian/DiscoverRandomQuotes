@@ -23,7 +23,6 @@ struct Quote: Codable, Hashable {
     }
 }
 
-#warning("stavi ode za sve targete, samo minjaj ono #if iOS itd.")
 func getRandomQuote(completion: @escaping (Quote) -> Void) {
     
     let randomPage = Int.random(in: 1..<2)
@@ -47,3 +46,5 @@ func getRandomQuote(completion: @escaping (Quote) -> Void) {
     }.resume()
     
 }
+
+

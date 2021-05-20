@@ -30,7 +30,7 @@ struct ContentView: View {
     @State private var savedToDevice = false
     @State private var showingShareSheetView = false
     
-    @ObservedObject var activeSheet: ActiveSheet = ActiveSheet()
+   @EnvironmentObject var activeSheet: ActiveSheet
     
     let synthesizer =  AVSpeechSynthesizer()
     
@@ -75,7 +75,6 @@ struct ContentView: View {
         .sheet(isPresented: self.$activeSheet.showSheet, content: { self.sheet })
     }
     private var sheet: some View {
-        #warning("prvi stisak ne radi!, pa onda proradi")
         switch activeSheet.kind {
         case .none:
             return AnyView(ContentView())

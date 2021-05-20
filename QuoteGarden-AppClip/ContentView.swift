@@ -30,7 +30,7 @@ struct ContentView: View {
                         LongPressGesture().onChanged { _ in
                             quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
                             
-                            getRandomQuote { quote in
+                            getRandomQuotes { quote in
                                 
                                 self.quote = quote
                                 addedToClipboard = false
@@ -82,7 +82,7 @@ struct ContentView: View {
         }
     }
     
-    func getRandomQuote(completion: @escaping (Quote) -> Void) {
+    func getRandomQuotes(completion: @escaping (Quote) -> Void) {
         
         let randomQuote = Int.random(in: 0..<49)
         

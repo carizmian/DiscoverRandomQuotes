@@ -47,13 +47,12 @@ struct QuoteView: View {
             .padding()
             .background(Color("AccentColor").clipShape(RoundedRectangle(cornerRadius: 25)))
         #elseif os(watchOS)
-        #warning("ne more sve da stane")
         VStack(alignment: .leading) {
 
                 Text("\(quote.quoteText)")
                     .allowsTightening(true)
                     .layoutPriority(2)
-                    .minimumScaleFactor(0.8)
+                    .minimumScaleFactor(0.1)
                     .accessibility(value: Text("quote text is \(quote.quoteText)"))
                 HStack {
                     Text("~")
@@ -61,7 +60,7 @@ struct QuoteView: View {
 
                 }.padding(.top, 1)
                 .allowsTightening(true)
-                .font(.footnote)
+                .font(.body)
                 .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
 
         }.multilineTextAlignment(.leading)

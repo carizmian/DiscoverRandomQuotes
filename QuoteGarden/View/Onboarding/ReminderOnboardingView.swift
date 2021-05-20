@@ -37,9 +37,10 @@ struct ReminderOnboardingView: View {
     let manager = LocalNotificationManager()
     @State private var showingAlert = false
     
+    @EnvironmentObject var activeSheet: ActiveSheet
+        
     var body: some View {
         VStack {
-            #warning("Show a popup alert that reminder have been set!")
             VStack {
                 LottieView(animationName: "countdown")
                     .scaledToFit()
@@ -47,7 +48,7 @@ struct ReminderOnboardingView: View {
                     .scaleEffect(0.4)
             }.padding()
             
-          //  Form {
+            //  Form {
             VStack {
                 Text("Set daily Spontaneous reminders.")
                     .multilineTextAlignment(.center)
@@ -82,17 +83,21 @@ struct ReminderOnboardingView: View {
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .foregroundColor(Color("TextColor"))
             .padding(8)
-            //            Button(action: {UNUserNotificationCenter.current().removeAllPendingNotificationRequests()}, label: {
-            //                Text("Cancel All")
-            //            })
-        //}
+
         }.padding(.horizontal)
+        .onDisappear { showingAlert.toggle() }
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Successfully set new reminders!"), message: Text("You will now receive Spontaneous reminders every day."), dismissButton: .default(Text("OK")))
         }
+        #warning("okej sad je dismiss ali ne radi alert zato!")
+
+            
     }
     
     func setNotification() {
+        
+        activeSheet.showSheet.toggle()
+        #warning("user more spamat notifikacije, i ovaj toggle bas ne radi ne dismissa se konstanto")
         
         let firstDateComponents = Calendar.current.dateComponents([.hour, .minute], from: reminderStartTime)
         let lastDateComponents = Calendar.current.dateComponents([.hour, .minute], from: reminderEndTime)
@@ -111,24 +116,33 @@ struct ReminderOnboardingView: View {
             
             dateComponentsArray.append(dateComponent)
         }
-        #warning("stavi pravi quote ode kao notifikaciju")
         for dateComponents in dateComponentsArray {
-            manager.addNotification(title: "This is a test reminder", body: "This is the body", dateComponents: dateComponents)
+            
+            getRandomQuote { quote in
+                manager.addNotification(title: quote.quoteAuthor, body: quote.quoteText, dateComponents: dateComponents)
+                
+                print(quote.id)
+                
+            }
+            
+            
         }
         
         manager.schedule()
-        showingAlert.toggle()
+        
+      //  UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
     }
 }
 
-struct ReminderOnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-        ReminderOnboardingView()
-          //  .previewLayout(.sizeThatFits)
-        ReminderOnboardingView()
-            .preferredColorScheme(.dark)
-            .previewLayout(.sizeThatFits)
-        }
-    }
-}
+//struct ReminderOnboardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            ReminderOnboardingView()
+//            //  .previewLayout(.sizeThatFits)
+//            ReminderOnboardingView()
+//                .preferredColorScheme(.dark)
+//                .previewLayout(.sizeThatFits)
+//        }
+//    }
+//}

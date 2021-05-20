@@ -13,6 +13,9 @@ struct SettingsView: View {
     var items = Items()
     @State private var showReminders = false
     
+    @EnvironmentObject var activeSheet: ActiveSheet
+
+    
     var body: some View {
         
         NavigationView {
