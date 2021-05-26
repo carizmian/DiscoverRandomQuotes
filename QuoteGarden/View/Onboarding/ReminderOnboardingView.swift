@@ -36,9 +36,6 @@ struct ReminderOnboardingView: View {
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
     let manager = LocalNotificationManager()
     @State private var showingAlert = false
-    
-    @EnvironmentObject var activeSheet: ActiveSheet
-        
     var body: some View {
         VStack {
             VStack {
@@ -95,8 +92,6 @@ struct ReminderOnboardingView: View {
     }
     
     func setNotification() {
-        
-        activeSheet.showSheet.toggle()
         #warning("user more spamat notifikacije, i ovaj toggle bas ne radi ne dismissa se konstanto")
         
         let firstDateComponents = Calendar.current.dateComponents([.hour, .minute], from: reminderStartTime)

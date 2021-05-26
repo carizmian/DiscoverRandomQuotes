@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let contentView = ContentView()
             .environment(\.managedObjectContext, context)
-            .environmentObject(ActiveSheet())
             
         
         // Use a UIHostingController as window root view controller.

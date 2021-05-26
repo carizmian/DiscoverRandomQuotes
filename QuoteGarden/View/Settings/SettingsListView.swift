@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
     static let tag: String? = "Settings"
     var items = Items()
     @State private var showReminders = false
-    
-    @EnvironmentObject var activeSheet: ActiveSheet
-
-    
     var body: some View {
         
         NavigationView {
@@ -58,7 +53,7 @@ struct SettingsView: View {
                 
             }.listStyle(GroupedListStyle())
             .navigationBarTitle("Settings")
-        }.sheet(isPresented: $showReminders, content: {ReminderOnboardingView()})
+        }
     }
 }
 

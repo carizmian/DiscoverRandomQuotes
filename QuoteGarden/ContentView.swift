@@ -9,53 +9,34 @@ import SwiftUI
 import Foundation
 import AVFoundation
 
-final class ActiveSheet: ObservableObject {
-    enum Kind {
-        case onboard
-        case quotes
-        case settings
-        case none
-    }
-    @Published var kind: Kind = .none {
-        didSet { showSheet = kind != .none }
-    }
-    @Published var showSheet: Bool = false
-}
-
 struct ContentView: View {
-    
-    // Quote
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var savedToDevice = false
     @State private var showingShareSheetView = false
-    
-   @EnvironmentObject var activeSheet: ActiveSheet
-    
     let synthesizer =  AVSpeechSynthesizer()
-    
+    @State private var showOnboarding = false
     @AppStorage("OnboardBeenViewed") var hasOnboarded = false
-    
     var body: some View {
-        
+        #warning("neka druga opcija navigacije kroz aplikaciju")
         NavigationView {
             QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
                 .tag(QuoteGeneratorView.tag)
                 .accessibilityLabel(Text("Random quotes"))
                 .accessibility(hint: Text("Find new quotes here"))
                 .navigationBarItems(leading:
-                                        Button(action: {activeSheet.kind = .quotes}, label: {
+                                        Button(action: {}, label: {
                                             Image(systemName: "bookmark.fill")
                                                 .font(.title)
                                         }).accessibilityLabel(Text("Saved quotes"))
                                         .accessibility(hint: Text("Find your saved quotes here")), trailing:
                                             
-                                        Button(action: {activeSheet.kind = .settings}, label: {
-                                            Image(systemName: "gearshape.fill")
+                                            Button(action: {}, label: {
+                                                Image(systemName: "gearshape.fill")
                                                     .font(.title)
-                                        }).accessibilityLabel(Text("Settings"))
-                                        .accessibility(hint: Text("Find settings and social links here")))
-
+                                            }).accessibilityLabel(Text("Settings"))
+                                            .accessibility(hint: Text("Find settings and social links here")))
+            
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             moc.undoManager = UndoManager()
@@ -66,26 +47,17 @@ struct ContentView: View {
             if !hasOnboarded {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     withAnimation {
-                        activeSheet.kind = .onboard
+                        showOnboarding.toggle()
                         hasOnboarded = true
                     }
                 }
             }
         }
-        .sheet(isPresented: self.$activeSheet.showSheet, content: { self.sheet })
-    }
-    private var sheet: some View {
-        switch activeSheet.kind {
-        case .none:
-            return AnyView(ContentView())
-        case .onboard:
-            return AnyView(ReminderOnboardingView())
-        case .quotes:
-            return AnyView(QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer))
-        case .settings:
-            return AnyView(SettingsView())
+        .sheet(isPresented: $showOnboarding) {
+            ReminderOnboardingView()
         }
     }
+
     func removeQuote(at offsets: IndexSet) {
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
