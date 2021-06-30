@@ -8,7 +8,6 @@
 import SwiftUI
 import AVFoundation
 
-
 @main
 struct QuoteGardenAppClipApp: App {
     @State private var showingShareSheetView = false

@@ -110,7 +110,6 @@ struct ReminderView: View {
                 
             }
             
-            
         }
         manager.schedule()
         

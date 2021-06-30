@@ -29,9 +29,7 @@ struct ContentView: View {
                                             Image(systemName: "text.quote")
                                                 .font(.largeTitle)
                                         }.accessibilityLabel(Text("Saved quotes"))
-                                        .accessibility(hint: Text("Find your saved quotes here"))
-                                    
-                                    ,trailing:
+                                        .accessibility(hint: Text("Find your saved quotes here")), trailing:
                                         
                                         NavigationLink(destination: SettingsView()) {
                                             Image(systemName: "gearshape.fill")

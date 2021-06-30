@@ -42,7 +42,6 @@ struct QuoteGeneratorView: View {
                         LongPressGesture().onChanged { _ in
                             quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
                             
-                            
                             getRandomQuote { quote in
                                 
                                 self.quote = quote

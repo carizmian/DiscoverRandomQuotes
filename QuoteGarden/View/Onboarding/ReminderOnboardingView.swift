@@ -94,7 +94,6 @@ struct ReminderOnboardingView: View {
             .foregroundColor(Color("TextColor"))
             .padding(8)
 
-
         }.padding(.horizontal)
         .edgesIgnoringSafeArea(.top)
             
@@ -128,12 +127,10 @@ struct ReminderOnboardingView: View {
                 
             }
             
-            
         }
      //   showingAlert.toggle()
         manager.schedule()
         showOnboarding.toggle()
-        
         
       //  UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         

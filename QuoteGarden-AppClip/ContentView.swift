@@ -18,7 +18,6 @@ struct ContentView: View {
     @State var viewState = CGSize.zero
     let synthesizer: AVSpeechSynthesizer
     
-    
     var body: some View {
         
         VStack {
@@ -68,7 +67,6 @@ struct ContentView: View {
                 .accessibilityLabel(Text("Quote text to speech"))
                 .accessibility(hint: Text("Speak the quote text to your ears"))
                 .disabled(synthesizer.isSpeaking)
-                
                 
             }.disabled(quote.quoteText == "")
             

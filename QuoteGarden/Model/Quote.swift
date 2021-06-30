@@ -46,5 +46,3 @@ func getRandomQuote(completion: @escaping (Quote) -> Void) {
     }.resume()
     
 }
-
-

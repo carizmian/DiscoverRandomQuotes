@@ -16,7 +16,6 @@ struct SettingsView: View {
             VStack {
                 
                 List {
-
                    
                     Section(header: Text("Reminders")) {
                         NavigationLink(destination: ReminderView()) {
