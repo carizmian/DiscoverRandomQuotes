@@ -1,56 +1,24 @@
 //
-//  ReminderOnboardingView.swift
+//  ReminderView.swift
 //  QuoteGarden
 //
-//  Created by Master Family on 18/03/2021.
+//  Created by Master Family on 30/06/2021.
 //
 
 import SwiftUI
 import Lottie
 
-extension Double {
-    func toInt() -> Int {
-        Int(self)
-    }
-}
-
-struct LottieView: UIViewRepresentable {
-    func updateUIView(_ uiView: AnimationView, context: Context) {
-        
-    }
-    
-    var animationName: String
-    
-    func makeUIView(context: Context) -> AnimationView {
-        let view = AnimationView(name: animationName, bundle: Bundle.main)
-        view.loopMode = .loop
-        view.play()
-        
-        return view
-    }
-}
-
-struct ReminderOnboardingView: View {
+struct ReminderView: View {
     @State private var reminderFrequency = 13.0
     @State private var reminderStartTime = Date(timeIntervalSince1970: TimeInterval(7*60*60))
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
     let manager = LocalNotificationManager()
-    @Binding var showOnboarding: Bool
+    @State private var reminders = true
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                        showOnboarding.toggle()
-                    
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .padding(.vertical)
-                        .font(.largeTitle)
-                })
-                
-            }
+
+            Toggle("Send Reminders", isOn: $reminders)
+            
             VStack {
                 LottieView(animationName: "countdown")
                     .scaledToFit()
@@ -82,24 +50,38 @@ struct ReminderOnboardingView: View {
                 }
                 
             }
-            Spacer()
-            Button(action: {setNotification()}, label: {
-                Text("Continue")
-                    .font(.title3)
-                    .fontWeight(.heavy)
-            }).padding(.vertical)
-            .padding(.horizontal, 80)
-            .background(Color.accentColor)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .foregroundColor(Color("TextColor"))
-            .padding(8)
-
+//            Spacer()
+//            Button(action: {setNotification()}, label: {
+//                Text("Continue")
+//                    .font(.title3)
+//                    .fontWeight(.heavy)
+//            }).padding(.vertical)
+//            .padding(.horizontal, 80)
+//            .background(Color.accentColor)
+//            .clipShape(RoundedRectangle(cornerRadius: 15))
+//            .foregroundColor(Color("TextColor"))
+//            .padding(8)
 
         }.padding(.horizontal)
+        .onAppear {
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
+        .onDisappear {
+            switch reminders {
+            case true: do {
+                setNotification()
+                print("setting notificaitons")
+            }
+            case false: do {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                print("cleared reminders")
+            }
+            }
+        }
+
         .edgesIgnoringSafeArea(.top)
-            
+
     }
-    
     func setNotification() {
         
         let firstDateComponents = Calendar.current.dateComponents([.hour, .minute], from: reminderStartTime)
@@ -130,24 +112,15 @@ struct ReminderOnboardingView: View {
             
             
         }
-     //   showingAlert.toggle()
         manager.schedule()
-        showOnboarding.toggle()
-        
         
       //  UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
     }
 }
 
-//struct ReminderOnboardingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ReminderOnboardingView()
-//            //  .previewLayout(.sizeThatFits)
-//            ReminderOnboardingView()
-//                .preferredColorScheme(.dark)
-//                .previewLayout(.sizeThatFits)
-//        }
-//    }
-//}
+struct ReminderView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReminderView()
+    }
+}

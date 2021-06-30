@@ -10,18 +10,14 @@ import Foundation
 import AVFoundation
 
 struct QuoteListView: View {
-    
     static let tag: String? = "Saved Quotes"
-    
     @Environment(\.managedObjectContext) var moc
     var removeQuote: (IndexSet) -> Void
     var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var searchText = ""
-    
     let synthesizer: AVSpeechSynthesizer
-    
     var body: some View {
-        NavigationView {
+     //   NavigationView {
             ZStack {
                 ShakableViewRepresentable()
                     .allowsHitTesting(false)
@@ -56,7 +52,7 @@ struct QuoteListView: View {
                 
             }
             
-        }
+      //  }
         
     }
     

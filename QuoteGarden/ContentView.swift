@@ -18,31 +18,33 @@ struct ContentView: View {
     @State private var showOnboarding = false
     @AppStorage("OnboardBeenViewed") var hasOnboarded = false
     var body: some View {
-        #warning("neka druga opcija navigacije kroz aplikaciju")
         NavigationView {
             QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
                 .tag(QuoteGeneratorView.tag)
                 .accessibilityLabel(Text("Random quotes"))
                 .accessibility(hint: Text("Find new quotes here"))
                 .navigationBarItems(leading:
-                                        Button(action: {}, label: {
-                                            Image(systemName: "bookmark.fill")
-                                                .font(.title)
-                                        }).accessibilityLabel(Text("Saved quotes"))
-                                        .accessibility(hint: Text("Find your saved quotes here")), trailing:
-                                            
-                                            Button(action: {}, label: {
-                                                Image(systemName: "gearshape.fill")
-                                                    .font(.title)
-                                            }).accessibilityLabel(Text("Settings"))
-                                            .accessibility(hint: Text("Find settings and social links here")))
+                                        
+                                        NavigationLink(destination: QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)) {
+                                            Image(systemName: "text.quote")
+                                                .font(.largeTitle)
+                                        }.accessibilityLabel(Text("Saved quotes"))
+                                        .accessibility(hint: Text("Find your saved quotes here"))
+                                    
+                                    ,trailing:
+                                        
+                                        NavigationLink(destination: SettingsView()) {
+                                            Image(systemName: "gearshape.fill")
+                                                .font(.largeTitle)
+                                        }.accessibilityLabel(Text("Settings"))
+                                        .accessibility(hint: Text("Find settings and social links here")))
             
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()
             
-            hasOnboarded = false // here for testing
+           // hasOnboarded = false // here for testing
             // When the user dismisses the onboarding view by swiping down, we will also consider onboarding as complete
             if !hasOnboarded {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -54,10 +56,11 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showOnboarding) {
-            ReminderOnboardingView()
+            ReminderOnboardingView(showOnboarding: $showOnboarding)
         }
-    }
 
+    }
+    
     func removeQuote(at offsets: IndexSet) {
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
