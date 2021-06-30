@@ -6,45 +6,57 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct SettingsView: View {
-    
     static let tag: String? = "Settings"
     var items = Items()
-    
     var body: some View {
-        NavigationView {
-            
-            List {
+                    
+            VStack {
                 
-                Section(header: Text("Legal")) {
-                    ForEach(items.legal, id: \.self) { item in
-                        Link(destination: URL(string: "\(item.url)")!) {
-                            SettingsRowView(item: item)
-                        }
-                        
-                    }
-                }
-                Section(header: Text("Feedback")) {
-                    ForEach(items.feedback, id: \.self) { item in
-                        Link(destination: URL(string: "\(item.url)")!) {
-                            SettingsRowView(item: item)
-                        }
+                List {
 
-                    }
-                }
-                
-                Section(header: Text("Miscellaneous")) {
-                    ForEach(items.miscellaneous, id: \.self) { item in
-                        Link(destination: URL(string: "\(item.url)")!) {
-                            SettingsRowView(item: item)
+                   
+                    Section(header: Text("Reminders")) {
+                        NavigationLink(destination: ReminderView()) {
+                            HStack {
+                                Image(systemName: "bell.badge.fill")
+                                Text("Reminders")
+                            }
                         }
                     }
-                }
-
-            }.listStyle(GroupedListStyle())
-            .navigationBarTitle("Settings")
-        }
+                    
+                    Section(header: Text("Legal")) {
+                        ForEach(items.legal, id: \.self) { item in
+                            Link(destination: URL(string: "\(item.url)")!) {
+                                SettingsRowView(item: item)
+                            }
+                            
+                        }
+                    }
+                    Section(header: Text("Feedback")) {
+                        ForEach(items.feedback, id: \.self) { item in
+                            Link(destination: URL(string: "\(item.url)")!) {
+                                SettingsRowView(item: item)
+                            }
+                            
+                        }
+                    }
+                    
+                    Section(header: Text("Miscellaneous")) {
+                        ForEach(items.miscellaneous, id: \.self) { item in
+                            Link(destination: URL(string: "\(item.url)")!) {
+                                SettingsRowView(item: item)
+                            }
+                        }
+                    }
+                    
+                }.listStyle(GroupedListStyle())
+//                .navigationBarTitle("Settings")
+//                .navigationBarTitleDisplayMode(.inline)
+            }
+        //}
     }
 }
 

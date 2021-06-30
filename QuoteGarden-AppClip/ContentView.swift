@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     
@@ -15,8 +16,11 @@ struct ContentView: View {
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
     @State var viewState = CGSize.zero
+    let synthesizer: AVSpeechSynthesizer
+    
     
     var body: some View {
+        
         VStack {
             
             Color.clear.overlay(
@@ -26,7 +30,7 @@ struct ContentView: View {
                         LongPressGesture().onChanged { _ in
                             quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
                             
-                            QuoteGardenApi().getRandomQuote { quote in
+                            getRandomQuotes { quote in
                                 
                                 self.quote = quote
                                 addedToClipboard = false
@@ -56,13 +60,15 @@ struct ContentView: View {
                 .accessibility(hint: Text("opens a share sheet view"))
                 
                 Button(action: {
-                    copyToClipboard(quote: quote)
+                    textToSpeech(quote: quote)
                 }) {
-                    Image(systemName: addedToClipboard ? "doc.on.doc.fill" : "doc.on.doc")
+                    Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
                     
                 }.buttonStyle(ColoredButtonStyle())
-                .accessibilityLabel(Text("Copy quote"))
-                .accessibility(hint: Text("Copy the quote text to your clipboard"))
+                .accessibilityLabel(Text("Quote text to speech"))
+                .accessibility(hint: Text("Speak the quote text to your ears"))
+                .disabled(synthesizer.isSpeaking)
+                
                 
             }.disabled(quote.quoteText == "")
             
@@ -75,22 +81,45 @@ struct ContentView: View {
             }
         }
     }
-    func copyToClipboard(quote: Quote) {
-        let quoteString = """
-        # \(quote.quoteGenre)
-        \(quote.quoteText)
-        ~ \(quote.quoteAuthor)
-
-        From the Spontaneous app: https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374
-        """
+    
+    func getRandomQuotes(completion: @escaping (Quote) -> Void) {
         
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = quoteString
+        let randomQuote = Int.random(in: 0..<49)
         
-        if pasteboard.string != nil {
-            print(quoteString)
+        let url = Bundle.main.url(forResource: "sampleQuotes.json", withExtension: nil)
+        
+        URLSession.shared.dataTask(with: url!) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+            guard let response = try? JSONDecoder().decode(Response.self, from: data) else {
+                print(String(describing: error))
+                return
+            }
+            DispatchQueue.main.async {
+                completion(response.data[randomQuote])
+            }
+            //print(String(data: data, encoding: .utf8)!)
+        }.resume()
+        
+    }
+    
+    func textToSpeech(quote: Quote) {
+        let utterance = AVSpeechUtterance(string: "\(quote.quoteAuthor) once said, \(quote.quoteText)")
+        let voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = voice
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: .duckOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            if synthesizer.isSpeaking == false {
+                synthesizer.speak(utterance)
+            }
+        } catch {
+            print(error)
         }
         
-        addedToClipboard = true
     }
 }

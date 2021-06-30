@@ -14,7 +14,7 @@ struct Items {
              color: .systemYellow,
              title: "Rate The App",
              section: .feedback,
-             url: "https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374?itsct=apps_box&itscg=30200"),
+             url: "https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374?itsct=apps_box_link&itscg=30200"),
         Item(image: "megaphone.fill",
              color: .systemOrange,
              title: "Provide Feedback",
@@ -41,7 +41,7 @@ struct Items {
              color: .systemGreen,
              title: "Privacy",
              section: .legal,
-             url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/privacy.html")
+             url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/privacypolicy/")
         
     ]
     

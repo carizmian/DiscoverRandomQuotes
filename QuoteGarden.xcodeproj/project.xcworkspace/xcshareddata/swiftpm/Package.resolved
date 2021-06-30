@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Reachability",
-        "repositoryURL": "https://github.com/ashleymills/Reachability.swift",
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios",
         "state": {
           "branch": null,
-          "revision": "c01bbdf2d633cf049ae1ed1a68a2020a8bda32e2",
-          "version": "5.1.0"
+          "revision": "b3c60ba1716baab6faeeb217d8ce1da336f92718",
+          "version": "3.2.1"
         }
       }
     ]

@@ -13,12 +13,13 @@ struct ColoredButtonStyle: ButtonStyle {
         configuration.label
             .padding(.vertical)
             .padding(.horizontal)
-            .background(Color.accentColor)
-            .clipShape(Circle())
-            .foregroundColor(Color("TextColor"))
-            .padding(8)
+//            .background(Color.accentColor)
+//            .clipShape(Circle())
+//            .foregroundColor(Color("TextColor"))
+//            .padding(8)
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
+            .font(.title2)
         
     }
 }

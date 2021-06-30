@@ -10,13 +10,15 @@
 		9308A1A725D1B72B00F5F0E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		9308A1B225D1B78000F5F0E9 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886CA25469D460034F960 /* ButtonStyle.swift */; };
 		9308A1BD25D1B78E00F5F0E9 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
-		9308A1C825D1B79F00F5F0E9 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
-		9308A1D325D1B7AD00F5F0E9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		9308A1DE25D1B7EF00F5F0E9 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		9308A1E925D1B83200F5F0E9 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		933E2DD4264A9CD3008E8FE2 /* quotes1.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DD2264A9CD3008E8FE2 /* quotes1.json */; };
+		933E2DD5264A9CD3008E8FE2 /* quotes2.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DD3264A9CD3008E8FE2 /* quotes2.json */; };
+		933E2DE8264AF9C8008E8FE2 /* quotes2.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DE6264AF9C8008E8FE2 /* quotes2.json */; };
+		933E2DE9264AF9C8008E8FE2 /* quotes1.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DE7264AF9C8008E8FE2 /* quotes1.json */; };
+		933E2DF1264D51F9008E8FE2 /* sampleQuotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DF0264D51F9008E8FE2 /* sampleQuotes.json */; };
+		933E2E22264D939B008E8FE2 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
 		93426350254DC5840023B6FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
-		9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
-		9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 9358ED1C254A88A800C04DC8 /* Reachability */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
 		936886632545C8320034F960 /* QuoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886622545C8320034F960 /* QuoteListView.swift */; };
@@ -30,9 +32,13 @@
 		9377471B25CE56F1005CFB46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471A25CE56F1005CFB46 /* Assets.xcassets */; };
 		9377471E25CE56F1005CFB46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */; };
 		9377472325CE56F1005CFB46 /* QuoteGarden-AppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 9377471425CE56EA005CFB46 /* QuoteGarden-AppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		938DD63D2600765C00C2FC6C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */; };
+		938DD64E2601C20100C2FC6C /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD64D2601C1FF00C2FC6C /* ReminderDetailView.swift */; };
+		938DD65526031B2D00C2FC6C /* ReminderOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD65426031B2C00C2FC6C /* ReminderOnboardingView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
+		939FDD99262AA25B007B8D19 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 939FDD98262AA25B007B8D19 /* Lottie */; };
 		93A3EC70257B47570099B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A3EC6F257B47570099B08C /* Assets.xcassets */; };
 		93A3EC77257B47570099B08C /* QuoteGarden-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93A3EC76257B47570099B08C /* QuoteGarden-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		93A3EC7C257B47570099B08C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3EC7B257B47570099B08C /* ContentView.swift */; };
@@ -45,8 +51,8 @@
 		93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */; };
 		93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA438725F0969A00AB7DF0 /* SettingsItems.swift */; };
 		93C1AFD325D1B32D00F78CC8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
-		93C1AFD925D1B35600F78CC8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */; };
 		93C1B00C25D1B5E400F78CC8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		93C735B2268CA1E900334A34 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C735B1268CA1E900334A34 /* ReminderView.swift */; };
 		93C8F69F256423FE0072589B /* PrimaryQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8F69E256423FE0072589B /* PrimaryQuote.swift */; };
 		93C8F6AC2564DF140072589B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C8F6AB2564DF140072589B /* WidgetKit.framework */; };
 		93C8F6AD2564DF140072589B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939D200525317E14003C34D8 /* SwiftUI.framework */; };
@@ -62,6 +68,7 @@
 		93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54725284529006B9BF5 /* Assets.xcassets */; };
 		93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */; };
 		93DEB57325284631006B9BF5 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
+		93E62DDA265E21AC00AD9208 /* countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 93E62DD9265E21AC00AD9208 /* countdown.json */; };
 		93F0BE66256CD29000ABC037 /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,7 +151,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		933E2DD2264A9CD3008E8FE2 /* quotes1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes1.json; sourceTree = "<group>"; };
+		933E2DD3264A9CD3008E8FE2 /* quotes2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes2.json; sourceTree = "<group>"; };
+		933E2DE6264AF9C8008E8FE2 /* quotes2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes2.json; sourceTree = "<group>"; };
+		933E2DE7264AF9C8008E8FE2 /* quotes1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes1.json; sourceTree = "<group>"; };
+		933E2DF0264D51F9008E8FE2 /* sampleQuotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleQuotes.json; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		936886622545C8320034F960 /* QuoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListView.swift; sourceTree = "<group>"; };
@@ -162,6 +173,9 @@
 		9377471F25CE56F1005CFB46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9377472025CE56F1005CFB46 /* QuoteGarden_AppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteGarden_AppClip.entitlements; sourceTree = "<group>"; };
 		938D8374257F583F00F0FD17 /* QuoteGarden-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteGarden-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
+		938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		938DD64D2601C1FF00C2FC6C /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
+		938DD65426031B2C00C2FC6C /* ReminderOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOnboardingView.swift; sourceTree = "<group>"; };
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		9395DD75255454A300B30BC2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -179,6 +193,7 @@
 		93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListView.swift; sourceTree = "<group>"; };
 		93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		93AA438725F0969A00AB7DF0 /* SettingsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItems.swift; sourceTree = "<group>"; };
+		93C735B1268CA1E900334A34 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		93C8F69E256423FE0072589B /* PrimaryQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryQuote.swift; sourceTree = "<group>"; };
 		93C8F6AA2564DF140072589B /* QuoteGarden-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteGarden-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C8F6AB2564DF140072589B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -195,6 +210,7 @@
 		93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93DEB54F25284529006B9BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93DEB57225284631006B9BF5 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		93E62DD9265E21AC00AD9208 /* countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countdown.json; sourceTree = "<group>"; };
 		93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,13 +242,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9358ED1D254A88A800C04DC8 /* Reachability in Frameworks */,
+				939FDD99262AA25B007B8D19 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		933E2DD1264A9CB3008E8FE2 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				933E2DD2264A9CD3008E8FE2 /* quotes1.json */,
+				933E2DD3264A9CD3008E8FE2 /* quotes2.json */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		933E2DE5264AF9B8008E8FE2 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				933E2DE7264AF9C8008E8FE2 /* quotes1.json */,
+				933E2DE6264AF9C8008E8FE2 /* quotes2.json */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		933E2DEF264D51E2008E8FE2 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				933E2DF0264D51F9008E8FE2 /* sampleQuotes.json */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
 		935562072538135A00BF2F0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +282,7 @@
 				936886852545D18E0034F960 /* QuoteGeneratorView.swift */,
 				936886702545CCAD0034F960 /* Favorites */,
 				93AA437A25F0958700AB7DF0 /* Settings */,
+				9372A11C262DD57800276B08 /* Onboarding */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,9 +299,19 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		9372A11C262DD57800276B08 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				938DD65426031B2C00C2FC6C /* ReminderOnboardingView.swift */,
+				93C735B1268CA1E900334A34 /* ReminderView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		9377471525CE56EA005CFB46 /* QuoteGarden-AppClip */ = {
 			isa = PBXGroup;
 			children = (
+				933E2DEF264D51E2008E8FE2 /* Quotes */,
 				9377471625CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift */,
 				9377471825CE56EA005CFB46 /* ContentView.swift */,
 				9377471A25CE56F1005CFB46 /* Assets.xcassets */,
@@ -286,6 +339,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		939FDD9F262AA5D2007B8D19 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				93E62DD9265E21AC00AD9208 /* countdown.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		93A3EC6E257B47540099B08C /* QuoteGarden-Watch */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +359,7 @@
 		93A3EC7A257B47570099B08C /* QuoteGarden-Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				933E2DE5264AF9B8008E8FE2 /* Quotes */,
 				93A3EC7B257B47570099B08C /* ContentView.swift */,
 				93A3EC7D257B47580099B08C /* QuoteGardenApp.swift */,
 				93A3EC7F257B47580099B08C /* ComplicationController.swift */,
@@ -322,6 +384,7 @@
 			children = (
 				93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */,
 				93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */,
+				938DD64D2601C1FF00C2FC6C /* ReminderDetailView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -365,10 +428,12 @@
 		93DEB53D25284527006B9BF5 /* QuoteGarden */ = {
 			isa = PBXGroup;
 			children = (
+				939FDD9F262AA5D2007B8D19 /* Animations */,
 				9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */,
-				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
+				938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */,
 				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
+				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
 				936886CA25469D460034F960 /* ButtonStyle.swift */,
 				93DEB571252845D2006B9BF5 /* Model */,
@@ -395,9 +460,9 @@
 		93DEB571252845D2006B9BF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				933E2DD1264A9CB3008E8FE2 /* Quotes */,
 				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				93DEB57225284631006B9BF5 /* Quote.swift */,
-				9358ED04254945BA00C04DC8 /* NetworkMonitor.swift */,
 				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
 			);
 			path = Model;
@@ -495,7 +560,7 @@
 			);
 			name = QuoteGarden;
 			packageProductDependencies = (
-				9358ED1C254A88A800C04DC8 /* Reachability */,
+				939FDD98262AA25B007B8D19 /* Lottie */,
 			);
 			productName = QuoteGarden;
 			productReference = 93DEB53B25284527006B9BF5 /* QuoteGarden.app */;
@@ -538,7 +603,7 @@
 			);
 			mainGroup = 93DEB53225284527006B9BF5;
 			packageReferences = (
-				9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */,
+				939FDD97262AA25B007B8D19 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 93DEB53C25284527006B9BF5 /* Products */;
 			projectDirPath = "";
@@ -560,6 +625,7 @@
 			files = (
 				9377471E25CE56F1005CFB46 /* Preview Assets.xcassets in Resources */,
 				9377471B25CE56F1005CFB46 /* Assets.xcassets in Resources */,
+				933E2DF1264D51F9008E8FE2 /* sampleQuotes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +642,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A3EC85257B47590099B08C /* Preview Assets.xcassets in Resources */,
+				933E2DE8264AF9C8008E8FE2 /* quotes2.json in Resources */,
+				933E2DE9264AF9C8008E8FE2 /* quotes1.json in Resources */,
 				93A3EC82257B47590099B08C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,6 +662,9 @@
 			files = (
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
+				933E2DD4264A9CD3008E8FE2 /* quotes1.json in Resources */,
+				933E2DD5264A9CD3008E8FE2 /* quotes2.json in Resources */,
+				93E62DDA265E21AC00AD9208 /* countdown.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,11 +699,10 @@
 				9308A1E925D1B83200F5F0E9 /* QuoteView.swift in Sources */,
 				9308A1B225D1B78000F5F0E9 /* ButtonStyle.swift in Sources */,
 				9308A1DE25D1B7EF00F5F0E9 /* ShareSheetView.swift in Sources */,
+				933E2E22264D939B008E8FE2 /* Quote.swift in Sources */,
 				9377471725CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift in Sources */,
 				9308A1BD25D1B78E00F5F0E9 /* ViewToUIImage.swift in Sources */,
 				9308A1A725D1B72B00F5F0E9 /* Extensions.swift in Sources */,
-				9308A1D325D1B7AD00F5F0E9 /* NetworkMonitor.swift in Sources */,
-				9308A1C825D1B79F00F5F0E9 /* Quote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +715,6 @@
 				93A3EC7E257B47580099B08C /* QuoteGardenApp.swift in Sources */,
 				93C1AFD325D1B32D00F78CC8 /* Quote.swift in Sources */,
 				93A3EC80257B47580099B08C /* ComplicationController.swift in Sources */,
-				93C1AFD925D1B35600F78CC8 /* NetworkMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,17 +738,20 @@
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
 				9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */,
 				93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */,
+				93C735B2268CA1E900334A34 /* ReminderView.swift in Sources */,
+				938DD63D2600765C00C2FC6C /* LocalNotificationManager.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
 				93C8F69F256423FE0072589B /* PrimaryQuote.swift in Sources */,
 				93F0BE66256CD29000ABC037 /* AppReviewRequest.swift in Sources */,
 				936886CB25469D460034F960 /* ButtonStyle.swift in Sources */,
 				9392E4AF25408808004BF68E /* SearchBar.swift in Sources */,
+				938DD65526031B2D00C2FC6C /* ReminderOnboardingView.swift in Sources */,
 				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
-				9358ED05254945BA00C04DC8 /* NetworkMonitor.swift in Sources */,
 				936886632545C8320034F960 /* QuoteListView.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */,
+				938DD64E2601C20100C2FC6C /* ReminderDetailView.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
 				93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */,
@@ -733,7 +805,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverAppClip;
@@ -761,7 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverAppClip;
@@ -787,7 +859,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
@@ -815,7 +887,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
@@ -845,7 +917,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
@@ -877,7 +949,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
@@ -907,7 +979,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -934,7 +1006,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -1079,7 +1151,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -1107,7 +1179,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -1176,21 +1248,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+		939FDD97262AA25B007B8D19 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.0;
+				minimumVersion = 3.2.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9358ED1C254A88A800C04DC8 /* Reachability */ = {
+		939FDD98262AA25B007B8D19 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9358ED1B254A88A800C04DC8 /* XCRemoteSwiftPackageReference "Reachability" */;
-			productName = Reachability;
+			package = 939FDD97262AA25B007B8D19 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 

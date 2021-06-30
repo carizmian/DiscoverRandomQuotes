@@ -9,53 +9,58 @@ import SwiftUI
 import Foundation
 import AVFoundation
 
-// TODO: Implement haptics, vibrations and sound
-
 struct ContentView: View {
-    
-    @AppStorage("selectedView") var selectedView: String?
-    
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var savedToDevice = false
     @State private var showingShareSheetView = false
-    
     let synthesizer =  AVSpeechSynthesizer()
-    
+    @State private var showOnboarding = false
+    @AppStorage("OnboardBeenViewed") var hasOnboarded = false
     var body: some View {
+        NavigationView {
+            QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
+                .tag(QuoteGeneratorView.tag)
+                .accessibilityLabel(Text("Random quotes"))
+                .accessibility(hint: Text("Find new quotes here"))
+                .navigationBarItems(leading:
+                                        
+                                        NavigationLink(destination: QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)) {
+                                            Image(systemName: "text.quote")
+                                                .font(.largeTitle)
+                                        }.accessibilityLabel(Text("Saved quotes"))
+                                        .accessibility(hint: Text("Find your saved quotes here"))
+                                    
+                                    ,trailing:
+                                        
+                                        NavigationLink(destination: SettingsView()) {
+                                            Image(systemName: "gearshape.fill")
+                                                .font(.largeTitle)
+                                        }.accessibilityLabel(Text("Settings"))
+                                        .accessibility(hint: Text("Find settings and social links here")))
             
-            TabView(selection: $selectedView) {
-
-                QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
-                    .tag(QuoteGeneratorView.tag)
-                    .tabItem {
-                        Label("Random", systemImage: "text.quote")
+        }.navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            moc.undoManager = UndoManager()
+            AppReviewRequest.requestReviewIfNeeded()
+            
+           // hasOnboarded = false // here for testing
+            // When the user dismisses the onboarding view by swiping down, we will also consider onboarding as complete
+            if !hasOnboarded {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    withAnimation {
+                        showOnboarding.toggle()
+                        hasOnboarded = true
                     }
-                    .accessibilityLabel(Text("Random quotes"))
-                    .accessibility(hint: Text("Find new quotes here"))
-                
-                QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)
-                    .tag(QuoteListView.tag)
-                    .tabItem {
-                        Label("Saved", systemImage: "bookmark.fill")
-                    }
-                    .accessibilityLabel(Text("Saved quotes"))
-                    .accessibility(hint: Text("Find your saved quotes here"))
-                
-                SettingsView()
-                    .tag(SettingsView.tag)
-                    .tabItem {
-                        Label("Settings", systemImage: "gearshape.2.fill")
-                    }
-                    .accessibilityLabel(Text("Settings"))
-                    .accessibility(hint: Text("Find settings and social links here"))
-                
-            }.onAppear {
-                moc.undoManager = UndoManager()
-                AppReviewRequest.requestReviewIfNeeded()
+                }
             }
-        
+        }
+        .sheet(isPresented: $showOnboarding) {
+            ReminderOnboardingView(showOnboarding: $showOnboarding)
+        }
+
     }
+    
     func removeQuote(at offsets: IndexSet) {
         for index in offsets {
             let favoriteQuote = favoriteQuotes[index]
@@ -71,7 +76,6 @@ struct ContentView: View {
         }
         
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

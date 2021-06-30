@@ -18,16 +18,14 @@ struct QuoteView: View {
 
                 HStack {
                     Text("#")
-                        .foregroundColor(.green)
                     Text("\(quote.quoteGenre)")
                 }.padding(.bottom)
                 .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .font(Font.system(.callout, design: .rounded).weight(.regular))
                 .accessibility(value: Text("quote genre is hashtag \(quote.quoteGenre)"))
 
                 Text("\(quote.quoteText)")
-                    .italic()
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .font(Font.system(.title, design: .rounded).weight(.semibold))
                     .padding(.horizontal)
                     .allowsTightening(true)
                     .layoutPriority(2)
@@ -36,34 +34,33 @@ struct QuoteView: View {
 
                 HStack {
                     Text("~")
-                        .foregroundColor(.green)
                     Text("\(quote.quoteAuthor)")
 
                 }.padding(.top)
                 .allowsTightening(true)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .font(Font.system(.callout, design: .rounded).weight(.regular))
                 .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
 
-            }.multilineTextAlignment(.center)
+            }
+            .foregroundColor(Color("TextColor"))
+            .multilineTextAlignment(.center)
             .padding()
-            .background(Color.accentColor.clipShape(RoundedRectangle(cornerRadius: 25)))
+            .background(Color("AccentColor").clipShape(RoundedRectangle(cornerRadius: 25)))
         #elseif os(watchOS)
         VStack(alignment: .leading) {
 
                 Text("\(quote.quoteText)")
-                    .foregroundColor(.accentColor)
                     .allowsTightening(true)
                     .layoutPriority(2)
-                    .minimumScaleFactor(0.7)
+                    .minimumScaleFactor(0.1)
                     .accessibility(value: Text("quote text is \(quote.quoteText)"))
                 HStack {
                     Text("~")
-                        .foregroundColor(.green)
                     Text("\(quote.quoteAuthor)")
 
                 }.padding(.top, 1)
                 .allowsTightening(true)
-                .font(.footnote)
+                .font(.body)
                 .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
 
         }.multilineTextAlignment(.leading)
