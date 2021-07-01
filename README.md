@@ -29,17 +29,17 @@ Get it now if you want anxiety relief!
 * Other third-party libraries
 
 ### Features
-* Generate random quotes
-* Save favorite quotes
-* Search saved quotes
-* Share quotes
-* Shake to undo
-* Display your favorite quote using a widget
-* Text to speech
+* Read Through Hundreds of Quotes
+* Get Spontaneous reminders
+* Save Quotes
+* Search Saved Quotes
+* Share Quotes
+* Shake to Undo
+* Display Your Favorite Quote Using a Widget
+* Text to Speech
+* Works Offline
 
 ---
 
-#### This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374).
-
-<a href="https://www.buymeacoffee.com/FranicevicNiko"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=FranicevicNiko&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+#### This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374). [Donations](https://paypal.me/swissChard77?locale.x=en_US)) are welcome!
 
