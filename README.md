@@ -41,5 +41,5 @@ Get it now if you want anxiety relief!
 
 ---
 
-#### This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374). [Donations](https://paypal.me/swissChard77?locale.x=en_US)) are welcome!
+#### This app is available in the [AppStore](https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374). [Donations](https://paypal.me/swissChard77?locale.x=en_US) are welcome!
 
