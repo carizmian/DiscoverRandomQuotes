@@ -12,6 +12,13 @@
 		9308A1BD25D1B78E00F5F0E9 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9308A1DE25D1B7EF00F5F0E9 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		9308A1E925D1B83200F5F0E9 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		933991412694361300EC8CDF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933991402694361300EC8CDF /* Store.swift */; };
+		9339914926943FB800EC8CDF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339914826943FB800EC8CDF /* Product.swift */; };
+		93399160269463AA00EC8CDF /* BuyStorageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339915F269463AA00EC8CDF /* BuyStorageSheetView.swift */; };
+		9339916C26946E5900EC8CDF /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339916B26946E5900EC8CDF /* ProductRow.swift */; };
+		933991AA2694AEA400EC8CDF /* buy.json in Resources */ = {isa = PBXBuildFile; fileRef = 933991A92694AEA400EC8CDF /* buy.json */; };
+		933991B62694AF1000EC8CDF /* countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 933991B52694AF1000EC8CDF /* countdown.json */; };
+		933991BD2694C23200EC8CDF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933991BC2694C23200EC8CDF /* StoreKit.framework */; };
 		933E2DD4264A9CD3008E8FE2 /* quotes1.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DD2264A9CD3008E8FE2 /* quotes1.json */; };
 		933E2DD5264A9CD3008E8FE2 /* quotes2.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DD3264A9CD3008E8FE2 /* quotes2.json */; };
 		933E2DE8264AF9C8008E8FE2 /* quotes2.json in Resources */ = {isa = PBXBuildFile; fileRef = 933E2DE6264AF9C8008E8FE2 /* quotes2.json */; };
@@ -68,7 +75,6 @@
 		93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54725284529006B9BF5 /* Assets.xcassets */; };
 		93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */; };
 		93DEB57325284631006B9BF5 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
-		93E62DDA265E21AC00AD9208 /* countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 93E62DD9265E21AC00AD9208 /* countdown.json */; };
 		93F0BE66256CD29000ABC037 /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +157,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9339913F269434EF00EC8CDF /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		933991402694361300EC8CDF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		9339914826943FB800EC8CDF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		9339915F269463AA00EC8CDF /* BuyStorageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyStorageSheetView.swift; sourceTree = "<group>"; };
+		9339916B26946E5900EC8CDF /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
+		933991A92694AEA400EC8CDF /* buy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buy.json; sourceTree = "<group>"; };
+		933991B52694AF1000EC8CDF /* countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countdown.json; sourceTree = "<group>"; };
+		933991BC2694C23200EC8CDF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		933E2DD2264A9CD3008E8FE2 /* quotes1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes1.json; sourceTree = "<group>"; };
 		933E2DD3264A9CD3008E8FE2 /* quotes2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes2.json; sourceTree = "<group>"; };
 		933E2DE6264AF9C8008E8FE2 /* quotes2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes2.json; sourceTree = "<group>"; };
@@ -210,7 +224,6 @@
 		93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93DEB54F25284529006B9BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93DEB57225284631006B9BF5 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		93E62DD9265E21AC00AD9208 /* countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countdown.json; sourceTree = "<group>"; };
 		93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,12 +256,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				939FDD99262AA25B007B8D19 /* Lottie in Frameworks */,
+				933991BD2694C23200EC8CDF /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		933991422694361700EC8CDF /* In-App Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				9339913F269434EF00EC8CDF /* Configuration.storekit */,
+				933991402694361300EC8CDF /* Store.swift */,
+				9339915F269463AA00EC8CDF /* BuyStorageSheetView.swift */,
+				9339916B26946E5900EC8CDF /* ProductRow.swift */,
+				9339914826943FB800EC8CDF /* Product.swift */,
+			);
+			path = "In-App Purchase";
+			sourceTree = "<group>";
+		};
+		933991812694A77B00EC8CDF /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
+				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
+				9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */,
+				938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */,
+				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
+				9370A52B2545609A00F2C029 /* Extensions.swift */,
+				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
+				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
+				936886CA25469D460034F960 /* ButtonStyle.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
 		933E2DD1264A9CB3008E8FE2 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +320,7 @@
 		935562072538135A00BF2F0A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				93DEB54525284527006B9BF5 /* ContentView.swift */,
 				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
 				936886852545D18E0034F960 /* QuoteGeneratorView.swift */,
 				936886702545CCAD0034F960 /* Favorites */,
@@ -333,6 +376,7 @@
 		939D200225317E14003C34D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				933991BC2694C23200EC8CDF /* StoreKit.framework */,
 				939D200525317E14003C34D8 /* SwiftUI.framework */,
 				93C8F6AB2564DF140072589B /* WidgetKit.framework */,
 			);
@@ -342,7 +386,8 @@
 		939FDD9F262AA5D2007B8D19 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				93E62DD9265E21AC00AD9208 /* countdown.json */,
+				933991B52694AF1000EC8CDF /* countdown.json */,
+				933991A92694AEA400EC8CDF /* buy.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -428,19 +473,11 @@
 		93DEB53D25284527006B9BF5 /* QuoteGarden */ = {
 			isa = PBXGroup;
 			children = (
+				933991422694361700EC8CDF /* In-App Purchase */,
 				939FDD9F262AA5D2007B8D19 /* Animations */,
-				9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */,
-				938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */,
-				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
-				9370A52B2545609A00F2C029 /* Extensions.swift */,
-				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
-				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
-				936886CA25469D460034F960 /* ButtonStyle.swift */,
+				933991812694A77B00EC8CDF /* Extra */,
 				93DEB571252845D2006B9BF5 /* Model */,
 				935562072538135A00BF2F0A /* View */,
-				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
-				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
-				93DEB54525284527006B9BF5 /* ContentView.swift */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
 				93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */,
@@ -662,9 +699,10 @@
 			files = (
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
+				933991AA2694AEA400EC8CDF /* buy.json in Resources */,
+				933991B62694AF1000EC8CDF /* countdown.json in Resources */,
 				933E2DD4264A9CD3008E8FE2 /* quotes1.json in Resources */,
 				933E2DD5264A9CD3008E8FE2 /* quotes2.json in Resources */,
-				93E62DDA265E21AC00AD9208 /* countdown.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,13 +773,16 @@
 				93AA437425EF5B8B00AB7DF0 /* SettingsListView.swift in Sources */,
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
+				933991412694361300EC8CDF /* Store.swift in Sources */,
 				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
 				9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */,
 				93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */,
 				93C735B2268CA1E900334A34 /* ReminderView.swift in Sources */,
 				938DD63D2600765C00C2FC6C /* LocalNotificationManager.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
+				9339914926943FB800EC8CDF /* Product.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
+				9339916C26946E5900EC8CDF /* ProductRow.swift in Sources */,
 				93C8F69F256423FE0072589B /* PrimaryQuote.swift in Sources */,
 				93F0BE66256CD29000ABC037 /* AppReviewRequest.swift in Sources */,
 				936886CB25469D460034F960 /* ButtonStyle.swift in Sources */,
@@ -756,6 +797,7 @@
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
 				93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */,
 				93426350254DC5840023B6FF /* Extensions.swift in Sources */,
+				93399160269463AA00EC8CDF /* BuyStorageSheetView.swift in Sources */,
 				9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */,
 				936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */,
 			);
@@ -805,7 +847,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverAppClip;
@@ -833,7 +875,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverAppClip;
@@ -859,7 +901,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
@@ -887,7 +929,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
@@ -917,7 +959,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
@@ -949,7 +991,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
@@ -979,7 +1021,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -1006,7 +1048,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -1151,7 +1193,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -1179,7 +1221,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;

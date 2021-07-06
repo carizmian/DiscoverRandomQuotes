@@ -27,11 +27,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context = CoreDataStack.shared.managedObjectContext
         context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
         
+        let store = Store()
+        
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         
         let contentView = ContentView()
             .environment(\.managedObjectContext, context)
+            .environmentObject(store)
+        
+        
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

@@ -10,6 +10,14 @@ import Foundation
 import SystemConfiguration
 import AVFoundation
 
+enum ActiveSheet: Identifiable {
+    case shareSheetView, buyStorageSheetView
+    
+    var id: Int {
+        hashValue
+    }
+}
+
 struct QuoteGeneratorView: View {
     
     static let tag: String? = "Home"
@@ -19,10 +27,8 @@ struct QuoteGeneratorView: View {
     @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
     
     @Binding var savedToDevice: Bool
-    @Binding var showingShareSheetView: Bool
     
     @State private var addedToClipboard = false
-    @State private var showingNetworkAlert = false
     
     @State private var rect1: CGRect = .zero
     @State private var uiimage: UIImage?
@@ -30,6 +36,11 @@ struct QuoteGeneratorView: View {
     @State var viewState = CGSize.zero
     
     let synthesizer: AVSpeechSynthesizer
+    
+    @State private var storage = 5
+    var favoriteQuotes: FetchedResults<QuoteCD>
+    
+    @State var activeSheet: ActiveSheet?
     
     var body: some View {
         
@@ -63,7 +74,7 @@ struct QuoteGeneratorView: View {
                 Button(action: {
                     self.uiimage = self.rect1.uiImage
                     if self.uiimage != nil {
-                        showingShareSheetView = true
+                        activeSheet = .shareSheetView
                     }
                 }) {
                     Image(systemName: "square.and.arrow.up")
@@ -72,7 +83,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 .accessibility(hint: Text("opens a share sheet view"))
                 
-                Button(action: {
+                if favoriteQuotes.count < storage { Button(action: {
                     saveToDevice(quote: quote)
                 }) {
                     Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
@@ -80,7 +91,17 @@ struct QuoteGeneratorView: View {
                 }.buttonStyle(ColoredButtonStyle())
                 .accessibilityLabel(Text("Save quote"))
                 .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
-                
+                } else if  favoriteQuotes.count >= storage {
+                    Button(action: {
+                        activeSheet = .buyStorageSheetView
+                    }) {
+                        Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
+                        
+                        
+                    }.buttonStyle(ColoredButtonStyle())
+                    .accessibilityLabel(Text("Save quote"))
+                    .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
+                }
                 Button(action: {
                     textToSpeech(quote: quote)
                 }) {
@@ -94,15 +115,17 @@ struct QuoteGeneratorView: View {
             }.disabled(quote.quoteText == "")
             
         }
-        .sheet(isPresented: $showingShareSheetView) {
-            if uiimage != nil {
-                ShareSheetView(activityItems: [
-                    self.uiimage!
-                ])
+        .sheet(item: $activeSheet) { item in
+            switch item {
+            case .shareSheetView:
+                if uiimage != nil {
+                    ShareSheetView(activityItems: [
+                        self.uiimage!
+                    ])
+                }
+            case .buyStorageSheetView:
+                BuyStorageSheetView()
             }
-        }
-        .alert(isPresented: $showingNetworkAlert) {
-            Alert(title: Text("No internet connection"), message: Text("Please connect to the internet!"))
         }
         
     }
