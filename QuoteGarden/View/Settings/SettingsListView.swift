@@ -16,6 +16,15 @@ struct SettingsView: View {
             VStack {
                 
                 List {
+                    
+                    Section(header: Text("In-App Purchases")) {
+                        NavigationLink(destination: BuyStorageSheetView()) {
+                            HStack {
+                                Image(systemName: "cart.fill")
+                                Text("Storage")
+                            }
+                        }
+                    }
                    
                     Section(header: Text("Reminders")) {
                         NavigationLink(destination: ReminderView()) {

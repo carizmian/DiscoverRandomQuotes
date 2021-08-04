@@ -90,7 +90,7 @@ struct ReminderOnboardingView: View {
             }).padding(.vertical)
             .padding(.horizontal, 80)
             .background(Color.accentColor)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .clipShape(RoundedRectangle(cornerRadius: 40))
             .foregroundColor(Color("TextColor"))
             .padding(8)
 

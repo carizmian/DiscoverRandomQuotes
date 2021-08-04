@@ -13,13 +13,12 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var savedToDevice = false
-    @State private var showingShareSheetView = false
     let synthesizer =  AVSpeechSynthesizer()
     @State private var showOnboarding = false
     @AppStorage("OnboardBeenViewed") var hasOnboarded = false
     var body: some View {
         NavigationView {
-            QuoteGeneratorView(savedToDevice: $savedToDevice, showingShareSheetView: $showingShareSheetView, synthesizer: synthesizer)
+            QuoteGeneratorView(savedToDevice: $savedToDevice, synthesizer: synthesizer, favoriteQuotes: favoriteQuotes)
                 .tag(QuoteGeneratorView.tag)
                 .accessibilityLabel(Text("Random quotes"))
                 .accessibility(hint: Text("Find new quotes here"))
