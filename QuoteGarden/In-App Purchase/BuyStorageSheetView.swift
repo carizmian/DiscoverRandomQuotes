@@ -11,6 +11,7 @@ import Lottie
 struct BuyStorageSheetView: View {
     #warning("x-ič u desni vrh kuta da može dismiss sheet")
     @EnvironmentObject var store: Store
+    @EnvironmentObject var storage: Storage
     var body: some View {
         VStack {
             VStack {
@@ -32,6 +33,8 @@ struct BuyStorageSheetView: View {
                         ProductRow(product: product) {
                             if let product = store.product(for: product.id) {
                                 store.purchaseProduct(product)
+                                storage.amount = 10000
+                                
                             }
                         }
                     }

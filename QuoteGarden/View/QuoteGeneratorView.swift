@@ -37,10 +37,11 @@ struct QuoteGeneratorView: View {
     
     let synthesizer: AVSpeechSynthesizer
     
-    @State private var storage = 5
     var favoriteQuotes: FetchedResults<QuoteCD>
     
     @State var activeSheet: ActiveSheet?
+    
+    @EnvironmentObject var storage: Storage
     
     var body: some View {
         
@@ -83,7 +84,7 @@ struct QuoteGeneratorView: View {
                 .accessibilityLabel(Text("Share quote"))
                 .accessibility(hint: Text("opens a share sheet view"))
                 
-                if favoriteQuotes.count < storage { Button(action: {
+                if favoriteQuotes.count < storage.amount { Button(action: {
                     saveToDevice(quote: quote)
                 }) {
                     Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
@@ -91,12 +92,11 @@ struct QuoteGeneratorView: View {
                 }.buttonStyle(ColoredButtonStyle())
                 .accessibilityLabel(Text("Save quote"))
                 .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
-                } else if  favoriteQuotes.count >= storage {
+                } else if  favoriteQuotes.count >= storage.amount {
                     Button(action: {
                         activeSheet = .buyStorageSheetView
                     }) {
                         Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
-                        
                         
                     }.buttonStyle(ColoredButtonStyle())
                     .accessibilityLabel(Text("Save quote"))

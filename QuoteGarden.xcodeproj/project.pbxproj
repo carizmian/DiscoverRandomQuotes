@@ -68,6 +68,7 @@
 		93C8F6B62564DF180072589B /* QuoteGarden-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93C8F6AA2564DF140072589B /* QuoteGarden-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		93C8F6C32564DFFB0072589B /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB57225284631006B9BF5 /* Quote.swift */; };
 		93C8F6CC2564E1D80072589B /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		93D5CC4626BB01610033E7C8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5CC4526BB01610033E7C8 /* Storage.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
 		93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
@@ -215,6 +216,7 @@
 		93C8F6B12564DF180072589B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93C8F6B32564DF180072589B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93C8F6BE2564DF360072589B /* QuoteGarden-WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QuoteGarden-WidgetExtension.entitlements"; sourceTree = "<group>"; };
+		93D5CC4526BB01610033E7C8 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		93DEB53B25284527006B9BF5 /* QuoteGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DEB53E25284527006B9BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DEB54025284527006B9BF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				93DEB57225284631006B9BF5 /* Quote.swift */,
 				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
+				93D5CC4526BB01610033E7C8 /* Storage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				9392E4AF25408808004BF68E /* SearchBar.swift in Sources */,
 				938DD65526031B2D00C2FC6C /* ReminderOnboardingView.swift in Sources */,
 				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
+				93D5CC4626BB01610033E7C8 /* Storage.swift in Sources */,
 				936886632545C8320034F960 /* QuoteListView.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */,
@@ -1181,7 +1185,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
@@ -1196,7 +1200,7 @@
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Discover;
+				PROVISIONING_PROFILE_SPECIFIER = QuoteGarden;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1209,7 +1213,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
@@ -1224,7 +1228,7 @@
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Discover;
+				PROVISIONING_PROFILE_SPECIFIER = QuoteGarden;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

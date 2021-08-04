@@ -28,7 +28,7 @@ struct ProductRow: View {
                                 Image(systemName: "cart.fill")
                                     .scaleEffect(startAnimation ? 1.1 : 1)
                                     .opacity(startAnimation ? 0 : 1))
-                            .rotationEffect(Angle(degrees:startAnimation ? 360 : 0))
+                            .rotationEffect(Angle(degrees: startAnimation ? 360 : 0))
                             .animation(Animation.easeOut(duration: 0.6)
                                         .delay(3)
                                         .repeatForever(autoreverses: false))

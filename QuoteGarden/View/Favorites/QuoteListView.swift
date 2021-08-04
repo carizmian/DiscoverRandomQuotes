@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 import AVFoundation
 
-
 struct QuoteListView: View {
     static let tag: String? = "Saved Quotes"
     @Environment(\.managedObjectContext) var moc
@@ -48,13 +47,14 @@ struct QuoteListView: View {
                 
                 Button(action: { showingBuyStorageSheetView.toggle() }) {
                     HStack {
+                        #warning("ovo treba HIDE! nakon kupnje")
                         Text("\(favoriteQuotes.count)/\(5)")
                         Image(systemName: "cart.fill")
                             .overlay(
                                 Image(systemName: "cart.fill")
                                     .scaleEffect(startAnimation ? 1.1 : 1)
                                     .opacity(startAnimation ? 0 : 1))
-                            .rotationEffect(Angle(degrees:startAnimation ? 360 : 0))
+                            .rotationEffect(Angle(degrees: startAnimation ? 360 : 0))
                             .animation(Animation.easeOut(duration: 0.6)
                                         .delay(3)
                                         .repeatForever(autoreverses: false))
