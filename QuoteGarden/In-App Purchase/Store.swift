@@ -76,7 +76,7 @@ extension Store {
         startObservingPaymentQueue()
         buy(product) { _ in }
     }
-    
+    #warning("maybe restoring does not work?")
     func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }

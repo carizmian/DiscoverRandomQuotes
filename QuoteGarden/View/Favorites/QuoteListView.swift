@@ -18,6 +18,7 @@ struct QuoteListView: View {
     let synthesizer: AVSpeechSynthesizer
     @State private var showingBuyStorageSheetView = false
     @State private var startAnimation = false
+    @EnvironmentObject var storage: Storage
     var body: some View {
         //   NavigationView {
         ZStack {
@@ -45,9 +46,8 @@ struct QuoteListView: View {
                 .navigationBarItems(trailing: EditButton())
                 .edgesIgnoringSafeArea(.bottom)
                 
-                Button(action: { showingBuyStorageSheetView.toggle() }) {
+                if storage.amount == 5 { Button(action: { showingBuyStorageSheetView.toggle() }) {
                     HStack {
-                        #warning("ovo treba HIDE! nakon kupnje")
                         Text("\(favoriteQuotes.count)/\(5)")
                         Image(systemName: "cart.fill")
                             .overlay(
@@ -63,6 +63,7 @@ struct QuoteListView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 40))
                     .foregroundColor(Color("TextColor"))
                     .padding(8)
+                }
                 }
                 
             }.onReceive(messagePublisher) { _ in

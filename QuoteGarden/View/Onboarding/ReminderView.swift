@@ -9,6 +9,7 @@ import SwiftUI
 import Lottie
 
 struct ReminderView: View {
+    #warning("sačuvava brojeve koje je user stavia")
     @State private var reminderFrequency = 13.0
     @State private var reminderStartTime = Date(timeIntervalSince1970: TimeInterval(7*60*60))
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
