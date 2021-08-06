@@ -26,6 +26,7 @@ Get it now if you want anxiety relief!
 * CoreData
 * App Clips
 * AVFoundation
+* StoreKit
 * Other third-party libraries
 
 ### Features
