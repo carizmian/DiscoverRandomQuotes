@@ -72,14 +72,15 @@ struct ReminderOnboardingView: View {
                     }
                     
                 }
-                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
-                    Text("Start at")
-                        .fontWeight(.bold)
-                }
-                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
-                    Text("End at")
-                        .fontWeight(.bold)
-                }
+                #warning("premium feature")
+//                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
+//                    Text("Start at")
+//                        .fontWeight(.bold)
+//                }
+//                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
+//                    Text("End at")
+//                        .fontWeight(.bold)
+//                }
                 
             }
             Spacer()
@@ -108,7 +109,7 @@ struct ReminderOnboardingView: View {
         
         for _ in 1...reminderFrequency.toInt()-2 {
             
-            let hour = Int.random(in: firstDateComponents.hour!-1..<lastDateComponents.hour!-1 )
+            let hour = Int.random(in: (firstDateComponents.hour!-1)..<(lastDateComponents.hour!-1) )
             let minute = Int.random(in: 0...59)
             
             let date = Date(timeIntervalSince1970: TimeInterval(hour*60*60 + minute*60))

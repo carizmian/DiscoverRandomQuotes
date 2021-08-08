@@ -41,14 +41,16 @@ struct ReminderView: View {
                     }
                     
                 }
-                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
-                    Text("Start at")
-                        .fontWeight(.bold)
-                }
-                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
-                    Text("End at")
-                        .fontWeight(.bold)
-                }
+                #warning("The user can set start - 8 am, and end - 8 am = that is a closed range = crashes app FIX PLS")
+                #warning("This can be a premium feature!")
+//                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
+//                    Text("Start at")
+//                        .fontWeight(.bold)
+//                }
+//                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
+//                    Text("End at")
+//                        .fontWeight(.bold)
+//                }
                 
             }
 //            Spacer()

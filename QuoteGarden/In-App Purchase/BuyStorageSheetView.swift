@@ -45,13 +45,7 @@ struct BuyStorageSheetView: View {
         Button(action: {store.restorePurchases()}) {
             Text("Restore")
                 .font(.title3)
-                .fontWeight(.heavy)
-        }.padding(.vertical)
-        .padding(.horizontal, 80)
-        .background(Color.accentColor)
-        .clipShape(RoundedRectangle(cornerRadius: 40))
-        .foregroundColor(Color("TextColor"))
-        .padding(8)
+        }.padding()
     }
 }
 
