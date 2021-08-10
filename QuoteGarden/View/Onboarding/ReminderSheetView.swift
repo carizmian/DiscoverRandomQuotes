@@ -31,7 +31,7 @@ struct LottieView: UIViewRepresentable {
 }
 
 struct ReminderOnboardingView: View {
-    @State private var reminderFrequency = 13.0
+    @State private var reminderFrequency = 10.0
     @State private var reminderStartTime = Date(timeIntervalSince1970: TimeInterval(7*60*60))
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
     let manager = LocalNotificationManager()
@@ -41,14 +41,13 @@ struct ReminderOnboardingView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                        showOnboarding.toggle()
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    showOnboarding.toggle()
                     
-                }, label: {
+                })  {
                     Image(systemName: "xmark.circle.fill")
-                        .padding(.vertical)
                         .font(.largeTitle)
-                })
+                }.buttonStyle(ColoredButtonStyle())
                 
             }
             VStack {
@@ -73,31 +72,26 @@ struct ReminderOnboardingView: View {
                     
                 }
                 #warning("premium feature")
-//                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
-//                    Text("Start at")
-//                        .fontWeight(.bold)
-//                }
-//                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
-//                    Text("End at")
-//                        .fontWeight(.bold)
-//                }
+                //                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
+                //                    Text("Start at")
+                //                        .fontWeight(.bold)
+                //                }
+                //                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
+                //                    Text("End at")
+                //                        .fontWeight(.bold)
+                //                }
                 
             }
             Spacer()
             Button(action: {setNotification()}, label: {
                 Text("Continue")
-                    .font(.title3)
-                    .fontWeight(.heavy)
-            }).padding(.vertical)
-            .padding(.horizontal, 80)
-            .background(Color.accentColor)
-            .clipShape(RoundedRectangle(cornerRadius: 40))
-            .foregroundColor(Color("TextColor"))
-            .padding(8)
-
+                //                    .font(.title3)
+                //                    .fontWeight(.heavy)
+            }).buttonStyle(ColoredButtonStyle())
+            
         }.padding(.horizontal)
         .edgesIgnoringSafeArea(.top)
-            
+        
     }
     
     func setNotification() {
@@ -129,11 +123,11 @@ struct ReminderOnboardingView: View {
             }
             
         }
-     //   showingAlert.toggle()
+        //   showingAlert.toggle()
         manager.schedule()
         showOnboarding.toggle()
         
-      //  UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        //  UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
     }
 }

@@ -11,6 +11,7 @@ import AVFoundation
 struct SettingsView: View {
     static let tag: String? = "Settings"
     var items = Items()
+    @State private var showBuying = false
     var body: some View {
                     
             VStack {
@@ -18,7 +19,7 @@ struct SettingsView: View {
                 List {
                     
                     Section(header: Text("In-App Purchases")) {
-                        NavigationLink(destination: BuyStorageSheetView()) {
+                        NavigationLink(destination: BuyStorageView()) {
                             HStack {
                                 Image(systemName: "cart.fill")
                                 Text("Storage")

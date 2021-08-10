@@ -1,27 +1,17 @@
 //
-//  BuyStorageSheetView.swift
+//  BuyStorageView.swift
 //  QuoteGarden
 //
-//  Created by Master Family on 06/07/2021.
+//  Created by Master Family on 10/08/2021.
 //
 
 import SwiftUI
-import Lottie
 
-struct BuyStorageSheetView: View {
+struct BuyStorageView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var storage: Storage
-    @Binding var showBuying: Bool
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(action: {showBuying.toggle()}) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.largeTitle)
-                }.buttonStyle(ColoredButtonStyle())
-                
-            }
             VStack {
                 LottieView(animationName: "buy")
                     .scaledToFit()
@@ -53,5 +43,11 @@ struct BuyStorageSheetView: View {
         Button(action: {store.restorePurchases()}) {
             Text("Restore")
         }.buttonStyle(ColoredButtonStyle())
+    }
+}
+
+struct BuyStorageView_Previews: PreviewProvider {
+    static var previews: some View {
+        BuyStorageView()
     }
 }

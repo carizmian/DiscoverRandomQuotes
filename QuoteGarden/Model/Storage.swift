@@ -8,5 +8,5 @@
 import Foundation
 
 class Storage: ObservableObject {
-    var amount: Int = 5
+    var amount: Int = 3
 }

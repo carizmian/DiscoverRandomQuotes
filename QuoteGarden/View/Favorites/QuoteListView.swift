@@ -16,9 +16,9 @@ struct QuoteListView: View {
     var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var searchText = ""
     let synthesizer: AVSpeechSynthesizer
-    @State private var showingBuyStorageSheetView = false
     @State private var startAnimation = false
     @EnvironmentObject var storage: Storage
+    @State private var showBuying = false
     var body: some View {
         //   NavigationView {
         ZStack {
@@ -46,9 +46,9 @@ struct QuoteListView: View {
                 .navigationBarItems(trailing: EditButton())
                 .edgesIgnoringSafeArea(.bottom)
                 
-                if storage.amount == 5 { Button(action: { showingBuyStorageSheetView.toggle() }) {
+                if storage.amount == 3 { Button(action: { showBuying.toggle() }) {
                     HStack {
-                        Text("\(favoriteQuotes.count)/\(5)")
+                        Text("\(favoriteQuotes.count)/\(3)")
                         Image(systemName: "cart.fill")
                             .overlay(
                                 Image(systemName: "cart.fill")
@@ -72,8 +72,8 @@ struct QuoteListView: View {
                 moc.undo()
                 print("Shaking")
             }
-            .sheet(isPresented: $showingBuyStorageSheetView) {
-                BuyStorageSheetView()
+            .sheet(isPresented: $showBuying) {
+                BuyStorageSheetView(showBuying: $showBuying)
             }
             
         }.onAppear {
