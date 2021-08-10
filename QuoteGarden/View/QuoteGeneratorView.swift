@@ -19,30 +19,21 @@ enum ActiveSheet: Identifiable {
 }
 
 struct QuoteGeneratorView: View {
-    
     static let tag: String? = "Home"
-    
+    #warning("x-ič ovdje ne radi")
+
     @Environment(\.managedObjectContext) var moc
-    
     @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
-    
     @Binding var savedToDevice: Bool
-    
     @State private var addedToClipboard = false
-    
     @State private var rect1: CGRect = .zero
-    @State private var uiimage: UIImage?
-    
-    @State var viewState = CGSize.zero
-    
+    @State private var uiImage: UIImage?
+    @State private var viewState = CGSize.zero
     let synthesizer: AVSpeechSynthesizer
-    
     var favoriteQuotes: FetchedResults<QuoteCD>
-    
-    @State var activeSheet: ActiveSheet?
-    
+    @State private var activeSheet: ActiveSheet?
     @EnvironmentObject var storage: Storage
-    
+    @State private var showBuying = false
     var body: some View {
         
         VStack {
@@ -65,7 +56,7 @@ struct QuoteGeneratorView: View {
                     .animation(.spring())
                 
             ).getRect($rect1)
-            .onChange(of: uiimage) {_ in self.uiimage = self.rect1.uiImage }
+            .onChange(of: uiImage) {_ in self.uiImage = self.rect1.uiImage }
             .accessibility(addTraits: .isButton)
             .accessibility(label: Text("Change quote"))
             .accessibility(hint: Text("Changes quote when tapped, and display them"))
@@ -73,8 +64,8 @@ struct QuoteGeneratorView: View {
             HStack {
                 
                 Button(action: {
-                    self.uiimage = self.rect1.uiImage
-                    if self.uiimage != nil {
+                    self.uiImage = self.rect1.uiImage
+                    if self.uiImage != nil {
                         activeSheet = .shareSheetView
                     }
                 }) {
@@ -114,17 +105,16 @@ struct QuoteGeneratorView: View {
                 
             }.disabled(quote.quoteText == "")
             
-        }
-        .sheet(item: $activeSheet) { item in
+        }.sheet(item: $activeSheet) { item in
             switch item {
             case .shareSheetView:
-                if uiimage != nil {
+                if uiImage != nil {
                     ShareSheetView(activityItems: [
-                        self.uiimage!
+                        self.uiImage!
                     ])
                 }
             case .buyStorageSheetView:
-                BuyStorageSheetView()
+                BuyStorageView()
             }
         }
         

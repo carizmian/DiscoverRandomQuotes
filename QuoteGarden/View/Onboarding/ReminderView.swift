@@ -10,15 +10,16 @@ import Lottie
 
 struct ReminderView: View {
     #warning("sačuvava brojeve koje je user stavia")
-    @State private var reminderFrequency = 13.0
+    #warning("save state when user exits app")
+    @State private var reminderFrequency = 10.0
     @State private var reminderStartTime = Date(timeIntervalSince1970: TimeInterval(7*60*60))
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
     let manager = LocalNotificationManager()
-    @State private var reminders = true
+    @State private var sendReminders = true
     var body: some View {
         VStack {
 
-            Toggle("Send Reminders", isOn: $reminders)
+            Toggle("Send Reminders", isOn: $sendReminders)
             
             VStack {
                 LottieView(animationName: "countdown")
@@ -41,14 +42,16 @@ struct ReminderView: View {
                     }
                     
                 }
-                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
-                    Text("Start at")
-                        .fontWeight(.bold)
-                }
-                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
-                    Text("End at")
-                        .fontWeight(.bold)
-                }
+                #warning("The user can set start - 8 am, and end - 8 am = that is a closed range = crashes app FIX PLS")
+                #warning("This can be a premium feature!")
+//                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
+//                    Text("Start at")
+//                        .fontWeight(.bold)
+//                }
+//                DatePicker(selection: $reminderEndTime, displayedComponents: .hourAndMinute) {
+//                    Text("End at")
+//                        .fontWeight(.bold)
+//                }
                 
             }
 //            Spacer()
@@ -68,7 +71,7 @@ struct ReminderView: View {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
         .onDisappear {
-            switch reminders {
+            switch sendReminders {
             case true: do {
                 setNotification()
                 print("setting notificaitons")
@@ -113,9 +116,7 @@ struct ReminderView: View {
             
         }
         manager.schedule()
-        
-      //  UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        
+                
     }
 }
 
