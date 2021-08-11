@@ -1,10 +1,3 @@
-//
-//  CoreDataStack.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 05/11/2020.
-//
-
 import CoreData
 
 class CoreDataStack {

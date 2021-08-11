@@ -1,10 +1,3 @@
-//
-//  PrimaryQuote.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 17/11/2020.
-//
-
 import SwiftUI
 import WidgetKit
 

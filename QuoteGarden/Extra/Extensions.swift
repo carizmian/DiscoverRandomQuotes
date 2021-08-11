@@ -1,10 +1,3 @@
-//
-//  Extensions.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 25/10/2020.
-//
-
 import Foundation
 import SwiftUI
 import CoreData
@@ -76,14 +69,10 @@ extension UIColor {
 
 }
 
-//public extension URL {
-//
-//    /// Returns a URL for the given app group and database pointing to the sqlite database.
-//    static func storeURL(for appGroup: String, databaseName: String) -> URL {
-//        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
-//            fatalError("Shared file container could not be created.")
-//        }
-//
-//        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
-//    }
-//}
+extension Double {
+    func toInt() -> Int {
+        Int(self)
+    }
+}
+
+

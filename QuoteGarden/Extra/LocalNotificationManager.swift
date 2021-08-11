@@ -1,10 +1,3 @@
-//
-//  LocalNotificationManager.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 16/03/2021.
-//
-
 import UserNotifications
 
 struct Notification {
@@ -14,7 +7,7 @@ struct Notification {
     var dateComponents: DateComponents
 }
 
-class LocalNotificationManager {
+class LocalNotificationManager: ObservableObject {
     var notifications = [Notification]()
     
     func requestPermission() {

@@ -1,10 +1,3 @@
-//
-//  ShareSheetView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 13/10/2020.
-//
-
 import SwiftUI
 import UIKit
 

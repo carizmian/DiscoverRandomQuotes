@@ -1,10 +1,3 @@
-//
-//  QuoteView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 08/10/2020.
-//
-
 import SwiftUI
 
 struct QuoteView: View {
@@ -41,8 +34,7 @@ struct QuoteView: View {
                 .font(Font.system(.callout, design: .rounded).weight(.regular))
                 .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
 
-            }
-            .foregroundColor(Color("TextColor"))
+            }.foregroundColor(Color("TextColor"))
             .multilineTextAlignment(.center)
             .padding()
             .background(Color("AccentColor").clipShape(RoundedRectangle(cornerRadius: 25)))

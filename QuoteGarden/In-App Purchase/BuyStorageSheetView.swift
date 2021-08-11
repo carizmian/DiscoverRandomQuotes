@@ -1,10 +1,3 @@
-//
-//  BuyStorageSheetView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 06/07/2021.
-//
-
 import SwiftUI
 import Lottie
 

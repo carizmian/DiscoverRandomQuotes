@@ -1,10 +1,3 @@
-//
-//  ShakeGestureManager.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 20/01/2021.
-//
-
 import SwiftUI
 import Combine
 

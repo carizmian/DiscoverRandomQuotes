@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  QuoteGarden-AppClip
-//
-//  Created by Master Family on 06/02/2021.
-//
-
 import SwiftUI
 import AVFoundation
 
