@@ -41,7 +41,6 @@
 		9377471E25CE56F1005CFB46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */; };
 		9377472325CE56F1005CFB46 /* QuoteGarden-AppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 9377471425CE56EA005CFB46 /* QuoteGarden-AppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		938DD63D2600765C00C2FC6C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */; };
-		938DD64E2601C20100C2FC6C /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD64D2601C1FF00C2FC6C /* ReminderDetailView.swift */; };
 		938DD65526031B2D00C2FC6C /* ReminderSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD65426031B2C00C2FC6C /* ReminderSheetView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
@@ -191,7 +190,6 @@
 		9377472025CE56F1005CFB46 /* QuoteGarden_AppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteGarden_AppClip.entitlements; sourceTree = "<group>"; };
 		938D8374257F583F00F0FD17 /* QuoteGarden-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteGarden-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
 		938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
-		938DD64D2601C1FF00C2FC6C /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
 		938DD65426031B2C00C2FC6C /* ReminderSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSheetView.swift; sourceTree = "<group>"; };
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		9395DD75255454A300B30BC2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -271,9 +269,9 @@
 			isa = PBXGroup;
 			children = (
 				9339913F269434EF00EC8CDF /* Configuration.storekit */,
+				93D5CC4526BB01610033E7C8 /* Storage.swift */,
 				933991402694361300EC8CDF /* Store.swift */,
 				9339915F269463AA00EC8CDF /* BuyStorageSheetView.swift */,
-				935C138E26C2428D00F67568 /* BuyStorageView.swift */,
 				9339916B26946E5900EC8CDF /* ProductRow.swift */,
 				9339914826943FB800EC8CDF /* Product.swift */,
 			);
@@ -283,9 +281,7 @@
 		933991812694A77B00EC8CDF /* Extra */ = {
 			isa = PBXGroup;
 			children = (
-				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
-				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
-				9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */,
+				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */,
 				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
@@ -296,43 +292,41 @@
 			path = Extra;
 			sourceTree = "<group>";
 		};
-		933E2DD1264A9CB3008E8FE2 /* Quotes */ = {
+		933E2DD1264A9CB3008E8FE2 /* Json */ = {
 			isa = PBXGroup;
 			children = (
 				933E2DD2264A9CD3008E8FE2 /* quotes1.json */,
 				933E2DD3264A9CD3008E8FE2 /* quotes2.json */,
 			);
-			path = Quotes;
+			path = Json;
 			sourceTree = "<group>";
 		};
-		933E2DE5264AF9B8008E8FE2 /* Quotes */ = {
+		933E2DE5264AF9B8008E8FE2 /* Json */ = {
 			isa = PBXGroup;
 			children = (
 				933E2DE7264AF9C8008E8FE2 /* quotes1.json */,
 				933E2DE6264AF9C8008E8FE2 /* quotes2.json */,
 			);
-			path = Quotes;
+			path = Json;
 			sourceTree = "<group>";
 		};
-		933E2DEF264D51E2008E8FE2 /* Quotes */ = {
+		933E2DEF264D51E2008E8FE2 /* Json */ = {
 			isa = PBXGroup;
 			children = (
 				933E2DF0264D51F9008E8FE2 /* sampleQuotes.json */,
 			);
-			path = Quotes;
+			path = Json;
 			sourceTree = "<group>";
 		};
-		935562072538135A00BF2F0A /* View */ = {
+		935562072538135A00BF2F0A /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
-				93DEB54525284527006B9BF5 /* ContentView.swift */,
+				933E2DD1264A9CB3008E8FE2 /* Json */,
+				93DEB57225284631006B9BF5 /* Quote.swift */,
 				9362130C252ECBC1009A7CDE /* QuoteView.swift */,
 				936886852545D18E0034F960 /* QuoteGeneratorView.swift */,
-				936886702545CCAD0034F960 /* Favorites */,
-				93AA437A25F0958700AB7DF0 /* Settings */,
-				9372A11C262DD57800276B08 /* Onboarding */,
 			);
-			path = View;
+			path = Quotes;
 			sourceTree = "<group>";
 		};
 		936886702545CCAD0034F960 /* Favorites */ = {
@@ -343,6 +337,7 @@
 				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
 				9392E4AE25408806004BF68E /* SearchBar.swift */,
 				9370D5A625356310001CD387 /* ShareSheetView.swift */,
+				9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -351,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				938DD65426031B2C00C2FC6C /* ReminderSheetView.swift */,
-				93C735B1268CA1E900334A34 /* ReminderView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -359,7 +353,7 @@
 		9377471525CE56EA005CFB46 /* QuoteGarden-AppClip */ = {
 			isa = PBXGroup;
 			children = (
-				933E2DEF264D51E2008E8FE2 /* Quotes */,
+				933E2DEF264D51E2008E8FE2 /* Json */,
 				9377471625CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift */,
 				9377471825CE56EA005CFB46 /* ContentView.swift */,
 				9377471A25CE56F1005CFB46 /* Assets.xcassets */,
@@ -409,8 +403,8 @@
 		93A3EC7A257B47570099B08C /* QuoteGarden-Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				933E2DE5264AF9B8008E8FE2 /* Quotes */,
 				93A3EC7B257B47570099B08C /* ContentView.swift */,
+				933E2DE5264AF9B8008E8FE2 /* Json */,
 				93A3EC7D257B47580099B08C /* QuoteGardenApp.swift */,
 				93A3EC7F257B47580099B08C /* ComplicationController.swift */,
 				93A3EC81257B47590099B08C /* Assets.xcassets */,
@@ -432,9 +426,11 @@
 		93AA437A25F0958700AB7DF0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
 				93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */,
 				93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */,
-				938DD64D2601C1FF00C2FC6C /* ReminderDetailView.swift */,
+				93C735B1268CA1E900334A34 /* ReminderView.swift */,
+				935C138E26C2428D00F67568 /* BuyStorageView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -478,10 +474,16 @@
 		93DEB53D25284527006B9BF5 /* QuoteGarden */ = {
 			isa = PBXGroup;
 			children = (
+				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
+				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
+				93DEB54525284527006B9BF5 /* ContentView.swift */,
+				939FDD9F262AA5D2007B8D19 /* Animations */,
+				935562072538135A00BF2F0A /* Quotes */,
+				9372A11C262DD57800276B08 /* Onboarding */,
+				93AA437A25F0958700AB7DF0 /* Settings */,
+				936886702545CCAD0034F960 /* Favorites */,
 				933991422694361700EC8CDF /* In-App Purchase */,
 				933991812694A77B00EC8CDF /* Extra */,
-				93DEB571252845D2006B9BF5 /* Model */,
-				935562072538135A00BF2F0A /* View */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
 				93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */,
@@ -496,19 +498,6 @@
 				93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		93DEB571252845D2006B9BF5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				939FDD9F262AA5D2007B8D19 /* Animations */,
-				933E2DD1264A9CB3008E8FE2 /* Quotes */,
-				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
-				93DEB57225284631006B9BF5 /* Quote.swift */,
-				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
-				93D5CC4526BB01610033E7C8 /* Storage.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -800,7 +789,6 @@
 				936886632545C8320034F960 /* QuoteListView.swift in Sources */,
 				9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */,
 				9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */,
-				938DD64E2601C20100C2FC6C /* ReminderDetailView.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
 				93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */,
