@@ -34,7 +34,12 @@ struct Items {
              color: .systemGreen,
              title: "Privacy",
              section: .legal,
-             url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/privacypolicy/")
+             url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/privacypolicy/"),
+        Item(image: "plus.app.fill",
+             color: .systemGreen,
+             title: "More Apps",
+             section: .miscellaneous,
+             url: "https://apps.apple.com/us/developer/nikola-franicevic/id1538265376")
         
     ]
     
