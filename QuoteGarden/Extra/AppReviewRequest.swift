@@ -1,10 +1,3 @@
-//
-//  AppReviewRequest.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 24/11/2020.
-//
-
 import SwiftUI
 import StoreKit
 

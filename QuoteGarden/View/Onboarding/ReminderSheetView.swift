@@ -1,18 +1,5 @@
-//
-//  ReminderOnboardingView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 18/03/2021.
-//
-
 import SwiftUI
 import Lottie
-
-extension Double {
-    func toInt() -> Int {
-        Int(self)
-    }
-}
 
 struct LottieView: UIViewRepresentable {
     func updateUIView(_ uiView: AnimationView, context: Context) {
@@ -34,8 +21,8 @@ struct ReminderOnboardingView: View {
     @State private var reminderFrequency = 10.0
     @State private var reminderStartTime = Date(timeIntervalSince1970: TimeInterval(7*60*60))
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
-    let manager = LocalNotificationManager()
     @Binding var showOnboarding: Bool
+    @EnvironmentObject var manager: LocalNotificationManager
     var body: some View {
         VStack {
             HStack {
@@ -71,7 +58,6 @@ struct ReminderOnboardingView: View {
                     }
                     
                 }
-                #warning("premium feature")
                 //                DatePicker(selection: $reminderStartTime, displayedComponents: .hourAndMinute) {
                 //                    Text("Start at")
                 //                        .fontWeight(.bold)
@@ -123,23 +109,9 @@ struct ReminderOnboardingView: View {
             }
             
         }
-        //   showingAlert.toggle()
+        
         manager.schedule()
         showOnboarding.toggle()
-        
-        //  UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        
+                
     }
 }
-
-//struct ReminderOnboardingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ReminderOnboardingView()
-//            //  .previewLayout(.sizeThatFits)
-//            ReminderOnboardingView()
-//                .preferredColorScheme(.dark)
-//                .previewLayout(.sizeThatFits)
-//        }
-//    }
-//}

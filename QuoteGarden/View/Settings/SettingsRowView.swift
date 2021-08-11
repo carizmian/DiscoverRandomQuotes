@@ -1,10 +1,3 @@
-//
-//  SettingsRowView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 04/03/2021.
-//
-
 import SwiftUI
 import UIKit
 

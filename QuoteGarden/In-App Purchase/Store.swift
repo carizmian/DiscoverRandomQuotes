@@ -1,10 +1,3 @@
-//
-//  Store.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 06/07/2021.
-//
-
 import StoreKit
 
 typealias FetchCompletionHandler = (([SKProduct]) -> Void)
@@ -76,7 +69,6 @@ extension Store {
         startObservingPaymentQueue()
         buy(product) { _ in }
     }
-    #warning("maybe restoring does not work?")
     func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }

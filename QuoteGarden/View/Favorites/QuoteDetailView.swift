@@ -1,10 +1,3 @@
-//
-//  QuoteDetailView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 07/10/2020.
-//
-
 import SwiftUI
 import WidgetKit
 import CoreData

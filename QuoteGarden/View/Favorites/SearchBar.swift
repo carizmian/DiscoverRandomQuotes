@@ -1,10 +1,3 @@
-//
-//  SearchBar.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 21/10/2020.
-//
-
 import SwiftUI
 
 struct SearchBar: View {

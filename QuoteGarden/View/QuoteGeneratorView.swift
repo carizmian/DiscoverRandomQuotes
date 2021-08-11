@@ -1,10 +1,3 @@
-//
-//  QuoteGeneratorView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 25/10/2020.
-//
-
 import SwiftUI
 import Foundation
 import SystemConfiguration
@@ -20,8 +13,6 @@ enum ActiveSheet: Identifiable {
 
 struct QuoteGeneratorView: View {
     static let tag: String? = "Home"
-    #warning("x-ič ovdje ne radi")
-
     @Environment(\.managedObjectContext) var moc
     @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
     @Binding var savedToDevice: Bool

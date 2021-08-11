@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 03/10/2020.
-//
-
 import CoreData
 import UIKit
 import SwiftUI
@@ -29,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let store = Store()
         let storage = Storage()
+        let manager = LocalNotificationManager()
         
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
@@ -37,6 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environment(\.managedObjectContext, context)
             .environmentObject(store)
             .environmentObject(storage)
+            .environmentObject(manager)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

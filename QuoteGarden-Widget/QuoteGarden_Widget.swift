@@ -1,10 +1,3 @@
-//
-//  QuoteGarden_Widget.swift
-//  QuoteGarden-Widget
-//
-//  Created by Master Family on 18/11/2020.
-//
-
 import WidgetKit
 import SwiftUI
 
@@ -66,16 +59,16 @@ struct MediumWidget: View {
         VStack(alignment: .center) {
             
             Text("\(entry.quote.quoteText)")
-                .italic()
-                .font(Font.system(.title, design: .monospaced).weight(.black))
+                .font(Font.system(.title, design: .rounded).weight(.semibold))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .layoutPriority(2)
                 .minimumScaleFactor(0.3)
                 .accessibilityLabel(Text("quote text is \(entry.quote.quoteText)"))
 
-        }.multilineTextAlignment(.center)
-        .padding()
+        }.padding()
+        .multilineTextAlignment(.center)
+        
     }
 }
 
@@ -87,16 +80,14 @@ struct LargeWidget: View {
 
             HStack {
                 Text("#")
-                    .foregroundColor(.green)
                 Text("\(entry.quote.quoteGenre)")
             }.padding(.bottom)
             .allowsTightening(true)
-            .font(Font.system(.callout, design: .monospaced).weight(.bold))
+            .font(Font.system(.callout, design: .rounded).weight(.regular))
             .accessibilityLabel(Text("quote genre is hashtag \(entry.quote.quoteGenre)"))
 
             Text("\(entry.quote.quoteText)")
-                .italic()
-                .font(Font.system(.title, design: .monospaced).weight(.black))
+                .font(Font.system(.title, design: .rounded).weight(.semibold))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .layoutPriority(2)
@@ -105,16 +96,15 @@ struct LargeWidget: View {
 
             HStack {
                 Text("~")
-                    .foregroundColor(.green)
                 Text("\(entry.quote.quoteAuthor)")
 
             }.padding(.top)
             .allowsTightening(true)
-            .font(Font.system(.callout, design: .monospaced).weight(.bold))
+            .font(Font.system(.callout, design: .rounded).weight(.regular))
             .accessibilityLabel(Text("quote author is \(entry.quote.quoteAuthor)"))
 
-        }.multilineTextAlignment(.center)
-        .padding()
+        }.padding()
+        .multilineTextAlignment(.center)
     }
 }
 

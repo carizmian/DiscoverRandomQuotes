@@ -1,10 +1,3 @@
-//
-//  BuyStorageView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 10/08/2021.
-//
-
 import SwiftUI
 
 struct BuyStorageView: View {

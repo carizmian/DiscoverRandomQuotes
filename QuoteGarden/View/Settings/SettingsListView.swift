@@ -1,10 +1,3 @@
-//
-//  SettingsView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 03/03/2021.
-//
-
 import SwiftUI
 import AVFoundation
 

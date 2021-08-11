@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  QuoteGarden-Watch Extension
-//
-//  Created by Master Family on 05/12/2020.
-//
-
 import SwiftUI
 
 struct ContentView: View {

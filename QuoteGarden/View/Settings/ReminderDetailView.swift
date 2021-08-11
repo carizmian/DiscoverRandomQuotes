@@ -1,10 +1,3 @@
-//
-//  ReminderDetailView.swift
-//  QuoteGarden
-//
-//  Created by Master Family on 17/03/2021.
-//
-
 import SwiftUI
 
 struct ReminderDetailView: View {
