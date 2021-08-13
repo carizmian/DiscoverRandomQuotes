@@ -37,7 +37,7 @@ struct ContentView: View {
            // hasOnboarded = false // here for testing
             // When the user dismisses the onboarding view by swiping down, we will also consider onboarding as complete
             if !hasOnboarded {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     withAnimation {
                         showOnboarding.toggle()
                         hasOnboarded = true
