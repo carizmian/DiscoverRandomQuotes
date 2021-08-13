@@ -3,6 +3,7 @@ QuoteGarden.app.dSYM.zip
 QuoteGarden.app.dSYM/
 fastlane/
 Gemfile
+Gemfile.lock
 .swiftlint.yml
 /Users/Nikola/Desktop/QuoteGarden/QuoteGarden.xcodeproj/xcuserdata
 xcuserdata/
