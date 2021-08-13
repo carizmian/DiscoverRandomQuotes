@@ -18,7 +18,7 @@ struct LottieView: UIViewRepresentable {
 }
 
 struct ReminderOnboardingView: View {
-    @State private var reminderFrequency = 10.0
+    @State private var reminderFrequency = 12.0
     @State private var reminderStartTime = Date(timeIntervalSince1970: TimeInterval(7*60*60))
     @State private var reminderEndTime = Date(timeIntervalSince1970: TimeInterval(19*60*60))
     @Binding var showOnboarding: Bool
@@ -52,7 +52,7 @@ struct ReminderOnboardingView: View {
                 HStack {
                     Text("Remind me")
                         .fontWeight(.bold)
-                    Stepper(value: $reminderFrequency, in: 3...16, step: 1.0) {
+                    Stepper(value: $reminderFrequency, in: 3...12, step: 1.0) {
                         Text("\(reminderFrequency, specifier: "%g") times")
                             .fontWeight(.bold)
                     }
@@ -87,11 +87,15 @@ struct ReminderOnboardingView: View {
         
         var dateComponentsArray = [firstDateComponents, lastDateComponents]
         
+        var hour = 8
+        let minute = 0
+        
         for _ in 1...reminderFrequency.toInt()-2 {
             
-            let hour = Int.random(in: (firstDateComponents.hour!-1)..<(lastDateComponents.hour!-1) )
-            let minute = Int.random(in: 0...59)
-            
+//            let hour = Int.random(in: (firstDateComponents.hour!-1)..<(lastDateComponents.hour!-1) )
+//            let minute = Int.random(in: 0...59)
+            hour += 1
+                        
             let date = Date(timeIntervalSince1970: TimeInterval(hour*60*60 + minute*60))
             
             let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: date)
