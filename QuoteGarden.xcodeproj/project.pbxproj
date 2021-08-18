@@ -34,6 +34,13 @@
 		936886CB25469D460034F960 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886CA25469D460034F960 /* ButtonStyle.swift */; };
 		9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
+		9371629B26C7B00F00A769E9 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371629A26C7B00F00A769E9 /* LottieView.swift */; };
+		937162A626C7B20E00A769E9 /* OnboardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A126C7B20E00A769E9 /* OnboardSet.swift */; };
+		937162A726C7B20E00A769E9 /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A226C7B20E00A769E9 /* OnboardingCardView.swift */; };
+		937162A826C7B20E00A769E9 /* OnboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A326C7B20E00A769E9 /* OnboardData.swift */; };
+		937162A926C7B20E00A769E9 /* OnboardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A426C7B20E00A769E9 /* OnboardCard.swift */; };
+		937162AA26C7B20E00A769E9 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A526C7B20E00A769E9 /* OnboardingScreens.swift */; };
+		937162C826C8DB1F00A769E9 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162C726C8DB1F00A769E9 /* Notification.swift */; };
 		9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */; };
 		9377471725CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377471625CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift */; };
 		9377471925CE56EA005CFB46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377471825CE56EA005CFB46 /* ContentView.swift */; };
@@ -41,7 +48,6 @@
 		9377471E25CE56F1005CFB46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */; };
 		9377472325CE56F1005CFB46 /* QuoteGarden-AppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 9377471425CE56EA005CFB46 /* QuoteGarden-AppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		938DD63D2600765C00C2FC6C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */; };
-		938DD65526031B2D00C2FC6C /* ReminderSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD65426031B2C00C2FC6C /* ReminderSheetView.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
 		939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */; };
@@ -180,6 +186,13 @@
 		9370A51D25454CD100F2C029 /* ViewToUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToUIImage.swift; sourceTree = "<group>"; };
 		9370A52B2545609A00F2C029 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9370D5A625356310001CD387 /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
+		9371629A26C7B00F00A769E9 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		937162A126C7B20E00A769E9 /* OnboardSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardSet.swift; sourceTree = "<group>"; };
+		937162A226C7B20E00A769E9 /* OnboardingCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
+		937162A326C7B20E00A769E9 /* OnboardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardData.swift; sourceTree = "<group>"; };
+		937162A426C7B20E00A769E9 /* OnboardCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCard.swift; sourceTree = "<group>"; };
+		937162A526C7B20E00A769E9 /* OnboardingScreens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
+		937162C726C8DB1F00A769E9 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
 		9377471425CE56EA005CFB46 /* QuoteGarden-AppClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuoteGarden-AppClip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9377471625CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGarden_AppClipApp.swift; sourceTree = "<group>"; };
@@ -190,7 +203,6 @@
 		9377472025CE56F1005CFB46 /* QuoteGarden_AppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteGarden_AppClip.entitlements; sourceTree = "<group>"; };
 		938D8374257F583F00F0FD17 /* QuoteGarden-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteGarden-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
 		938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
-		938DD65426031B2C00C2FC6C /* ReminderSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSheetView.swift; sourceTree = "<group>"; };
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		9395DD75255454A300B30BC2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		939D200525317E14003C34D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -268,6 +280,7 @@
 		933991422694361700EC8CDF /* In-App Purchase */ = {
 			isa = PBXGroup;
 			children = (
+				935C138E26C2428D00F67568 /* BuyStorageView.swift */,
 				9339913F269434EF00EC8CDF /* Configuration.storekit */,
 				93D5CC4526BB01610033E7C8 /* Storage.swift */,
 				933991402694361300EC8CDF /* Store.swift */,
@@ -282,12 +295,12 @@
 			isa = PBXGroup;
 			children = (
 				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
-				938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */,
 				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
 				93F0BE65256CD29000ABC037 /* AppReviewRequest.swift */,
 				9370A51D25454CD100F2C029 /* ViewToUIImage.swift */,
 				936886CA25469D460034F960 /* ButtonStyle.swift */,
+				9371629A26C7B00F00A769E9 /* LottieView.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -342,10 +355,24 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		937162B026C8DAAC00A769E9 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				937162C726C8DB1F00A769E9 /* Notification.swift */,
+				938DD63C2600765C00C2FC6C /* LocalNotificationManager.swift */,
+				93C735B1268CA1E900334A34 /* ReminderView.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
 		9372A11C262DD57800276B08 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				938DD65426031B2C00C2FC6C /* ReminderSheetView.swift */,
+				937162A426C7B20E00A769E9 /* OnboardCard.swift */,
+				937162A326C7B20E00A769E9 /* OnboardData.swift */,
+				937162A226C7B20E00A769E9 /* OnboardingCardView.swift */,
+				937162A526C7B20E00A769E9 /* OnboardingScreens.swift */,
+				937162A126C7B20E00A769E9 /* OnboardSet.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -429,8 +456,6 @@
 				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
 				93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */,
 				93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */,
-				93C735B1268CA1E900334A34 /* ReminderView.swift */,
-				935C138E26C2428D00F67568 /* BuyStorageView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -483,6 +508,7 @@
 				93AA437A25F0958700AB7DF0 /* Settings */,
 				936886702545CCAD0034F960 /* Favorites */,
 				933991422694361700EC8CDF /* In-App Purchase */,
+				937162B026C8DAAC00A769E9 /* Reminders */,
 				933991812694A77B00EC8CDF /* Extra */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
@@ -774,16 +800,19 @@
 				93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */,
 				93C735B2268CA1E900334A34 /* ReminderView.swift in Sources */,
 				938DD63D2600765C00C2FC6C /* LocalNotificationManager.swift in Sources */,
+				937162A926C7B20E00A769E9 /* OnboardCard.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				9339914926943FB800EC8CDF /* Product.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,
+				937162A726C7B20E00A769E9 /* OnboardingCardView.swift in Sources */,
 				9339916C26946E5900EC8CDF /* ProductRow.swift in Sources */,
 				93C8F69F256423FE0072589B /* PrimaryQuote.swift in Sources */,
 				93F0BE66256CD29000ABC037 /* AppReviewRequest.swift in Sources */,
+				937162C826C8DB1F00A769E9 /* Notification.swift in Sources */,
 				935C138F26C2428D00F67568 /* BuyStorageView.swift in Sources */,
 				936886CB25469D460034F960 /* ButtonStyle.swift in Sources */,
+				9371629B26C7B00F00A769E9 /* LottieView.swift in Sources */,
 				9392E4AF25408808004BF68E /* SearchBar.swift in Sources */,
-				938DD65526031B2D00C2FC6C /* ReminderSheetView.swift in Sources */,
 				939DBEF4253ACFFC00A54AD2 /* QuoteRowView.swift in Sources */,
 				93D5CC4626BB01610033E7C8 /* Storage.swift in Sources */,
 				936886632545C8320034F960 /* QuoteListView.swift in Sources */,
@@ -791,8 +820,11 @@
 				9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
+				937162AA26C7B20E00A769E9 /* OnboardingScreens.swift in Sources */,
+				937162A826C7B20E00A769E9 /* OnboardData.swift in Sources */,
 				93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */,
 				93426350254DC5840023B6FF /* Extensions.swift in Sources */,
+				937162A626C7B20E00A769E9 /* OnboardSet.swift in Sources */,
 				93399160269463AA00EC8CDF /* BuyStorageSheetView.swift in Sources */,
 				9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */,
 				936886862545D18E0034F960 /* QuoteGeneratorView.swift in Sources */,
@@ -833,7 +865,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-AppClip/QuoteGarden_AppClip.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-AppClip/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -843,7 +875,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverAppClip;
@@ -861,7 +893,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-AppClip/QuoteGarden_AppClip.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-AppClip/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -871,7 +903,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverAppClip;
@@ -887,7 +919,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -897,7 +929,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
@@ -915,7 +947,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -925,7 +957,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS Compilation";
@@ -946,7 +978,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				IBSC_MODULE = QuoteGarden_Watch_Extension;
 				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
@@ -955,7 +987,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
@@ -978,7 +1010,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				IBSC_MODULE = QuoteGarden_Watch_Extension;
 				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
@@ -987,7 +1019,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "QuoteGarden watchOS App";
@@ -1008,7 +1040,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-WidgetExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				INFOPLIST_FILE = "QuoteGarden-Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1017,7 +1049,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -1035,7 +1067,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-WidgetExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				INFOPLIST_FILE = "QuoteGarden-Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1044,7 +1076,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.QuoteGarden.QuoteGarden-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = DiscoverWidget;
@@ -1179,7 +1211,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -1189,7 +1221,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
@@ -1207,7 +1239,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -1217,7 +1249,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.6;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuoteGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Discover;
