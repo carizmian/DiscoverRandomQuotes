@@ -41,6 +41,7 @@ struct ContentView: View {
                         }
             
         }.onAppear {
+            #warning("Best time to request app rating is on the second open of the app")
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()
             //hasOnboarded = false // here for testing
