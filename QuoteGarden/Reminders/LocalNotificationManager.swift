@@ -19,29 +19,23 @@ class LocalNotificationManager: ObservableObject {
         print("Removed all notifications!")
     }
     
-    func addNotification(title: String, subtitle: String, body: String, dateComponents: DateComponents) {
-        notifications.append(Notification(id: UUID().uuidString, title: title, subtitle: subtitle, body: body, dateComponents: dateComponents))
+    func addNotification(title: String, subtitle: String, body: String, timeInterval: TimeInterval) {
+        notifications.append(Notification(id: UUID().uuidString, title: title, subtitle: subtitle, body: body, timeInterval: timeInterval))
     }
     
-    func addNotifications() {
+    func addNotifications(reminderFrequency: Double) {
         self.removeAllNotifications()
         
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-        dateComponents.hour = 8
-        dateComponents.minute = Int.random(in: 0...59)
-        
-        for hour in 9...19 {
+        // every 5 hours
+        var timeInterval = reminderFrequency * 3600
+        #warning("ali šta nakon šta ovo istekne? kako opet loadat nove citate i scheduelat- i kad?")
+        for _ in 1...10 {
             getRandomQuote { quote in
-                self.addNotification(title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, dateComponents: dateComponents)
+                self.addNotification(title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
                 print("Adding notification by: \(quote.quoteAuthor) to notification array!")
-                
-                dateComponents.hour = hour
-                dateComponents.minute = Int.random(in: 0...59)
-                
+                timeInterval += 18000
             }
         }
-
     }
     
     func scheduleNotifications() {
@@ -58,8 +52,7 @@ class LocalNotificationManager: ObservableObject {
                     content.subtitle = "# \(notification.subtitle)"
                     content.body = notification.body
                     content.sound = UNNotificationSound.default
-                    #warning("ovo ce slat iste citate nakon 1 dana!")
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: notification.dateComponents, repeats: false)
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: notification.timeInterval, repeats: false)
                     let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
                     
                     self.center.add(request) { error in
@@ -69,7 +62,7 @@ class LocalNotificationManager: ObservableObject {
                             title: \(String(describing: notification.title)),
                             subtitle: \(String(describing: notification.subtitle)),
                             body: \(notification.body)
-                            hour: \(String(describing: notification.dateComponents.hour)) minute: \(String(describing: notification.dateComponents.minute))
+                            in: \(String(describing: notification.timeInterval / 3600)) hours
                             """)
                     }
                 }

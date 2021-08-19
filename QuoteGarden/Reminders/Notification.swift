@@ -5,5 +5,5 @@ struct Notification {
     var title: String
     var subtitle: String
     var body: String
-    var dateComponents: DateComponents
+    var timeInterval: TimeInterval
 }

@@ -45,7 +45,6 @@ struct OnboardingCardView: View {
             Text(card.text)
             if let linkInfo = card.linkInfo {
                 Button(linkInfo.title) {
-                    manager.scheduleNotifications()
                     if let url = URL(string: linkInfo.webLink) {
                         UIApplication.shared.open(url)
                     }

@@ -3,6 +3,7 @@ import Lottie
 
 struct ReminderView: View {
     @State private var sendReminders = true
+    @State private var reminderFrequency = 5.0
     @EnvironmentObject var manager: LocalNotificationManager
     var body: some View {
         VStack {
@@ -11,21 +12,17 @@ struct ReminderView: View {
                 .onDisappear {
                     switch sendReminders {
                     case true: do {
-                        manager.addNotifications()
-                        #warning("First add notification to notification array, second schedule the notifications")
-                        #warning("simply add a loading screen to load the quotes")
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        manager.addNotifications(reminderFrequency: reminderFrequency)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                             manager.scheduleNotifications()
-                            print("seting notifications")
+                            print("setting notifications")
                         }
                     }
                     case false: do {
                         manager.removeAllNotifications()
-                        print("removed pending notifications")
                     }
                     }
                 }
-            
             VStack {
                 LottieView(animationName: "countdown")
                     .scaledToFit()
@@ -34,16 +31,18 @@ struct ReminderView: View {
             }.padding()
             
             VStack {
-                Text("Set daily Quotes reminders.")
+                Text("Get Quotes reminders.")
                     .multilineTextAlignment(.center)
+                
+                Stepper(value: $reminderFrequency, in: 3...7) {
+                    Text("Every \(reminderFrequency, specifier: "%.f") hours.")
+                        .fontWeight(.semibold)
+                }.padding()
                 
             }
             
         }.padding(.horizontal)
         .edgesIgnoringSafeArea(.top)
-        .onAppear {
-            manager.removeAllNotifications()
-        }
         
     }
 }

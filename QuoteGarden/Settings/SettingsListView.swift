@@ -19,15 +19,15 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    #warning("aaaaa")
-//                    Section(header: Text("Reminders")) {
-//                        NavigationLink(destination: ReminderView()) {
-//                            HStack {
-//                                Image(systemName: "bell.badge.fill")
-//                                Text("Reminders")
-//                            }
-//                        }
-//                    }
+                    
+                    Section(header: Text("Reminders")) {
+                        NavigationLink(destination: ReminderView()) {
+                            HStack {
+                                Image(systemName: "bell.badge.fill")
+                                Text("Reminders")
+                            }
+                        }
+                    }
                     
                     Section(header: Text("Legal")) {
                         ForEach(items.legal, id: \.self) { item in

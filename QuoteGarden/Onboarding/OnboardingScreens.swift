@@ -20,7 +20,12 @@ struct OnboardingScreens: View {
         .padding()
         .padding(.bottom)
         .onAppear {
-            manager.addNotifications()
+            manager.addNotifications(reminderFrequency: 5.0)
+        }
+        .onDisappear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                manager.scheduleNotifications()
+            }
         }
     }
 }
