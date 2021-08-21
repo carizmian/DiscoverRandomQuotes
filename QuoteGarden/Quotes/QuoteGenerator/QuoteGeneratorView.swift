@@ -14,8 +14,7 @@ enum ActiveSheet: Identifiable {
 struct QuoteGeneratorView: View {
     static let tag: String? = "Home"
     @Environment(\.managedObjectContext) var moc
-    #warning("ode stavi kao onboarding text - da mos tap ili shake za generaciju novog citata!")
-
+    
     @EnvironmentObject var quoteViewModel: QuoteViewModel
     
     @Binding var savedToDevice: Bool
@@ -34,29 +33,35 @@ struct QuoteGeneratorView: View {
         
         VStack {
             Color.clear.overlay(
-                
                 QuoteView(quote: quoteViewModel.quote)
                     .gesture(
                         LongPressGesture().onChanged { _ in
+                            // Use the view model again
+                            quoteViewModel.changeQuote(quoteViewModel.quote)
                             quoteViewModel.quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
                             quoteViewModel.getRandomQuote()
                             savedToDevice = false
                             addedToClipboard = false
-//                            quoteViewModel.getRandomQuote { quote in
-//                                self.quoteViewModel.quote = quote
-//                                savedToDevice = false
-//                                addedToClipboard = false
-//                            }
+                            #warning("JIGGLE QUOTE WHEN A CERTAIN TIME PASSES!")
+                            
+                            //                            quoteViewModel.getRandomQuote { quote in
+                            //                                self.quoteViewModel.quote = quote
+                            //                                savedToDevice = false
+                            //                                addedToClipboard = false
+                            //                            }
                         }
                     ).animation(.spring())
                     .onReceive(NotificationCenter.default.publisher(
                         for: UIApplication.didBecomeActiveNotification
                     )) { _ in
                         // The app became active
-                        #warning("maybe there is a better way?")
-                        quoteViewModel.changeQuote(delegate.quote)
+                        #warning("Maybe there is a better way!")
+                        if delegate.quote.quoteText != "" {
+                            // use the notification delegate quote
+                            quoteViewModel.changeQuote(delegate.quote)
+                        }
                     }
-
+                
                 
             ).getRect($rect1)
             .onChange(of: uiImage) {_ in self.uiImage = self.rect1.uiImage }

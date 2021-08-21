@@ -78,8 +78,9 @@ struct QuoteListView: View {
     }
     
 }
+
 //struct QuoteListView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        QuoteListView()
+//        QuoteListViewremoveQuote: <#(IndexSet) -> Void#>, favoriteQuotes: <#FetchedResults<QuoteCD>#>, synthesizer: <#AVSpeechSynthesizer#>()
 //    }
 //}

@@ -39,7 +39,7 @@ struct OnboardingCardView: View {
                     .scaledToFit()
             }
             Text(card.text)
-            #warning("ne najbolje za početak")
+            #warning("Refactor me for reusability!")
             if let linkInfo = card.linkInfo {
                 Button(action: {showBuying.toggle()}) {
                     HStack {

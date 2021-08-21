@@ -13,7 +13,7 @@ struct ReminderView: View {
                     switch sendReminders {
                     case true: do {
                         manager.addNotifications(reminderFrequency: reminderFrequency)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             manager.scheduleNotifications()
                             print("setting notifications")
                         }

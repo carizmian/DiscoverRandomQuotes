@@ -20,10 +20,11 @@ struct OnboardingScreens: View {
         .padding()
         .padding(.bottom)
         .onAppear {
+            // 5 Hours is default
             manager.addNotifications(reminderFrequency: 5.0)
         }
         .onDisappear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 manager.scheduleNotifications()
             }
         }

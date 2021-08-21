@@ -19,7 +19,7 @@ struct Provider: TimelineProvider {
         
         guard let quote = try? JSONDecoder().decode(Quote.self, from: primaryQuoteData) else {
             print("Unable to decode primary quote")
-           return
+            return
         }
         let entry = QuoteGardenEntry(quote: quote)
         completion(entry)
@@ -29,7 +29,7 @@ struct Provider: TimelineProvider {
         
         guard let quote = try? JSONDecoder().decode(Quote.self, from: primaryQuoteData) else {
             print("Unable to decode primary quote")
-           return
+            return
         }
         let entry = QuoteGardenEntry(quote: quote)
         
@@ -59,13 +59,13 @@ struct MediumWidget: View {
         VStack(alignment: .center) {
             
             Text("\(entry.quote.quoteText)")
-                .font(Font.system(.title, design: .rounded).weight(.semibold))
+                .font(Font.system(.title, design: .rounded).weight(.light))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .layoutPriority(2)
                 .minimumScaleFactor(0.3)
                 .accessibilityLabel(Text("quote text is \(entry.quote.quoteText)"))
-
+            
         }.padding()
         .multilineTextAlignment(.center)
         
@@ -77,32 +77,32 @@ struct LargeWidget: View {
     
     var body: some View {
         VStack(alignment: .center) {
-
+            
             HStack {
                 Text("#")
                 Text("\(entry.quote.quoteGenre)")
             }.padding(.bottom)
             .allowsTightening(true)
-            .font(Font.system(.callout, design: .rounded).weight(.regular))
+            .font(Font.system(.callout, design: .rounded).weight(.light))
             .accessibilityLabel(Text("quote genre is hashtag \(entry.quote.quoteGenre)"))
-
+            
             Text("\(entry.quote.quoteText)")
-                .font(Font.system(.title, design: .rounded).weight(.semibold))
+                .font(Font.system(.title, design: .rounded).weight(.light))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .layoutPriority(2)
                 .minimumScaleFactor(0.3)
                 .accessibilityLabel(Text("quote text is \(entry.quote.quoteText)"))
-
+            
             HStack {
                 Text("~")
                 Text("\(entry.quote.quoteAuthor)")
-
+                
             }.padding(.top)
             .allowsTightening(true)
-            .font(Font.system(.callout, design: .rounded).weight(.regular))
+            .font(Font.system(.callout, design: .rounded).weight(.light))
             .accessibilityLabel(Text("quote author is \(entry.quote.quoteAuthor)"))
-
+            
         }.padding()
         .multilineTextAlignment(.center)
     }
@@ -123,9 +123,16 @@ struct QuoteGardenWidget: Widget {
 }
 
 struct QuoteGardenWidge_Previews: PreviewProvider {
-    static let quote = Quote(id: "", quoteText: "Your favorite quote can be displayed here", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
+    static let quote = Quote(id: "", quoteText: "I don't believe you have to be better than everybody else. I believe you have to be better than you ever thought you could be.", quoteAuthor: "Ken Venturi", quoteGenre: "motivation")
     static var previews: some View {
-        QuoteGardenWidgetEntryView(entry: QuoteGardenEntry(quote: quote))
-            .previewContext(WidgetPreviewContext(family: .systemLarge))
+        Group {
+            QuoteGardenWidgetEntryView(entry: QuoteGardenEntry(quote: quote))
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+                .previewLayout(.sizeThatFits)
+            
+            QuoteGardenWidgetEntryView(entry: QuoteGardenEntry(quote: quote))
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+                .previewLayout(.sizeThatFits)
+        }
     }
 }

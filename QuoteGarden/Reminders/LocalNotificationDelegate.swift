@@ -3,14 +3,14 @@ import SwiftUI
 
 class LocalNotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
     @Published var quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
-    #warning("bolji način")
-//    var quoteViewModel = QuoteViewModel()
+    #warning("Find a way to implement the commented code!")
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // Get the quote from the original notification.
+        quote.id = response.notification.request.identifier
         quote.quoteAuthor = response.notification.request.content.title
         quote.quoteGenre = response.notification.request.content.subtitle
         quote.quoteText = response.notification.request.content.body

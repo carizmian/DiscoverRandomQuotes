@@ -4,7 +4,7 @@ class LocalNotificationManager: ObservableObject {
     var notifications = [Notification]()
     let center =  UNUserNotificationCenter.current()
     
-    #warning("Is this okay?")
+    #warning("Is it okay to create a instance here?")
     let quoteViewModel = QuoteViewModel()
     
     func requestPermission() {
@@ -22,8 +22,8 @@ class LocalNotificationManager: ObservableObject {
         print("Removed all notifications!")
     }
     
-    func addNotification(title: String, subtitle: String, body: String, timeInterval: TimeInterval) {
-        notifications.append(Notification(id: UUID().uuidString, title: title, subtitle: subtitle, body: body, timeInterval: timeInterval))
+    func addNotification(id: String, title: String, subtitle: String, body: String, timeInterval: TimeInterval) {
+        notifications.append(Notification(id: id, title: title, subtitle: subtitle, body: body, timeInterval: timeInterval))
     }
     
     func addNotifications(reminderFrequency: Double) {
@@ -33,7 +33,7 @@ class LocalNotificationManager: ObservableObject {
         DispatchQueue.main.async {
             self.quoteViewModel.getRandomQuotes { quotes in
                 for quote in quotes {
-                    self.addNotification(title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
+                    self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
                     print("Adding notification by: \(quote.quoteAuthor) to notification array!")
                     timeInterval += 18000
                 }
