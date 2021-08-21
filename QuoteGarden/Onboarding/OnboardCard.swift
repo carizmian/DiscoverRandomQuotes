@@ -9,11 +9,7 @@ struct OnboardCard: Identifiable {
             originalWidth / originalHeight
         }
     }
-    
-    struct GifInfo {
-        let name: String
-    }
-    
+        
     struct LinkInfo {
         let title: String
         let webLink: String
@@ -32,6 +28,5 @@ struct OnboardCard: Identifiable {
         }
         return URL(fileURLWithPath: path)
     }
-    var gifInfo: GifInfo? = nil
     var linkInfo: LinkInfo? = nil
 }

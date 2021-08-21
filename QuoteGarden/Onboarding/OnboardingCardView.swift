@@ -1,6 +1,5 @@
 import SwiftUI
-//import AVKit
-import Lottie
+import AVKit
 
 struct OnboardingCardView: View {
     @Binding var isShowing: Bool
@@ -8,6 +7,9 @@ struct OnboardingCardView: View {
     let width: CGFloat
     let height: CGFloat
     @EnvironmentObject var manager: LocalNotificationManager
+    @EnvironmentObject var store: Store
+    @EnvironmentObject var storage: Storage
+    @State var showBuying = false
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -24,18 +26,12 @@ struct OnboardingCardView: View {
                 }
                 
             }
-            // Can put VideoInfo instead too!
-            if let gifInfo = card.gifInfo {
-//                if let url = card.pathToVideo {
-//                    VideoPlayer(player: AVPlayer(url: url))
-//                        .frame(width: videoInfo.ratio * videoInfo.newHeight, height: videoInfo.newHeight)
-//                }
-                VStack {
-                    LottieView(animationName: gifInfo.name)
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .scaleEffect(0.3)
-                }.padding()
+            if let videoInfo = card.videoInfo {
+                if let url = card.pathToVideo {
+                    VideoPlayer(player: AVPlayer(url: url))
+                        .frame(width: videoInfo.ratio * videoInfo.newHeight, height: videoInfo.newHeight)
+                }
+                
                 
             } else {
                 Image(card.image)
@@ -43,18 +39,31 @@ struct OnboardingCardView: View {
                     .scaledToFit()
             }
             Text(card.text)
+            #warning("ne najbolje za početak")
             if let linkInfo = card.linkInfo {
-                Button(linkInfo.title) {
-                    if let url = URL(string: linkInfo.webLink) {
-                        UIApplication.shared.open(url)
+                Button(action: {showBuying.toggle()}) {
+                    HStack {
+                        Image(systemName: "cart.fill")
+                        Text("Storage")
                     }
                 }.padding()
                 .buttonStyle(ColoredButtonStyle())
+                
+                //                Button(linkInfo.title) {
+                //                    if let url = URL(string: linkInfo.webLink) {
+                //                       UIApplication.shared.open(url)
+                //
+                //                    }
+                //                }.padding()
+                //                .buttonStyle(ColoredButtonStyle())
             }
             Spacer()
         }.padding(.horizontal)
         .padding(.top, 10)
         .background(RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .fill(Color(.secondarySystemBackground)))
+        .sheet(isPresented: $showBuying) {
+            BuyStorageSheetView(showBuying: $showBuying)
+        }
     }
 }

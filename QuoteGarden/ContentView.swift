@@ -11,6 +11,7 @@ struct ContentView: View {
     @AppStorage("OnboardBeenViewed") var hasOnboarded = false
     var onboardSet = OnboardData.buildSet(width: .infinity, height: .infinity)
     @EnvironmentObject var manager: LocalNotificationManager
+    @EnvironmentObject var delegate: LocalNotificationDelegate
     var body: some View {
         ZStack {
             NavigationView {
@@ -41,7 +42,7 @@ struct ContentView: View {
                         }
             
         }.onAppear {
-            #warning("Best time to request app rating is on the second open of the app")
+            manager.center.delegate = delegate
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()
             //hasOnboarded = false // here for testing
@@ -55,7 +56,6 @@ struct ContentView: View {
                 }
             }
         }
-        
     }
     
     func removeQuote(at offsets: IndexSet) {

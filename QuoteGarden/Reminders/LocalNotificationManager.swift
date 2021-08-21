@@ -4,6 +4,9 @@ class LocalNotificationManager: ObservableObject {
     var notifications = [Notification]()
     let center =  UNUserNotificationCenter.current()
     
+    #warning("Is this okay?")
+    let quoteViewModel = QuoteViewModel()
+    
     func requestPermission() {
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted == true && error == nil {
@@ -26,14 +29,14 @@ class LocalNotificationManager: ObservableObject {
     func addNotifications(reminderFrequency: Double) {
         self.removeAllNotifications()
         
-        // every 5 hours
         var timeInterval = reminderFrequency * 3600
-        #warning("ali šta nakon šta ovo istekne? kako opet loadat nove citate i scheduelat- i kad?")
-        for _ in 1...10 {
-            getRandomQuote { quote in
-                self.addNotification(title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
-                print("Adding notification by: \(quote.quoteAuthor) to notification array!")
-                timeInterval += 18000
+        DispatchQueue.main.async {
+            self.quoteViewModel.getRandomQuotes { quotes in
+                for quote in quotes {
+                    self.addNotification(title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
+                    print("Adding notification by: \(quote.quoteAuthor) to notification array!")
+                    timeInterval += 18000
+                }
             }
         }
     }
@@ -46,15 +49,27 @@ class LocalNotificationManager: ObservableObject {
                 self.requestPermission()
             case .authorized, .provisional, .ephemeral:
                 print("Authorized!")
+                
+                // Define the custom actions.
+                //                let shareAction = UNNotificationAction(identifier: "SHARE_ACTION", title: "Share", options: .foreground)
+                //                let saveAction = UNNotificationAction(identifier: "SAVE_ACTION", title: "Save", options: .foreground)
+                //                let playAction = UNNotificationAction(identifier: "PLAY_ACTION", title: "Play Sound", options: .foreground)
+                // Define the notification type
+                //                let quoteActionsCategory = UNNotificationCategory(identifier: "QUOTE_ACTIONS", actions: [shareAction, saveAction, playAction], intentIdentifiers: [], options: .customDismissAction)
+                
                 for notification in self.notifications {
+                    
                     let content = UNMutableNotificationContent()
-                    content.title = "~ \(notification.title)"
-                    content.subtitle = "# \(notification.subtitle)"
+                    content.title = notification.title
+                    content.subtitle = notification.subtitle
                     content.body = notification.body
                     content.sound = UNNotificationSound.default
+                    //                    content.categoryIdentifier = "QUOTE_ACTIONS"
+                    
                     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: notification.timeInterval, repeats: false)
                     let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
                     
+                    //                    self.center.setNotificationCategories([quoteActionsCategory])
                     self.center.add(request) { error in
                         guard error == nil else { return }
                         print("""

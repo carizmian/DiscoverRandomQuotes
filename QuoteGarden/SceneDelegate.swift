@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let store = Store()
         let storage = Storage()
         let manager = LocalNotificationManager()
+        let delegate = LocalNotificationDelegate()
+        let quoteViewModel = QuoteViewModel()
         
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
@@ -32,6 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(store)
             .environmentObject(storage)
             .environmentObject(manager)
+            .environmentObject(delegate)
+            .environmentObject(quoteViewModel)
 
         
         // Use a UIHostingController as window root view controller.

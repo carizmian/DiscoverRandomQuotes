@@ -11,7 +11,7 @@ class OnboardSet {
         self.height = height
     }
     
-    func newCard(title: String, image: String, text: String, videoInfo: OnboardCard.VideoInfo? = nil, gifInfo: OnboardCard.GifInfo? = nil, linkInfo: OnboardCard.LinkInfo? = nil) {
-        cards.append(OnboardCard(title: title, image: image, text: text, videoInfo: videoInfo, gifInfo: gifInfo,  linkInfo: linkInfo))
+    func newCard(title: String, image: String, text: String, videoInfo: OnboardCard.VideoInfo? = nil, linkInfo: OnboardCard.LinkInfo? = nil) {
+        cards.append(OnboardCard(title: title, image: image, text: text, videoInfo: videoInfo, linkInfo: linkInfo))
     }
 }

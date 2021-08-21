@@ -14,7 +14,10 @@ enum ActiveSheet: Identifiable {
 struct QuoteGeneratorView: View {
     static let tag: String? = "Home"
     @Environment(\.managedObjectContext) var moc
-    @State private var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
+    #warning("ode stavi kao onboarding text - da mos tap ili shake za generaciju novog citata!")
+
+    @EnvironmentObject var quoteViewModel: QuoteViewModel
+    
     @Binding var savedToDevice: Bool
     @State private var addedToClipboard = false
     @State private var rect1: CGRect = .zero
@@ -24,27 +27,36 @@ struct QuoteGeneratorView: View {
     var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var activeSheet: ActiveSheet?
     @EnvironmentObject var storage: Storage
+    @EnvironmentObject var delegate: LocalNotificationDelegate
+    @EnvironmentObject var manager: LocalNotificationManager
     @State private var showBuying = false
     var body: some View {
         
         VStack {
-            
             Color.clear.overlay(
                 
-                QuoteView(quote: quote)
+                QuoteView(quote: quoteViewModel.quote)
                     .gesture(
                         LongPressGesture().onChanged { _ in
-                            quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
-                            
-                            getRandomQuote { quote in
-                                
-                                self.quote = quote
-                                savedToDevice = false
-                                addedToClipboard = false
-                            }
+                            quoteViewModel.quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
+                            quoteViewModel.getRandomQuote()
+                            savedToDevice = false
+                            addedToClipboard = false
+//                            quoteViewModel.getRandomQuote { quote in
+//                                self.quoteViewModel.quote = quote
+//                                savedToDevice = false
+//                                addedToClipboard = false
+//                            }
                         }
-                    )
-                    .animation(.spring())
+                    ).animation(.spring())
+                    .onReceive(NotificationCenter.default.publisher(
+                        for: UIApplication.didBecomeActiveNotification
+                    )) { _ in
+                        // The app became active
+                        #warning("maybe there is a better way?")
+                        quoteViewModel.changeQuote(delegate.quote)
+                    }
+
                 
             ).getRect($rect1)
             .onChange(of: uiImage) {_ in self.uiImage = self.rect1.uiImage }
@@ -67,7 +79,7 @@ struct QuoteGeneratorView: View {
                 .accessibility(hint: Text("opens a share sheet view"))
                 
                 if favoriteQuotes.count < storage.amount { Button(action: {
-                    saveToDevice(quote: quote)
+                    saveToDevice(quote: quoteViewModel.quote)
                 }) {
                     Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
                     
@@ -85,7 +97,7 @@ struct QuoteGeneratorView: View {
                     .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
                 }
                 Button(action: {
-                    textToSpeech(quote: quote)
+                    textToSpeech(quote: quoteViewModel.quote)
                 }) {
                     Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
                     
@@ -94,7 +106,7 @@ struct QuoteGeneratorView: View {
                 .accessibility(hint: Text("Speak the quote text to your ears"))
                 .disabled(synthesizer.isSpeaking)
                 
-            }.disabled(quote.quoteText == "")
+            }.disabled(quoteViewModel.quote.quoteText == "")
             
         }.sheet(item: $activeSheet) { item in
             switch item {

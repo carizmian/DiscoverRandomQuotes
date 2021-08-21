@@ -29,7 +29,6 @@ struct ReminderView: View {
                     .frame(width: 200, height: 200)
                     .scaleEffect(0.4)
             }.padding()
-            
             VStack {
                 Text("Get Quotes reminders.")
                     .multilineTextAlignment(.center)
