@@ -5,7 +5,9 @@ class QuoteViewModel: ObservableObject {
     #warning("Tap here or shake your device to generate a random quote!")
     @Published var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
     
-    
+    init() {
+        print("initialising QuoteViewModel")
+    }
     
     func getRandomQuote() {
         let randomPage = Int.random(in: 1..<2)
@@ -43,8 +45,8 @@ class QuoteViewModel: ObservableObject {
                 return
             }
             DispatchQueue.main.async {
-                // Appends 500 quotes
-                for _ in 1...500 {
+                // Appends 100 quotes
+                for _ in 1...100 {
                     self.quotes.append(response.data[randomQuote])
                     randomQuote = Int.random(in: 0..<36335)
                 }

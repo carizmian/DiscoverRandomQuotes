@@ -63,6 +63,7 @@ struct QuoteGeneratorView: View {
                     }
                 
                 
+                
             ).getRect($rect1)
             .onChange(of: uiImage) {_ in self.uiImage = self.rect1.uiImage }
             .accessibility(addTraits: .isButton)

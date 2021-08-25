@@ -3,7 +3,9 @@ import CoreData
 class CoreDataStack {
     static let shared = CoreDataStack()
 
-    private init() {}
+    private init() {
+        print("initialising CoreDataStack")
+    }
 
     var managedObjectContext: NSManagedObjectContext {
         return self.persistentContainer.viewContext

@@ -4,8 +4,14 @@ import SwiftUI
 class LocalNotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
     @Published var quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
     #warning("Find a way to implement the commented code!")
+    
+    #warning("ovo override nez sta radi")
+    override init() {
+        print("initialising LocalNotificationDelegate")
+    }
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
+        completionHandler([.banner, .badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

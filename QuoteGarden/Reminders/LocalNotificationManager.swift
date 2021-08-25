@@ -7,6 +7,10 @@ class LocalNotificationManager: ObservableObject {
     #warning("Is it okay to create a instance here?")
     let quoteViewModel = QuoteViewModel()
     
+    init() {
+        print("initialising LocalNotificationManager")
+    }
+    
     func requestPermission() {
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted == true && error == nil {
@@ -31,11 +35,11 @@ class LocalNotificationManager: ObservableObject {
         
         var timeInterval = reminderFrequency * 3600
         DispatchQueue.main.async {
-            self.quoteViewModel.getRandomQuotes { quotes in
+            self.quoteViewModel.getRandomQuotes { quotes in
                 for quote in quotes {
                     self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
                     print("Adding notification by: \(quote.quoteAuthor) to notification array!")
-                    timeInterval += 18000
+                    timeInterval += reminderFrequency * 3600
                 }
             }
         }

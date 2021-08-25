@@ -28,6 +28,7 @@ class Store: NSObject, ObservableObject {
     private var purchaseCompletionHandler: PurchaseCompletionHandler?
     
     override init() {
+        print("initialising Store")
         super.init()
         
         startObservingPaymentQueue()
