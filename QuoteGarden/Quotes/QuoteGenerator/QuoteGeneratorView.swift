@@ -148,7 +148,7 @@ struct QuoteGeneratorView: View {
     }
     
     func saveToDevice(quote: Quote) {
-        
+        #warning("not working well with notifications!")
         savedToDevice.toggle()
         
         if savedToDevice == true {

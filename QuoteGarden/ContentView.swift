@@ -42,7 +42,6 @@ struct ContentView: View {
                         }
             
         }.onAppear {
-            manager.center.delegate = delegate
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()
             //hasOnboarded = false // here for testing

@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let store = Store()
         let storage = Storage()
-        let manager = LocalNotificationManager()
-        let delegate = LocalNotificationDelegate()
+        let manager = LocalNotificationManager.sharedInstance
+        let delegate = LocalNotificationDelegate.sharedInstance
         let quoteViewModel = QuoteViewModel()
         
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.

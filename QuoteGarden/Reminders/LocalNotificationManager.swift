@@ -1,8 +1,9 @@
 import UserNotifications
 
 class LocalNotificationManager: ObservableObject {
+    static let sharedInstance = LocalNotificationManager()
     var notifications = [Notification]()
-    let center =  UNUserNotificationCenter.current()
+    var center =  UNUserNotificationCenter.current()
     
     #warning("Is it okay to create a instance here?")
     let quoteViewModel = QuoteViewModel()
@@ -37,7 +38,7 @@ class LocalNotificationManager: ObservableObject {
         DispatchQueue.main.async {
             self.quoteViewModel.getRandomQuotes { quotes in
                 for quote in quotes {
-                    self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
+                    self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: 1)
                     print("Adding notification by: \(quote.quoteAuthor) to notification array!")
                     timeInterval += reminderFrequency * 3600
                 }

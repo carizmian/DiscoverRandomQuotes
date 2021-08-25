@@ -2,6 +2,7 @@ import UserNotifications
 import SwiftUI
 
 class LocalNotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
+    static let sharedInstance = LocalNotificationDelegate()
     @Published var quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
     #warning("Find a way to implement the commented code!")
     
