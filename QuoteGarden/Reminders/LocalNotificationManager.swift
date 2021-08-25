@@ -38,7 +38,7 @@ class LocalNotificationManager: ObservableObject {
         DispatchQueue.main.async {
             self.quoteViewModel.getRandomQuotes { quotes in
                 for quote in quotes {
-                    self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: 1)
+                    self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
                     print("Adding notification by: \(quote.quoteAuthor) to notification array!")
                     timeInterval += reminderFrequency * 3600
                 }
