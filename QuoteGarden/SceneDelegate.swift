@@ -19,11 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
         let context = CoreDataStack.shared.managedObjectContext
         context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
-        
         let store = Store()
         let storage = Storage()
-        let manager = LocalNotificationManager.sharedInstance
-        let delegate = LocalNotificationDelegate.sharedInstance
         let quoteViewModel = QuoteViewModel()
         
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
@@ -33,10 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environment(\.managedObjectContext, context)
             .environmentObject(store)
             .environmentObject(storage)
-            .environmentObject(manager)
-            .environmentObject(delegate)
             .environmentObject(quoteViewModel)
-
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

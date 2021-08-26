@@ -6,7 +6,6 @@ struct OnboardingCardView: View {
     let card: OnboardCard
     let width: CGFloat
     let height: CGFloat
-    @EnvironmentObject var manager: LocalNotificationManager
     @EnvironmentObject var store: Store
     @EnvironmentObject var storage: Storage
     @State var showBuying = false
@@ -31,7 +30,6 @@ struct OnboardingCardView: View {
                     VideoPlayer(player: AVPlayer(url: url))
                         .frame(width: videoInfo.ratio * videoInfo.newHeight, height: videoInfo.newHeight)
                 }
-                
                 
             } else {
                 Image(card.image)

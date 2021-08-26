@@ -4,8 +4,8 @@ import Lottie
 struct ReminderView: View {
     // Toggle work great with .onChange
     @State private var sendReminders = true
-    @State private var reminderFrequency = 5.0
-    @EnvironmentObject var manager: LocalNotificationManager
+    @State private var reminderFrequency = 3.0
+    @ObservedObject var manager = NotificationManager.shared
     var body: some View {
         VStack {
             
@@ -15,12 +15,12 @@ struct ReminderView: View {
                     case true: do {
                         manager.addNotifications(reminderFrequency: reminderFrequency)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            manager.scheduleNotifications()
+                            manager.setNotifications()
                             print("setting notifications")
                         }
                     }
                     case false: do {
-                        manager.removeAllNotifications()
+                        manager.center.removeAllPendingNotificationRequests()
                     }
                     }
                 }

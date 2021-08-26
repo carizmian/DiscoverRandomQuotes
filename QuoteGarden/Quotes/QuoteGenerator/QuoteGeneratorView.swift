@@ -26,8 +26,7 @@ struct QuoteGeneratorView: View {
     var favoriteQuotes: FetchedResults<QuoteCD>
     @State private var activeSheet: ActiveSheet?
     @EnvironmentObject var storage: Storage
-    @EnvironmentObject var delegate: LocalNotificationDelegate
-    @EnvironmentObject var manager: LocalNotificationManager
+    @ObservedObject var delegate = NotificationDelegate.shared
     @State private var showBuying = false
     var body: some View {
         
@@ -58,11 +57,11 @@ struct QuoteGeneratorView: View {
                         #warning("Maybe there is a better way!")
                         if delegate.quote.quoteText != "" {
                             // use the notification delegate quote
+                            savedToDevice = false
                             quoteViewModel.changeQuote(delegate.quote)
+                            delegate.quote.quoteText = ""
                         }
                     }
-                
-                
                 
             ).getRect($rect1)
             .onChange(of: uiImage) {_ in self.uiImage = self.rect1.uiImage }
@@ -148,7 +147,6 @@ struct QuoteGeneratorView: View {
     }
     
     func saveToDevice(quote: Quote) {
-        #warning("not working well with notifications!")
         savedToDevice.toggle()
         
         if savedToDevice == true {

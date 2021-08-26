@@ -1,6 +1,7 @@
 import Foundation
 
 class QuoteViewModel: ObservableObject {
+        
     @Published var quotes = [Quote]()
     #warning("Tap here or shake your device to generate a random quote!")
     @Published var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")

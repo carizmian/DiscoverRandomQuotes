@@ -21,12 +21,12 @@ struct OnboardCard: Identifiable {
     let text: String
     
     // MARK: Optional
-    var videoInfo: VideoInfo? = nil
+    var videoInfo: VideoInfo?
     var pathToVideo: URL? {
         guard let path = Bundle.main.path(forResource: image, ofType: nil) else {
             return nil
         }
         return URL(fileURLWithPath: path)
     }
-    var linkInfo: LinkInfo? = nil
+    var linkInfo: LinkInfo?
 }

@@ -10,8 +10,6 @@ struct ContentView: View {
     @State private var showOnboarding = false
     @AppStorage("OnboardBeenViewed") var hasOnboarded = false
     var onboardSet = OnboardData.buildSet(width: .infinity, height: .infinity)
-    @EnvironmentObject var manager: LocalNotificationManager
-    @EnvironmentObject var delegate: LocalNotificationDelegate
     var body: some View {
         ZStack {
             NavigationView {

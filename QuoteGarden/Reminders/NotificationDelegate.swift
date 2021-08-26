@@ -1,12 +1,12 @@
 import UserNotifications
 import SwiftUI
 
-class LocalNotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
-    static let sharedInstance = LocalNotificationDelegate()
+class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
+    static let shared = NotificationDelegate()
     @Published var quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
     #warning("Find a way to implement the commented code!")
     
-    #warning("ovo override nez sta radi")
+    #warning("what does override mean?")
     override init() {
         print("initialising LocalNotificationDelegate")
     }

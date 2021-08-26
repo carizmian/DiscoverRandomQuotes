@@ -1,6 +1,7 @@
 import CoreData
 
 class CoreDataStack {
+    // Hey, this is a singleton!
     static let shared = CoreDataStack()
 
     private init() {
