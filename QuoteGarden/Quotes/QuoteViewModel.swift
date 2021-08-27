@@ -32,7 +32,6 @@ class QuoteViewModel: ObservableObject {
             }
         }.resume()
     }
-    #warning("pregledaj ovu funkcije jer kad idu sve jedna za drugom onda raadi, a kad nisu nego svako par sati onda niš!")
     func getRandomQuotes(withCompletionHandler completionHandler: @escaping ([Quote]) -> Void) {
         let randomPage = Int.random(in: 1..<2)
         var randomQuote = Int.random(in: 0..<36335)
@@ -50,6 +49,7 @@ class QuoteViewModel: ObservableObject {
             DispatchQueue.main.async {
                 // Appends 50 quotes
                 #warning("When it is set to 100 it doesn't work...")
+                #warning("or THIS: then if i try to give a calculated difference in seconds in a loop, the notifications doesn't seems to fire ")
                 for _ in 1...50 {
                     self.quotes.append(response.data[randomQuote])
                     randomQuote = Int.random(in: 0..<36335)
