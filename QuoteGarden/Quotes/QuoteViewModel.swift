@@ -6,6 +6,9 @@ class QuoteViewModel: ObservableObject {
     #warning("Tap here or shake your device to generate a random quote!")
     @Published var quote = Quote(id: "", quoteText: "Tap here to generate a random quote", quoteAuthor: "Nikola Franičević", quoteGenre: "help")
     
+    // MARK: - Screenshots
+//    @Published var quote = Quote(id: "", quoteText: "Success usually comes to those who are too busy looking for it", quoteAuthor: "Henry David Thoreau", quoteGenre: "motivation")
+    
     init() {
         print("initialising QuoteViewModel")
     }
@@ -28,9 +31,8 @@ class QuoteViewModel: ObservableObject {
                 self.quote = response.data[randomQuote]
             }
         }.resume()
-        
     }
-    
+    #warning("pregledaj ovu funkcije jer kad idu sve jedna za drugom onda raadi, a kad nisu nego svako par sati onda niš!")
     func getRandomQuotes(withCompletionHandler completionHandler: @escaping ([Quote]) -> Void) {
         let randomPage = Int.random(in: 1..<2)
         var randomQuote = Int.random(in: 0..<36335)
@@ -46,19 +48,18 @@ class QuoteViewModel: ObservableObject {
                 return
             }
             DispatchQueue.main.async {
-                // Appends 100 quotes
-                for _ in 1...100 {
+                // Appends 50 quotes
+                #warning("When it is set to 100 it doesn't work...")
+                for _ in 1...50 {
                     self.quotes.append(response.data[randomQuote])
                     randomQuote = Int.random(in: 0..<36335)
                 }
                 completionHandler(self.quotes)
             }
         }.resume()
-        
     }
     
     func changeQuote(_ quote: Quote) {
         self.quote = quote
-        
     }
 }

@@ -21,6 +21,10 @@ class NotificationManager: ObservableObject {
                     print("Adding notification by: \(quote.quoteAuthor) to notification array!")
                 }
             }
+            
+            // MARK: - Screenshots
+//            self.addNotification(id: UUID().uuidString, title: "Henry David Thoreau", subtitle: "motivation", body: "Success usually comes to those who are too busy looking for it", timeInterval: 3.0)
+//            self.addNotification(id: UUID().uuidString, title: "John Wooden", subtitle: "success", body: "Success is peace of mind, which is a direct result of self-satisfaction in knowing you made the effort to become the best of which you are capable", timeInterval: 5.0)
         }
     }
     
@@ -87,8 +91,8 @@ class NotificationManager: ObservableObject {
                     in: \(String(describing: notification.timeInterval / 3600)) hours
                     """)
             }
-            notifications.removeAll()
         }
+        notifications.removeAll()
     }
     
 }
