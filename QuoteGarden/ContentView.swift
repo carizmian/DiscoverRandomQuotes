@@ -21,29 +21,35 @@ struct ContentView: View {
                                             
                                             NavigationLink(destination: QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)) {
                                                 Image(systemName: "text.quote")
-                                                    .font(.largeTitle)
+                                                    .font(Font.system(.title3,
+                                                                      design: .default)
+                                                            .weight(.regular))
+                                                    .padding()
                                             }.accessibilityLabel(Text("Saved quotes"))
                                             .accessibility(hint: Text("Find your saved quotes here")), trailing:
                                                 
                                                 NavigationLink(destination: SettingsView()) {
                                                     Image(systemName: "gearshape.fill")
-                                                        .font(.largeTitle)
+                                                        .font(Font.system(.title3,
+                                                                          design: .default)
+                                                                .weight(.regular))
+                                                        .padding()
                                                 }.accessibilityLabel(Text("Settings"))
                                                 .accessibility(hint: Text("Find settings and social links here")))
                 
             }.navigationViewStyle(StackNavigationViewStyle())
-                        .disabled(showOnboarding)
-                        .blur(radius: showOnboarding ? 3.0 : 0)
+            .disabled(showOnboarding)
+            .blur(radius: showOnboarding ? 3.0 : 0)
             
-                        if showOnboarding {
-                            OnboardingScreens(showOnboarding: $showOnboarding, onboardSet: onboardSet)
-                        }
+            if showOnboarding {
+                OnboardingScreens(showOnboarding: $showOnboarding, onboardSet: onboardSet)
+            }
             
         }.onAppear {
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()
             #warning("ONBOARDING")
-            hasOnboarded = false // here for testing
+            //hasOnboarded = false // here for testing
             // When the user dismisses the onboarding view by swiping down, we will also consider onboarding as complete
             if !hasOnboarded {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

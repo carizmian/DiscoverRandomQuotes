@@ -23,12 +23,9 @@ struct ReminderView: View {
                     }
                     }
                 }
-            VStack {
-                LottieView(animationName: "countdown")
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-                    .scaleEffect(0.4)
-            }.padding()
+            Image("Reminder")
+                .resizable()
+                .scaledToFit()
             VStack {
                 Text("Get Quotes reminders.")
                     .multilineTextAlignment(.center)
@@ -39,9 +36,8 @@ struct ReminderView: View {
                 }.padding()
                 
             }
-            
+            Spacer()
         }.padding(.horizontal)
-        .edgesIgnoringSafeArea(.top)        
     }
 }
 

@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Shop.svg",
+      "filename" : "shopping-cart-1.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "shopping-cart(1).png",
       "idiom" : "universal"
     }
   ],

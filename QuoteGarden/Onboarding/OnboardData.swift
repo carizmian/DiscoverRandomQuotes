@@ -15,12 +15,13 @@ enum OnboardData {
                            text: "Whether you are going through difficult times, are just bored, or sharing inspirational quotes with your friends, Quotes has you covered.")
         onboardSet.newCard(title: "Reminders",
                            image: "Reminder",
-                           text: "Surprising reminders are a great way to have fun while learning new knowledge. The most important thing is that you are learning every day.")
+                           text: "Surprising reminders are a great way to have fun while learning new knowledge. The most important thing is that you are learning every day.",
+                           buttonInfo: OnboardCard.ButtonInfo(title: "Enable", function: .reminder))
         onboardSet.newCard(title: "Widgets",
                            image: "Widget",
                            text: "Once you saved a quote you can display it on your home screen: from the Home Screen, touch and hold an empty area until the apps jiggle. Then tap the + button in the upper corner to add the widget.")
-        onboardSet.newCard(title: "Shake to Undo",
-                           image: "Shake", text: "Shake to Undo - Accidentally deleted a quote? Shake the device to undo the deletion!")
+        onboardSet.newCard(title: "Shake It Up",
+                           image: "Shake", text: "Shake to Undo - Accidentally deleted a quote? Shake the device to undo the deletion! Shake to Generate - Tap on the quote or shake your device to generate a random quote!")
         onboardSet.newCard(title: "Premium",
                            image: "Shop",
                            text: "Premium features made for the best app experience. Choose what you want from the store now!",

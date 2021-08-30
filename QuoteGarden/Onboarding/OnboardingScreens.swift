@@ -19,9 +19,6 @@ struct OnboardingScreens: View {
         .padding()
         .onAppear {
             manager.addNotifications(reminderFrequency: 3.0)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                manager.requestPermission()
-            }
         }.onDisappear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 manager.setNotifications()

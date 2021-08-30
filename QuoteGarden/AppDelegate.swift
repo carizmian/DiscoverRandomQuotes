@@ -9,13 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         NotificationManager.shared.center.delegate = NotificationDelegate.shared
         
-        #if DEBUG
-        if CommandLine.arguments.contains("--uitesting") {
-            print("Reseting the app...")
-            resetState()
-        }
-        #endif
-        
         return true
     }
     

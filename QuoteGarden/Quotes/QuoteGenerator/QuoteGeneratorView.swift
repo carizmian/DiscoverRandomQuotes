@@ -28,83 +28,91 @@ struct QuoteGeneratorView: View {
     @EnvironmentObject var storage: Storage
     @ObservedObject var delegate = NotificationDelegate.shared
     @State private var showBuying = false
+    @State var attempts: Int = 0
     var body: some View {
-        
-        VStack {
-            Color.clear.overlay(
-                QuoteView(quote: quoteViewModel.quote)
-                    .gesture(
-                        LongPressGesture().onChanged { _ in
-                            // Use the view model again
+        ZStack {
+            ShakableViewRepresentable()
+                .allowsHitTesting(false)
+            VStack {
+                Color.clear.overlay(
+                    QuoteView(quote: quoteViewModel.quote)
+                        .animation(.spring())
+                        .onTapGesture {
                             quoteViewModel.changeQuote(quoteViewModel.quote)
                             quoteViewModel.quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
                             quoteViewModel.getRandomQuote()
                             savedToDevice = false
                             addedToClipboard = false
-                            #warning("JIGGLE QUOTE WHEN A CERTAIN TIME PASSES!")
+                        }.onReceive(NotificationCenter.default.publisher(
+                            for: UIApplication.didBecomeActiveNotification
+                        )) { _ in
+                            // The app became active
+                            #warning("Maybe there is a better way!")
+                            if delegate.quote.quoteText != "" {
+                                // use the notification delegate quote
+                                savedToDevice = false
+                                quoteViewModel.changeQuote(delegate.quote)
+                                delegate.quote.quoteText = ""
+                            }
                         }
-                    ).animation(.spring())
-                    .onReceive(NotificationCenter.default.publisher(
-                        for: UIApplication.didBecomeActiveNotification
-                    )) { _ in
-                        // The app became active
-                        #warning("Maybe there is a better way!")
-                        if delegate.quote.quoteText != "" {
-                            // use the notification delegate quote
-                            savedToDevice = false
-                            quoteViewModel.changeQuote(delegate.quote)
-                            delegate.quote.quoteText = ""
-                        }
-                    }
+                    
+                ).getRect($rect1)
+                .onChange(of: uiImage) {_ in self.uiImage = self.rect1.uiImage }
+                .accessibility(addTraits: .isButton)
+                .accessibility(label: Text("Change quote"))
+                .accessibility(hint: Text("Changes quote when tapped, and display them"))
                 
-            ).getRect($rect1)
-            .onChange(of: uiImage) {_ in self.uiImage = self.rect1.uiImage }
-            .accessibility(addTraits: .isButton)
-            .accessibility(label: Text("Change quote"))
-            .accessibility(hint: Text("Changes quote when tapped, and display them"))
-            
-            HStack {
-                
-                Button(action: {
-                    self.uiImage = self.rect1.uiImage
-                    if self.uiImage != nil {
-                        activeSheet = .shareSheetView
-                    }
-                }) {
-                    Image(systemName: "square.and.arrow.up")
-                }.buttonStyle(IconButtonStyle())
-                .accessibilityLabel(Text("Share quote"))
-                .accessibility(hint: Text("opens a share sheet view"))
-                
-                if favoriteQuotes.count < storage.amount { Button(action: {
-                    saveToDevice(quote: quoteViewModel.quote)
-                }) {
-                    Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
-                }.buttonStyle(IconButtonStyle())
-                .accessibilityLabel(Text("Save quote"))
-                .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
-                } else if  favoriteQuotes.count >= storage.amount {
+                HStack {
+                    
                     Button(action: {
-                        activeSheet = .buyStorageSheetView
+                        self.uiImage = self.rect1.uiImage
+                        if self.uiImage != nil {
+                            activeSheet = .shareSheetView
+                        }
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                    }.buttonStyle(IconButtonStyle())
+                    .accessibilityLabel(Text("Share quote"))
+                    .accessibility(hint: Text("opens a share sheet view"))
+                    
+                    if favoriteQuotes.count < storage.amount { Button(action: {
+                        saveToDevice(quote: quoteViewModel.quote)
                     }) {
                         Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
                     }.buttonStyle(IconButtonStyle())
                     .accessibilityLabel(Text("Save quote"))
                     .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
-                }
-                Button(action: {
-                    textToSpeech(quote: quoteViewModel.quote)
-                }) {
-                    Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
+                    } else if  favoriteQuotes.count >= storage.amount {
+                        Button(action: {
+                            activeSheet = .buyStorageSheetView
+                        }) {
+                            Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
+                        }.buttonStyle(IconButtonStyle())
+                        .accessibilityLabel(Text("Save quote"))
+                        .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
+                    }
+                    Button(action: {
+                        textToSpeech(quote: quoteViewModel.quote)
+                    }) {
+                        Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
+                        
+                    }.buttonStyle(IconButtonStyle())
+                    .accessibilityLabel(Text("Quote text to speech"))
+                    .accessibility(hint: Text("Speak the quote text to your ears"))
+                    .disabled(synthesizer.isSpeaking)
                     
-                }.buttonStyle(IconButtonStyle())
-                .accessibilityLabel(Text("Quote text to speech"))
-                .accessibility(hint: Text("Speak the quote text to your ears"))
-                .disabled(synthesizer.isSpeaking)
+                }.disabled(quoteViewModel.quote.quoteText == "")
                 
-            }.disabled(quoteViewModel.quote.quoteText == "")
-            
-        }.sheet(item: $activeSheet) { item in
+            }
+        }.onReceive(messagePublisher) { _ in
+            quoteViewModel.changeQuote(quoteViewModel.quote)
+            quoteViewModel.quote = Quote(id: "", quoteText: "", quoteAuthor: "", quoteGenre: "")
+            quoteViewModel.getRandomQuote()
+            savedToDevice = false
+            addedToClipboard = false
+            print("Shaking")
+        }
+        .sheet(item: $activeSheet) { item in
             switch item {
             case .shareSheetView:
                 if uiImage != nil {

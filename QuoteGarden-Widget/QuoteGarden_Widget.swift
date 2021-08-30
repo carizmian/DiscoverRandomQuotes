@@ -59,7 +59,7 @@ struct MediumWidget: View {
         VStack(alignment: .center) {
             
             Text("\(entry.quote.quoteText)")
-                .font(Font.system(.title, design: .rounded).weight(.light))
+                .font(Font.system(.title, design: .default).weight(.light))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .layoutPriority(2)
@@ -78,30 +78,26 @@ struct LargeWidget: View {
     var body: some View {
         VStack(alignment: .center) {
             
-            HStack {
-                Text("#")
-                Text("\(entry.quote.quoteGenre)")
-            }.padding(.bottom)
-            .allowsTightening(true)
-            .font(Font.system(.callout, design: .rounded).weight(.light))
-            .accessibilityLabel(Text("quote genre is hashtag \(entry.quote.quoteGenre)"))
+            
+            Text("#\(entry.quote.quoteGenre)")
+                .padding(.bottom)
+                .allowsTightening(true)
+                .font(Font.system(.caption, design: .default).weight(.light))
+                .accessibilityLabel(Text("quote genre is hashtag \(entry.quote.quoteGenre)"))
             
             Text("\(entry.quote.quoteText)")
-                .font(Font.system(.title, design: .rounded).weight(.light))
+                .font(Font.system(.title, design: .default).weight(.light))
                 .padding(.horizontal)
                 .allowsTightening(true)
                 .layoutPriority(2)
                 .minimumScaleFactor(0.3)
                 .accessibilityLabel(Text("quote text is \(entry.quote.quoteText)"))
             
-            HStack {
-                Text("~")
-                Text("\(entry.quote.quoteAuthor)")
-                
-            }.padding(.top)
-            .allowsTightening(true)
-            .font(Font.system(.callout, design: .rounded).weight(.light))
-            .accessibilityLabel(Text("quote author is \(entry.quote.quoteAuthor)"))
+            Text("\(entry.quote.quoteAuthor)")
+                .padding(.top)
+                .allowsTightening(true)
+                .font(Font.system(.callout, design: .default).weight(.regular))
+                .accessibilityLabel(Text("quote author is \(entry.quote.quoteAuthor)"))
             
         }.padding()
         .multilineTextAlignment(.center)

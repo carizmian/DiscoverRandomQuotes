@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Widget.svg",
+      "filename" : "background-36.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "background-035(1).png",
       "idiom" : "universal"
     }
   ],

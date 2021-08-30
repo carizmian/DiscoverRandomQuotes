@@ -1,12 +1,14 @@
 import SwiftUI
 
-struct IconButtonStyle: ButtonStyle {
+struct TextButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
-            .font(.title)
+            .font(Font.system(.title3,
+                              design: .default)
+                    .weight(.semibold))
             .padding()
         
     }

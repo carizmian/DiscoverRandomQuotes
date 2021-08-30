@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Shake.svg",
+      "filename" : "magic-1.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "magic(1).png",
       "idiom" : "universal"
     }
   ],

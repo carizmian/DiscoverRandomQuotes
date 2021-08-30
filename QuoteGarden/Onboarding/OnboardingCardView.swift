@@ -9,13 +9,14 @@ struct OnboardingCardView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var storage: Storage
     @State var showBuying = false
-    #warning(" Mini-savjet: radije izbriši nepotreban kod, nego što ga zakomentiraš, uvijek možeš nešto izbrisano vratiti putem gita natrag.")
+    @ObservedObject var manager = NotificationManager.shared
     var body: some View {
         VStack {
             HStack(alignment: .center) {
                 Text(card.title)
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .padding(.leading, 5.0)
                 Spacer()
                 Button(action: {
                     withAnimation(.linear(duration: 0.3)) {
@@ -39,9 +40,8 @@ struct OnboardingCardView: View {
             }
             Text(card.text)
                 .font(.title3)
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .padding(.all)
             
-            #warning("Refactor me for reusability!")
             if let linkInfo = card.linkInfo {
                 Button(linkInfo.title) {
                     if let url = URL(string: linkInfo.webLink) {
@@ -54,6 +54,8 @@ struct OnboardingCardView: View {
                 Button(buttonInfo.title) {
                     if buttonInfo.function == .store {
                         showBuying.toggle()
+                    } else if buttonInfo.function == .reminder {
+                        manager.requestPermission()
                     }
                 }.buttonStyle(TextButtonStyle())
             }

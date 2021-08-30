@@ -1,60 +1,56 @@
 import SwiftUI
 
 struct QuoteView: View {
-
+    
     var quote: Quote
-
+    
     var body: some View {
-
+        
         #if os(iOS)
-            VStack(alignment: .center) {
-
-                HStack {
-                    Text("#")
-                    Text("\(quote.quoteGenre)")
-                }.padding(.bottom)
+        VStack(alignment: .center) {
+            
+            Text("#\(quote.quoteGenre)")
+                .padding(.bottom)
                 .allowsTightening(true)
-                .font(Font.system(.callout, design: .rounded).weight(.light))
+                .font(Font.system(.caption, design: .default).weight(.light))
                 .accessibility(value: Text("quote genre is hashtag \(quote.quoteGenre)"))
-
-                Text("\(quote.quoteText)")
-                    .font(Font.system(.title, design: .rounded).weight(.light))
-                    .padding(.horizontal)
-                    .allowsTightening(true)
-                    .layoutPriority(2)
-                    .minimumScaleFactor(0.3)
-                    .accessibility(value: Text("quote text is \(quote.quoteText)"))
-
-                HStack {
-                    Text("~")
-                    Text("\(quote.quoteAuthor)")
-
-                }.padding(.top)
+            
+            Text("\(quote.quoteText)")
+                .font(Font.system(.title, design: .default).weight(.light))
+                .padding(.horizontal)
                 .allowsTightening(true)
-                .font(Font.system(.callout, design: .rounded).weight(.light))
-                .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
-
-            }.foregroundColor(Color("TextColor"))
-            .multilineTextAlignment(.center)
-            .padding()
-            .background(Color("AccentColor").clipShape(RoundedRectangle(cornerRadius: 25)))
+                .layoutPriority(2)
+                .minimumScaleFactor(0.3)
+                .accessibility(value: Text("quote text is \(quote.quoteText)"))
+            
+                Text("\(quote.quoteAuthor)")
+            .padding(.top)
+            .allowsTightening(true)
+            .font(Font.system(.callout, design: .default).weight(.regular))
+            .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
+            
+        }.foregroundColor(Color("TextColor"))
+        .multilineTextAlignment(.center)
+        .padding()
+        .background(Color("AccentColor").clipShape(RoundedRectangle(cornerRadius: 25)))
+        .padding()
         #elseif os(watchOS)
         VStack(alignment: .leading) {
-
-                Text("\(quote.quoteText)")
-                    .allowsTightening(true)
-                    .layoutPriority(2)
-                    .minimumScaleFactor(0.1)
-                    .accessibility(value: Text("quote text is \(quote.quoteText)"))
-                HStack {
-                    Text("~")
-                    Text("\(quote.quoteAuthor)")
-
-                }.padding(.top, 1)
+            
+            Text("\(quote.quoteText)")
                 .allowsTightening(true)
-                .font(.body)
-                .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
-
+                .layoutPriority(2)
+                .minimumScaleFactor(0.1)
+                .accessibility(value: Text("quote text is \(quote.quoteText)"))
+            HStack {
+                Text("~")
+                Text("\(quote.quoteAuthor)")
+                
+            }.padding(.top, 1)
+            .allowsTightening(true)
+            .font(.body)
+            .accessibility(value: Text("quote author is \(quote.quoteAuthor)"))
+            
         }.multilineTextAlignment(.leading)
         .edgesIgnoringSafeArea(.all)
         #endif

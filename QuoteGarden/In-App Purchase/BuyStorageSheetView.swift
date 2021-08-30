@@ -14,12 +14,9 @@ struct BuyStorageSheetView: View {
                 }.buttonStyle(IconButtonStyle())
                 
             }
-            VStack {
-                LottieView(animationName: "buy")
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-                    .scaleEffect(0.2)
-            }.padding()
+            Image("Shop")
+                .resizable()
+                .scaledToFit()
             Text("Save all the quotes you want.")
             List(store.allProducts, id: \.id) { product in
                 Group {

@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Welcome.svg",
+      "filename" : "paper.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "paper(1).png",
       "idiom" : "universal"
     }
   ],
