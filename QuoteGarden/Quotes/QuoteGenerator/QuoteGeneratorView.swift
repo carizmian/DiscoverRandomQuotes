@@ -42,12 +42,6 @@ struct QuoteGeneratorView: View {
                             savedToDevice = false
                             addedToClipboard = false
                             #warning("JIGGLE QUOTE WHEN A CERTAIN TIME PASSES!")
-                            
-                            //                            quoteViewModel.getRandomQuote { quote in
-                            //                                self.quoteViewModel.quote = quote
-                            //                                savedToDevice = false
-                            //                                addedToClipboard = false
-                            //                            }
                         }
                     ).animation(.spring())
                     .onReceive(NotificationCenter.default.publisher(

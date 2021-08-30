@@ -13,7 +13,6 @@ struct QuoteListView: View {
     @EnvironmentObject var storage: Storage
     @State private var showBuying = false
     var body: some View {
-        //   NavigationView {
         ZStack {
             ShakableViewRepresentable()
                 .allowsHitTesting(false)
@@ -60,7 +59,6 @@ struct QuoteListView: View {
                 }
                 
             }.onReceive(messagePublisher) { _ in
-                // moc.undoManager = UndoManager()
                 print(moc.undoManager?.canUndo ?? "error")
                 moc.undo()
                 print("Shaking")
@@ -72,15 +70,6 @@ struct QuoteListView: View {
         }.onAppear {
             startAnimation.toggle()
         }
-        
-        //  }
-        
+                
     }
-    
 }
-
-//struct QuoteListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QuoteListViewremoveQuote: <#(IndexSet) -> Void#>, favoriteQuotes: <#FetchedResults<QuoteCD>#>, synthesizer: <#AVSpeechSynthesizer#>()
-//    }
-//}

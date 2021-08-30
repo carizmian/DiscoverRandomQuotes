@@ -55,10 +55,7 @@ struct SettingsView: View {
                     }
                     
                 }.listStyle(GroupedListStyle())
-//                .navigationBarTitle("Settings")
-//                .navigationBarTitleDisplayMode(.inline)
             }
-        //}
     }
 }
 

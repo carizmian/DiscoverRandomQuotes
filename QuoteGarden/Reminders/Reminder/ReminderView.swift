@@ -2,7 +2,6 @@ import SwiftUI
 import Lottie
 
 struct ReminderView: View {
-    // Toggle work great with .onChange
     @State private var sendReminders = true
     @State private var reminderFrequency = 3.0
     @ObservedObject var manager = NotificationManager.shared

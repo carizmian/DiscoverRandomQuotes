@@ -86,26 +86,6 @@ struct QuoteDetailView: View {
             print(error)
         }
     }
-    
-//    func copyToClipboard(quoteGenre: String, quoteText: String, quoteAuthor: String) {
-//        let quoteString = """
-//        # \(quoteGenre)
-//        \(quoteText)
-//        ~ \(quoteAuthor)
-//
-//        From the Spontaneous app: https://apps.apple.com/us/app/spontaneous-random-quotes/id1538265374
-//        """
-//
-//        let pasteboard = UIPasteboard.general
-//        pasteboard.string = quoteString
-//
-//        if pasteboard.string != nil {
-//            print(quoteString)
-//        }
-//
-//        addedToClipboard = true
-//    }
-    
     func savePrimary(quoteCD: QuoteCD) {
         
         let quote = Quote(id: quoteCD.id ?? "", quoteText: quoteCD.wrappedQuoteText, quoteAuthor: quoteCD.wrappedQuoteAuthor, quoteGenre: quoteCD.wrappedQuoteGenre)

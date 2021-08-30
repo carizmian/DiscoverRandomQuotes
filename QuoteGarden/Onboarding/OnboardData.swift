@@ -25,8 +25,6 @@ enum OnboardData {
                            image: "Shop",
                            text: "Premium features made for the best app experience. Choose what you want from the store now!",
                            buttonInfo: OnboardCard.ButtonInfo(title: "Store", function: .store))
-
-//        onboardSet.newCard(title: "Leave Feedback", image: "Feedback", text: "Thank you for buying my app. Let me know what you think of it. Have any feature requests, suggestions, or bug reports? Please provide feedback by tapping the button below!", linkInfo: OnboardCard.LinkInfo(title: "Leave Feedback", webLink: "https://nikolafranicevic.com/EUVATNumberVIESFreelance/feedback"))
         return onboardSet
     }
 }
