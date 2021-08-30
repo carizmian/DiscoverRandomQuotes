@@ -1,5 +1,4 @@
 import SwiftUI
-import Lottie
 
 struct ReminderView: View {
     @State private var sendReminders = true

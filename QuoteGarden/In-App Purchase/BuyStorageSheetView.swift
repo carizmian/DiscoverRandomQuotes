@@ -1,5 +1,4 @@
 import SwiftUI
-import Lottie
 
 struct BuyStorageSheetView: View {
     @EnvironmentObject var store: Store
