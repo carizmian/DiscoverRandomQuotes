@@ -14,11 +14,11 @@ struct OnboardingScreens: View {
             }.tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             
-            Spacer()
+           // Spacer()
             
-        }.edgesIgnoringSafeArea(.all)
+        }.shadow(radius: 5)
+        .edgesIgnoringSafeArea(.all)
         .padding()
-        .padding(.bottom)
         .onAppear {
             // 3 Hours is default
             manager.addNotifications(reminderFrequency: 3.0)

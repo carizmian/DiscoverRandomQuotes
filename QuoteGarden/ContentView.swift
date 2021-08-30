@@ -42,7 +42,8 @@ struct ContentView: View {
         }.onAppear {
             moc.undoManager = UndoManager()
             AppReviewRequest.requestReviewIfNeeded()
-            //hasOnboarded = false // here for testing
+            #warning("ONBOARDING")
+            hasOnboarded = false // here for testing
             // When the user dismisses the onboarding view by swiping down, we will also consider onboarding as complete
             if !hasOnboarded {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

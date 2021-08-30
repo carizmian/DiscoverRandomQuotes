@@ -47,7 +47,7 @@ struct ContentView: View {
                 }) {
                     Image(systemName: "square.and.arrow.up")
                     
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Share quote"))
                 .accessibility(hint: Text("opens a share sheet view"))
                 
@@ -56,7 +56,7 @@ struct ContentView: View {
                 }) {
                     Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
                     
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Quote text to speech"))
                 .accessibility(hint: Text("Speak the quote text to your ears"))
                 .disabled(synthesizer.isSpeaking)

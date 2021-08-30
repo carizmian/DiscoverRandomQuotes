@@ -33,8 +33,7 @@ struct QuoteDetailView: View {
                     savePrimary(quoteCD: favoriteQuote)
                 }) {
                     Image(systemName: addedToFavorites ? "arrow.turn.up.forward.iphone.fill" : "arrow.turn.up.forward.iphone")
-                    
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Display on a widget"))
                 .accessibility(hint: Text("Display the quote on a widget"))
                 
@@ -46,8 +45,7 @@ struct QuoteDetailView: View {
                     
                 }) {
                     Image(systemName: "square.and.arrow.up")
-                    
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Share quote"))
                 .accessibility(hint: Text("opens a share sheet view"))
                 
@@ -55,8 +53,7 @@ struct QuoteDetailView: View {
                     textToSpeech(quote: favoriteQuote)
                 }) {
                     Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
-                    
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Quote text to speech"))
                 .accessibility(hint: Text("Speak the quote text to your ears"))
                 .disabled(synthesizer.isSpeaking)

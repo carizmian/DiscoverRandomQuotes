@@ -35,7 +35,7 @@ struct BuyStorageView: View {
         }
         Button(action: {store.restorePurchases()}) {
             Text("Restore")
-        }.buttonStyle(ColoredButtonStyle())
+        }.buttonStyle(TextButtonStyle())
     }
 }
 

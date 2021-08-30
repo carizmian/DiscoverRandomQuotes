@@ -78,8 +78,7 @@ struct QuoteGeneratorView: View {
                     }
                 }) {
                     Image(systemName: "square.and.arrow.up")
-                    
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Share quote"))
                 .accessibility(hint: Text("opens a share sheet view"))
                 
@@ -87,8 +86,7 @@ struct QuoteGeneratorView: View {
                     saveToDevice(quote: quoteViewModel.quote)
                 }) {
                     Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
-                    
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Save quote"))
                 .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
                 } else if  favoriteQuotes.count >= storage.amount {
@@ -96,8 +94,7 @@ struct QuoteGeneratorView: View {
                         activeSheet = .buyStorageSheetView
                     }) {
                         Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
-                        
-                    }.buttonStyle(ColoredButtonStyle())
+                    }.buttonStyle(IconButtonStyle())
                     .accessibilityLabel(Text("Save quote"))
                     .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
                 }
@@ -106,7 +103,7 @@ struct QuoteGeneratorView: View {
                 }) {
                     Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
                     
-                }.buttonStyle(ColoredButtonStyle())
+                }.buttonStyle(IconButtonStyle())
                 .accessibilityLabel(Text("Quote text to speech"))
                 .accessibility(hint: Text("Speak the quote text to your ears"))
                 .disabled(synthesizer.isSpeaking)

@@ -10,9 +10,8 @@ struct BuyStorageSheetView: View {
             HStack {
                 Spacer()
                 Button(action: {showBuying.toggle()}) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.largeTitle)
-                }.buttonStyle(ColoredButtonStyle())
+                    Image(systemName: "xmark")
+                }.buttonStyle(IconButtonStyle())
                 
             }
             VStack {
@@ -43,8 +42,5 @@ struct BuyStorageSheetView: View {
                 }
             }
         }
-        Button(action: {store.restorePurchases()}) {
-            Text("Restore")
-        }.buttonStyle(ColoredButtonStyle())
     }
 }

@@ -15,6 +15,16 @@ struct OnboardCard: Identifiable {
         let webLink: String
     }
     
+    enum Function {
+        case reminder
+        case store
+    }
+    
+    struct ButtonInfo {
+        let title: String
+        let function: Function
+    }
+    
     let id = UUID()
     let title: String
     let image: String
@@ -29,4 +39,5 @@ struct OnboardCard: Identifiable {
         return URL(fileURLWithPath: path)
     }
     var linkInfo: LinkInfo?
+    var buttonInfo: ButtonInfo?
 }
