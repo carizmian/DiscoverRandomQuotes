@@ -46,8 +46,8 @@ class QuoteViewModel: ObservableObject {
                 return
             }
             DispatchQueue.main.async {
-                // Appends 64 quotes
-                for _ in 1...64 {
+                // Appends 50 quotes
+                for _ in 1...50 {
                     self.quotes.append(response.data[randomQuote])
                     randomQuote = Int.random(in: 0..<36335)
                 }

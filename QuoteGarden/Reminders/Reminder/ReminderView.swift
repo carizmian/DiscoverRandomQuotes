@@ -6,22 +6,7 @@ struct ReminderView: View {
     @ObservedObject var manager = NotificationManager.shared
     var body: some View {
         VStack {
-            
             Toggle("Send Reminders", isOn: $sendReminders)
-                .onDisappear {
-                    switch sendReminders {
-                    case true: do {
-                        manager.addNotifications(reminderFrequency: reminderFrequency)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            manager.setNotifications()
-                            print("setting notifications")
-                        }
-                    }
-                    case false: do {
-                        manager.center.removeAllPendingNotificationRequests()
-                    }
-                    }
-                }
             Image("Reminder")
                 .resizable()
                 .scaledToFit()
@@ -37,6 +22,20 @@ struct ReminderView: View {
             }
             Spacer()
         }.padding(.horizontal)
+        .onDisappear {
+            switch sendReminders {
+            case true: do {
+                manager.addNotifications(reminderFrequency: reminderFrequency)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    manager.setNotifications()
+                    print("setting notifications")
+                }
+            }
+            case false: do {
+                manager.center.removeAllPendingNotificationRequests()
+            }
+            }
+        }
     }
 }
 
