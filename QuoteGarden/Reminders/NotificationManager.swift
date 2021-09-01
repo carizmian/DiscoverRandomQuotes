@@ -33,6 +33,7 @@ class NotificationManager: ObservableObject {
             switch settings.authorizationStatus {
             case .notDetermined, .denied:
                 self.requestPermission()
+                self.scheduleNotifications()
                 print("Not Authorized!")
             case .authorized, .provisional, .ephemeral:
                 print("Authorized!")
