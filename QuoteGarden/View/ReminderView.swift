@@ -1,12 +1,11 @@
 import SwiftUI
 
 struct ReminderView: View {
-    @State private var sendReminders = true
-    @State private var reminderFrequency = 3.0
     @ObservedObject var manager = NotificationManager.shared
+    @StateObject var reminderViewModel = ReminderViewModel()
     var body: some View {
         VStack {
-            Toggle("Send Reminders", isOn: $sendReminders)
+            Toggle("Send Reminders", isOn: $reminderViewModel.sendReminders)
             Image("Reminder")
                 .resizable()
                 .scaledToFit()
@@ -14,8 +13,8 @@ struct ReminderView: View {
                 Text("Get Quotes reminders.")
                     .multilineTextAlignment(.center)
                 
-                Stepper(value: $reminderFrequency, in: 3...7) {
-                    Text("Every \(reminderFrequency, specifier: "%.f") hours.")
+                Stepper(value: $reminderViewModel.reminderFrequency, in: 3...7) {
+                    Text("Every \(reminderViewModel.reminderFrequency, specifier: "%.f") hours.")
                         .fontWeight(.semibold)
                 }.padding()
                 
@@ -23,9 +22,9 @@ struct ReminderView: View {
             Spacer()
         }.padding(.horizontal)
         .onDisappear {
-            switch sendReminders {
+            switch reminderViewModel.sendReminders {
             case true: do {
-                manager.addNotifications(reminderFrequency: reminderFrequency)
+                manager.addNotifications(reminderFrequency: reminderViewModel.reminderFrequency)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     manager.setNotifications()
                     print("setting notifications")

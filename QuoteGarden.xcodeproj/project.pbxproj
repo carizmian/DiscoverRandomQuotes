@@ -288,6 +288,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		933975CB26E0E845003D558B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				937162C726C8DB1F00A769E9 /* Notification.swift */,
+				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		933975CC26E0E84C003D558B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93DEB54525284527006B9BF5 /* ContentView.swift */,
+				93AA437A25F0958700AB7DF0 /* Settings */,
+				933991422694361700EC8CDF /* In-App Purchase */,
+				936886702545CCAD0034F960 /* Favorites */,
+				9372A11C262DD57800276B08 /* Onboarding */,
+				935562072538135A00BF2F0A /* Quotes */,
+				93C735B1268CA1E900334A34 /* ReminderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		933975CD26E0E851003D558B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				933975D326E0EAB0003D558B /* Notifications */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		933975D326E0EAB0003D558B /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				938DD63C2600765C00C2FC6C /* NotificationManager.swift */,
+				93835D2726CEADA4007D0DAB /* NotificationDelegate.swift */,
+				9383C9FD26CF8F8000C207C9 /* ReminderViewModel.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		933991422694361700EC8CDF /* In-App Purchase */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,17 +416,6 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
-		937162B026C8DAAC00A769E9 /* Reminders */ = {
-			isa = PBXGroup;
-			children = (
-				937162C726C8DB1F00A769E9 /* Notification.swift */,
-				938DD63C2600765C00C2FC6C /* NotificationManager.swift */,
-				93835D2726CEADA4007D0DAB /* NotificationDelegate.swift */,
-				9383CA1626CF8FC700C207C9 /* Reminder */,
-			);
-			path = Reminders;
-			sourceTree = "<group>";
-		};
 		9372A11C262DD57800276B08 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,15 +477,6 @@
 			path = QuoteList;
 			sourceTree = "<group>";
 		};
-		9383CA1626CF8FC700C207C9 /* Reminder */ = {
-			isa = PBXGroup;
-			children = (
-				93C735B1268CA1E900334A34 /* ReminderView.swift */,
-				9383C9FD26CF8F8000C207C9 /* ReminderViewModel.swift */,
-			);
-			path = Reminder;
-			sourceTree = "<group>";
-		};
 		939D200225317E14003C34D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,7 +531,6 @@
 		93AA437A25F0958700AB7DF0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				93AA438725F0969A00AB7DF0 /* SettingsItems.swift */,
 				93AA437325EF5B8B00AB7DF0 /* SettingsListView.swift */,
 				93AA437B25F095A500AB7DF0 /* SettingsRowView.swift */,
 			);
@@ -558,15 +578,11 @@
 			children = (
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
-				93DEB54525284527006B9BF5 /* ContentView.swift */,
-				939FDD9F262AA5D2007B8D19 /* Animations */,
-				935562072538135A00BF2F0A /* Quotes */,
-				9372A11C262DD57800276B08 /* Onboarding */,
-				93AA437A25F0958700AB7DF0 /* Settings */,
-				936886702545CCAD0034F960 /* Favorites */,
-				933991422694361700EC8CDF /* In-App Purchase */,
-				937162B026C8DAAC00A769E9 /* Reminders */,
+				933975CB26E0E845003D558B /* Model */,
+				933975CC26E0E84C003D558B /* View */,
+				933975CD26E0E851003D558B /* ViewModel */,
 				933991812694A77B00EC8CDF /* Extra */,
+				939FDD9F262AA5D2007B8D19 /* Animations */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
 				93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */,
@@ -927,7 +943,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-AppClip/QuoteGarden_AppClip.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-AppClip/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -955,7 +971,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-AppClip/QuoteGarden_AppClip.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-AppClip/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -981,7 +997,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -1009,7 +1025,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden-Watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -1040,7 +1056,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				IBSC_MODULE = QuoteGarden_Watch_Extension;
 				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
@@ -1072,7 +1088,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				IBSC_MODULE = QuoteGarden_Watch_Extension;
 				INFOPLIST_FILE = "QuoteGarden-Watch/Info.plist";
@@ -1102,7 +1118,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-WidgetExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				INFOPLIST_FILE = "QuoteGarden-Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1129,7 +1145,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QuoteGarden-WidgetExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				INFOPLIST_FILE = "QuoteGarden-Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1273,7 +1289,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
@@ -1301,7 +1317,7 @@
 				CODE_SIGN_ENTITLEMENTS = QuoteGarden/QuoteGarden.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"QuoteGarden/Preview Content\"";
 				DEVELOPMENT_TEAM = LJF744GC3Q;
 				ENABLE_PREVIEWS = YES;
