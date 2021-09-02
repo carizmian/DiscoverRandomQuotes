@@ -76,10 +76,20 @@ extension Double {
 }
 
 extension UserDefaults {
-    public func optionalInt(forKey defaultName: String) -> Int? {
+    public func optionalBool(forKey defaultName: String) -> Bool? {
         let defaults = self
         if let value = defaults.value(forKey: defaultName) {
-            return value as? Int
+            return value as? Bool
+        }
+        return nil
+    }
+}
+
+extension UserDefaults {
+    public func optionalDouble(forKey defaultName: String) -> Double? {
+        let defaults = self
+        if let value = defaults.value(forKey: defaultName) {
+            return value as? Double
         }
         return nil
     }

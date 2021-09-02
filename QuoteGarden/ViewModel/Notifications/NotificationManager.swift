@@ -6,25 +6,40 @@ class NotificationManager: ObservableObject {
     var notifications = [Notification]()
     var center =  UNUserNotificationCenter.current()
     
+    @Published var sendReminders: Bool = UserDefaults.standard.optionalBool(forKey: "sendReminders") ?? false {
+        didSet {
+            UserDefaults.standard.set(sendReminders, forKey: "sendReminders")
+            print("setting sendReminders - \(sendReminders) - UserDefaults")
+        }
+    }
+    @Published var reminderFrequency: Double = UserDefaults.standard.optionalDouble(forKey: "reminderFrequency") ?? 3.0 {
+        didSet {
+            UserDefaults.standard.set(reminderFrequency, forKey: "reminderFrequency")
+            print("setting reminderFrequency - \(reminderFrequency) - UserDefaults")
+        }
+    }
+    
     init() {
         print("initialising LocalNotificationManager")
     }
     
-    func addNotifications(reminderFrequency: Double) {
+    func addNotifications() {
         notifications.removeAll()
-        var timeInterval = reminderFrequency * 3600
+        
+        var timeInterval = self.reminderFrequency * 3600
+        
         DispatchQueue.main.async {
             self.quoteViewModel.getRandomQuotes { quotes in
                 for quote in quotes {
                     self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
-                    timeInterval += reminderFrequency * 3600
+                    timeInterval += self.reminderFrequency * 3600
                     print("Adding notification by: \(quote.quoteAuthor) to notification array!")
                 }
             }
             
             // MARK: - Screenshots
-//            self.addNotification(id: UUID().uuidString, title: "Henry David Thoreau", subtitle: "motivation", body: "Success usually comes to those who are too busy looking for it", timeInterval: 3.0)
-//            self.addNotification(id: UUID().uuidString, title: "John Wooden", subtitle: "success", body: "Success is peace of mind, which is a direct result of self-satisfaction in knowing you made the effort to become the best of which you are capable", timeInterval: 5.0)
+            //            self.addNotification(id: UUID().uuidString, title: "Henry David Thoreau", subtitle: "motivation", body: "Success usually comes to those who are too busy looking for it", timeInterval: 3.0)
+            //            self.addNotification(id: UUID().uuidString, title: "John Wooden", subtitle: "success", body: "Success is peace of mind, which is a direct result of self-satisfaction in knowing you made the effort to become the best of which you are capable", timeInterval: 5.0)
         }
     }
     
@@ -48,6 +63,9 @@ class NotificationManager: ObservableObject {
     func requestPermission() {
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted == true && error == nil {
+                DispatchQueue.main.async {
+                    self.sendReminders = true
+                }
                 print("We have permission!")
             }
         }

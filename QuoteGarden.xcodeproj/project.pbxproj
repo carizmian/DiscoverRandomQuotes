@@ -53,7 +53,6 @@
 		9383C9E926CF8EBA00C207C9 /* QuoteGeneratorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383C9E826CF8EBA00C207C9 /* QuoteGeneratorViewModel.swift */; };
 		9383C9F026CF8F2C00C207C9 /* QuoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383C9EF26CF8F2C00C207C9 /* QuoteListViewModel.swift */; };
 		9383C9F726CF8F4200C207C9 /* QuoteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383C9F626CF8F4200C207C9 /* QuoteDetailViewModel.swift */; };
-		9383C9FE26CF8F8000C207C9 /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383C9FD26CF8F8000C207C9 /* ReminderViewModel.swift */; };
 		938DD63D2600765C00C2FC6C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DD63C2600765C00C2FC6C /* NotificationManager.swift */; };
 		9392E4AF25408808004BF68E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392E4AE25408806004BF68E /* SearchBar.swift */; };
 		9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395DD75255454A300B30BC2 /* CoreDataStack.swift */; };
@@ -212,7 +211,6 @@
 		9383C9E826CF8EBA00C207C9 /* QuoteGeneratorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGeneratorViewModel.swift; sourceTree = "<group>"; };
 		9383C9EF26CF8F2C00C207C9 /* QuoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListViewModel.swift; sourceTree = "<group>"; };
 		9383C9F626CF8F4200C207C9 /* QuoteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailViewModel.swift; sourceTree = "<group>"; };
-		9383C9FD26CF8F8000C207C9 /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
 		938D8374257F583F00F0FD17 /* QuoteGarden-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteGarden-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
 		938DD63C2600765C00C2FC6C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		9392E4AE25408806004BF68E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 			children = (
 				938DD63C2600765C00C2FC6C /* NotificationManager.swift */,
 				93835D2726CEADA4007D0DAB /* NotificationDelegate.swift */,
-				9383C9FD26CF8F8000C207C9 /* ReminderViewModel.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -873,7 +870,6 @@
 				93C735B2268CA1E900334A34 /* ReminderView.swift in Sources */,
 				938DD63D2600765C00C2FC6C /* NotificationManager.swift in Sources */,
 				937162A926C7B20E00A769E9 /* OnboardCard.swift in Sources */,
-				9383C9FE26CF8F8000C207C9 /* ReminderViewModel.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,
 				9339914926943FB800EC8CDF /* Product.swift in Sources */,
 				93DEB57325284631006B9BF5 /* Quote.swift in Sources */,

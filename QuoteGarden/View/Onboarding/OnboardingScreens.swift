@@ -18,7 +18,7 @@ struct OnboardingScreens: View {
         .edgesIgnoringSafeArea(.all)
         .padding()
         .onAppear {
-            manager.addNotifications(reminderFrequency: 3.0)
+            manager.addNotifications()
         }.onDisappear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 manager.setNotifications()

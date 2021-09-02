@@ -2,29 +2,31 @@ import SwiftUI
 
 struct ReminderView: View {
     @ObservedObject var manager = NotificationManager.shared
-    @StateObject var reminderViewModel = ReminderViewModel()
     var body: some View {
         VStack {
-            Toggle("Send Reminders", isOn: $reminderViewModel.sendReminders)
+            Toggle("Send Reminders", isOn: $manager.sendReminders)
             Image("Reminder")
                 .resizable()
                 .scaledToFit()
             VStack {
-                Text("Get Quotes reminders.")
-                    .multilineTextAlignment(.center)
                 
-                Stepper(value: $reminderViewModel.reminderFrequency, in: 3...7) {
-                    Text("Every \(reminderViewModel.reminderFrequency, specifier: "%.f") hours.")
-                        .fontWeight(.semibold)
-                }.padding()
+                if manager.sendReminders {
+                    Text("Get Quotes reminders.")
+                        .multilineTextAlignment(.center)
+                    Stepper(value: $manager.reminderFrequency, in: 3...7) {
+                        Text("Every \(manager.reminderFrequency, specifier: "%.f") hours.")
+                            .fontWeight(.semibold)
+                    }.padding()
+                    
+                }
                 
-            }
+            }.animation(.easeIn)
             Spacer()
         }.padding(.horizontal)
         .onDisappear {
-            switch reminderViewModel.sendReminders {
+            switch manager.sendReminders {
             case true: do {
-                manager.addNotifications(reminderFrequency: reminderViewModel.reminderFrequency)
+                manager.addNotifications()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     manager.setNotifications()
                     print("setting notifications")
@@ -32,6 +34,7 @@ struct ReminderView: View {
             }
             case false: do {
                 manager.center.removeAllPendingNotificationRequests()
+                print("removing all pending notification requests!")
             }
             }
         }
