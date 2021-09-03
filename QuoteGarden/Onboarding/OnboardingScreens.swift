@@ -21,6 +21,7 @@ struct OnboardingScreens: View {
             manager.addNotifications()
         }.onDisappear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                #warning("if the user doesnt enable remidners, thed dont send- ONBOARDING")
                 manager.setNotifications()
             }
         }

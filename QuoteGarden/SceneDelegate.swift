@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
         let store = Store()
         let storage = Storage()
-        let quoteViewModel = QuoteViewModel()
+        let quoteViewModel = QuoteManager()
         
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.

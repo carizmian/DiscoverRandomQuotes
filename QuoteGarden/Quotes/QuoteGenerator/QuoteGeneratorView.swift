@@ -15,7 +15,7 @@ struct QuoteGeneratorView: View {
     static let tag: String? = "Home"
     @Environment(\.managedObjectContext) var moc
     
-    @EnvironmentObject var quoteViewModel: QuoteViewModel
+    @EnvironmentObject var quoteViewModel: QuoteManager
     
     @Binding var savedToDevice: Bool
     @State private var addedToClipboard = false

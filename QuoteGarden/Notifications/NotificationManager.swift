@@ -33,7 +33,7 @@ class NotificationManager: ObservableObject {
                 for quote in quotes {
                     self.addNotification(id: quote.id, title: quote.quoteAuthor, subtitle: quote.quoteGenre, body: quote.quoteText, timeInterval: timeInterval)
                     timeInterval += self.reminderFrequency * 3600
-                    print("Adding notification by: \(quote.quoteAuthor) to notification array!")
+                    print("\(quote.quoteAuthor) -> array")
                 }
             }
             
@@ -103,15 +103,17 @@ class NotificationManager: ObservableObject {
                     return
                 }
                 print("""
-                    Notification id: \(notification.id),
-                    title: \(String(describing: notification.title)),
-                    subtitle: \(String(describing: notification.subtitle)),
-                    body: \(notification.body)
-                    in: \(String(describing: notification.timeInterval / 3600)) hours
+                    scheduling ⚙️
+                    id: \(notification.id),
+                    author: \(String(describing: notification.title)),
+                    time: \(String(describing: notification.timeInterval / 3600)) hours
                     """)
             }
         }
-        notifications.removeAll()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            print("emptied notification array")
+            self.notifications.removeAll()
+        }
     }
     
 }
