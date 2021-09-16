@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9300848426F253A300FC55A2 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9300848326F253A300FC55A2 /* File.strings */; };
 		9308A1A725D1B72B00F5F0E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		9308A1B225D1B78000F5F0E9 /* IconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886CA25469D460034F960 /* IconButtonStyle.swift */; };
 		9308A1BD25D1B78E00F5F0E9 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
@@ -40,7 +41,7 @@
 		937162A726C7B20E00A769E9 /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A226C7B20E00A769E9 /* OnboardingCardView.swift */; };
 		937162A826C7B20E00A769E9 /* OnboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A326C7B20E00A769E9 /* OnboardData.swift */; };
 		937162A926C7B20E00A769E9 /* OnboardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A426C7B20E00A769E9 /* OnboardCard.swift */; };
-		937162AA26C7B20E00A769E9 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A526C7B20E00A769E9 /* OnboardingScreens.swift */; };
+		937162AA26C7B20E00A769E9 /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162A526C7B20E00A769E9 /* OnboardingScreenView.swift */; };
 		937162C826C8DB1F00A769E9 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937162C726C8DB1F00A769E9 /* Notification.swift */; };
 		9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */; };
 		9377471725CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9377471625CE56EA005CFB46 /* QuoteGarden_AppClipApp.swift */; };
@@ -169,6 +170,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9300848326F253A300FC55A2 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 		9339913F269434EF00EC8CDF /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		933991402694361300EC8CDF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		9339914826943FB800EC8CDF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		937162A226C7B20E00A769E9 /* OnboardingCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
 		937162A326C7B20E00A769E9 /* OnboardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardData.swift; sourceTree = "<group>"; };
 		937162A426C7B20E00A769E9 /* OnboardCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCard.swift; sourceTree = "<group>"; };
-		937162A526C7B20E00A769E9 /* OnboardingScreens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
+		937162A526C7B20E00A769E9 /* OnboardingScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		937162C726C8DB1F00A769E9 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
 		9377471425CE56EA005CFB46 /* QuoteGarden-AppClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuoteGarden-AppClip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,10 +389,10 @@
 		9372A11C262DD57800276B08 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				937162A426C7B20E00A769E9 /* OnboardCard.swift */,
 				937162A326C7B20E00A769E9 /* OnboardData.swift */,
+				937162A426C7B20E00A769E9 /* OnboardCard.swift */,
 				937162A226C7B20E00A769E9 /* OnboardingCardView.swift */,
-				937162A526C7B20E00A769E9 /* OnboardingScreens.swift */,
+				937162A526C7B20E00A769E9 /* OnboardingScreenView.swift */,
 				937162A126C7B20E00A769E9 /* OnboardSet.swift */,
 			);
 			path = Onboarding;
@@ -559,6 +561,7 @@
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
 				93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */,
+				9300848326F253A300FC55A2 /* File.strings */,
 				93DEB54925284529006B9BF5 /* Preview Content */,
 			);
 			path = QuoteGarden;
@@ -647,11 +650,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93DEB56825284529006B9BF5 /* Build configuration list for PBXNativeTarget "QuoteGarden" */;
 			buildPhases = (
+				9358ED0E2549EF5500C04DC8 /* ShellScript */,
 				93DEB53725284527006B9BF5 /* Sources */,
 				93DEB53825284527006B9BF5 /* Frameworks */,
 				93DEB53925284527006B9BF5 /* Resources */,
 				939D201625317E17003C34D8 /* Embed App Extensions */,
-				9358ED0E2549EF5500C04DC8 /* ShellScript */,
 				93A3EC91257B47590099B08C /* Embed Watch Content */,
 				9377472425CE56F1005CFB46 /* Embed App Clips */,
 			);
@@ -763,6 +766,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
+				9300848426F253A300FC55A2 /* File.strings in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
 				933991AA2694AEA400EC8CDF /* buy.json in Resources */,
 				933991B62694AF1000EC8CDF /* countdown.json in Resources */,
@@ -869,7 +873,7 @@
 				9371931925B878FE00D4A8B1 /* ShakeGestureManager.swift in Sources */,
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
-				937162AA26C7B20E00A769E9 /* OnboardingScreens.swift in Sources */,
+				937162AA26C7B20E00A769E9 /* OnboardingScreenView.swift in Sources */,
 				9383C9F726CF8F4200C207C9 /* QuoteDetailViewModel.swift in Sources */,
 				937162A826C7B20E00A769E9 /* OnboardData.swift in Sources */,
 				93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */,

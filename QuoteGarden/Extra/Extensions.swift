@@ -5,92 +5,86 @@ import UIKit
 
 #if !APPCLIP
 extension QuoteCD {
-    var wrappedQuoteAuthor: String {
-        return quoteAuthor ?? "Unknown Author"
-    }
-
-    var wrappedQuoteText: String {
-        return quoteText ?? "Unknown Quote Text"
-    }
-
-    var wrappedQuoteGenre: String {
-        return quoteGenre ?? "Unknown Quote Genre"
-    }
+  var wrappedQuoteAuthor: String {
+    return quoteAuthor ?? "Unknown Author"
+  }
+  var wrappedQuoteText: String {
+    return quoteText ?? "Unknown Quote Text"
+  }
+  var wrappedQuoteGenre: String {
+    return quoteGenre ?? "Unknown Quote Genre"
+  }
 }
 #endif
 
 extension GetRect {
-    struct RectPreferenceKey: PreferenceKey {
-        static func reduce(value: inout CGRect?, nextValue: () -> CGRect?) {
-            value = nextValue()
-        }
-
-        typealias Value = CGRect?
-
-        static var defaultValue: CGRect?
+  struct RectPreferenceKey: PreferenceKey {
+    static func reduce(value: inout CGRect?, nextValue: () -> CGRect?) {
+      value = nextValue()
     }
+    typealias Value = CGRect?
+    static var defaultValue: CGRect?
+  }
 }
 
 extension UIView {
-    func asImage(rect: CGRect) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: rect)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-        }
+  func asImage(rect: CGRect) -> UIImage {
+    let renderer = UIGraphicsImageRenderer(bounds: rect)
+    return renderer.image { rendererContext in
+      layer.render(in: rendererContext.cgContext)
     }
+  }
 }
 
 extension CGRect {
-    var uiImage: UIImage? {
-        UIApplication.shared.windows
-            .filter { $0.isKeyWindow }
-            .first?.rootViewController?.view
-            .asImage(rect: self)
-    }
+  var uiImage: UIImage? {
+    UIApplication.shared.windows
+      .filter { $0.isKeyWindow }
+      .first?.rootViewController?.view
+      .asImage(rect: self)
+  }
 }
 
 extension View {
-    func getRect(_ rect: Binding<CGRect>) -> some View {
-        self.modifier(GetRect(rect: rect))
-    }
+  func getRect(_ rect: Binding<CGRect>) -> some View {
+    self.modifier(GetRect(rect: rect))
+  }
 }
 
 extension UIColor {
-
-    static func colorWith(name: String) -> UIColor? {
-        let selector = Selector("\(name)Color")
-        if UIColor.self.responds(to: selector) {
-            let color = UIColor.self.perform(selector).takeUnretainedValue()
-            return (color as? UIColor)
-        } else {
-            return nil
-        }
+  static func colorWith(name: String) -> UIColor? {
+    let selector = Selector("\(name)Color")
+    if UIColor.self.responds(to: selector) {
+      let color = UIColor.self.perform(selector).takeUnretainedValue()
+      return (color as? UIColor)
+    } else {
+      return nil
     }
-
+  }
 }
 
 extension Double {
-    func toInt() -> Int {
-        Int(self)
-    }
+  func toInt() -> Int {
+    Int(self)
+  }
 }
 
 extension UserDefaults {
-    public func optionalBool(forKey defaultName: String) -> Bool? {
-        let defaults = self
-        if let value = defaults.value(forKey: defaultName) {
-            return value as? Bool
-        }
-        return nil
+  public func optionalBool(forKey defaultName: String) -> Bool? {
+    let defaults = self
+    if let value = defaults.value(forKey: defaultName) {
+      return value as? Bool
     }
+    return nil
+  }
 }
 
 extension UserDefaults {
-    public func optionalDouble(forKey defaultName: String) -> Double? {
-        let defaults = self
-        if let value = defaults.value(forKey: defaultName) {
-            return value as? Double
-        }
-        return nil
+  public func optionalDouble(forKey defaultName: String) -> Double? {
+    let defaults = self
+    if let value = defaults.value(forKey: defaultName) {
+      return value as? Double
     }
+    return nil
+  }
 }
