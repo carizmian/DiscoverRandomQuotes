@@ -3,9 +3,10 @@ import Foundation
 import AVFoundation
 
 struct ContentView: View {
+  // MARK: - Core Data
   @Environment(\.managedObjectContext) var moc
-  @FetchRequest(entity: QuoteCD.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \QuoteCD.quoteAuthor, ascending: true)]) var favoriteQuotes: FetchedResults<QuoteCD>
-  @State private var savedToDevice = false
+  @FetchRequest(entity: SavedQuote.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \SavedQuote.author, ascending: true)]) var savedQuotes: FetchedResults<SavedQuote>
+  // MARK: - AVFoundation
   let synthesizer = AVSpeechSynthesizer()
   @State private var showOnboarding = false
   @AppStorage("OnboardBeenViewed") var hasOnboarded = false
@@ -13,12 +14,11 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       NavigationView {
-        QuoteGeneratorView(savedToDevice: $savedToDevice, synthesizer: synthesizer, favoriteQuotes: favoriteQuotes)
-          .tag(QuoteGeneratorView.tag)
+        QuoteGeneratorView(savedQuotes: savedQuotes, synthesizer: synthesizer)
           .accessibilityLabel(Text("Random quotes"))
           .accessibility(hint: Text("Find new quotes here"))
           .navigationBarItems(leading:
-                                NavigationLink(destination: QuoteListView(removeQuote: removeQuote, favoriteQuotes: favoriteQuotes, synthesizer: synthesizer)) {
+                                NavigationLink(destination: QuoteListView(savedQuotes: savedQuotes, synthesizer: synthesizer)) {
                                   Image(systemName: "text.quote")
                                     .font(Font.system(.title3, design: .default).weight(.regular))
                                     .padding()
@@ -50,17 +50,6 @@ struct ContentView: View {
           }
         }
       }
-    }
-  }
-  func removeQuote(at offsets: IndexSet) {
-    for index in offsets {
-      let favoriteQuote = favoriteQuotes[index]
-      moc.delete(favoriteQuote)
-    }
-    do {
-      try moc.save()
-    } catch {
-      return
     }
   }
 }

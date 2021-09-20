@@ -4,15 +4,15 @@ import CoreData
 import UIKit
 
 #if !APPCLIP
-extension QuoteCD {
-  var wrappedQuoteAuthor: String {
-    return quoteAuthor ?? "Unknown Author"
+extension SavedQuote {
+  var wrappedAuthor: String {
+    return author ?? "Unknown Author"
   }
-  var wrappedQuoteText: String {
-    return quoteText ?? "Unknown Quote Text"
+  var wrappedText: String {
+    return text ?? "Unknown Quote Text"
   }
-  var wrappedQuoteGenre: String {
-    return quoteGenre ?? "Unknown Quote Genre"
+  var wrappedGenre: String {
+    return genre ?? "Unknown Quote Genre"
   }
 }
 #endif

@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 
 struct ContentView: View {
-  @State private var quote = Quote.example
+  @State private var quote = Quote.help
   @Binding var showingShareSheetView: Bool
   @State private var addedToClipboard = false
   @State private var rect1: CGRect = .zero
@@ -47,7 +47,6 @@ struct ContentView: View {
         .accessibilityLabel(Text("Quote text to speech"))
         .accessibility(hint: Text("Speak the quote text to your ears"))
         .disabled(synthesizer.isSpeaking)
-        #warning("ovo double checkaj")
       }.disabled(quote.text.isEmpty)
     }
     .sheet(isPresented: $showingShareSheetView) {

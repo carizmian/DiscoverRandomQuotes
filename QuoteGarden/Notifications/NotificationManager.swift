@@ -24,7 +24,7 @@ class NotificationManager: ObservableObject {
     notifications.removeAll()
     var timeInterval = self.reminderFrequency * 3600
     DispatchQueue.main.async {
-      self.quoteViewModel.getRandomQuotes { quotes in
+      self.quoteViewModel.fetchQuotes { quotes in
         for quote in quotes {
           self.addNotification(id: quote.id, title: quote.author, subtitle: quote.genre, body: quote.text, timeInterval: timeInterval)
           timeInterval += self.reminderFrequency * 3600

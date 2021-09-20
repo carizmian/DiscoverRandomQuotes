@@ -11,22 +11,23 @@ enum ActiveSheet: Identifiable {
 }
 
 struct QuoteGeneratorView: View {
-  // MARK: - Environment
-  static let tag: String? = "Home"
+  // MARK: - Core Data
   @Environment(\.managedObjectContext) var moc
+  var savedQuotes: FetchedResults<SavedQuote>
   @EnvironmentObject var quoteViewModel: QuoteViewModel
   @EnvironmentObject var storage: Storage
-  @Binding var savedToDevice: Bool
+  @ObservedObject var delegate = NotificationDelegate.shared
+  // MARK: - View
+  @State private var activeSheet: ActiveSheet?
+  @State private var savedToDevice = false
   @State private var addedToClipboard = false
   @State private var rect1: CGRect = .zero
   @State private var uiImage: UIImage?
   @State private var viewState = CGSize.zero
-  let synthesizer: AVSpeechSynthesizer
-  var favoriteQuotes: FetchedResults<QuoteCD>
-  @State private var activeSheet: ActiveSheet?
-  @ObservedObject var delegate = NotificationDelegate.shared
   @State private var showBuying = false
-  @State var attempts: Int = 0
+  @State private var attempts: Int = 0
+  // MARK: - AVFoundation
+  let synthesizer: AVSpeechSynthesizer
   var body: some View {
     ZStack {
       ShakableViewRepresentable()
@@ -36,9 +37,7 @@ struct QuoteGeneratorView: View {
           QuoteView(quote: quoteViewModel.quote)
             .animation(.spring())
             .onTapGesture {
-              quoteViewModel.changeQuote(quoteViewModel.quote)
-              quoteViewModel.quote = Quote(id: "", text: "", author: "", genre: "")
-              quoteViewModel.getRandomQuote()
+              quoteViewModel.fetchQuote()
               savedToDevice = false
               addedToClipboard = false
             }
@@ -50,7 +49,7 @@ struct QuoteGeneratorView: View {
               if !delegate.quote.text.isEmpty {
                 // use the notification delegate quote
                 savedToDevice = false
-                quoteViewModel.changeQuote(delegate.quote)
+                quoteViewModel.updateQuote(with: delegate.quote)
                 delegate.quote.text = ""
               }
             }
@@ -70,14 +69,14 @@ struct QuoteGeneratorView: View {
           }.buttonStyle(IconButtonStyle())
           .accessibilityLabel(Text("Share quote"))
           .accessibility(hint: Text("opens a share sheet view"))
-          if favoriteQuotes.count < storage.amount { Button {
+          if savedQuotes.count < storage.amount { Button {
             saveToDevice(quote: quoteViewModel.quote)
           } label: {
             Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
           }.buttonStyle(IconButtonStyle())
           .accessibilityLabel(Text("Save quote"))
           .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
-          } else if  favoriteQuotes.count >= storage.amount {
+          } else if  savedQuotes.count >= storage.amount {
             Button {
               activeSheet = .buyStorageSheetView
             } label: {
@@ -97,9 +96,7 @@ struct QuoteGeneratorView: View {
         }.disabled(quoteViewModel.quote.text.isEmpty)
       }
     }.onReceive(messagePublisher) { _ in
-      quoteViewModel.changeQuote(quoteViewModel.quote)
-      quoteViewModel.quote = Quote(id: "", text: "", author: "", genre: "")
-      quoteViewModel.getRandomQuote()
+      quoteViewModel.fetchQuote()
       savedToDevice = false
       addedToClipboard = false
       print("Shaking")
@@ -134,11 +131,11 @@ struct QuoteGeneratorView: View {
   func saveToDevice(quote: Quote) {
     savedToDevice.toggle()
     if savedToDevice == true {
-      let favoriteQuote = QuoteCD(context: self.moc)
+      let favoriteQuote = SavedQuote(context: self.moc)
       favoriteQuote.id = quote.id
-      favoriteQuote.quoteText = quote.text
-      favoriteQuote.quoteAuthor = quote.author
-      favoriteQuote.quoteGenre = quote.genre
+      favoriteQuote.text = quote.text
+      favoriteQuote.author = quote.author
+      favoriteQuote.genre = quote.genre
       try? self.moc.save()
     } else {
       moc.undo()

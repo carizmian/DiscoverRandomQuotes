@@ -3,10 +3,9 @@ import Foundation
 import AVFoundation
 
 struct QuoteListView: View {
-  static let tag: String? = "Saved Quotes"
+  // MARK: - Core Data
   @Environment(\.managedObjectContext) var moc
-  var removeQuote: (IndexSet) -> Void
-  var favoriteQuotes: FetchedResults<QuoteCD>
+  var savedQuotes: FetchedResults<SavedQuote>
   @State private var searchText = ""
   let synthesizer: AVSpeechSynthesizer
   @State private var startAnimation = false
@@ -20,13 +19,13 @@ struct QuoteListView: View {
         SearchBar(text: $searchText)
           .padding(.top, 8)
         List {
-          ForEach(favoriteQuotes.filter { searchText.isEmpty ? true : $0.wrappedQuoteAuthor.contains(searchText) }, id: \.id) { favoriteQuote in
-            NavigationLink(destination: QuoteDetailView(favoriteQuote: favoriteQuote, synthesizer: synthesizer)) {
+          ForEach(savedQuotes.filter { searchText.isEmpty ? true : $0.wrappedAuthor.contains(searchText) }, id: \.id) { savedQuote in
+            NavigationLink(destination: QuoteDetailView(savedQuote: savedQuote, synthesizer: synthesizer)) {
               HStack {
-                QuoteRowView(favoriteQuote: favoriteQuote)
+                QuoteRowView(savedQuote: savedQuote)
               }
             }
-          }.onDelete(perform: removeQuote)
+          }.onDelete(perform: onDelete)
         }.listStyle(PlainListStyle())
         .navigationBarTitle(Text("Your Saved Quotes"))
         .navigationBarItems(trailing: EditButton())
@@ -35,7 +34,7 @@ struct QuoteListView: View {
           showBuying.toggle()
         } label: {
           HStack {
-            Text("\(favoriteQuotes.count)/\(3)")
+            Text("\(savedQuotes.count)/\(3)")
             Image(systemName: "cart.fill")
               .overlay(
                 Image(systemName: "cart.fill")
@@ -61,5 +60,12 @@ struct QuoteListView: View {
     }.onAppear {
       startAnimation.toggle()
     }
+  }
+  private func onDelete(with indexSet: IndexSet) {
+    indexSet.forEach { index in
+      let quote = savedQuotes[index]
+      moc.delete(quote)
+    }
+    try? moc.saveContext()
   }
 }

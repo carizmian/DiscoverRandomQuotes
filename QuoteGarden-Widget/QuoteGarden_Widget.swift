@@ -5,11 +5,12 @@ struct QuoteGardenEntry: TimelineEntry {
   let date = Date()
   let quote: Quote
 }
-
+#warning("ovo je global!")
+let userDefaults = UserDefaults(suiteName: "group.com.example.QuoteGarden")
 struct Provider: TimelineProvider {
-  @AppStorage("primaryQuote", store: UserDefaults(suiteName: "group.com.example.QuoteGarden")) var primaryQuoteData = Data()
+  @AppStorage("primaryQuote", store: userDefaults) var primaryQuoteData = Data()
   func placeholder(in context: Context) -> QuoteGardenEntry {
-    let quote = Quote.example
+    let quote = Quote.help
     return QuoteGardenEntry(quote: quote)
   }
   func getSnapshot(in context: Context, completion: @escaping (QuoteGardenEntry) -> Void) {
@@ -100,7 +101,7 @@ struct QuoteGardenWidget: Widget {
 }
 
 struct QuoteGardenWidge_Previews: PreviewProvider {
-  static let quote = Quote.example
+  static let quote = Quote.help
   static var previews: some View {
     Group {
       QuoteGardenWidgetEntryView(entry: QuoteGardenEntry(quote: quote))

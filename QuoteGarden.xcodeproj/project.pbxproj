@@ -13,6 +13,7 @@
 		9308A1BD25D1B78E00F5F0E9 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
 		9308A1DE25D1B7EF00F5F0E9 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370D5A625356310001CD387 /* ShareSheetView.swift */; };
 		9308A1E925D1B83200F5F0E9 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
+		932C5C9826F83DA600564373 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
 		933991412694361300EC8CDF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933991402694361300EC8CDF /* Store.swift */; };
 		9339914926943FB800EC8CDF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339914826943FB800EC8CDF /* Product.swift */; };
 		93399160269463AA00EC8CDF /* BuyStorageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339915F269463AA00EC8CDF /* BuyStorageSheetView.swift */; };
@@ -83,7 +84,6 @@
 		93D5CC4626BB01610033E7C8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5CC4526BB01610033E7C8 /* Storage.swift */; };
 		93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB53E25284527006B9BF5 /* AppDelegate.swift */; };
 		93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54025284527006B9BF5 /* SceneDelegate.swift */; };
-		93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */; };
 		93DEB54625284527006B9BF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DEB54525284527006B9BF5 /* ContentView.swift */; };
 		93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54725284529006B9BF5 /* Assets.xcassets */; };
 		93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DEB54A25284529006B9BF5 /* Preview Assets.xcassets */; };
@@ -316,7 +316,6 @@
 		933991812694A77B00EC8CDF /* Extra */ = {
 			isa = PBXGroup;
 			children = (
-				935AC55826DC92400086F76D /* Buttons */,
 				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
@@ -364,26 +363,28 @@
 			path = Quotes;
 			sourceTree = "<group>";
 		};
-		935AC55826DC92400086F76D /* Buttons */ = {
+		935AC55826DC92400086F76D /* Button Styles */ = {
 			isa = PBXGroup;
 			children = (
 				935AC54726DB607B0086F76D /* TextButtonStyle.swift */,
 				936886CA25469D460034F960 /* IconButtonStyle.swift */,
 			);
-			path = Buttons;
+			path = "Button Styles";
 			sourceTree = "<group>";
 		};
-		936886702545CCAD0034F960 /* Favorites */ = {
+		936886702545CCAD0034F960 /* Saved */ = {
 			isa = PBXGroup;
 			children = (
-				9383CA1026CF8FB700C207C9 /* QuoteList */,
+				936886622545C8320034F960 /* QuoteListView.swift */,
+				9383C9EF26CF8F2C00C207C9 /* QuoteListViewModel.swift */,
 				939DBEF3253ACFFC00A54AD2 /* QuoteRowView.swift */,
-				9383CA0A26CF8FAF00C207C9 /* QuoteDetail */,
+				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
+				9383C9F626CF8F4200C207C9 /* QuoteDetailViewModel.swift */,
 				9392E4AE25408806004BF68E /* SearchBar.swift */,
 				9370D5A625356310001CD387 /* ShareSheetView.swift */,
 				9371931825B878FA00D4A8B1 /* ShakeGestureManager.swift */,
 			);
-			path = Favorites;
+			path = Saved;
 			sourceTree = "<group>";
 		};
 		9372A11C262DD57800276B08 /* Onboarding */ = {
@@ -427,24 +428,6 @@
 				9383C9E826CF8EBA00C207C9 /* QuoteGeneratorViewModel.swift */,
 			);
 			path = QuoteGenerator;
-			sourceTree = "<group>";
-		};
-		9383CA0A26CF8FAF00C207C9 /* QuoteDetail */ = {
-			isa = PBXGroup;
-			children = (
-				9362130A252D787A009A7CDE /* QuoteDetailView.swift */,
-				9383C9F626CF8F4200C207C9 /* QuoteDetailViewModel.swift */,
-			);
-			path = QuoteDetail;
-			sourceTree = "<group>";
-		};
-		9383CA1026CF8FB700C207C9 /* QuoteList */ = {
-			isa = PBXGroup;
-			children = (
-				936886622545C8320034F960 /* QuoteListView.swift */,
-				9383C9EF26CF8F2C00C207C9 /* QuoteListViewModel.swift */,
-			);
-			path = QuoteList;
 			sourceTree = "<group>";
 		};
 		939D200225317E14003C34D8 /* Frameworks */ = {
@@ -550,12 +533,13 @@
 				93DEB53E25284527006B9BF5 /* AppDelegate.swift */,
 				93DEB54025284527006B9BF5 /* SceneDelegate.swift */,
 				93DEB54525284527006B9BF5 /* ContentView.swift */,
-				93AA437A25F0958700AB7DF0 /* Settings */,
 				933991422694361700EC8CDF /* In-App Purchase */,
-				936886702545CCAD0034F960 /* Favorites */,
+				936886702545CCAD0034F960 /* Saved */,
 				9372A11C262DD57800276B08 /* Onboarding */,
+				93AA437A25F0958700AB7DF0 /* Settings */,
 				935562072538135A00BF2F0A /* Quotes */,
 				933975D326E0EAB0003D558B /* Notifications */,
+				935AC55826DC92400086F76D /* Button Styles */,
 				933991812694A77B00EC8CDF /* Extra */,
 				939FDD9F262AA5D2007B8D19 /* Animations */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
@@ -844,10 +828,10 @@
 				93DEB53F25284527006B9BF5 /* AppDelegate.swift in Sources */,
 				9370D5A725356310001CD387 /* ShareSheetView.swift in Sources */,
 				933991412694361300EC8CDF /* Store.swift in Sources */,
-				93DEB54425284527006B9BF5 /* QuoteGarden.xcdatamodeld in Sources */,
 				9395DD76255454A300B30BC2 /* CoreDataStack.swift in Sources */,
 				93AA438825F0969A00AB7DF0 /* SettingsItems.swift in Sources */,
 				93C735B2268CA1E900334A34 /* ReminderView.swift in Sources */,
+				932C5C9826F83DA600564373 /* QuoteGarden.xcdatamodeld in Sources */,
 				938DD63D2600765C00C2FC6C /* NotificationManager.swift in Sources */,
 				937162A926C7B20E00A769E9 /* OnboardCard.swift in Sources */,
 				93DEB54625284527006B9BF5 /* ContentView.swift in Sources */,

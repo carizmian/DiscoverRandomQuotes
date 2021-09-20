@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
   #warning("remove this quote lol")
-  @State private var quote = Quote.example
+  @State private var quote = Quote.help
   @State var viewState = CGSize.zero
   var body: some View {
     QuoteView(quote: quote)
