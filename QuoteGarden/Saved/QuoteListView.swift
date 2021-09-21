@@ -1,13 +1,11 @@
 import SwiftUI
 import Foundation
-import AVFoundation
 
 struct QuoteListView: View {
   // MARK: - Core Data
   @Environment(\.managedObjectContext) var moc
   var savedQuotes: FetchedResults<SavedQuote>
   @State private var searchText = ""
-  let synthesizer: AVSpeechSynthesizer
   @State private var startAnimation = false
   @EnvironmentObject var storage: Storage
   @State private var showBuying = false
@@ -20,7 +18,7 @@ struct QuoteListView: View {
           .padding(.top, 8)
         List {
           ForEach(savedQuotes.filter { searchText.isEmpty ? true : $0.wrappedAuthor.contains(searchText) }, id: \.id) { savedQuote in
-            NavigationLink(destination: QuoteDetailView(savedQuote: savedQuote, synthesizer: synthesizer)) {
+            NavigationLink(destination: QuoteDetailView(savedQuote: savedQuote)) {
               HStack {
                 QuoteRowView(savedQuote: savedQuote)
               }

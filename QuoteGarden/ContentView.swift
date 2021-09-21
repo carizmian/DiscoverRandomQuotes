@@ -1,24 +1,21 @@
 import SwiftUI
 import Foundation
-import AVFoundation
 
 struct ContentView: View {
   // MARK: - Core Data
   @Environment(\.managedObjectContext) var moc
   @FetchRequest(entity: SavedQuote.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \SavedQuote.author, ascending: true)]) var savedQuotes: FetchedResults<SavedQuote>
-  // MARK: - AVFoundation
-  let synthesizer = AVSpeechSynthesizer()
   @State private var showOnboarding = false
   @AppStorage("OnboardBeenViewed") var hasOnboarded = false
   var onboardSet = OnboardData.buildSet(width: .infinity, height: .infinity)
   var body: some View {
     ZStack {
       NavigationView {
-        QuoteGeneratorView(savedQuotes: savedQuotes, synthesizer: synthesizer)
+        QuoteGeneratorView(savedQuotes: savedQuotes)
           .accessibilityLabel(Text("Random quotes"))
           .accessibility(hint: Text("Find new quotes here"))
           .navigationBarItems(leading:
-                                NavigationLink(destination: QuoteListView(savedQuotes: savedQuotes, synthesizer: synthesizer)) {
+                                NavigationLink(destination: QuoteListView(savedQuotes: savedQuotes)) {
                                   Image(systemName: "text.quote")
                                     .font(Font.system(.title3, design: .default).weight(.regular))
                                     .padding()

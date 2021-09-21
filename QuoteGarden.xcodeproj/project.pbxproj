@@ -50,6 +50,7 @@
 		9377471B25CE56F1005CFB46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471A25CE56F1005CFB46 /* Assets.xcassets */; };
 		9377471E25CE56F1005CFB46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */; };
 		9377472325CE56F1005CFB46 /* QuoteGarden-AppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 9377471425CE56EA005CFB46 /* QuoteGarden-AppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		937886AE26F99FC9000AF8E2 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937886AD26F99FC9000AF8E2 /* SpeechSynthesizer.swift */; };
 		93835D2826CEADA4007D0DAB /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93835D2726CEADA4007D0DAB /* NotificationDelegate.swift */; };
 		93835D2F26CF6907007D0DAB /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93835D2E26CF6907007D0DAB /* QuoteViewModel.swift */; };
 		9383C9E926CF8EBA00C207C9 /* QuoteGeneratorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383C9E826CF8EBA00C207C9 /* QuoteGeneratorViewModel.swift */; };
@@ -208,6 +209,7 @@
 		9377471D25CE56F1005CFB46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9377471F25CE56F1005CFB46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9377472025CE56F1005CFB46 /* QuoteGarden_AppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteGarden_AppClip.entitlements; sourceTree = "<group>"; };
+		937886AD26F99FC9000AF8E2 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		93835D2726CEADA4007D0DAB /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		93835D2E26CF6907007D0DAB /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		9383C9E826CF8EBA00C207C9 /* QuoteGeneratorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGeneratorViewModel.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		933991812694A77B00EC8CDF /* Extra */ = {
 			isa = PBXGroup;
 			children = (
+				937886AD26F99FC9000AF8E2 /* SpeechSynthesizer.swift */,
 				9395DD75255454A300B30BC2 /* CoreDataStack.swift */,
 				93C8F69E256423FE0072589B /* PrimaryQuote.swift */,
 				9370A52B2545609A00F2C029 /* Extensions.swift */,
@@ -858,6 +861,7 @@
 				93DEB54125284527006B9BF5 /* SceneDelegate.swift in Sources */,
 				9370A51E25454CD100F2C029 /* ViewToUIImage.swift in Sources */,
 				937162AA26C7B20E00A769E9 /* OnboardingScreenView.swift in Sources */,
+				937886AE26F99FC9000AF8E2 /* SpeechSynthesizer.swift in Sources */,
 				9383C9F726CF8F4200C207C9 /* QuoteDetailViewModel.swift in Sources */,
 				937162A826C7B20E00A769E9 /* OnboardData.swift in Sources */,
 				93AA437C25F095A500AB7DF0 /* SettingsRowView.swift in Sources */,

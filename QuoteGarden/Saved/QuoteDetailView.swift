@@ -12,7 +12,7 @@ struct QuoteDetailView: View {
   @State private var isSharing = false
   @State private var rect1: CGRect = .zero
   @State private var uiImage: UIImage?
-  let synthesizer: AVSpeechSynthesizer
+  let synthesizer = SpeechSynthesizer.shared
   var body: some View {
     VStack {
       Color.clear.overlay(
@@ -38,7 +38,7 @@ struct QuoteDetailView: View {
         .accessibilityLabel(Text("Share quote"))
         .accessibility(hint: Text("opens a share sheet view"))
         Button {
-          textToSpeech(quote: savedQuote)
+          synthesizer.textToSpeech(quote: convert(quote: savedQuote))
         } label: {
           Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
         }.buttonStyle(IconButtonStyle())
@@ -52,20 +52,6 @@ struct QuoteDetailView: View {
           uiimage
         ])
       }
-    }
-  }
-  func textToSpeech(quote: SavedQuote) {
-    let utterance = AVSpeechUtterance(string: "\(quote.wrappedAuthor) once said, \(quote.wrappedText)")
-    let voice = AVSpeechSynthesisVoice(language: "en-US")
-    utterance.voice = voice
-    do {
-      try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: .duckOthers)
-      try AVAudioSession.sharedInstance().setActive(true)
-      if synthesizer.isSpeaking == false {
-        synthesizer.speak(utterance)
-      }
-    } catch {
-      print(error)
     }
   }
   func save(quote: SavedQuote) {

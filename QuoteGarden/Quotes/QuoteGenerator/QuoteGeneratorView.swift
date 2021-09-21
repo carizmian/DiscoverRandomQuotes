@@ -27,7 +27,8 @@ struct QuoteGeneratorView: View {
   @State private var showBuying = false
   @State private var attempts: Int = 0
   // MARK: - AVFoundation
-  let synthesizer: AVSpeechSynthesizer
+  let synthesizer = SpeechSynthesizer.shared
+  @State private var isSpeaking = false
   var body: some View {
     ZStack {
       ShakableViewRepresentable()
@@ -59,40 +60,13 @@ struct QuoteGeneratorView: View {
         .accessibility(label: Text("Change quote"))
         .accessibility(hint: Text("Changes quote when tapped, and display them"))
         HStack {
-          Button {
-            self.uiImage = self.rect1.uiImage
-            if self.uiImage != nil {
-              activeSheet = .shareSheetView
-            }
-          } label: {
-            Image(systemName: "square.and.arrow.up")
-          }.buttonStyle(IconButtonStyle())
-          .accessibilityLabel(Text("Share quote"))
-          .accessibility(hint: Text("opens a share sheet view"))
-          if savedQuotes.count < storage.amount { Button {
-            saveToDevice(quote: quoteViewModel.quote)
-          } label: {
-            Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
-          }.buttonStyle(IconButtonStyle())
-          .accessibilityLabel(Text("Save quote"))
-          .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
+          shareButton
+          if savedQuotes.count < storage.amount {
+            saveButton
           } else if  savedQuotes.count >= storage.amount {
-            Button {
-              activeSheet = .buyStorageSheetView
-            } label: {
-              Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
-            }.buttonStyle(IconButtonStyle())
-            .accessibilityLabel(Text("Save quote"))
-            .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
+            buyMoreStorageButton
           }
-          Button {
-            textToSpeech(quote: quoteViewModel.quote)
-          } label: {
-            Image(systemName: synthesizer.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
-          }.buttonStyle(IconButtonStyle())
-          .accessibilityLabel(Text("Quote text to speech"))
-          .accessibility(hint: Text("Speak the quote text to your ears"))
-          .disabled(synthesizer.isSpeaking)
+          speakButton
         }.disabled(quoteViewModel.quote.text.isEmpty)
       }
     }.onReceive(messagePublisher) { _ in
@@ -114,20 +88,6 @@ struct QuoteGeneratorView: View {
       }
     }
   }
-  func textToSpeech(quote: Quote) {
-    let utterance = AVSpeechUtterance(string: "\(quote.author) once said, \(quote.text)")
-    let voice = AVSpeechSynthesisVoice(language: "en-US")
-    utterance.voice = voice
-    do {
-      try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: .duckOthers)
-      try AVAudioSession.sharedInstance().setActive(true)
-      if synthesizer.isSpeaking == false {
-        synthesizer.speak(utterance)
-      }
-    } catch {
-      print(error)
-    }
-  }
   func saveToDevice(quote: Quote) {
     savedToDevice.toggle()
     if savedToDevice == true {
@@ -140,5 +100,48 @@ struct QuoteGeneratorView: View {
     } else {
       moc.undo()
     }
+  }
+  // MARK: - Share
+  var shareButton: some View {
+    Button {
+      self.uiImage = self.rect1.uiImage
+      if self.uiImage != nil {
+        activeSheet = .shareSheetView
+      }
+    } label: {
+      Image(systemName: activeSheet == ActiveSheet.shareSheetView ? "square.and.arrow.up.fill" : "square.and.arrow.up")
+    }.buttonStyle(IconButtonStyle())
+    .accessibilityLabel(Text("Share quote"))
+    .accessibility(hint: Text("opens a share sheet view"))
+  }
+  // MARK: - Save
+  var saveButton: some View {
+    Button {
+      saveToDevice(quote: quoteViewModel.quote)
+    } label: {
+      Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
+    }.buttonStyle(IconButtonStyle())
+    .accessibilityLabel(Text("Save quote"))
+    .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
+  }
+  var buyMoreStorageButton: some View {
+    Button {
+      activeSheet = .buyStorageSheetView
+    } label: {
+      Image(systemName: savedToDevice ? "bookmark.fill" : "bookmark")
+    }.buttonStyle(IconButtonStyle())
+    .accessibilityLabel(Text("Save quote"))
+    .accessibility(hint: Text("Save the quote to your device, so you can access it later"))
+  }
+  // MARK: - Speak
+  var speakButton: some View {
+    Button {
+      synthesizer.textToSpeech(quote: quoteViewModel.quote)
+    } label: {
+      #warning("just track it better ie. when the user changes quotes etc.")
+      Image(systemName: isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
+    }.buttonStyle(IconButtonStyle())
+    .accessibilityLabel(Text("Quote text to speech"))
+    .accessibility(hint: Text("Speak the quote text to your ears"))
   }
 }
