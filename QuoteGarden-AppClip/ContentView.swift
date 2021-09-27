@@ -50,12 +50,6 @@ struct ContentView: View {
       }.disabled(quote.text.isEmpty)
     }
     .sheet(isPresented: $showingShareSheetView) {
-//      if image != nil {
-//        ShareSheetView(activityItems: [
-//          self.image!
-//        ])
-//      }
-      #warning("ovo double checkaj")
       if let image = image {
         ShareSheetView(activityItems: [
           image

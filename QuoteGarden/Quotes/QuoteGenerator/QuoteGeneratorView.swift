@@ -16,7 +16,7 @@ struct QuoteGeneratorView: View {
   var savedQuotes: FetchedResults<SavedQuote>
   @EnvironmentObject var quoteViewModel: QuoteViewModel
   @EnvironmentObject var storage: Storage
-  @ObservedObject var delegate = NotificationDelegate.shared
+  @ObservedObject var notificationDelegate = NotificationDelegate.shared
   // MARK: - View
   @State private var activeSheet: ActiveSheet?
   @State private var savedToDevice = false
@@ -27,8 +27,7 @@ struct QuoteGeneratorView: View {
   @State private var showBuying = false
   @State private var attempts: Int = 0
   // MARK: - AVFoundation
-  let synthesizer = SpeechSynthesizer.shared
-  @State private var isSpeaking = false
+  @ObservedObject var speechManager = SpeechManager.shared
   var body: some View {
     ZStack {
       ShakableViewRepresentable()
@@ -47,11 +46,11 @@ struct QuoteGeneratorView: View {
             )) { _ in
               // The app became active
               #warning("Maybe there is a better way!")
-              if !delegate.quote.text.isEmpty {
+              if !notificationDelegate.quote.text.isEmpty {
                 // use the notification delegate quote
                 savedToDevice = false
-                quoteViewModel.updateQuote(with: delegate.quote)
-                delegate.quote.text = ""
+                quoteViewModel.updateQuote(with: notificationDelegate.quote)
+                notificationDelegate.quote.text = ""
               }
             }
         ).getRect($rect1)
@@ -136,10 +135,9 @@ struct QuoteGeneratorView: View {
   // MARK: - Speak
   var speakButton: some View {
     Button {
-      synthesizer.textToSpeech(quote: quoteViewModel.quote)
+      speechManager.textToSpeech(quote: quoteViewModel.quote)
     } label: {
-      #warning("just track it better ie. when the user changes quotes etc.")
-      Image(systemName: isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
+      Image(systemName: speechManager.isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
     }.buttonStyle(IconButtonStyle())
     .accessibilityLabel(Text("Quote text to speech"))
     .accessibility(hint: Text("Speak the quote text to your ears"))

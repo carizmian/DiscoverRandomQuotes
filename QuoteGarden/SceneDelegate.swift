@@ -12,12 +12,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let store = Store()
     let storage = Storage()
     // MARK: - ViewModel
+    let speechManager = SpeechManager()
     let quoteViewModel = QuoteViewModel()
     let contentView = ContentView()
       .environment(\.managedObjectContext, coreDataStack.viewContext)
       .environmentObject(store)
       .environmentObject(storage)
       .environmentObject(quoteViewModel)
+      .environmentObject(speechManager)
     if let windowScene = scene as? UIWindowScene {
       let window = UIWindow(windowScene: windowScene)
       window.rootViewController = UIHostingController(rootView: contentView)

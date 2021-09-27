@@ -13,7 +13,7 @@ class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenter
     completionHandler([.banner, .badge, .sound])
   }
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-    // Get the quote from the original notification.
+    // Get the quot e from the original notification.
     quote.id = response.notification.request.identifier
     quote.author = response.notification.request.content.title
     quote.genre = response.notification.request.content.subtitle

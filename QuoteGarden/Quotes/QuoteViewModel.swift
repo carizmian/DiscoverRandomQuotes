@@ -1,6 +1,7 @@
 import Foundation
 
 class QuoteViewModel: ObservableObject {
+  let speechManager = SpeechManager.shared
   @Published var quotes: [Quote] = Array()
   @Published private(set) var quote = Quote.help
   init() {
@@ -10,6 +11,7 @@ class QuoteViewModel: ObservableObject {
     print("deinitialising QuoteViewModel")
   }
   func fetchQuote() {
+    speechManager.resetState()
     self.emptyQuote()
     let randomPage = Int.random(in: 1..<2)
     let randomQuote = Int.random(in: 0..<36335)
@@ -33,6 +35,7 @@ class QuoteViewModel: ObservableObject {
     .resume()
   }
   func fetchQuotes(withCompletionHandler completionHandler: @escaping ([Quote]) -> Void) {
+    speechManager.resetState()
     let randomPage = Int.random(in: 1..<2)
     var randomQuote = Int.random(in: 0..<36335)
     guard let url = Bundle.main.url(forResource: "quotes\(randomPage).json", withExtension: nil) else {
@@ -61,6 +64,7 @@ class QuoteViewModel: ObservableObject {
   }
   func updateQuote(with quote: Quote) {
     self.quote = quote
+    speechManager.resetState()
   }
   private func emptyQuote() {
     quote = Quote(id: "", text: "", author: "", genre: "")
