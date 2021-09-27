@@ -1,9 +1,8 @@
 import Foundation
 
 class Storage: ObservableObject {
-    var amount: Int = 3
-    
-    init() {
-        print("initialising Storage")
-    }
+  var amount: Int = 3
+  init() {
+    print("initialising Storage")
+  }
 }
