@@ -65,6 +65,7 @@ struct QuoteGeneratorView: View {
           } else if  savedQuotes.count >= storage.amount {
             buyMoreStorageButton
           }
+          #warning("isSpeaking = false after quote is read")
           speakButton
         }.disabled(quoteViewModel.quote.text.isEmpty)
       }
