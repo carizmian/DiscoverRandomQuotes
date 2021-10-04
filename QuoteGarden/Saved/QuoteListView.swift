@@ -17,7 +17,7 @@ struct QuoteListView: View {
         SearchBar(text: $searchText)
           .padding(.top, 8)
         List {
-          ForEach(savedQuotes.filter { searchText.isEmpty ? true : $0.wrappedAuthor.contains(searchText) }, id: \.id) { savedQuote in
+          ForEach(savedQuotes.filter { searchText.isEmpty ? true : $0.wrappedText.contains(searchText) }, id: \.id) { savedQuote in
             NavigationLink(destination: QuoteDetailView(savedQuote: savedQuote)) {
               HStack {
                 QuoteRowView(savedQuote: savedQuote)
@@ -25,7 +25,7 @@ struct QuoteListView: View {
             }
           }.onDelete(perform: onDelete)
         }.listStyle(PlainListStyle())
-        .navigationBarTitle(Text("Your Saved Quotes"))
+        .navigationBarTitle(Text("Saved Quotes"))
         .navigationBarItems(trailing: EditButton())
         .edgesIgnoringSafeArea(.bottom)
         if storage.amount == 3 { Button {
