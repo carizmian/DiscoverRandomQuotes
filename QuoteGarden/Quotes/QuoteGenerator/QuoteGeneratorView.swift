@@ -16,7 +16,7 @@ struct QuoteGeneratorView: View {
   var savedQuotes: FetchedResults<SavedQuote>
   @EnvironmentObject var quoteViewModel: QuoteViewModel
   @EnvironmentObject var storage: Storage
-  @ObservedObject var notificationDelegate = NotificationDelegate.shared
+  @StateObject var notificationDelegate = NotificationDelegate.shared
   // MARK: - View
   @State private var activeSheet: ActiveSheet?
   @State private var savedToDevice = false
@@ -27,7 +27,8 @@ struct QuoteGeneratorView: View {
   @State private var showBuying = false
   @State private var attempts: Int = 0
   // MARK: - AVFoundation
-  @ObservedObject var speechManager = SpeechManager.shared
+  @StateObject var speechManager = SpeechManager.shared
+  @StateObject var speechDelegate = SpeechDelegate.shared
   var body: some View {
     ZStack {
       ShakableViewRepresentable()
