@@ -11,22 +11,7 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       NavigationView {
-        QuoteGeneratorView(savedQuotes: savedQuotes)
-          .accessibilityLabel(Text("Random quotes"))
-          .accessibility(hint: Text("Find new quotes here"))
-          .navigationBarItems(leading:
-                                NavigationLink(destination: QuoteListView(savedQuotes: savedQuotes)) {
-                                  Image(systemName: "text.quote")
-                                    .font(Font.system(.title3, design: .default).weight(.regular))
-                                    .padding()
-                                }.accessibilityLabel(Text("Saved quotes"))
-                                .accessibility(hint: Text("Find your saved quotes here")), trailing:
-                                  NavigationLink(destination: SettingsView()) {
-                                    Image(systemName: "gearshape.fill")
-                                      .font(Font.system(.title3, design: .default).weight(.regular))
-                                      .padding()
-                                  }.accessibilityLabel(Text("Settings"))
-                                  .accessibility(hint: Text("Find settings and social links here")))
+        quoteGenerator
       }.navigationViewStyle(StackNavigationViewStyle())
       .disabled(showOnboarding)
       .blur(radius: showOnboarding ? 3.0 : 0)
@@ -48,6 +33,28 @@ struct ContentView: View {
         }
       }
     }
+  }
+  var quoteGenerator: some View {
+    QuoteGeneratorView(savedQuotes: savedQuotes)
+      .accessibilityLabel(Text("Random quotes"))
+      .accessibility(hint: Text("Find new quotes here"))
+      .navigationBarItems(leading: quoteList, trailing: settings)
+  }
+  var quoteList: some View {
+    NavigationLink(destination: QuoteListView(savedQuotes: savedQuotes)) {
+      Image(systemName: "text.quote")
+        .font(Font.system(.title3, design: .default).weight(.regular))
+        .padding()
+    }.accessibilityLabel(Text("Saved quotes"))
+    .accessibility(hint: Text("Find your saved quotes here"))
+  }
+  var settings: some View {
+    NavigationLink(destination: SettingsView()) {
+      Image(systemName: "gearshape.fill")
+        .font(Font.system(.title3, design: .default).weight(.regular))
+        .padding()
+    }.accessibilityLabel(Text("Settings"))
+    .accessibility(hint: Text("Find settings and social links here"))
   }
 }
 
