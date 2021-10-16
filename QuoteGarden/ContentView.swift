@@ -43,7 +43,7 @@ struct ContentView: View {
   var quoteList: some View {
     NavigationLink(destination: QuoteListView(savedQuotes: savedQuotes)) {
       Image(systemName: "text.quote")
-        .font(Font.system(.title3, design: .default).weight(.regular))
+        .font(Font.system(.title2, design: .default).weight(.regular))
         .padding()
     }.accessibilityLabel(Text("Saved quotes"))
     .accessibility(hint: Text("Find your saved quotes here"))
@@ -51,7 +51,7 @@ struct ContentView: View {
   var settings: some View {
     NavigationLink(destination: SettingsView()) {
       Image(systemName: "gearshape.fill")
-        .font(Font.system(.title3, design: .default).weight(.regular))
+        .font(Font.system(.title2, design: .default).weight(.regular))
         .padding()
     }.accessibilityLabel(Text("Settings"))
     .accessibility(hint: Text("Find settings and social links here"))

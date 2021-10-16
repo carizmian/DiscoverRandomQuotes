@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9300848426F253A300FC55A2 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9300848326F253A300FC55A2 /* File.strings */; };
 		9308A1A725D1B72B00F5F0E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		9308A1B225D1B78000F5F0E9 /* IconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936886CA25469D460034F960 /* IconButtonStyle.swift */; };
 		9308A1BD25D1B78E00F5F0E9 /* ViewToUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A51D25454CD100F2C029 /* ViewToUIImage.swift */; };
@@ -30,6 +29,7 @@
 		93426350254DC5840023B6FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370A52B2545609A00F2C029 /* Extensions.swift */; };
 		935AC54826DB607B0086F76D /* TextButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935AC54726DB607B0086F76D /* TextButtonStyle.swift */; };
 		935AC55926DC924B0086F76D /* TextButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935AC54726DB607B0086F76D /* TextButtonStyle.swift */; };
+		935AD115270FFC8100CEED94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 935AD117270FFC8100CEED94 /* Localizable.strings */; };
 		935C138F26C2428D00F67568 /* BuyStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C138E26C2428D00F67568 /* BuyStorageView.swift */; };
 		9362130B252D787A009A7CDE /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130A252D787A009A7CDE /* QuoteDetailView.swift */; };
 		9362130D252ECBC1009A7CDE /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362130C252ECBC1009A7CDE /* QuoteView.swift */; };
@@ -172,7 +172,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9300848326F253A300FC55A2 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 		9339913F269434EF00EC8CDF /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		933991402694361300EC8CDF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		9339914826943FB800EC8CDF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -187,6 +186,7 @@
 		933E2DE7264AF9C8008E8FE2 /* quotes1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes1.json; sourceTree = "<group>"; };
 		933E2DF0264D51F9008E8FE2 /* sampleQuotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleQuotes.json; sourceTree = "<group>"; };
 		935AC54726DB607B0086F76D /* TextButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonStyle.swift; sourceTree = "<group>"; };
+		935AD116270FFC8100CEED94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		935C138E26C2428D00F67568 /* BuyStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyStorageView.swift; sourceTree = "<group>"; };
 		9362130A252D787A009A7CDE /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
 		9362130C252ECBC1009A7CDE /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -540,10 +540,10 @@
 				935AC55826DC92400086F76D /* Button Styles */,
 				933991812694A77B00EC8CDF /* Extra */,
 				939FDD9F262AA5D2007B8D19 /* Animations */,
+				935AD117270FFC8100CEED94 /* Localizable.strings */,
 				93DEB54725284529006B9BF5 /* Assets.xcassets */,
 				93DEB54F25284529006B9BF5 /* Info.plist */,
 				93DEB54225284527006B9BF5 /* QuoteGarden.xcdatamodeld */,
-				9300848326F253A300FC55A2 /* File.strings */,
 				93DEB54925284529006B9BF5 /* Preview Content */,
 			);
 			path = QuoteGarden;
@@ -748,9 +748,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DEB54B25284529006B9BF5 /* Preview Assets.xcassets in Resources */,
-				9300848426F253A300FC55A2 /* File.strings in Resources */,
 				93DEB54825284529006B9BF5 /* Assets.xcassets in Resources */,
 				933991AA2694AEA400EC8CDF /* buy.json in Resources */,
+				935AD115270FFC8100CEED94 /* Localizable.strings in Resources */,
 				933991B62694AF1000EC8CDF /* countdown.json in Resources */,
 				933E2DD4264A9CD3008E8FE2 /* quotes1.json in Resources */,
 				933E2DD5264A9CD3008E8FE2 /* quotes2.json in Resources */,
@@ -893,6 +893,17 @@
 			targetProxy = 93C8F6B42564DF180072589B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		935AD117270FFC8100CEED94 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				935AD116270FFC8100CEED94 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9377472525CE56F1005CFB46 /* Debug */ = {

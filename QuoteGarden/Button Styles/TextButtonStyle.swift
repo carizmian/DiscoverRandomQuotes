@@ -5,7 +5,7 @@ struct TextButtonStyle: ButtonStyle {
     configuration.label
       .scaleEffect(configuration.isPressed ? 1.2 : 1)
       .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
-      .font(Font.system(.title3, design: .default).weight(.semibold))
+      .font(Font.system(.title2, design: .default).weight(.semibold))
       .padding()
   }
 }

@@ -11,7 +11,7 @@ enum OnboardData {
     onboardSet.newCard(
       title: "Welcome",
       image: "Welcome",
-      text: NSLocalizedString("textS", comment: "")
+      text: "Whether you are going through difficult times, are just bored, or sharing inspirational quotes with your friends, Quotes has you covered."
     )
     onboardSet.newCard(
       title: "Reminders",
