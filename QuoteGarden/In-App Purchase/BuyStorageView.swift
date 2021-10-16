@@ -8,7 +8,7 @@ struct BuyStorageView: View {
       Image("Shop")
         .resizable()
         .scaledToFit()
-      Text("Save all the quotes you want.")
+      Text(LocalizedStringKey("buy.header"))
       List(store.allProducts, id: \.id) { product in
         Group {
           if !product.isLocked {
@@ -29,7 +29,7 @@ struct BuyStorageView: View {
       }
     }
     Button { store.restorePurchases() } label: {
-      Text("Restore")
+      Text("buy.restore")
     }.buttonStyle(TextButtonStyle())
   }
 }

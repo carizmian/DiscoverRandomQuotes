@@ -15,7 +15,7 @@ struct BuyStorageSheetView: View {
       Image("Shop")
         .resizable()
         .scaledToFit()
-      Text("Save all the quotes you want.")
+      Text(LocalizedStringKey("buy.header"))
       List(store.allProducts, id: \.id) { product in
         Group {
           if !product.isLocked {
