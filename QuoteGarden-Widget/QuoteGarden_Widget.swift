@@ -5,7 +5,6 @@ struct QuoteGardenEntry: TimelineEntry {
   let date = Date()
   let quote: Quote
 }
-#warning("ovo je global!")
 let userDefaults = UserDefaults(suiteName: "group.com.example.QuoteGarden")
 struct Provider: TimelineProvider {
   @AppStorage("primaryQuote", store: userDefaults) var primaryQuoteData = Data()
