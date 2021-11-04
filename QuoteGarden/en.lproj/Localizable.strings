@@ -6,26 +6,26 @@
   
 */
 // MARK: - Screenshots
-textS = "I don't believe you have to be better than everybody else. I believe you have to be better than you ever thought you could be.";
-authorS = "Ken Venturi";
-genreS = "motivation";
+"s.text" = "I don't believe you have to be better than everybody else. I believe you have to be better than you ever thought you could be.";
+"s.author" = "Ken Venturi";
+"s.genre" = "motivation";
 // MARK: - Default
-textD = "Tap here to generate a random quote";
-authorD = "Nikola Franičević";
-genreD = "help";
-
+"d.text" = "Tap here or shake your device to generate a random quote";
+"d.author" = "Nikola Franičević";
+"d.genre" = "help";
 // MARK: - In-App Purchase
 "buy.header" = "Save all the quotes you want.";
 "buy.restore" = "Restore Purchase";
-
 // MARK: - Saved
 
 // MARK: - Onboarding
-1OB = "Whether you are going through difficult times, are just bored, or sharing inspirational quotes with your friends, Quotes has you covered.";
-2OB = "Surprising reminders are a great way to have fun while learning new knowledge. The most important thing is that you are learning every day.";
-3OB = "Once you saved a quote you can display it on your home screen: from the Home Screen, touch and hold an empty area until the apps jiggle. Then tap the + button in the upper corner to add the widget.";
-4OB = "Shake to Undo - Accidentally deleted a quote? Shake the device to undo the deletion! Shake to Generate - Tap on the quote or shake your device to generate a random quote!";
-5OB = "Premium features made for the best app experience. Choose what you want from the store now!";
+"onboarding.1" = "Whether you are going through difficult times, are just bored, or sharing inspirational quotes with your friends, Quotes has you covered.";
+"onboarding.2" = "Surprising reminders are a great way to have fun while learning new knowledge. The most important thing is that you are learning every day.";
+"onboarding.3" = "Once you saved a quote you can display it on your home screen: \
+from the Home Screen, touch and hold an empty area until the apps jiggle. \
+Then tap the + button in the upper corner to add the widget.";
+"onboarding.4" = "Shake to Undo - Accidentally deleted a quote? Shake the device to undo the deletion! Shake to Generate - Tap on the quote or shake your device to generate a random quote!";
+"onboarding.5" = "Premium features made for the best app experience. Choose what you want from the store now!";
 // MARK: - Settings
 
 // MARK: - Quotes

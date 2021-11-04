@@ -16,7 +16,7 @@ struct Quote: Codable, Hashable {
   }
   static let help = Quote(
     id: "1",
-    text: "Tap here to generate a random quote",
+    text: NSLocalizedString("d.text", comment: ""),
     author: "Nikola Franičević",
     genre: "help"
   )
