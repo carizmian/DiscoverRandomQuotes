@@ -1,10 +1,3 @@
-/* 
-  Localizable.strings
-  QuoteGarden
-
-  Created by Master Family on 08/10/2021.
-  
-*/
 // MARK: - Screenshots
 "s.text" = "I don't believe you have to be better than everybody else. I believe you have to be better than you ever thought you could be.";
 "s.author" = "Ken Venturi";
