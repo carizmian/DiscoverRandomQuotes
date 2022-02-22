@@ -10,7 +10,7 @@ struct ReminderView: View {
         .scaledToFit()
       VStack {
         if manager.sendReminders {
-          Text("Get Quotes reminders.")
+          Text("Set up motivational messages.")
             .multilineTextAlignment(.center)
           Stepper(value: $manager.reminderFrequency, in: 3...7) {
             Text("Every \(manager.reminderFrequency, specifier: "%.f") hours.")
