@@ -7,5 +7,6 @@ struct IconButtonStyle: ButtonStyle {
       .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
       .font(Font.system(.title2, design: .default).weight(.regular))
       .padding()
+      
   }
 }
