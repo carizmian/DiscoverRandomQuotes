@@ -14,14 +14,14 @@ struct Items {
       color: .systemOrange,
       title: "Provide Feedback",
       section: .feedback,
-      url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/feedback"
+      url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/"
     ),
     Item(
       image: "ladybug.fill",
       color: .systemRed,
       title: "Report A Bug",
       section: .feedback,
-      url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/feedback"
+      url: "https://nikolafranicevic.com/SpontaneousRandomQuotes/"
     ),
     Item(
       image: "chevron.left.slash.chevron.right",
